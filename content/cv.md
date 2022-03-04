@@ -67,7 +67,7 @@ pre {
     [Freebsd, RedHat(+forks), VoidLinux, Arch, Gentoo, Debian(+forks)]
 
 > skills.programming()
-    [REGEX, Python(2/3), Perl, Golang, PHP(5.*,7), Shell, Lua, Yaml, Toml, Html5/Css3, Jinja2]
+    [REGEX, Python(2/3), Perl, Golang, PHP(5.*,7), Shell, Lua, Yaml, Toml, Json, Html5/Css3, Jinja2]
 
 > skills.technologies()
     [Git, Ansible, Docker, Django, LXC, Vmware, ZFS, KVM, Proxmox, OpenVZ, OpenStack, Nutanix, Zabbix, Munin, Nagios, Shinken, SQL, Mariadb, PostgreSQL, Varnish, Nginx, Apache, HA-Proxy, Pfsense, Juniper, Openfire, Logstash, Elastisearch, Kibana, Filebeat, Swarm, Kubernetes, Rancher, Traefik, Terraform, RabbitMQ, Redis, GlusterFS, OpsGenie, Cloud-Init, Okta, ArgoCD, CircleCI, Sops, Slack]
