@@ -25,12 +25,12 @@ paginate=3 # articles per page
 [[params.social]]
 name = "GitHub"
 icon = "github"
-url = "https://github.com/corentinderet"
+url = "https://github.com/kaderovski"
 
 [[params.social]]
 name = "GitLab"
 icon = "gitlab"
-url = "https://gitlab.com/f00b4rch"
+url = "https://gitlab.com/kaderovski"
 
 # Main menu Items
 
