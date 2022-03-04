@@ -20,7 +20,7 @@ pre {
 ###########
 > whoami && uptime
     Kaderovski
-    Expert Software & System Engineer
+    Software & System Engineer
     Uptime : 27 years
     Professional Experience : +7 years
 
@@ -83,7 +83,7 @@ pre {
 # Experiences #
 ###############
 > Payfit()
-    Expert Software & System Engineer{
+    Software & System Engineer{
 	When : Sep 2021 & Today
         Corp IT Security Team.
         Devs & Security projects.
