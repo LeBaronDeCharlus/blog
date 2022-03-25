@@ -1,4 +1,4 @@
-baseURL = "https://kaderovski.com"
+baseURL = "https://kaderovski.com/"
 languageCode = "en-us"
 title = "Kaderovski"
 theme="archie"
