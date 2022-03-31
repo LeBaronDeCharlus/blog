@@ -48,16 +48,16 @@ pre {
     I like to feel useful and participate in making people happy.
     Important thing to know, I'm always smiling.
     
-    I have been working in the IT world for over six years now. What great human and technical adventures! 
+    I have been working in the IT world for over seven years now. What great human and technical adventures! 
     I have worked for large groups, small structures, startups, with people living less than a kilometre from my home… and on other continents! 
     I really enjoy learning from different cultures and share knowledge and anecdotes with my colleagues.
     Happiness is an essential part of my daily life and my job.
     
-    And to talk less about work, I have a little cat, his name is "Herr Ludwig Van Chacha" (be precise, he is easily offended)!
-    My wife is on the road to be psychologist and I'm really proud of her.
+    And to talk less about work, I have a little cat, his name is "Herr Ludwig Van Chacha" (be precise, he easily get offended)!
+    My wife is on the road to be UX/UI Designer and I'm really proud of her.
     I love sports, listening to music, discovering the world, eating well and cinema!
     
-    I look forward to meeting you :)
+    I'm looking forward to meet you :)
 
 
 ##################
