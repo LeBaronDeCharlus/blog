@@ -83,7 +83,7 @@ pre {
 # Experiences #
 ###############
 > Payfit()
-    Expert Senior Software & System Engineer{
+    Senior Software & System Engineer{
 	When : Sep 2021 & Today
         Corp IT Security Team.
         Devs & Security projects.
