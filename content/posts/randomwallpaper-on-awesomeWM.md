@@ -2,6 +2,7 @@
 title: "Random wallpaper with AwesomeWM !"
 date: 2020-01-10T11:10:33Z
 draft: False
+type: "post"
 tags: [awesomewm, linux, wallpaper, random]
 ---
 

@@ -2,6 +2,7 @@
 title: "Update Proxmox templates"
 date: 2017-07-30T14:53:16Z
 tags: [proxmox, templates, linux]
+type: "post"
 draft: false
 ---
 

@@ -2,6 +2,7 @@
 title: "Add Gitlab Registry in Kubernetes"
 date: 2017-08-10T12:06:05Z
 tags: [kubernetes, gitlab, registry]
+type: "post"
 draft: false
 ---
 

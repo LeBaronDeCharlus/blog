@@ -2,6 +2,7 @@
 title: "Galera Monitoring"
 date: 2017-07-30T15:08:41Z
 tags: [galera, monitoring, golang, dev]
+type: "post"
 draft: false
 ---
 

@@ -2,6 +2,7 @@
 title: "Ubuntu Vrack Ovh Fix"
 date: 2018-03-04T14:41:25Z
 draft: false
+type: "post"
 tags: [bug, ovh, vrack, linux]
 ---
 

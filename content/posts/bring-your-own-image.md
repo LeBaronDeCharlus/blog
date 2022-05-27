@@ -2,6 +2,7 @@
 title: "Bring Your Own Image"
 date: 2020-07-20T12:00:00Z
 tags: [linux, cloud, baremetal, ovh]
+type: "post"
 draft: false
 ---
 

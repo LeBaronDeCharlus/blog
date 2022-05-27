@@ -2,6 +2,7 @@
 title: "Setup Rancher cluster on OVH Public Cloud"
 tags: [rancher, cattle, ovh, pci, linux, docker]
 date: 2017-08-04T19:04:11Z
+type: "post"
 draft: false 
 ---
 

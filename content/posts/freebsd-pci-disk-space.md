@@ -2,6 +2,7 @@
 title: "Freebsd Pci Disk Space"
 date: 2018-03-04T14:56:33Z
 draft: false
+type: "post"
 tags: [freebsd, ovh, serveur, publicloud]
 ---
 

@@ -2,6 +2,7 @@
 title: "Additional Volume Public Cloud Ovh"
 date: 2017-07-31T11:38:18Z
 tags: [ovh, linux, disk]
+type: "post"
 draft: false
 ---
 

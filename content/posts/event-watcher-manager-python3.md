@@ -2,6 +2,7 @@
 title: "Event Watcher Manager Python3"
 date: 2017-07-30T12:53:16Z
 tags: [python, dev, pyinotify, linux]
+type: "post"
 draft: false
 ---
 

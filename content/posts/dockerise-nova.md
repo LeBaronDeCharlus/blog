@@ -2,6 +2,7 @@
 title: "Dockerize Nova client"
 date: 2017-08-08T13:52:07Z
 tags: [docker, ovh, openstack, nova]
+type: "post"
 draft: false
 ---
 

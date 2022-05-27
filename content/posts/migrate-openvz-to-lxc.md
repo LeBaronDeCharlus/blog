@@ -2,6 +2,7 @@
 title: "Migrate Openvz To Lxc"
 date: 2017-07-31T18:15:50Z
 tags: [openVZ, LXC, proxmox, linux]
+type: "post"
 draft: false
 ---
 

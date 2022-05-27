@@ -2,6 +2,7 @@
 title: "Script restart services"
 date: 2017-08-18T22:29:53+02:00
 draft: false
+type: "post"
 tags: ['linux', 'bash', 'script']
 ---
 

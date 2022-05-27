@@ -2,6 +2,7 @@
 title: "Little Web Monitoring"
 date: 2017-08-02T08:22:16Z
 tags: [script, python, monitoring]
+type: "post"
 draft: false
 ---
 

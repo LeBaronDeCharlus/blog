@@ -2,6 +2,7 @@
 title: "Online servers availability"
 date: 2017-08-01T09:40:07Z
 tags: [bash, online, serveur, linux]
+type: "post"
 draft: false
 ---
 
