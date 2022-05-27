@@ -24,6 +24,7 @@ pygmentscodefencesguesssyntax = true
   description = "Some tech & personal posts"
   avatarURL = "images/me.jpg"
   avatarSize = "size-xl"
+  theme-preference = "dark"
   customHeadHTML = """
     <!-- KaTeX -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/katex.min.css" integrity="sha384-6LkG2wmY8FK9E0vU9OOr8UvLwsaqUg9SETfpq4uTCN1agNe8HRdE9ABlk+fVx6gZ" crossorigin="anonymous">
