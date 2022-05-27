@@ -1,65 +1,75 @@
 baseURL = "https://kaderovski.com/"
-languageCode = "en-us"
 title = "Kaderovski"
-theme="archie"
+theme="gokarna"
 copyright = "© Kaderovski"
+enableEmoji = true
+enableRobotsTXT = true
+languageCode = "en"
+defaultContentLanguage = "en"
+
 # Code Highlight
 pygmentsstyle = "monokai"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
 
-paginate=3 # articles per page
+#paginate=3 # articles per page
 
 [params]
-	mode="light" # color-mode → light,dark,toggle or auto
-	useCDN=false # don't use CDNs for fonts and icons, instead serve them locally.
-	subtitle = "Some tech & personal posts." 
-
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
+  footer = "Kaderovski"
+  description = "Some tech & personal posts"
+  avatarURL = "images/me.jpg"
+  avatarSize = "size-xl"
+  customHeadHTML = """
+    <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/katex.min.css" integrity="sha384-6LkG2wmY8FK9E0vU9OOr8UvLwsaqUg9SETfpq4uTCN1agNe8HRdE9ABlk+fVx6gZ" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/katex.min.js" integrity="sha384-31El76TwmbHj4rF9DyLsygbq6xoIobG0W+jqXim+a3dU9W53tdH3A/ngRPxOzzaB" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+  """
+  socialIcons = [
+    {name = "github", url = "https://github.com/Kaderovski"},
+    {name = "gitlab", url = "https://gitlab.com/F00b4rch"},
+    {name = "linkedin", url = "https://www.linkedin.com/in/kaderovski/"},
+    {name = "mail", url = "me@kaderovski.com"},
+  ]
+  metaKeywords = ["blog", "programming", "kaderovski", "system", "projects"]
 
 # Social Tags
 
-[[params.social]]
-name = "GitHub"
-icon = "github"
-url = "https://github.com/kaderovski"
-
-[[params.social]]
-name = "GitLab"
-icon = "gitlab"
-url = "https://gitlab.com/kaderovski"
-
 # Main menu Items
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
 
-[[menu.main]]
-name = "Home"
-url = "/"
-weight = 1
+  [[menu.main]]
+    name = "Posts"
+    url = "/posts/"
+    weight = 2
 
-[[menu.main]]
-name = "Posts"
-url = "/posts"
-weight = 2
+  [[menu.main]]
+    name = "Projects"
+    url = "/projects/"
+    weight = 3
 
-[[menu.main]]
-name = "About"
-url = "/about"
-weight = 3
+  [[menu.main]]
+    name = "Tags"
+    url = "/tags/"
+    weight = 3
 
-#[[menu.main]]
-#name = "Tags"
-#url = "/tags"
-#weight = 4
-
-[[menu.main]]
-name = "Photos"
-url = "https://photos.kaderovski.com"
-weight = 5
-
-[[menu.main]]
-name = "CV"
-url = "/cv"
-weight = 6
+  [[menu.main]]
+    name = "Photos"
+    url = "https://photos.kaderovski.com"
+    weight = 5
+  
+  [[menu.main]]
+    name = "CV"
+    url = "/cv"
+    weight = 6
+  
+  [[menu.main]]
+    identifier = "rss"
+    pre = "<span data-feather='rss'></span>"
+    url = "/index.xml"
+    weight = 9
