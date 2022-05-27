@@ -1,9 +1,9 @@
 ---
 title: "CV"
 date: 2021-12-31T11:38:18Z
+type: "page"
 draft: false
 ---
-
 <style>
 pre {
     white-space: pre-wrap;       /* Since CSS 2.1 */
@@ -14,7 +14,7 @@ pre {
 }
 </style>
 
-<pre style="background-color: #ffffff !important;">
+<pre>
 ###########
 # Hello ! #
 ###########
