@@ -14,6 +14,11 @@ pygmentscodefencesguesssyntax = true
 
 #paginate=3 # articles per page
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [params]
   footer = "Kaderovski"
   description = "Some tech & personal posts"
