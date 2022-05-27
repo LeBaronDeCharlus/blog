@@ -36,7 +36,7 @@ pygmentscodefencesguesssyntax = true
     {name = "github", url = "https://github.com/Kaderovski"},
     {name = "gitlab", url = "https://gitlab.com/F00b4rch"},
     {name = "linkedin", url = "https://www.linkedin.com/in/kaderovski/"},
-    {name = "mail", url = "mmailto:me@kaderovkis.com?subject=from kaderovski.com"},
+    {name = "mail", url = "mailto:me@kaderovkis.com?subject=from kaderovski.com"},
   ]
   metaKeywords = ["blog", "programming", "kaderovski", "system", "projects"]
 
