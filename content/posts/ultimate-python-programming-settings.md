@@ -11,7 +11,6 @@ draft: false
 
 ![Ultimate Python](/images/ultimate-python.png)
 
-### Table of Contents
 1. [The Old Way](#the-old-way)
 2. [Direnv](#direnv)
    - [What is direnv and how it works](#what-is-direnv-and-how-it-works)
