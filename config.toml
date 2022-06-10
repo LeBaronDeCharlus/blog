@@ -19,6 +19,12 @@ pygmentscodefencesguesssyntax = true
     [markup.goldmark.renderer]
       unsafe = true
 
+  [markup.tableOfContents]
+    startLevel = 1
+    endLevel = 3
+    ordered = false
+
+
 [params]
   footer = "Kaderovski"
   description = "Some tech & personal posts"

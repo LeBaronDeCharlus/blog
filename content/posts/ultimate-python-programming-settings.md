@@ -1,10 +1,15 @@
 ---
 title: "Ultimate Python Programming Settings"
 date: 2022-06-10T08:12:12+02:00
+image: /images/ultimate-python.png 
 tags: [programming, direnv, virtualenv, secrets, python]
 type: "post"
+weight: 25
+showTableOfContents: true
 draft: false
 ---
+
+![Ultimate Python](/images/ultimate-python.png)
 
 ### Table of Contents
 1. [The Old Way](#the-old-way)
