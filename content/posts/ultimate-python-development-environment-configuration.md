@@ -1,5 +1,5 @@
 ---
-title: "Ultimate Python Programming Settings"
+title: "Ultimate Python development environment configuration"
 date: 2022-06-10T08:12:12+02:00
 image: /images/ultimate-python.png 
 tags: [programming, direnv, virtualenv, secrets, python]
