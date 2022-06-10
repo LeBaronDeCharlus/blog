@@ -229,9 +229,9 @@ a:hover .feather-sun {
 }
 
 /* CODE BLOCKS */
-code,
-pre {
-  background-color: var(--light-tertiary-color);
+pre, code {
+  /*background-color: var(--light-tertiary-color);*/
+  background-color: #2d333b !important;
   box-sizing: border-box;
   color: white;
 }
