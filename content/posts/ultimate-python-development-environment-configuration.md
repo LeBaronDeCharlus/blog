@@ -23,6 +23,7 @@ draft: false
 4. [Poetry](#poetry)
    - [What is Poetry](#what-is-poetry)
    - [Poetry installation](#poetry-installation)
+   - [Shell configuration](#poetry-shell-configuration)
    - [New project](#new-project)
    - [Existing project](#existing-project)
    - [Poetry usage](#poetry-usage)
@@ -85,14 +86,14 @@ From official documentation
 
 `direnv` is accessible through packages in almost all distributions.
 
-## Package installation
+### Package installation
 
 If you want a global system installation :
 ```shell
 λ ~/ sudo apt-get install direnv
 ```
 
-## Manual installation
+### Manual installation
 
 If you want custom installation, take a look on this [script](https://direnv.net/install.sh) hosted by direnv official documentation.
 
@@ -100,7 +101,7 @@ If you want custom installation, take a look on this [script](https://direnv.net
 λ ~/ curl -sfL https://direnv.net/install.sh | bash
 ```
 
-## Shell configuration
+### Shell configuration
 
 Once `direnv` is installed you need to configure your `$SHELL` in order to hook it with your default shell.
 It supports `bash`, `zsh`, `fish`, `tcsh` and `elvish`.
@@ -261,6 +262,8 @@ You can check your installation and `poetry` version :
 λ ~/ poetry --version 
 Poetry version 1.1.13
 ```
+
+### Poetry shell Configuration
 
 You can enable tab completion for your shell. [This documentation](https://python-poetry.org/docs/master/#enable-tab-completion-for-bash-fish-or-zsh) has guide for each shell.
 
