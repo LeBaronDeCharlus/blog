@@ -12,6 +12,8 @@ pygmentsstyle = "monokai"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
 
+googleAnalytics = 'G-ESV2N2EW3G'
+
 #paginate=3 # articles per page
 
 [markup]
