@@ -8,7 +8,7 @@ weight: 25
 image: /images/zellij.png 
 ---
 
-<img src="./images/zellij.png" width="50%">
+<img src="/images/zellij.png" width="50%">
 
 Quick post on great `Zellij` tool I've been using for some weeks now in `Tmux` replacement.
 
