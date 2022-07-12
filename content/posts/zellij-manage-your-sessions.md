@@ -1,5 +1,5 @@
 ---
-title: "Zellij Manage Your Sessions"
+title: "Manage your Zellij sessions"
 date: 2022-07-12T12:22:42+02:00
 draft: false
 tags: [zellij, sessions, shell]
@@ -8,7 +8,7 @@ weight: 25
 image: /images/zellij.png 
 ---
 
-![Zellij](/images/zellij.png)
+<img src="./images/zellij.png" width="50%">
 
 Quick post on great `Zellij` tool I've been using for some weeks now in `Tmux` replacement.
 
