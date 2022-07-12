@@ -43,6 +43,6 @@ fi
 ```
 
 ### Contributing
-Feel free to fork and contribute !
+Feel free to fork and contribute.
 
-<a href="https://github.com/Kaderovski/zellij-sessions" target="_blank">Source right here</a>
+<a href="https://github.com/Kaderovski/zellij-sessions" target="_blank">Sources are here.</a>
