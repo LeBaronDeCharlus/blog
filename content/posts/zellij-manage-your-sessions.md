@@ -6,8 +6,9 @@ tags: [zellij, sessions, shell]
 type: "post"
 weight: 25
 image: /images/zellij.png 
+---
 
-![Shloader](/images/zellij.png)
+![Zellij](/images/zellij.png)
 
 Quick post on great `Zellij` tool I've been using for some weeks now in `Tmux` replacement.
 
