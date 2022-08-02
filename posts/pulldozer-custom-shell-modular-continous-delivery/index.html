@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --accent-color: #FF4D4D;
+        }
+    </style>
+
+    
+    
+    
+    
+    
+    
+
+    
+    <title>Pulldozer - custom shell modular continous delivery</title>
+    <meta name="description" content="Some tech &amp; personal posts">
+    <meta name="keywords" content='blog, programming, kaderovski, system, projects, git, bash, continous delivery, cd'>
+
+    <meta property="og:url" content="https://kaderovski.com/posts/pulldozer-custom-shell-modular-continous-delivery/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Pulldozer - custom shell modular continous delivery">
+    <meta property="og:description" content="Some tech &amp; personal posts">
+    <meta property="og:image" content="/images/pulldozer.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pulldozer - custom shell modular continous delivery">
+    <meta name="twitter:description" content="Some tech &amp; personal posts">
+    <meta property="twitter:domain" content="https://kaderovski.com/posts/pulldozer-custom-shell-modular-continous-delivery/">
+    <meta property="twitter:url" content="https://kaderovski.com/posts/pulldozer-custom-shell-modular-continous-delivery/">
+    <meta name="twitter:image" content="/images/pulldozer.png">
+
+    
+    <link rel="canonical" href="https://kaderovski.com/posts/pulldozer-custom-shell-modular-continous-delivery/" />
+
+    <link rel="stylesheet" type="text/css" href="https://kaderovski.com//css/normalize.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" type="text/css" href="https://kaderovski.com//css/main.css">
+    <link disabled id="dark-theme" rel="stylesheet" href="https://kaderovski.com//css/dark.css">
+
+    <script src="https://kaderovski.com//js/svg-injector.min.js"></script>
+    <script src="https://kaderovski.com//js/feather-icons.min.js"></script>
+    <script src="https://kaderovski.com//js/main.js"></script>
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-90WT63PBHV"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-90WT63PBHV', { 'anonymize_ip': false });
+}
+</script>
+
+
+    
+    
+        <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/katex.min.css" integrity="sha384-6LkG2wmY8FK9E0vU9OOr8UvLwsaqUg9SETfpq4uTCN1agNe8HRdE9ABlk+fVx6gZ" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/katex.min.js" integrity="sha384-31El76TwmbHj4rF9DyLsygbq6xoIobG0W+jqXim+a3dU9W53tdH3A/ngRPxOzzaB" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+  
+    
+</head>
+<body>
+        <script type="text/javascript">
+            
+            setThemeByUserPref();
+        </script><header class="header">
+    <nav class="header-nav">
+
+        
+        <div class="avatar">
+            <a href="https://kaderovski.com/">
+                <img src="https://kaderovski.com/images/me.jpg" alt="avatar" />
+            </a>
+        </div>
+        
+
+        <div class="nav-title">
+            <a class="nav-brand" href="https://kaderovski.com/">Kaderovski</a>
+        </div>
+
+        <div class="nav-links">
+            
+            <div class="nav-link">
+                <a href="https://kaderovski.com/"> Home </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://kaderovski.com/posts/"> Posts </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://kaderovski.com/tags/"> Tags </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://photos.kaderovski.com"> Photos </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://kaderovski.com/cv"> CV </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://kaderovski.com/index.xml"><span data-feather='rss'></span>  </a>
+            </div>
+            
+
+            <span class="nav-icons-divider"></span>
+            <div class="nav-link dark-theme-toggle">
+                <a>
+                    <span id="theme-toggle-icon" data-feather="moon"></span>
+                </a>
+            </div>
+
+            <div class="nav-link" id="hamburger-menu-toggle">
+                <a>
+                    <span data-feather="menu"></span>
+                </a>
+            </div>
+
+            
+            <ul class="nav-hamburger-list visibility-hidden">
+                
+                <li class="nav-item">
+                    <a href="https://kaderovski.com/"> Home </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://kaderovski.com/posts/"> Posts </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://kaderovski.com/tags/"> Tags </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://photos.kaderovski.com"> Photos </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://kaderovski.com/cv"> CV </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://kaderovski.com/index.xml"><span data-feather='rss'></span>  </a>
+                </li>
+                
+                <li class="nav-item dark-theme-toggle">
+                    <a>
+                        <span id="theme-toggle-icon" data-feather="moon"></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<main id="content">
+    <div class="post container">
+    <div class="post-header-section">
+        <h1>Pulldozer - custom shell modular continous delivery</h1>
+        <small role="doc-subtitle"></small>
+        <p class="post-date">
+            June 22, 2022
+        </p>
+
+        <ul class="post-tags">
+        
+            <li class="post-tag"><a href="https://kaderovski.com/tags/git">git</a></li>
+        
+            <li class="post-tag"><a href="https://kaderovski.com/tags/bash">bash</a></li>
+        
+            <li class="post-tag"><a href="https://kaderovski.com/tags/continous-delivery">continous delivery</a></li>
+        
+            <li class="post-tag"><a href="https://kaderovski.com/tags/cd">cd</a></li>
+        
+        </ul>
+    </div>
+
+    <div class="post-content">
+        <p>
+            <p><img src="/images/pulldozer.png" alt="Pulldozer"></p>
+<ol>
+<li><a href="#why">Why</a></li>
+<li><a href="#pulldozer">Pulldozer</a></li>
+<li><a href="#conception">Conception</a></li>
+<li><a href="#shell-loader">Shell loader</a></li>
+</ol>
+<h1 id="why">Why</h1>
+<p>In some way, <code>CD</code>, continous delivery, as defined today looks too much, in my opinion, like new JS framework, fashion effect. (I&rsquo;m partially joking, please don&rsquo;t kill me… now). New configurations, &ldquo;new way&rdquo;, new convention, new format…</p>
+<p>It&rsquo;s exhausting to update each time workflow, even if it&rsquo;s for better, what about old classic way that <strong>just works</strong>. What about <strong>full compliant</strong> manifest ?</p>
+<p>My point is not to say <code>CD</code> new brands technologies are bad, in fact, they help a lot futur programmer to ensure production workflow are not doing blindly. But I&rsquo;m affraid from time to time, we are forgetting basics, what some call &ldquo;legacy&rdquo;, &ldquo;old school&rdquo;.</p>
+<p>I don&rsquo;t want to write an elitist post that will blame distributed CD users for using them, I just want to bring back here some <code>git</code> and <code>shell</code> fundamentals.</p>
+<h1 id="pulldozer">Pulldozer</h1>
+<p>You might ask… and you can.</p>
+<h1 id="conception">Conception</h1>
+<p>Where to start and how this service should work ?</p>
+<p>I wanted to allow user to chose between single manual run, through <code>CLI</code> or <code>ssh</code> or <code>systemd</code> service. That&rsquo;s not that much, excepting log format that should be compliant with <code>journalctl</code>.</p>
+<p>Also, this service should be modular, meaning it must :</p>
+<ul>
+<li>be hotly changed by parameter</li>
+<li>be agnostic of whatever rules/payload is set</li>
+<li>run on all UNIX platform</li>
+<li>be easily configured through configuration file</li>
+</ul>
+<p>In fact when we talk about <code>CD</code>, we want to be sure it won&rsquo;t break production, that&rsquo;s why I wanted <code>dry-run</code> option to be set before pulling.</p>
+<p>By agnostic, I wanted this script to be working for python, golang, perl, ruby, php… whatever technologies, framework, language used.</p>
+<p>Last but not least, I wanted shell script to be sexy, thanks to <code>loader</code> and <code>emojis</code> support.</p>
+<h1 id="shell-loader">Shell loader</h1>
+<p>I wanted to recreate npm spinner but in <code>shell</code>. Something like this :</p>
+<p><img src="/images/spinner.svg" alt="Pulldozer"></p>
+<p>I found some usefull inspiration by looking on <a href="https://github.com/Silejonu/bash_loading_animations">bash_loading_animations</a> repository, and started by defining animations as list.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cli_loader<span style="color:#f92672">=(</span> ⣾ ⣽ ⣻ ⢿ ⡿ ⣟ ⣯ ⣷ <span style="color:#f92672">)</span>
+</code></pre></div><p>With all these elements, I should be able to create some loading, but speed animation was missing so I&rsquo;ve put default speed rotation value at the beginning.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cli_loader<span style="color:#f92672">=(</span> 0.05 ⣾ ⣽ ⣻ ⢿ ⡿ ⣟ ⣯ ⣷ <span style="color:#f92672">)</span>
+</code></pre></div>
+        </p>
+    </div>
+<style>
+.utterances {
+  margin-right: 10%;
+}
+</style>
+        <script src="https://utteranc.es/client.js"
+                repo="Kaderovski/blog"
+                issue-term="pathname"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+        </script>
+</div>
+
+<aside class="post-toc">
+    <nav id="toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#why">Why</a></li>
+    <li><a href="#pulldozer">Pulldozer</a></li>
+    <li><a href="#conception">Conception</a></li>
+    <li><a href="#shell-loader">Shell loader</a></li>
+  </ul>
+</nav>
+    </nav>
+</aside>
+
+
+
+    
+
+        </main><footer class="footer">
+    <span>&copy; 2022 Kaderovski</span>
+</footer>
+</body>
+</html>
