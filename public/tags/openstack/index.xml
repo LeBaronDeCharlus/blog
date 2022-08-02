@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>openstack on Kaderovski</title>
+    <link>https://kaderovski.com/tags/openstack/</link>
+    <description>Recent content in openstack on Kaderovski</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© Kaderovski</copyright>
+    <lastBuildDate>Tue, 08 Aug 2017 13:52:07 +0000</lastBuildDate><atom:link href="https://kaderovski.com/tags/openstack/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dockerize Nova client</title>
+      <link>https://kaderovski.com/posts/dockerise-nova/</link>
+      <pubDate>Tue, 08 Aug 2017 13:52:07 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/posts/dockerise-nova/</guid>
+      <description>With OVH Public Cloud, it is possible for you to control your OpenStack instances directly from the Nova client.
+It is rather practical to go through the command line rather than having to access the manager which is often, let us say it, slow.
+But to avoid having to prepare each time a working environment compatible with Nova, I find more interesting to directly create a Docker image for this purpose.</description>
+    </item>
+    
+  </channel>
+</rss>

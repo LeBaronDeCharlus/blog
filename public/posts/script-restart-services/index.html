@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --accent-color: #FF4D4D;
+        }
+    </style>
+
+    
+    
+    
+    
+    
+    
+
+    
+    <title>Script restart services</title>
+    <meta name="description" content="Some tech &amp; personal posts">
+    <meta name="keywords" content='blog, programming, kaderovski, system, projects, linux, bash, script'>
+
+    <meta property="og:url" content="https://kaderovski.com/posts/script-restart-services/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Script restart services">
+    <meta property="og:description" content="Some tech &amp; personal posts">
+    <meta property="og:image" content="images/me.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Script restart services">
+    <meta name="twitter:description" content="Some tech &amp; personal posts">
+    <meta property="twitter:domain" content="https://kaderovski.com/posts/script-restart-services/">
+    <meta property="twitter:url" content="https://kaderovski.com/posts/script-restart-services/">
+    <meta name="twitter:image" content="images/me.jpg">
+
+    
+    <link rel="canonical" href="https://kaderovski.com/posts/script-restart-services/" />
+
+    <link rel="stylesheet" type="text/css" href="https://kaderovski.com//css/normalize.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" type="text/css" href="https://kaderovski.com//css/main.css">
+    <link disabled id="dark-theme" rel="stylesheet" href="https://kaderovski.com//css/dark.css">
+
+    <script src="https://kaderovski.com//js/svg-injector.min.js"></script>
+    <script src="https://kaderovski.com//js/feather-icons.min.js"></script>
+    <script src="https://kaderovski.com//js/main.js"></script>
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-90WT63PBHV"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-90WT63PBHV', { 'anonymize_ip': false });
+}
+</script>
+
+
+    
+    
+        <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/katex.min.css" integrity="sha384-6LkG2wmY8FK9E0vU9OOr8UvLwsaqUg9SETfpq4uTCN1agNe8HRdE9ABlk+fVx6gZ" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/katex.min.js" integrity="sha384-31El76TwmbHj4rF9DyLsygbq6xoIobG0W+jqXim+a3dU9W53tdH3A/ngRPxOzzaB" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+  
+    
+</head>
+<body>
+        <script type="text/javascript">
+            
+            setThemeByUserPref();
+        </script><header class="header">
+    <nav class="header-nav">
+
+        
+        <div class="avatar">
+            <a href="https://kaderovski.com/">
+                <img src="https://kaderovski.com/images/me.jpg" alt="avatar" />
+            </a>
+        </div>
+        
+
+        <div class="nav-title">
+            <a class="nav-brand" href="https://kaderovski.com/">Kaderovski</a>
+        </div>
+
+        <div class="nav-links">
+            
+            <div class="nav-link">
+                <a href="https://kaderovski.com/"> Home </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://kaderovski.com/posts/"> Posts </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://kaderovski.com/tags/"> Tags </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://photos.kaderovski.com"> Photos </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://kaderovski.com/cv"> CV </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://kaderovski.com/index.xml"><span data-feather='rss'></span>  </a>
+            </div>
+            
+
+            <span class="nav-icons-divider"></span>
+            <div class="nav-link dark-theme-toggle">
+                <a>
+                    <span id="theme-toggle-icon" data-feather="moon"></span>
+                </a>
+            </div>
+
+            <div class="nav-link" id="hamburger-menu-toggle">
+                <a>
+                    <span data-feather="menu"></span>
+                </a>
+            </div>
+
+            
+            <ul class="nav-hamburger-list visibility-hidden">
+                
+                <li class="nav-item">
+                    <a href="https://kaderovski.com/"> Home </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://kaderovski.com/posts/"> Posts </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://kaderovski.com/tags/"> Tags </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://photos.kaderovski.com"> Photos </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://kaderovski.com/cv"> CV </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://kaderovski.com/index.xml"><span data-feather='rss'></span>  </a>
+                </li>
+                
+                <li class="nav-item dark-theme-toggle">
+                    <a>
+                        <span id="theme-toggle-icon" data-feather="moon"></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<main id="content">
+    <div class="post container">
+    <div class="post-header-section">
+        <h1>Script restart services</h1>
+        <small role="doc-subtitle"></small>
+        <p class="post-date">
+            August 18, 2017
+        </p>
+
+        <ul class="post-tags">
+        
+            <li class="post-tag"><a href="https://kaderovski.com/tags/linux">linux</a></li>
+        
+            <li class="post-tag"><a href="https://kaderovski.com/tags/bash">bash</a></li>
+        
+            <li class="post-tag"><a href="https://kaderovski.com/tags/script">script</a></li>
+        
+        </ul>
+    </div>
+
+    <div class="post-content">
+        <p>
+            <p>Sometimes, we find ourselves having to pilote infrastructures services supported by panels managements and &hellip; between us, I have a holy horror of Plesk, Cpanel, Ispconfig, Webmin &hellip;
+Especially when under certain circumstances some components are falling down.
+It&rsquo;s often badly done and messy that it&rsquo;s difficult to find your way around. Between abobinable logs management (yes, I already found php logs in syslog), a non-existent server optimization&hellip; well I stop here because it is not the purpose of this post.</p>
+<p>In fact, what happened lately is that I discovered on a &ldquo;certain version&rdquo; of a &ldquo;certain panel&rdquo; that I won&rsquo;t write here, php-fpm is crashing miserably and randomly. Of course, just to make it funny, this incident leads to a service outage for about 200 users, cool no?</p>
+<p>So, at some point you have to say f*ck and drive the mess properly, so you get the bash out.
+So yes, you tell me, why bother, just use a service like monit? Well I tested but no.</p>
+<p>So, just to make it right, we start our script the following way.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>set -euo pipefail
+IFS<span style="color:#f92672">=</span><span style="color:#e6db74">$&#39;\n\t&#39;</span>
+
+<span style="color:#75715e">#/ Usage: ./main.sh</span>
+<span style="color:#75715e">#/ Description: This script monitore services</span>
+<span style="color:#75715e">#/ Examples: ./main.sh</span>
+<span style="color:#75715e">#/ Options:</span>
+<span style="color:#75715e">#/   --help: Display this help message</span>
+usage<span style="color:#f92672">()</span> <span style="color:#f92672">{</span> grep <span style="color:#e6db74">&#39;^#/&#39;</span> <span style="color:#e6db74">&#34;</span>$0<span style="color:#e6db74">&#34;</span> | cut -c4- ; exit <span style="color:#ae81ff">0</span> ; <span style="color:#f92672">}</span>
+expr <span style="color:#e6db74">&#34;</span>$*<span style="color:#e6db74">&#34;</span> : <span style="color:#e6db74">&#34;.*--help&#34;</span> &gt; /dev/null <span style="color:#f92672">&amp;&amp;</span> usage
+
+readonly LOG_FILE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/tmp/</span><span style="color:#66d9ef">$(</span>basename <span style="color:#e6db74">&#34;</span>$0<span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74">.log&#34;</span>
+info<span style="color:#f92672">()</span>    <span style="color:#f92672">{</span> echo <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>date -u<span style="color:#66d9ef">)</span><span style="color:#e6db74"> [INFO]    </span>$*<span style="color:#e6db74">&#34;</span> | tee -a <span style="color:#e6db74">&#34;</span>$LOG_FILE<span style="color:#e6db74">&#34;</span> &gt;&amp;<span style="color:#ae81ff">2</span> ; <span style="color:#f92672">}</span>
+warning<span style="color:#f92672">()</span> <span style="color:#f92672">{</span> echo <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>date -u<span style="color:#66d9ef">)</span><span style="color:#e6db74"> [WARNING] </span>$*<span style="color:#e6db74">&#34;</span> | tee -a <span style="color:#e6db74">&#34;</span>$LOG_FILE<span style="color:#e6db74">&#34;</span> &gt;&amp;<span style="color:#ae81ff">2</span> ; <span style="color:#f92672">}</span>
+error<span style="color:#f92672">()</span>   <span style="color:#f92672">{</span> echo <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>date -u<span style="color:#66d9ef">)</span><span style="color:#e6db74"> [ERROR]   </span>$*<span style="color:#e6db74">&#34;</span> | tee -a <span style="color:#e6db74">&#34;</span>$LOG_FILE<span style="color:#e6db74">&#34;</span> &gt;&amp;<span style="color:#ae81ff">2</span> ; <span style="color:#f92672">}</span>
+fatal<span style="color:#f92672">()</span>   <span style="color:#f92672">{</span> echo <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>date -u<span style="color:#66d9ef">)</span><span style="color:#e6db74"> [FATAL]   </span>$*<span style="color:#e6db74">&#34;</span> | tee -a <span style="color:#e6db74">&#34;</span>$LOG_FILE<span style="color:#e6db74">&#34;</span> &gt;&amp;<span style="color:#ae81ff">2</span> ; exit <span style="color:#ae81ff">1</span> ; <span style="color:#f92672">}</span>
+
+<span style="color:#75715e"># Debug</span>
+<span style="color:#75715e"># Cleaning if exit</span>
+cleanup<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    rm <span style="color:#e6db74">&#34;</span>$LOG_FILE<span style="color:#e6db74">&#34;</span>
+<span style="color:#f92672">}</span>
+trap cleanup EXIT
+</code></pre></div><p>So far, nothing extraordinary, we have our shebang, different logging functions and a clean service with trap.</p>
+<p>As I like to be alerted of the actions of my scripts, we&rsquo;re going to declare a mail sending function:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># Func mail
+sendMail() {
+    echo &#34;$(date) : $1 restarted on $HOSTNAME&#34; | mail -s &#34;$1 restarted on $HOSTNAME&#34; &#34;my@mail&#34;
+}
+</code></pre></div><p>We will then declare our function for a given service (at random, a service that never falls&hellip;):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># Func php-fpm
+php-fpm() {
+if pgrep php5-fpm &gt; /dev/null
+then
+    info &#34;Php-FPM service is up.&#34;
+:
+else
+       warning &#34;Php-FPM service down, restarting it !&#34;
+       if /etc/init.d/php5-fpm restart &gt; /dev/null
+       then
+           info &#34;Php-FPM service restarted&#34;
+           sendMail &#34;php-FPM&#34;
+       fi
+fi
+}
+</code></pre></div><p>Here we check if the service has an active pid, in which case it is restarted, logged and sent a mail.</p>
+<p>Repeat the operation with the other services involved if necessary and call the main:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">if [[ &#34;${BASH_SOURCE[0]}&#34; = &#34;$0&#34; ]]; then
+    info &#34;Starting...&#34;
+
+    while true; do
+
+        # Functions call
+        php-fpm
+        sleep 5
+        # vos autres fonctions ici
+
+    done
+
+fi
+</code></pre></div><p>Full version :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>set -euo pipefail
+IFS<span style="color:#f92672">=</span><span style="color:#e6db74">$&#39;\n\t&#39;</span>
+
+<span style="color:#75715e">#/ Usage: ./main.sh</span>
+<span style="color:#75715e">#/ Description: This script monitore Plesk Web services</span>
+<span style="color:#75715e">#/ Examples: ./main.sh</span>
+<span style="color:#75715e">#/ Options:</span>
+<span style="color:#75715e">#/   --help: Display this help message</span>
+usage<span style="color:#f92672">()</span> <span style="color:#f92672">{</span> grep <span style="color:#e6db74">&#39;^#/&#39;</span> <span style="color:#e6db74">&#34;</span>$0<span style="color:#e6db74">&#34;</span> | cut -c4- ; exit <span style="color:#ae81ff">0</span> ; <span style="color:#f92672">}</span>
+expr <span style="color:#e6db74">&#34;</span>$*<span style="color:#e6db74">&#34;</span> : <span style="color:#e6db74">&#34;.*--help&#34;</span> &gt; /dev/null <span style="color:#f92672">&amp;&amp;</span> usage
+
+readonly LOG_FILE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/tmp/</span><span style="color:#66d9ef">$(</span>basename <span style="color:#e6db74">&#34;</span>$0<span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74">.log&#34;</span>
+info<span style="color:#f92672">()</span>    <span style="color:#f92672">{</span> echo <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>date -u<span style="color:#66d9ef">)</span><span style="color:#e6db74"> [INFO]    </span>$*<span style="color:#e6db74">&#34;</span> | tee -a <span style="color:#e6db74">&#34;</span>$LOG_FILE<span style="color:#e6db74">&#34;</span> &gt;&amp;<span style="color:#ae81ff">2</span> ; <span style="color:#f92672">}</span>
+warning<span style="color:#f92672">()</span> <span style="color:#f92672">{</span> echo <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>date -u<span style="color:#66d9ef">)</span><span style="color:#e6db74"> [WARNING] </span>$*<span style="color:#e6db74">&#34;</span> | tee -a <span style="color:#e6db74">&#34;</span>$LOG_FILE<span style="color:#e6db74">&#34;</span> &gt;&amp;<span style="color:#ae81ff">2</span> ; <span style="color:#f92672">}</span>
+error<span style="color:#f92672">()</span>   <span style="color:#f92672">{</span> echo <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>date -u<span style="color:#66d9ef">)</span><span style="color:#e6db74"> [ERROR]   </span>$*<span style="color:#e6db74">&#34;</span> | tee -a <span style="color:#e6db74">&#34;</span>$LOG_FILE<span style="color:#e6db74">&#34;</span> &gt;&amp;<span style="color:#ae81ff">2</span> ; <span style="color:#f92672">}</span>
+fatal<span style="color:#f92672">()</span>   <span style="color:#f92672">{</span> echo <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>date -u<span style="color:#66d9ef">)</span><span style="color:#e6db74"> [FATAL]   </span>$*<span style="color:#e6db74">&#34;</span> | tee -a <span style="color:#e6db74">&#34;</span>$LOG_FILE<span style="color:#e6db74">&#34;</span> &gt;&amp;<span style="color:#ae81ff">2</span> ; exit <span style="color:#ae81ff">1</span> ; <span style="color:#f92672">}</span>
+
+<span style="color:#75715e"># Debug</span>
+<span style="color:#75715e"># Cleaning if exit</span>
+<span style="color:#75715e"># cleanup() {</span>
+<span style="color:#75715e">#     rm &#34;$LOG_FILE&#34;</span>
+<span style="color:#75715e"># }</span>
+<span style="color:#75715e"># trap cleanup EXIT</span>
+
+
+<span style="color:#75715e"># Functions </span>
+
+    <span style="color:#75715e"># Func mail</span>
+    sendMail<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        echo <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>date<span style="color:#66d9ef">)</span><span style="color:#e6db74"> : </span>$1<span style="color:#e6db74"> restarted on </span>$HOSTNAME<span style="color:#e6db74">&#34;</span> | mail -s <span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74"> restarted on </span>$HOSTNAME<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;my@mail&#34;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e"># Func nginx</span>
+    nginx<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">if</span> pgrep nginx &gt; /dev/null
+    <span style="color:#66d9ef">then</span>
+<span style="color:#75715e">#        info &#34;Nginx service is up.&#34;</span>
+    :
+    <span style="color:#66d9ef">else</span>
+            warning <span style="color:#e6db74">&#34;Nginx service down, restarting it !&#34;</span>
+            <span style="color:#66d9ef">if</span> /etc/init.d/nginx restart &gt; /dev/null
+            <span style="color:#66d9ef">then</span>
+                info <span style="color:#e6db74">&#34;Nginx service restarted&#34;</span>
+                sendMail <span style="color:#e6db74">&#34;nginx&#34;</span>
+            <span style="color:#66d9ef">fi</span>
+    <span style="color:#66d9ef">fi</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e"># Func php-fpm</span>
+    php-fpm<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">if</span> pgrep php5-fpm &gt; /dev/null
+    <span style="color:#66d9ef">then</span>
+<span style="color:#75715e">#        info &#34;Php-FPM service is up.&#34;</span>
+    :
+    <span style="color:#66d9ef">else</span>
+           warning <span style="color:#e6db74">&#34;Php-FPM service down, restarting it !&#34;</span>
+           <span style="color:#66d9ef">if</span> /etc/init.d/php5-fpm restart &gt; /dev/null
+           <span style="color:#66d9ef">then</span>
+               info <span style="color:#e6db74">&#34;Php-FPM service restarted&#34;</span>
+               sendMail <span style="color:#e6db74">&#34;php-FPM&#34;</span>
+           <span style="color:#66d9ef">fi</span>
+    <span style="color:#66d9ef">fi</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e"># Func mysql</span>
+    mysql<span style="color:#f92672">(){</span>
+    <span style="color:#66d9ef">if</span> pgrep mysql &gt; /dev/null
+    <span style="color:#66d9ef">then</span>
+<span style="color:#75715e">#        info &#34;Mysql service is up.&#34;</span>
+    :
+    <span style="color:#66d9ef">else</span>
+        warning <span style="color:#e6db74">&#34;Mysql service down, restarting it !&#34;</span>
+        <span style="color:#66d9ef">if</span> /etc/init.d/mysql restart &gt; /dev/null 
+        <span style="color:#66d9ef">then</span>
+            info <span style="color:#e6db74">&#34;Mysql service restarted&#34;</span>
+            sendMail <span style="color:#e6db74">&#34;mysql&#34;</span>
+        <span style="color:#66d9ef">fi</span>
+    <span style="color:#66d9ef">fi</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e"># Func apache</span>
+    apache<span style="color:#f92672">(){</span>
+    <span style="color:#66d9ef">if</span> pgrep apache2 &gt; /dev/null
+    <span style="color:#66d9ef">then</span>
+<span style="color:#75715e">#        info &#34;Apache2 service is up.&#34;</span>
+    :
+    <span style="color:#66d9ef">else</span>
+        warning <span style="color:#e6db74">&#34;Apache2 service down, restarting it !&#34;</span>
+        <span style="color:#66d9ef">if</span> /etc/init.d/apache2 restart &gt; /dev/null 
+        <span style="color:#66d9ef">then</span>
+            info <span style="color:#e6db74">&#34;Apache2 service restarted&#34;</span>
+            sendMail <span style="color:#e6db74">&#34;apache2&#34;</span>
+        <span style="color:#66d9ef">fi</span>
+    <span style="color:#66d9ef">fi</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>BASH_SOURCE[0]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span>$0<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+
+    <span style="color:#75715e"># If root :</span>
+	<span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> $EUID -ne <span style="color:#ae81ff">0</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+    	echo <span style="color:#e6db74">&#34;This script must be run as root&#34;</span>
+    	exit <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">fi</span>
+
+    info <span style="color:#e6db74">&#34;Starting...&#34;</span>
+
+    <span style="color:#66d9ef">while</span> true; <span style="color:#66d9ef">do</span>
+
+        <span style="color:#75715e"># Functions call</span>
+        nginx    	
+        sleep <span style="color:#ae81ff">5</span>
+        php-fpm
+        sleep <span style="color:#ae81ff">5</span>
+        mysql
+        sleep <span style="color:#ae81ff">5</span>
+        apache
+        sleep <span style="color:#ae81ff">5</span>
+
+    <span style="color:#66d9ef">done</span>
+
+<span style="color:#66d9ef">fi</span>
+</code></pre></div><p>Well, it&rsquo;s nothing too crazy, but I find that doing things manually really helps you target exactly what you want to do.</p>
+<p>As usual, the sources are available!</p>
+<p>In a future post, we&rsquo;ll see how to factorize all this script to avoid repetition and make it more readable.</p>
+<p>See you soon!</p>
+
+        </p>
+    </div>
+<style>
+.utterances {
+  margin-right: 10%;
+}
+</style>
+        <script src="https://utteranc.es/client.js"
+                repo="Kaderovski/blog"
+                issue-term="pathname"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+        </script>
+</div>
+
+
+
+    
+
+        </main><footer class="footer">
+    <span>&copy; 2022 Kaderovski</span>
+</footer>
+</body>
+</html>

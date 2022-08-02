@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --accent-color: #FF4D4D;
+        }
+    </style>
+
+    
+    
+    
+    
+    
+    
+
+    
+    <title>Little Web Monitoring</title>
+    <meta name="description" content="Some tech &amp; personal posts">
+    <meta name="keywords" content='blog, programming, kaderovski, system, projects, script, python, monitoring'>
+
+    <meta property="og:url" content="https://kaderovski.com/posts/little-web-monitoring/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Little Web Monitoring">
+    <meta property="og:description" content="Some tech &amp; personal posts">
+    <meta property="og:image" content="images/me.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Little Web Monitoring">
+    <meta name="twitter:description" content="Some tech &amp; personal posts">
+    <meta property="twitter:domain" content="https://kaderovski.com/posts/little-web-monitoring/">
+    <meta property="twitter:url" content="https://kaderovski.com/posts/little-web-monitoring/">
+    <meta name="twitter:image" content="images/me.jpg">
+
+    
+    <link rel="canonical" href="https://kaderovski.com/posts/little-web-monitoring/" />
+
+    <link rel="stylesheet" type="text/css" href="https://kaderovski.com//css/normalize.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" type="text/css" href="https://kaderovski.com//css/main.css">
+    <link disabled id="dark-theme" rel="stylesheet" href="https://kaderovski.com//css/dark.css">
+
+    <script src="https://kaderovski.com//js/svg-injector.min.js"></script>
+    <script src="https://kaderovski.com//js/feather-icons.min.js"></script>
+    <script src="https://kaderovski.com//js/main.js"></script>
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-90WT63PBHV"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-90WT63PBHV', { 'anonymize_ip': false });
+}
+</script>
+
+
+    
+    
+        <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/katex.min.css" integrity="sha384-6LkG2wmY8FK9E0vU9OOr8UvLwsaqUg9SETfpq4uTCN1agNe8HRdE9ABlk+fVx6gZ" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/katex.min.js" integrity="sha384-31El76TwmbHj4rF9DyLsygbq6xoIobG0W+jqXim+a3dU9W53tdH3A/ngRPxOzzaB" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+  
+    
+</head>
+<body>
+        <script type="text/javascript">
+            
+            setThemeByUserPref();
+        </script><header class="header">
+    <nav class="header-nav">
+
+        
+        <div class="avatar">
+            <a href="https://kaderovski.com/">
+                <img src="https://kaderovski.com/images/me.jpg" alt="avatar" />
+            </a>
+        </div>
+        
+
+        <div class="nav-title">
+            <a class="nav-brand" href="https://kaderovski.com/">Kaderovski</a>
+        </div>
+
+        <div class="nav-links">
+            
+            <div class="nav-link">
+                <a href="https://kaderovski.com/"> Home </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://kaderovski.com/posts/"> Posts </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://kaderovski.com/tags/"> Tags </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://photos.kaderovski.com"> Photos </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://kaderovski.com/cv"> CV </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://kaderovski.com/index.xml"><span data-feather='rss'></span>  </a>
+            </div>
+            
+
+            <span class="nav-icons-divider"></span>
+            <div class="nav-link dark-theme-toggle">
+                <a>
+                    <span id="theme-toggle-icon" data-feather="moon"></span>
+                </a>
+            </div>
+
+            <div class="nav-link" id="hamburger-menu-toggle">
+                <a>
+                    <span data-feather="menu"></span>
+                </a>
+            </div>
+
+            
+            <ul class="nav-hamburger-list visibility-hidden">
+                
+                <li class="nav-item">
+                    <a href="https://kaderovski.com/"> Home </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://kaderovski.com/posts/"> Posts </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://kaderovski.com/tags/"> Tags </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://photos.kaderovski.com"> Photos </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://kaderovski.com/cv"> CV </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://kaderovski.com/index.xml"><span data-feather='rss'></span>  </a>
+                </li>
+                
+                <li class="nav-item dark-theme-toggle">
+                    <a>
+                        <span id="theme-toggle-icon" data-feather="moon"></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<main id="content">
+    <div class="post container">
+    <div class="post-header-section">
+        <h1>Little Web Monitoring</h1>
+        <small role="doc-subtitle"></small>
+        <p class="post-date">
+            August 2, 2017
+        </p>
+
+        <ul class="post-tags">
+        
+            <li class="post-tag"><a href="https://kaderovski.com/tags/script">script</a></li>
+        
+            <li class="post-tag"><a href="https://kaderovski.com/tags/python">python</a></li>
+        
+            <li class="post-tag"><a href="https://kaderovski.com/tags/monitoring">monitoring</a></li>
+        
+        </ul>
+    </div>
+
+    <div class="post-content">
+        <p>
+            <p>Sometimes making small <code>OneJob</code> services is efficient in terms of time, organization, functionality.
+In the example of this article, I will try to show how it can be relevant to write `microscripts' under this model.</p>
+<p>Let&rsquo;s say we want to make sure, for a given list of sites, that they all return <code>200</code> codes in less than <code>2s</code>, in which case we&rsquo;ll get a notification on <code>Slack</code>.
+The sources for these posts are available <a href="https://github.com/Kaderovski/Slack-Bot-Web-Alert/blob/master/bot.py">here</a>.</p>
+<p>For the language, <code>python3</code> will be more than enough.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">#!/bin/python3.6
+
+import requests
+import time
+from slackclient import SlackClient
+
+slack_token = &#34;YOUR_TOKEN_HERE&#34;
+sc = SlackClient(slack_token)
+
+urls=[&#39;site1&#39;, &#39;site2&#39;, &#39;site3&#39;]
+
+while True :
+
+    for i in urls :
+        r = requests.head(i)
+        t = requests.get(i, timeout=5).elapsed.total_seconds()
+        # print(i, r.status_code, t)
+        time.sleep(2)
+
+        if r.status_code != 200 :
+            sc.api_call(
+            &#34;chat.postMessage&#34;,
+            channel=&#34;#infra&#34;,
+            text=(&#34;ALERTE !&#34;, i, r.status_code)
+            )
+
+        if t &gt; 2 :
+            sc.api_call(
+            &#34;chat.postMessage&#34;,
+            channel=&#34;#infra&#34;,
+            text=(&#34;LoadSite too long : &#34;, i, r.status_code)
+            )
+
+    time.sleep(10)
+</code></pre></div><p>Let’s checkout what we have here :</p>
+<p>We are using :</p>
+<ul>
+<li><code>requests</code> to be able to call sites/url</li>
+<li><code>time</code> to pause code.</li>
+<li><code>SlackClient</code> to be notified.</li>
+</ul>
+<p>In the end, with only 30-35 lines of code, we are able to ensure <strong>quickly</strong> the proper functioning of a list of sites.
+It takes less than 10 minutes to code, it&rsquo;s &ldquo;fast&rdquo;, &ldquo;light&rdquo; and &ldquo;portable&rdquo; everywhere.</p>
+<p>The advantage of this type of scripts is that they are very modular, adding features is just as fast as developing the code and you make sure you only get the information you need, which is a real advantage in terms of performance.</p>
+
+        </p>
+    </div>
+<style>
+.utterances {
+  margin-right: 10%;
+}
+</style>
+        <script src="https://utteranc.es/client.js"
+                repo="Kaderovski/blog"
+                issue-term="pathname"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+        </script>
+</div>
+
+
+
+    
+
+        </main><footer class="footer">
+    <span>&copy; 2022 Kaderovski</span>
+</footer>
+</body>
+</html>

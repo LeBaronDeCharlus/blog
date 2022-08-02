@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Kaderovski</title>
+    <link>https://kaderovski.com/tags/</link>
+    <description>Recent content in Tags on Kaderovski</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© Kaderovski</copyright>
+    <lastBuildDate>Tue, 12 Jul 2022 12:22:42 +0200</lastBuildDate><atom:link href="https://kaderovski.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>sessions</title>
+      <link>https://kaderovski.com/tags/sessions/</link>
+      <pubDate>Tue, 12 Jul 2022 12:22:42 +0200</pubDate>
+      
+      <guid>https://kaderovski.com/tags/sessions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shell</title>
+      <link>https://kaderovski.com/tags/shell/</link>
+      <pubDate>Tue, 12 Jul 2022 12:22:42 +0200</pubDate>
+      
+      <guid>https://kaderovski.com/tags/shell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>zellij</title>
+      <link>https://kaderovski.com/tags/zellij/</link>
+      <pubDate>Tue, 12 Jul 2022 12:22:42 +0200</pubDate>
+      
+      <guid>https://kaderovski.com/tags/zellij/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bash</title>
+      <link>https://kaderovski.com/tags/bash/</link>
+      <pubDate>Sat, 25 Jun 2022 18:03:17 +0200</pubDate>
+      
+      <guid>https://kaderovski.com/tags/bash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>loader</title>
+      <link>https://kaderovski.com/tags/loader/</link>
+      <pubDate>Sat, 25 Jun 2022 18:03:17 +0200</pubDate>
+      
+      <guid>https://kaderovski.com/tags/loader/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cd</title>
+      <link>https://kaderovski.com/tags/cd/</link>
+      <pubDate>Wed, 22 Jun 2022 21:53:45 +0200</pubDate>
+      
+      <guid>https://kaderovski.com/tags/cd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>continous delivery</title>
+      <link>https://kaderovski.com/tags/continous-delivery/</link>
+      <pubDate>Wed, 22 Jun 2022 21:53:45 +0200</pubDate>
+      
+      <guid>https://kaderovski.com/tags/continous-delivery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>https://kaderovski.com/tags/git/</link>
+      <pubDate>Wed, 22 Jun 2022 21:53:45 +0200</pubDate>
+      
+      <guid>https://kaderovski.com/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>direnv</title>
+      <link>https://kaderovski.com/tags/direnv/</link>
+      <pubDate>Fri, 10 Jun 2022 08:12:12 +0200</pubDate>
+      
+      <guid>https://kaderovski.com/tags/direnv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gpg</title>
+      <link>https://kaderovski.com/tags/gpg/</link>
+      <pubDate>Fri, 10 Jun 2022 08:12:12 +0200</pubDate>
+      
+      <guid>https://kaderovski.com/tags/gpg/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pass</title>
+      <link>https://kaderovski.com/tags/pass/</link>
+      <pubDate>Fri, 10 Jun 2022 08:12:12 +0200</pubDate>
+      
+      <guid>https://kaderovski.com/tags/pass/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>poetry</title>
+      <link>https://kaderovski.com/tags/poetry/</link>
+      <pubDate>Fri, 10 Jun 2022 08:12:12 +0200</pubDate>
+      
+      <guid>https://kaderovski.com/tags/poetry/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>https://kaderovski.com/tags/programming/</link>
+      <pubDate>Fri, 10 Jun 2022 08:12:12 +0200</pubDate>
+      
+      <guid>https://kaderovski.com/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pyenv</title>
+      <link>https://kaderovski.com/tags/pyenv/</link>
+      <pubDate>Fri, 10 Jun 2022 08:12:12 +0200</pubDate>
+      
+      <guid>https://kaderovski.com/tags/pyenv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://kaderovski.com/tags/python/</link>
+      <pubDate>Fri, 10 Jun 2022 08:12:12 +0200</pubDate>
+      
+      <guid>https://kaderovski.com/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>secrets</title>
+      <link>https://kaderovski.com/tags/secrets/</link>
+      <pubDate>Fri, 10 Jun 2022 08:12:12 +0200</pubDate>
+      
+      <guid>https://kaderovski.com/tags/secrets/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tomb</title>
+      <link>https://kaderovski.com/tags/tomb/</link>
+      <pubDate>Fri, 10 Jun 2022 08:12:12 +0200</pubDate>
+      
+      <guid>https://kaderovski.com/tags/tomb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>baremetal</title>
+      <link>https://kaderovski.com/tags/baremetal/</link>
+      <pubDate>Mon, 20 Jul 2020 12:00:00 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/tags/baremetal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cloud</title>
+      <link>https://kaderovski.com/tags/cloud/</link>
+      <pubDate>Mon, 20 Jul 2020 12:00:00 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/tags/cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://kaderovski.com/tags/linux/</link>
+      <pubDate>Mon, 20 Jul 2020 12:00:00 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ovh</title>
+      <link>https://kaderovski.com/tags/ovh/</link>
+      <pubDate>Mon, 20 Jul 2020 12:00:00 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/tags/ovh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>awesomewm</title>
+      <link>https://kaderovski.com/tags/awesomewm/</link>
+      <pubDate>Fri, 10 Jan 2020 11:10:33 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/tags/awesomewm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>random</title>
+      <link>https://kaderovski.com/tags/random/</link>
+      <pubDate>Fri, 10 Jan 2020 11:10:33 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/tags/random/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wallpaper</title>
+      <link>https://kaderovski.com/tags/wallpaper/</link>
+      <pubDate>Fri, 10 Jan 2020 11:10:33 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/tags/wallpaper/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>freebsd</title>
+      <link>https://kaderovski.com/tags/freebsd/</link>
+      <pubDate>Sun, 04 Mar 2018 14:56:33 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/tags/freebsd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>publicloud</title>
+      <link>https://kaderovski.com/tags/publicloud/</link>
+      <pubDate>Sun, 04 Mar 2018 14:56:33 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/tags/publicloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>serveur</title>
+      <link>https://kaderovski.com/tags/serveur/</link>
+      <pubDate>Sun, 04 Mar 2018 14:56:33 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/tags/serveur/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bug</title>
+      <link>https://kaderovski.com/tags/bug/</link>
+      <pubDate>Sun, 04 Mar 2018 14:41:25 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/tags/bug/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vrack</title>
+      <link>https://kaderovski.com/tags/vrack/</link>
+      <pubDate>Sun, 04 Mar 2018 14:41:25 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/tags/vrack/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>script</title>
+      <link>https://kaderovski.com/tags/script/</link>
+      <pubDate>Fri, 18 Aug 2017 22:29:53 +0200</pubDate>
+      
+      <guid>https://kaderovski.com/tags/script/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gitlab</title>
+      <link>https://kaderovski.com/tags/gitlab/</link>
+      <pubDate>Thu, 10 Aug 2017 12:06:05 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/tags/gitlab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>https://kaderovski.com/tags/kubernetes/</link>
+      <pubDate>Thu, 10 Aug 2017 12:06:05 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>registry</title>
+      <link>https://kaderovski.com/tags/registry/</link>
+      <pubDate>Thu, 10 Aug 2017 12:06:05 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/tags/registry/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>https://kaderovski.com/tags/docker/</link>
+      <pubDate>Tue, 08 Aug 2017 13:52:07 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nova</title>
+      <link>https://kaderovski.com/tags/nova/</link>
+      <pubDate>Tue, 08 Aug 2017 13:52:07 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/tags/nova/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>openstack</title>
+      <link>https://kaderovski.com/tags/openstack/</link>
+      <pubDate>Tue, 08 Aug 2017 13:52:07 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/tags/openstack/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cattle</title>
+      <link>https://kaderovski.com/tags/cattle/</link>
+      <pubDate>Fri, 04 Aug 2017 19:04:11 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/tags/cattle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pci</title>
+      <link>https://kaderovski.com/tags/pci/</link>
+      <pubDate>Fri, 04 Aug 2017 19:04:11 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/tags/pci/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rancher</title>
+      <link>https://kaderovski.com/tags/rancher/</link>
+      <pubDate>Fri, 04 Aug 2017 19:04:11 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/tags/rancher/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>monitoring</title>
+      <link>https://kaderovski.com/tags/monitoring/</link>
+      <pubDate>Wed, 02 Aug 2017 08:22:16 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/tags/monitoring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>online</title>
+      <link>https://kaderovski.com/tags/online/</link>
+      <pubDate>Tue, 01 Aug 2017 09:40:07 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/tags/online/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LXC</title>
+      <link>https://kaderovski.com/tags/lxc/</link>
+      <pubDate>Mon, 31 Jul 2017 18:15:50 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/tags/lxc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>openVZ</title>
+      <link>https://kaderovski.com/tags/openvz/</link>
+      <pubDate>Mon, 31 Jul 2017 18:15:50 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/tags/openvz/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>proxmox</title>
+      <link>https://kaderovski.com/tags/proxmox/</link>
+      <pubDate>Mon, 31 Jul 2017 18:15:50 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/tags/proxmox/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>disk</title>
+      <link>https://kaderovski.com/tags/disk/</link>
+      <pubDate>Mon, 31 Jul 2017 11:38:18 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/tags/disk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dev</title>
+      <link>https://kaderovski.com/tags/dev/</link>
+      <pubDate>Sun, 30 Jul 2017 15:08:41 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/tags/dev/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>galera</title>
+      <link>https://kaderovski.com/tags/galera/</link>
+      <pubDate>Sun, 30 Jul 2017 15:08:41 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/tags/galera/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang</title>
+      <link>https://kaderovski.com/tags/golang/</link>
+      <pubDate>Sun, 30 Jul 2017 15:08:41 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>templates</title>
+      <link>https://kaderovski.com/tags/templates/</link>
+      <pubDate>Sun, 30 Jul 2017 14:53:16 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/tags/templates/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pyinotify</title>
+      <link>https://kaderovski.com/tags/pyinotify/</link>
+      <pubDate>Sun, 30 Jul 2017 12:53:16 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/tags/pyinotify/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>random on Kaderovski</title>
+    <link>https://kaderovski.com/tags/random/</link>
+    <description>Recent content in random on Kaderovski</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© Kaderovski</copyright>
+    <lastBuildDate>Fri, 10 Jan 2020 11:10:33 +0000</lastBuildDate><atom:link href="https://kaderovski.com/tags/random/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Random wallpaper with AwesomeWM !</title>
+      <link>https://kaderovski.com/posts/randomwallpaper-on-awesomewm/</link>
+      <pubDate>Fri, 10 Jan 2020 11:10:33 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/posts/randomwallpaper-on-awesomewm/</guid>
+      <description>I&amp;rsquo;ve been looking for a way to break my routine a bit when I&amp;rsquo;m working on my laptop. I figured that changing the wallpaper randomly and automatically was a good way to break the monotony.
+I use awesomeWM (version 4)
+[f00b@void ~]$ awesome --version awesome v4.3 (Too long) • Compiled against Lua 5.3.5 (running with Lua 5.3) • D-Bus support: ✔ • execinfo support: ✘ • xcb-randr version: 1.6 • LGI version: 0.</description>
+    </item>
+    
+  </channel>
+</rss>

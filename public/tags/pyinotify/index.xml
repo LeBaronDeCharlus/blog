@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pyinotify on Kaderovski</title>
+    <link>https://kaderovski.com/tags/pyinotify/</link>
+    <description>Recent content in pyinotify on Kaderovski</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© Kaderovski</copyright>
+    <lastBuildDate>Sun, 30 Jul 2017 12:53:16 +0000</lastBuildDate><atom:link href="https://kaderovski.com/tags/pyinotify/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Event Watcher Manager Python3</title>
+      <link>https://kaderovski.com/posts/event-watcher-manager-python3/</link>
+      <pubDate>Sun, 30 Jul 2017 12:53:16 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/posts/event-watcher-manager-python3/</guid>
+      <description>On one specific request, I had to work on the elaboration of an automating program reacting on SFTP users updates.
+The main technical issue of this request is that the SFTP protocol does not have a logging system.
+I had heard about the pyinotify library so I started working on it.
+The project is presented in its primary mechanism, for more details, I invite you to read the sources.
+Technical requests concerning the project Details of the context of realization : Details of the context of realization :.</description>
+    </item>
+    
+  </channel>
+</rss>

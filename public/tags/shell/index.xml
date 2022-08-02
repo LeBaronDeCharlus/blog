@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>shell on Kaderovski</title>
+    <link>https://kaderovski.com/tags/shell/</link>
+    <description>Recent content in shell on Kaderovski</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© Kaderovski</copyright>
+    <lastBuildDate>Tue, 12 Jul 2022 12:22:42 +0200</lastBuildDate><atom:link href="https://kaderovski.com/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Manage your Zellij sessions</title>
+      <link>https://kaderovski.com/posts/zellij-manage-your-sessions/</link>
+      <pubDate>Tue, 12 Jul 2022 12:22:42 +0200</pubDate>
+      
+      <guid>https://kaderovski.com/posts/zellij-manage-your-sessions/</guid>
+      <description>Quick post on great Zellij tool I&amp;rsquo;ve been using for some weeks now in Tmux replacement.
+I&amp;rsquo;ve been missing to manage my sessions on multiplexer init while starting a new shell or terminal so I&amp;rsquo;ve ended creating a quick feature to manage it on startup.
+Dependencies You need sk binary installed and in your $PATH and of course zellij.
+Demo Installation Add this block at the end of your $SHELLrc file (tested with BASH and ZSH) :</description>
+    </item>
+    
+    <item>
+      <title>Shloader - A Modern Shell Loader</title>
+      <link>https://kaderovski.com/posts/shloader-modern-shell-loader/</link>
+      <pubDate>Sat, 25 Jun 2022 18:03:17 +0200</pubDate>
+      
+      <guid>https://kaderovski.com/posts/shloader-modern-shell-loader/</guid>
+      <description>Why Features Preview Templating Usage Parsing Arguments Shell Configurations Trap Error and Exit Display Loader Call Loader Scrip Library Integration Conclusion  Why I&amp;rsquo;ve been recently doing some old shell scripts to quickly automatize and distribute actions that were made manually, I&amp;rsquo;ll write a post on it later. For now I&amp;rsquo;d like to share with you how I&amp;rsquo;ve been coding a 100% shell loader library to use it in my scripts.</description>
+    </item>
+    
+  </channel>
+</rss>

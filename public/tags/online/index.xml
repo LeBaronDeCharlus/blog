@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>online on Kaderovski</title>
+    <link>https://kaderovski.com/tags/online/</link>
+    <description>Recent content in online on Kaderovski</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© Kaderovski</copyright>
+    <lastBuildDate>Tue, 01 Aug 2017 09:40:07 +0000</lastBuildDate><atom:link href="https://kaderovski.com/tags/online/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Online servers availability</title>
+      <link>https://kaderovski.com/posts/online-servers/</link>
+      <pubDate>Tue, 01 Aug 2017 09:40:07 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/posts/online-servers/</guid>
+      <description>We need servers at Online, but there is no availability! So they came to ask me if I didn&amp;rsquo;t have a magic solution&amp;hellip;
+A little bash&amp;hellip; a notify in this case Slack and here we go!
+As usual sources are available.
+Dirty way *To be alerted via slack you have to create an incoming-webhook which will generate a link.
+For an XC 2016 series server:
+text=&amp;quot;DISPO : https://www.online.net/fr/serveur-dedie/dedibox-xc&amp;quot;; json=&amp;quot;{\&amp;quot;channel\&amp;quot;: \&amp;quot;#infra\&amp;quot;, \&amp;quot;text\&amp;quot;: \&amp;quot;$text\&amp;quot;}&amp;quot; ; while true ; do curl --silent https://www.</description>
+    </item>
+    
+  </channel>
+</rss>

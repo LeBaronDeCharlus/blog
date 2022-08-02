@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --accent-color: #FF4D4D;
+        }
+    </style>
+
+    
+    
+    
+    
+    
+    
+
+    
+    <title>Freebsd Pci Disk Space</title>
+    <meta name="description" content="Some tech &amp; personal posts">
+    <meta name="keywords" content='blog, programming, kaderovski, system, projects, freebsd, ovh, serveur, publicloud'>
+
+    <meta property="og:url" content="https://kaderovski.com/posts/freebsd-pci-disk-space/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Freebsd Pci Disk Space">
+    <meta property="og:description" content="Some tech &amp; personal posts">
+    <meta property="og:image" content="images/me.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Freebsd Pci Disk Space">
+    <meta name="twitter:description" content="Some tech &amp; personal posts">
+    <meta property="twitter:domain" content="https://kaderovski.com/posts/freebsd-pci-disk-space/">
+    <meta property="twitter:url" content="https://kaderovski.com/posts/freebsd-pci-disk-space/">
+    <meta name="twitter:image" content="images/me.jpg">
+
+    
+    <link rel="canonical" href="https://kaderovski.com/posts/freebsd-pci-disk-space/" />
+
+    <link rel="stylesheet" type="text/css" href="https://kaderovski.com//css/normalize.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" type="text/css" href="https://kaderovski.com//css/main.css">
+    <link disabled id="dark-theme" rel="stylesheet" href="https://kaderovski.com//css/dark.css">
+
+    <script src="https://kaderovski.com//js/svg-injector.min.js"></script>
+    <script src="https://kaderovski.com//js/feather-icons.min.js"></script>
+    <script src="https://kaderovski.com//js/main.js"></script>
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-90WT63PBHV"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-90WT63PBHV', { 'anonymize_ip': false });
+}
+</script>
+
+
+    
+    
+        <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/katex.min.css" integrity="sha384-6LkG2wmY8FK9E0vU9OOr8UvLwsaqUg9SETfpq4uTCN1agNe8HRdE9ABlk+fVx6gZ" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/katex.min.js" integrity="sha384-31El76TwmbHj4rF9DyLsygbq6xoIobG0W+jqXim+a3dU9W53tdH3A/ngRPxOzzaB" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+  
+    
+</head>
+<body>
+        <script type="text/javascript">
+            
+            setThemeByUserPref();
+        </script><header class="header">
+    <nav class="header-nav">
+
+        
+        <div class="avatar">
+            <a href="https://kaderovski.com/">
+                <img src="https://kaderovski.com/images/me.jpg" alt="avatar" />
+            </a>
+        </div>
+        
+
+        <div class="nav-title">
+            <a class="nav-brand" href="https://kaderovski.com/">Kaderovski</a>
+        </div>
+
+        <div class="nav-links">
+            
+            <div class="nav-link">
+                <a href="https://kaderovski.com/"> Home </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://kaderovski.com/posts/"> Posts </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://kaderovski.com/tags/"> Tags </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://photos.kaderovski.com"> Photos </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://kaderovski.com/cv"> CV </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://kaderovski.com/index.xml"><span data-feather='rss'></span>  </a>
+            </div>
+            
+
+            <span class="nav-icons-divider"></span>
+            <div class="nav-link dark-theme-toggle">
+                <a>
+                    <span id="theme-toggle-icon" data-feather="moon"></span>
+                </a>
+            </div>
+
+            <div class="nav-link" id="hamburger-menu-toggle">
+                <a>
+                    <span data-feather="menu"></span>
+                </a>
+            </div>
+
+            
+            <ul class="nav-hamburger-list visibility-hidden">
+                
+                <li class="nav-item">
+                    <a href="https://kaderovski.com/"> Home </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://kaderovski.com/posts/"> Posts </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://kaderovski.com/tags/"> Tags </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://photos.kaderovski.com"> Photos </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://kaderovski.com/cv"> CV </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://kaderovski.com/index.xml"><span data-feather='rss'></span>  </a>
+                </li>
+                
+                <li class="nav-item dark-theme-toggle">
+                    <a>
+                        <span id="theme-toggle-icon" data-feather="moon"></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<main id="content">
+    <div class="post container">
+    <div class="post-header-section">
+        <h1>Freebsd Pci Disk Space</h1>
+        <small role="doc-subtitle"></small>
+        <p class="post-date">
+            March 4, 2018
+        </p>
+
+        <ul class="post-tags">
+        
+            <li class="post-tag"><a href="https://kaderovski.com/tags/freebsd">freebsd</a></li>
+        
+            <li class="post-tag"><a href="https://kaderovski.com/tags/ovh">ovh</a></li>
+        
+            <li class="post-tag"><a href="https://kaderovski.com/tags/serveur">serveur</a></li>
+        
+            <li class="post-tag"><a href="https://kaderovski.com/tags/publicloud">publicloud</a></li>
+        
+        </ul>
+    </div>
+
+    <div class="post-content">
+        <p>
+            <p>When you create an OVH Public Cloud instance under Freebsd with a certain amount of disk space, let’s say 50G, you will find that it is not applied on your partition.</p>
+<p>First let&rsquo;s look at what we have:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># gpart show
+=&gt;      40  10239920  da0  GPT  (50G) [CORRUPT]
+        40      1024    1  freebsd-boot  (512K)
+      1064       984       - free -  (492K)
+      2048  10235904    2  freebsd-zfs  (4.9G)
+  10237952      2008       - free -  (1.0M)
+</code></pre></div><p>We note that our volume da0 is tagged as CORRUPT. Don&rsquo;t panic, everyone knows that the Freebsd handbook is great. I quote:</p>
+<blockquote>
+<p>If the disk was formatted with the GPT partitioning scheme, it may show as “corrupted” because the GPT backup partition table is no longer at the end of the drive. Fix the backup partition table with gpart:</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># gpart recover ada0
+ada0 recovered
+</code></pre></div><p>Well, let&rsquo;s apply this to our server by replacing <code>ada0</code> by <code>da0</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># gpart recover da0
+da0 recovered
+</code></pre></div><p>Check :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># gpart show
+=&gt;       40  104857520  da0  GPT  (50G)
+         40       1024    1  freebsd-boot  (512K)
+       1064        984       - free -  (492K)
+       2048   10235904    2  freebsd-zfs  (4.9G)
+   10237952   94619608       - free -  (45G)
+</code></pre></div><p>Much better!
+We see that our da0 &ldquo;disk&rdquo; has 50G. However if we look more closely at our system, we see that not all the space is present.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># df -h
+Filesystem            Size    Used   Avail Capacity  Mounted on
+zroot/ROOT/default    4.7G    493M    4.2G    10%    /
+devfs                 1.0K    1.0K      0B   100%    /dev
+zroot                 4.2G     96K    4.2G     0%    /zroot
+</code></pre></div><p>Once again, don&rsquo;t panic. The handbook is our friend.</p>
+<p>Let&rsquo;s apply the 45G free on our score :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># gpart resize -i 2 -a 4k -s 50G da0
+da0p2 resized
+</code></pre></div><p>Check :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># gpart show
+=&gt;       40  104857520  da0  GPT  (50G)
+         40       1024    1  freebsd-boot  (512K)
+       1064        984       - free -  (492K)
+       2048   94371840    2  freebsd-zfs  (45G)
+   94373888   10483672       - free -  (5.0G)
+</code></pre></div><p>Well, we are moving forward, however, the space is not yet usable as the return from df :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># df -h
+Filesystem            Size    Used   Avail Capacity  Mounted on
+zroot/ROOT/default    4.7G    493M    4.2G    10%    /
+devfs                 1.0K    1.0K      0B   100%    /dev
+zroot                 4.2G     96K    4.2G     0%    /zroot
+</code></pre></div><p>We must ask to our zpool to use this space.</p>
+<p>Let’s first check our pool.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># zpool status
+  pool: zroot
+ state: ONLINE
+  scan: none requested
+config:
+
+	NAME        STATE     READ WRITE CKSUM
+	zroot       ONLINE       0     0     0
+	  da0p2     ONLINE       0     0     0
+</code></pre></div><p>Ask it we want to autoexpand on zroot</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># zpool set autoexpand=on zroot
+</code></pre></div><p>Apply it on da0p2 :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># zpool online -e zroot /dev/da0p2
+</code></pre></div><p>Last check :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># df -h
+Filesystem            Size    Used   Avail Capacity  Mounted on
+zroot/ROOT/default     44G    493M     43G     1%    /
+devfs                 1.0K    1.0K      0B   100%    /dev
+zroot                  43G     96K     43G     0%    /zroot
+</code></pre></div><p>This is it !</p>
+
+        </p>
+    </div>
+<style>
+.utterances {
+  margin-right: 10%;
+}
+</style>
+        <script src="https://utteranc.es/client.js"
+                repo="Kaderovski/blog"
+                issue-term="pathname"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+        </script>
+</div>
+
+
+
+    
+
+        </main><footer class="footer">
+    <span>&copy; 2022 Kaderovski</span>
+</footer>
+</body>
+</html>

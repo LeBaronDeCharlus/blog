@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --accent-color: #FF4D4D;
+        }
+    </style>
+
+    
+    
+    
+    
+    
+    
+
+    
+    <title>Shloader - A Modern Shell Loader</title>
+    <meta name="description" content="Some tech &amp; personal posts">
+    <meta name="keywords" content='blog, programming, kaderovski, system, projects, loader, shell, bash'>
+
+    <meta property="og:url" content="https://kaderovski.com/posts/shloader-modern-shell-loader/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Shloader - A Modern Shell Loader">
+    <meta property="og:description" content="Some tech &amp; personal posts">
+    <meta property="og:image" content="/images/shloader.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Shloader - A Modern Shell Loader">
+    <meta name="twitter:description" content="Some tech &amp; personal posts">
+    <meta property="twitter:domain" content="https://kaderovski.com/posts/shloader-modern-shell-loader/">
+    <meta property="twitter:url" content="https://kaderovski.com/posts/shloader-modern-shell-loader/">
+    <meta name="twitter:image" content="/images/shloader.png">
+
+    
+    <link rel="canonical" href="https://kaderovski.com/posts/shloader-modern-shell-loader/" />
+
+    <link rel="stylesheet" type="text/css" href="https://kaderovski.com//css/normalize.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" type="text/css" href="https://kaderovski.com//css/main.css">
+    <link disabled id="dark-theme" rel="stylesheet" href="https://kaderovski.com//css/dark.css">
+
+    <script src="https://kaderovski.com//js/svg-injector.min.js"></script>
+    <script src="https://kaderovski.com//js/feather-icons.min.js"></script>
+    <script src="https://kaderovski.com//js/main.js"></script>
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-90WT63PBHV"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-90WT63PBHV', { 'anonymize_ip': false });
+}
+</script>
+
+
+    
+    
+        <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/katex.min.css" integrity="sha384-6LkG2wmY8FK9E0vU9OOr8UvLwsaqUg9SETfpq4uTCN1agNe8HRdE9ABlk+fVx6gZ" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/katex.min.js" integrity="sha384-31El76TwmbHj4rF9DyLsygbq6xoIobG0W+jqXim+a3dU9W53tdH3A/ngRPxOzzaB" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+  
+    
+</head>
+<body>
+        <script type="text/javascript">
+            
+            setThemeByUserPref();
+        </script><header class="header">
+    <nav class="header-nav">
+
+        
+        <div class="avatar">
+            <a href="https://kaderovski.com/">
+                <img src="https://kaderovski.com/images/me.jpg" alt="avatar" />
+            </a>
+        </div>
+        
+
+        <div class="nav-title">
+            <a class="nav-brand" href="https://kaderovski.com/">Kaderovski</a>
+        </div>
+
+        <div class="nav-links">
+            
+            <div class="nav-link">
+                <a href="https://kaderovski.com/"> Home </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://kaderovski.com/posts/"> Posts </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://kaderovski.com/tags/"> Tags </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://photos.kaderovski.com"> Photos </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://kaderovski.com/cv"> CV </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://kaderovski.com/index.xml"><span data-feather='rss'></span>  </a>
+            </div>
+            
+
+            <span class="nav-icons-divider"></span>
+            <div class="nav-link dark-theme-toggle">
+                <a>
+                    <span id="theme-toggle-icon" data-feather="moon"></span>
+                </a>
+            </div>
+
+            <div class="nav-link" id="hamburger-menu-toggle">
+                <a>
+                    <span data-feather="menu"></span>
+                </a>
+            </div>
+
+            
+            <ul class="nav-hamburger-list visibility-hidden">
+                
+                <li class="nav-item">
+                    <a href="https://kaderovski.com/"> Home </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://kaderovski.com/posts/"> Posts </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://kaderovski.com/tags/"> Tags </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://photos.kaderovski.com"> Photos </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://kaderovski.com/cv"> CV </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://kaderovski.com/index.xml"><span data-feather='rss'></span>  </a>
+                </li>
+                
+                <li class="nav-item dark-theme-toggle">
+                    <a>
+                        <span id="theme-toggle-icon" data-feather="moon"></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<main id="content">
+    <div class="post container">
+    <div class="post-header-section">
+        <h1>Shloader - A Modern Shell Loader</h1>
+        <small role="doc-subtitle"></small>
+        <p class="post-date">
+            June 25, 2022
+        </p>
+
+        <ul class="post-tags">
+        
+            <li class="post-tag"><a href="https://kaderovski.com/tags/loader">loader</a></li>
+        
+            <li class="post-tag"><a href="https://kaderovski.com/tags/shell">shell</a></li>
+        
+            <li class="post-tag"><a href="https://kaderovski.com/tags/bash">bash</a></li>
+        
+        </ul>
+    </div>
+
+    <div class="post-content">
+        <p>
+            <p><img src="/images/shloader.png" alt="Shloader"></p>
+<ol>
+<li><a href="#why">Why</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#preview">Preview</a></li>
+<li><a href="#templating">Templating</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#parsing-arguments">Parsing Arguments</a></li>
+<li><a href="#shell-configurations">Shell Configurations</a></li>
+<li><a href="#trap-error-and-exit">Trap Error and Exit</a></li>
+<li><a href="#display-loader">Display Loader</a></li>
+<li><a href="#call-loader">Call Loader</a></li>
+<li><a href="#script-library-integration">Scrip Library Integration</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ol>
+<h1 id="why">Why</h1>
+<p>I&rsquo;ve been recently doing some old shell scripts to quickly automatize and distribute actions that were made manually, I&rsquo;ll write a post on it later. For now I&rsquo;d like to share with you how I&rsquo;ve been coding a 100% shell loader library to use it in my scripts.</p>
+<p>I&rsquo;ve been looking on the net for existing library, I&rsquo;ve found some interesting Github projects but it doesn&rsquo;t appear to be &ldquo;library&rdquo; ready. Furthermore, it was mostly old basic ASCII templates and I wanted to give a try to modern loaders and spinners on shell.</p>
+<p>So I ended create <a href="https://github.com/kaderovski/shloader"><code>shloader</code></a>.</p>
+<h1 id="features">Features</h1>
+<p>shloader has nice features such as :</p>
+<p>😍 emoji support</p>
+<p>💪 loader support</p>
+<p>😎 dynamic message on load step</p>
+<p>ℹ️  message on step ending</p>
+<p>🎨 multiple loading templates</p>
+<p>👌 light and easy to use on existing scripts</p>
+<h1 id="preview">Preview</h1>
+<p><img src="/images/shloader.gif" alt="Shloader"></p>
+<h1 id="templating">Templating</h1>
+<p>First of all, we need to create templates, one for each loaders that will be displayed. I&rsquo;ve decided to use shell <code>array</code> so we can work on iteration later on customs functions.</p>
+<p>So I ended with something like :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># EMOJIS</span>
+emoji_hour<span style="color:#f92672">=(</span> 0.08 <span style="color:#e6db74">&#39;🕛&#39;</span> <span style="color:#e6db74">&#39;🕐&#39;</span> <span style="color:#e6db74">&#39;🕑&#39;</span> <span style="color:#e6db74">&#39;🕒&#39;</span> <span style="color:#e6db74">&#39;🕓&#39;</span> <span style="color:#e6db74">&#39;🕔&#39;</span> <span style="color:#e6db74">&#39;🕕&#39;</span> <span style="color:#e6db74">&#39;🕖&#39;</span> <span style="color:#e6db74">&#39;🕗&#39;</span> <span style="color:#e6db74">&#39;🕘&#39;</span> <span style="color:#e6db74">&#39;🕙&#39;</span> <span style="color:#e6db74">&#39;🕚&#39;</span><span style="color:#f92672">)</span>
+emoji_face<span style="color:#f92672">=(</span> 0.08 <span style="color:#e6db74">&#39;😐&#39;</span> <span style="color:#e6db74">&#39;😀&#39;</span> <span style="color:#e6db74">&#39;😍&#39;</span> <span style="color:#e6db74">&#39;🙄&#39;</span> <span style="color:#e6db74">&#39;😒&#39;</span> <span style="color:#e6db74">&#39;😨&#39;</span> <span style="color:#e6db74">&#39;😡&#39;</span><span style="color:#f92672">)</span>
+emoji_earth<span style="color:#f92672">=(</span> 0.1 🌍 🌎 🌏 <span style="color:#f92672">)</span>
+emoji_moon<span style="color:#f92672">=(</span> 0.08 🌑 🌒 🌓 🌔 🌕 🌖 🌗 🌘 <span style="color:#f92672">)</span>
+emoji_orange_pulse<span style="color:#f92672">=(</span> 0.1 🔸 🔶 🟠 🟠 🔶 <span style="color:#f92672">)</span>
+emoji_blue_pulse<span style="color:#f92672">=(</span> 0.1 🔹 🔷 🔵 🔵 🔷 <span style="color:#f92672">)</span>
+emoji_blink<span style="color:#f92672">=(</span> 0.06 😐 😐 😐 😐 😐 😐 😐 😐 😐 😑 <span style="color:#f92672">)</span>
+emoji_camera<span style="color:#f92672">=(</span> 0.05 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📸 📷 📸 <span style="color:#f92672">)</span>
+emoji_sick<span style="color:#f92672">=(</span> 0.2 🤢 🤢 🤮 <span style="color:#f92672">)</span>
+emoji_monkey<span style="color:#f92672">=(</span> 0.2 🙉 🙈 🙊 🙈 <span style="color:#f92672">)</span>
+emoji_bomb<span style="color:#f92672">=(</span> 0.2 <span style="color:#e6db74">&#39;💣   &#39;</span> <span style="color:#e6db74">&#39; 💣  &#39;</span> <span style="color:#e6db74">&#39;  💣 &#39;</span> <span style="color:#e6db74">&#39;   💣&#39;</span> <span style="color:#e6db74">&#39;   💣&#39;</span> <span style="color:#e6db74">&#39;   💣&#39;</span> <span style="color:#e6db74">&#39;   💣&#39;</span> <span style="color:#e6db74">&#39;   💣&#39;</span> <span style="color:#e6db74">&#39;   💥&#39;</span> <span style="color:#e6db74">&#39;    &#39;</span> <span style="color:#e6db74">&#39;    &#39;</span> <span style="color:#f92672">)</span>
+<span style="color:#75715e"># ASCII</span>
+ball<span style="color:#f92672">=(</span> 0.2 <span style="color:#e6db74">&#39;(●)&#39;</span> <span style="color:#e6db74">&#39;(⚬)&#39;</span><span style="color:#f92672">)</span>
+arrow<span style="color:#f92672">=(</span> 0.06 <span style="color:#e6db74">&#39;↑&#39;</span> <span style="color:#e6db74">&#39;↗&#39;</span> <span style="color:#e6db74">&#39;→&#39;</span> <span style="color:#e6db74">&#39;↘&#39;</span> <span style="color:#e6db74">&#39;↓&#39;</span> <span style="color:#e6db74">&#39;↙&#39;</span> <span style="color:#e6db74">&#39;←&#39;</span> <span style="color:#e6db74">&#39;↖&#39;</span><span style="color:#f92672">)</span>
+cym<span style="color:#f92672">=(</span> 0.1 <span style="color:#e6db74">&#39;⊏&#39;</span> <span style="color:#e6db74">&#39;⊓&#39;</span> <span style="color:#e6db74">&#39;⊐&#39;</span> <span style="color:#e6db74">&#39;⊔&#39;</span><span style="color:#f92672">)</span>
+x_plus<span style="color:#f92672">=(</span> 0.08 <span style="color:#e6db74">&#39;×&#39;</span> <span style="color:#e6db74">&#39;+&#39;</span><span style="color:#f92672">)</span>
+line<span style="color:#f92672">=(</span> 0.08 <span style="color:#e6db74">&#39;☰&#39;</span> <span style="color:#e6db74">&#39;☱&#39;</span> <span style="color:#e6db74">&#39;☳&#39;</span> <span style="color:#e6db74">&#39;☷&#39;</span> <span style="color:#e6db74">&#39;☶&#39;</span> <span style="color:#e6db74">&#39;☴&#39;</span><span style="color:#f92672">)</span>
+ball_wave<span style="color:#f92672">=(</span> 0.1 <span style="color:#e6db74">&#39;𓃉𓃉𓃉&#39;</span> <span style="color:#e6db74">&#39;𓃉𓃉∘&#39;</span> <span style="color:#e6db74">&#39;𓃉∘°&#39;</span> <span style="color:#e6db74">&#39;∘°∘&#39;</span> <span style="color:#e6db74">&#39;°∘𓃉&#39;</span> <span style="color:#e6db74">&#39;∘𓃉𓃉&#39;</span><span style="color:#f92672">)</span>
+old<span style="color:#f92672">=(</span> 0.07 <span style="color:#e6db74">&#39;—&#39;</span> <span style="color:#e6db74">&#34;\\&#34;</span> <span style="color:#e6db74">&#39;|&#39;</span> <span style="color:#e6db74">&#39;/&#39;</span> <span style="color:#f92672">)</span>
+dots<span style="color:#f92672">=(</span> 0.04 <span style="color:#e6db74">&#39;⣾&#39;</span> <span style="color:#e6db74">&#39;⣽&#39;</span> <span style="color:#e6db74">&#39;⣻&#39;</span> <span style="color:#e6db74">&#39;⢿&#39;</span> <span style="color:#e6db74">&#39;⡿&#39;</span> <span style="color:#e6db74">&#39;⣟&#39;</span> <span style="color:#e6db74">&#39;⣯&#39;</span> <span style="color:#e6db74">&#39;⣷&#39;</span> <span style="color:#f92672">)</span>
+dots2<span style="color:#f92672">=(</span> 0.04 <span style="color:#e6db74">&#39;⠋&#39;</span> <span style="color:#e6db74">&#39;⠙&#39;</span> <span style="color:#e6db74">&#39;⠹&#39;</span> <span style="color:#e6db74">&#39;⠸&#39;</span> <span style="color:#e6db74">&#39;⠼&#39;</span> <span style="color:#e6db74">&#39;⠴&#39;</span> <span style="color:#e6db74">&#39;⠦&#39;</span> <span style="color:#e6db74">&#39;⠧&#39;</span> <span style="color:#e6db74">&#39;⠇&#39;</span> <span style="color:#e6db74">&#39;⠏&#39;</span> <span style="color:#f92672">)</span>
+dots3<span style="color:#f92672">=(</span> 0.04 <span style="color:#e6db74">&#39;⠋&#39;</span> <span style="color:#e6db74">&#39;⠙&#39;</span> <span style="color:#e6db74">&#39;⠚&#39;</span> <span style="color:#e6db74">&#39;⠞&#39;</span> <span style="color:#e6db74">&#39;⠖&#39;</span> <span style="color:#e6db74">&#39;⠦&#39;</span> <span style="color:#e6db74">&#39;⠴&#39;</span> <span style="color:#e6db74">&#39;⠲&#39;</span> <span style="color:#e6db74">&#39;⠳&#39;</span> <span style="color:#e6db74">&#39;⠓&#39;</span> <span style="color:#f92672">)</span>
+dots4<span style="color:#f92672">=(</span> 0.04 <span style="color:#e6db74">&#39;⠄&#39;</span> <span style="color:#e6db74">&#39;⠆&#39;</span> <span style="color:#e6db74">&#39;⠇&#39;</span> <span style="color:#e6db74">&#39;⠋&#39;</span> <span style="color:#e6db74">&#39;⠙&#39;</span> <span style="color:#e6db74">&#39;⠸&#39;</span> <span style="color:#e6db74">&#39;⠰&#39;</span> <span style="color:#e6db74">&#39;⠠&#39;</span> <span style="color:#e6db74">&#39;⠰&#39;</span> <span style="color:#e6db74">&#39;⠸&#39;</span> <span style="color:#e6db74">&#39;⠙&#39;</span> <span style="color:#e6db74">&#39;⠋&#39;</span> <span style="color:#e6db74">&#39;⠇&#39;</span> <span style="color:#e6db74">&#39;⠆&#39;</span> <span style="color:#f92672">)</span>
+dots5<span style="color:#f92672">=(</span> 0.04 <span style="color:#e6db74">&#39;⠋&#39;</span> <span style="color:#e6db74">&#39;⠙&#39;</span> <span style="color:#e6db74">&#39;⠚&#39;</span> <span style="color:#e6db74">&#39;⠒&#39;</span> <span style="color:#e6db74">&#39;⠂&#39;</span> <span style="color:#e6db74">&#39;⠂&#39;</span> <span style="color:#e6db74">&#39;⠒&#39;</span> <span style="color:#e6db74">&#39;⠲&#39;</span> <span style="color:#e6db74">&#39;⠴&#39;</span> <span style="color:#e6db74">&#39;⠦&#39;</span> <span style="color:#e6db74">&#39;⠖&#39;</span> <span style="color:#e6db74">&#39;⠒&#39;</span> <span style="color:#e6db74">&#39;⠐&#39;</span> <span style="color:#e6db74">&#39;⠐&#39;</span> <span style="color:#e6db74">&#39;⠒&#39;</span> <span style="color:#e6db74">&#39;⠓&#39;</span> <span style="color:#e6db74">&#39;⠋&#39;</span> <span style="color:#f92672">)</span>
+dots6<span style="color:#f92672">=(</span> 0.04 <span style="color:#e6db74">&#39;⠁&#39;</span> <span style="color:#e6db74">&#39;⠉&#39;</span> <span style="color:#e6db74">&#39;⠙&#39;</span> <span style="color:#e6db74">&#39;⠚&#39;</span> <span style="color:#e6db74">&#39;⠒&#39;</span> <span style="color:#e6db74">&#39;⠂&#39;</span> <span style="color:#e6db74">&#39;⠂&#39;</span> <span style="color:#e6db74">&#39;⠒&#39;</span> <span style="color:#e6db74">&#39;⠲&#39;</span> <span style="color:#e6db74">&#39;⠴&#39;</span> <span style="color:#e6db74">&#39;⠤&#39;</span> <span style="color:#e6db74">&#39;⠄&#39;</span> <span style="color:#e6db74">&#39;⠄&#39;</span> <span style="color:#e6db74">&#39;⠤&#39;</span> <span style="color:#e6db74">&#39;⠴&#39;</span> <span style="color:#e6db74">&#39;⠲&#39;</span> <span style="color:#e6db74">&#39;⠒&#39;</span> <span style="color:#e6db74">&#39;⠂&#39;</span> <span style="color:#e6db74">&#39;⠂&#39;</span> <span style="color:#e6db74">&#39;⠒&#39;</span> <span style="color:#e6db74">&#39;⠚&#39;</span> <span style="color:#e6db74">&#39;⠙&#39;</span> <span style="color:#e6db74">&#39;⠉&#39;</span> <span style="color:#e6db74">&#39;⠁&#39;</span> <span style="color:#f92672">)</span>
+dots7<span style="color:#f92672">=(</span> 0.04 <span style="color:#e6db74">&#39;⠈&#39;</span> <span style="color:#e6db74">&#39;⠉&#39;</span> <span style="color:#e6db74">&#39;⠋&#39;</span> <span style="color:#e6db74">&#39;⠓&#39;</span> <span style="color:#e6db74">&#39;⠒&#39;</span> <span style="color:#e6db74">&#39;⠐&#39;</span> <span style="color:#e6db74">&#39;⠐&#39;</span> <span style="color:#e6db74">&#39;⠒&#39;</span> <span style="color:#e6db74">&#39;⠖&#39;</span> <span style="color:#e6db74">&#39;⠦&#39;</span> <span style="color:#e6db74">&#39;⠤&#39;</span> <span style="color:#e6db74">&#39;⠠&#39;</span> <span style="color:#e6db74">&#39;⠠&#39;</span> <span style="color:#e6db74">&#39;⠤&#39;</span> <span style="color:#e6db74">&#39;⠦&#39;</span> <span style="color:#e6db74">&#39;⠖&#39;</span> <span style="color:#e6db74">&#39;⠒&#39;</span> <span style="color:#e6db74">&#39;⠐&#39;</span> <span style="color:#e6db74">&#39;⠐&#39;</span> <span style="color:#e6db74">&#39;⠒&#39;</span> <span style="color:#e6db74">&#39;⠓&#39;</span> <span style="color:#e6db74">&#39;⠋&#39;</span> <span style="color:#e6db74">&#39;⠉&#39;</span> <span style="color:#e6db74">&#39;⠈&#39;</span> <span style="color:#f92672">)</span>
+dots8<span style="color:#f92672">=(</span> 0.04 <span style="color:#e6db74">&#39;⠁&#39;</span> <span style="color:#e6db74">&#39;⠁&#39;</span> <span style="color:#e6db74">&#39;⠉&#39;</span> <span style="color:#e6db74">&#39;⠙&#39;</span> <span style="color:#e6db74">&#39;⠚&#39;</span> <span style="color:#e6db74">&#39;⠒&#39;</span> <span style="color:#e6db74">&#39;⠂&#39;</span> <span style="color:#e6db74">&#39;⠂&#39;</span> <span style="color:#e6db74">&#39;⠒&#39;</span> <span style="color:#e6db74">&#39;⠲&#39;</span> <span style="color:#e6db74">&#39;⠴&#39;</span> <span style="color:#e6db74">&#39;⠤&#39;</span> <span style="color:#e6db74">&#39;⠄&#39;</span> <span style="color:#e6db74">&#39;⠄&#39;</span> <span style="color:#e6db74">&#39;⠤&#39;</span> <span style="color:#e6db74">&#39;⠠&#39;</span> <span style="color:#e6db74">&#39;⠠&#39;</span> <span style="color:#e6db74">&#39;⠤&#39;</span> <span style="color:#e6db74">&#39;⠦&#39;</span> <span style="color:#e6db74">&#39;⠖&#39;</span> <span style="color:#e6db74">&#39;⠒&#39;</span> <span style="color:#e6db74">&#39;⠐&#39;</span> <span style="color:#e6db74">&#39;⠐&#39;</span> <span style="color:#e6db74">&#39;⠒&#39;</span> <span style="color:#e6db74">&#39;⠓&#39;</span> <span style="color:#e6db74">&#39;⠋&#39;</span> <span style="color:#e6db74">&#39;⠉&#39;</span> <span style="color:#e6db74">&#39;⠈&#39;</span> <span style="color:#e6db74">&#39;⠈&#39;</span> <span style="color:#f92672">)</span>
+dots9<span style="color:#f92672">=(</span> 0.04  <span style="color:#e6db74">&#39;⢹&#39;</span> <span style="color:#e6db74">&#39;⢺&#39;</span> <span style="color:#e6db74">&#39;⢼&#39;</span> <span style="color:#e6db74">&#39;⣸&#39;</span> <span style="color:#e6db74">&#39;⣇&#39;</span> <span style="color:#e6db74">&#39;⡧&#39;</span> <span style="color:#e6db74">&#39;⡗&#39;</span> <span style="color:#e6db74">&#39;⡏&#39;</span> <span style="color:#f92672">)</span>
+dots10<span style="color:#f92672">=(</span> 0.04  <span style="color:#e6db74">&#39;⢄&#39;</span> <span style="color:#e6db74">&#39;⢂&#39;</span> <span style="color:#e6db74">&#39;⢁&#39;</span> <span style="color:#e6db74">&#39;⡁&#39;</span> <span style="color:#e6db74">&#39;⡈&#39;</span> <span style="color:#e6db74">&#39;⡐&#39;</span> <span style="color:#e6db74">&#39;⡠&#39;</span> <span style="color:#f92672">)</span>
+dots11<span style="color:#f92672">=(</span> 0.04 <span style="color:#e6db74">&#39;⠁&#39;</span> <span style="color:#e6db74">&#39;⠂&#39;</span> <span style="color:#e6db74">&#39;⠄&#39;</span> <span style="color:#e6db74">&#39;⡀&#39;</span> <span style="color:#e6db74">&#39;⢀&#39;</span> <span style="color:#e6db74">&#39;⠠&#39;</span> <span style="color:#e6db74">&#39;⠐&#39;</span> <span style="color:#e6db74">&#39;⠈&#39;</span> <span style="color:#f92672">)</span>
+</code></pre></div><p>Array composition is divided in two parts, the first one is a <code>time</code> interval in seconds and the second one is the loader frame transition.</p>
+<h1 id="usage">Usage</h1>
+<p>I wanted library to be used as commands can be, by passing argument through options.</p>
+<p>First, let&rsquo;s work on default <code>usage</code> function to display to user.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">usage<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+  cat <span style="color:#e6db74">&lt;&lt;EOF
+</span><span style="color:#e6db74">Available options:
+</span><span style="color:#e6db74">-h, --help            &lt;OPTIONAL&gt;    Print this help and exit
+</span><span style="color:#e6db74">-l, --loader          &lt;OPTIONAL&gt;    Chose loader to display
+</span><span style="color:#e6db74">-m, --message         &lt;OPTIONAL&gt;    Text to display while loading
+</span><span style="color:#e6db74">-e, --ending          &lt;OPTIONAL&gt;    Text to display when finishing
+</span><span style="color:#e6db74">EOF</span>
+  exit <span style="color:#ae81ff">0</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>I wanted to define argument options as bellow :</p>
+<h4 id="display-help">Display help</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># e.g</span>
+shloader -h
+</code></pre></div><table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>-h --help</code></td>
+<td style="text-align:left"><code>none</code></td>
+<td style="text-align:left">Optional. Show help usage</td>
+</tr>
+</tbody>
+</table>
+<h4 id="chose-loader">Chose loader</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># e.g</span>
+shloader -l arrow
+</code></pre></div><table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>-l --loader</code></td>
+<td style="text-align:left"><code>string</code></td>
+<td style="text-align:left">Optional. Chose loader template</td>
+</tr>
+</tbody>
+</table>
+<h4 id="display-info-on-loading">Display info on loading</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># e.g</span>
+shloader -m <span style="color:#e6db74">&#34;my loading message&#34;</span> 
+</code></pre></div><table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>-m --message</code></td>
+<td style="text-align:left"><code>string</code></td>
+<td style="text-align:left">Optional. Show a text message while displaying loader</td>
+</tr>
+</tbody>
+</table>
+<h4 id="display-info-on-ending">Display info on ending</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># e.g</span>
+shloader -e <span style="color:#e6db74">&#34;\u2728 all done&#34;</span>
+</code></pre></div><table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>-e --end</code></td>
+<td style="text-align:left"><code>string</code></td>
+<td style="text-align:left">Optional. Show an end text message when loader ends</td>
+</tr>
+</tbody>
+</table>
+<h1 id="parsing-arguments">Parsing Arguments</h1>
+<p>In order to work on user input, it is necessary to read option content so we can modular library execution.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">shloader<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+  loader<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>
+  message<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>
+  ending<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>
+
+  <span style="color:#66d9ef">while</span> :; <span style="color:#66d9ef">do</span>
+    <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>1-<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> in
+    -h | --help<span style="color:#f92672">)</span> usage;;
+    -l | --loader<span style="color:#f92672">)</span>
+      loader<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>2-<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+      shift
+      ;;
+    -m | --message<span style="color:#f92672">)</span>
+      message<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>2-<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+      shift
+      ;;
+    -e | --ending<span style="color:#f92672">)</span>
+      ending<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>2-<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+      shift
+      ;;
+    -?*<span style="color:#f92672">)</span> die <span style="color:#e6db74">&#34;Unknown option: </span>$1<span style="color:#e6db74">&#34;</span> ;;
+    *<span style="color:#f92672">)</span> break ;;
+    <span style="color:#66d9ef">esac</span>
+    shift
+  <span style="color:#66d9ef">done</span>
+
+<span style="color:#f92672">[</span>…<span style="color:#f92672">]</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>You might notice I&rsquo;ve placed it directly in the main <code>function</code> so it will be the first element to be run.</p>
+<p>If user don&rsquo;t specify loader, we should display one as default, let&rsquo;s say <code>dots</code> one.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># shloader func</span>
+<span style="color:#f92672">[</span>…<span style="color:#f92672">]</span>
+
+  <span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> -z <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>loader<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]]</span> ; <span style="color:#66d9ef">then</span>
+    loader<span style="color:#f92672">=</span>dots<span style="color:#f92672">[</span>@<span style="color:#f92672">]</span> 
+  <span style="color:#66d9ef">else</span>
+    loader<span style="color:#f92672">=</span>$loader<span style="color:#f92672">[</span>@<span style="color:#f92672">]</span>
+  <span style="color:#66d9ef">fi</span>
+
+<span style="color:#f92672">[</span>…<span style="color:#f92672">]</span>
+</code></pre></div><p>One last thing here, I use a little custom <code>die</code> function to exit properly if option is unknown.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">die<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+  local code<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>2-1<span style="color:#e6db74">}</span>
+  exit <span style="color:#e6db74">&#34;</span>$code<span style="color:#e6db74">&#34;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h1 id="shell-configurations">Shell Configurations</h1>
+<p>We will make some quick configuration on the top header script under <code>shebang</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span><span style="color:#75715e"># https://github.com/Kaderovski/shloader</span>
+<span style="color:#75715e"># me@kaderovski.com</span>
+set -Eeuo pipefail
+trap end_shloader SIGINT SIGTERM ERR EXIT RETURN
+tput civis
+</code></pre></div><p>First, <code>set -Eeuo pipefail</code> so we can exit execution if one of the commands in the pipe fails.</p>
+<p>Then, <code>trap end_shloader SIGINT SIGTERM ERR EXIT RETURN</code> so we can call a custom function to clean our execution on exiting, stopping, errors…</p>
+<p>Finaly, <code>tput civis</code> is used to hide cursor.</p>
+<h1 id="trap-error-and-exit">Trap Error and Exit</h1>
+<p>Trap will call a custom function, but how does it work ?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">end_shloader<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+  kill <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>shloader_pid<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> &amp;&gt;/dev/null
+  tput cnorm
+  <span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>ending<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+    printf <span style="color:#e6db74">&#34;\r</span><span style="color:#e6db74">${</span>ending<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>; echo
+  <span style="color:#66d9ef">fi</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Right here I ensure first to kill loader&rsquo;s <code>PID</code> and restore cursor thanks to <code>tput cnorm</code>.</p>
+<h1 id="display-loader">Display Loader</h1>
+<p>Now we can interact with shell output to generate loading animations.</p>
+<p>Let&rsquo;s create a new function <code>play_shloader()</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">play_shloader<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">while</span> true ; <span style="color:#66d9ef">do</span>
+    <span style="color:#66d9ef">for</span> frame in <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>loader[@]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> ; <span style="color:#66d9ef">do</span>
+      printf <span style="color:#e6db74">&#34;\r%s&#34;</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>frame<span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">${</span>message<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+      sleep <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>speed<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+    <span style="color:#66d9ef">done</span>
+  <span style="color:#66d9ef">done</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Here we assume we have <code>loader</code> array we can display during time duration defined in <code>speed</code> variable (we will see it after).</p>
+<h1 id="call-loader">Call Loader</h1>
+<p>What about now ? We have all bricks to make great loaders, let&rsquo;s put them in work together !</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># shloader function</span>
+<span style="color:#f92672">[</span>…<span style="color:#f92672">]</span>
+
+  loader<span style="color:#f92672">=(</span> <span style="color:#e6db74">${</span>!loader<span style="color:#e6db74">}</span> <span style="color:#f92672">)</span>
+  speed<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>loader[0]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+  unset <span style="color:#e6db74">&#34;loader[0]&#34;</span>
+
+  tput civis
+  play_shloader &amp;
+  shloader_pid<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>!<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+
+<span style="color:#f92672">[</span>…<span style="color:#f92672">]</span>
+</code></pre></div><p>What is done here ?</p>
+<p>We first print <code>loader</code> array content we save in <code>loader</code> variable. We know first element in array is time duration, so we save it in <code>speed</code> variable.</p>
+<p>Now we have split array, we can remove time duration as it is now under <code>speed</code> variable.
+We then hide cursor, call our <code>play_shloader</code> function and save <code>PID</code>.</p>
+<p>You can find the <a href="https://github.com/Kaderovski/shloader/blob/main/lib/shloader.sh">Full Library Code</a></p>
+<h1 id="script-library-integration">Script Library Integration</h1>
+<p>Nothing hard here !</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">source ./lib/shloader.sh
+
+shloader -l emoji_hour -m <span style="color:#e6db74">&#34;Testing&#34;</span> -e <span style="color:#e6db74">&#34;✨ All good !&#34;</span> 
+
+  sleep <span style="color:#ae81ff">2</span>   <span style="color:#75715e"># remove it in your code</span>
+  <span style="color:#75715e"># … your logic goes here</span>
+
+end_shloader
+</code></pre></div><p>With more details :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">!/bin/bash
+
+<span style="color:#75715e"># if you want to try just add this block code in your code </span>
+source ./lib/shloader.sh
+
+<span style="color:#75715e"># you can chose (see more in lib/loader.sh):</span>
+<span style="color:#75715e"># ball, arrow, cym, x_plus, line, ball_wave, npm and old.</span>
+<span style="color:#75715e"># you can specify message to display during loading</span>
+<span style="color:#75715e"># and message to display after your code finished</span>
+
+<span style="color:#75715e"># eg with npm style</span>
+<span style="color:#75715e"># notice end message -e use unicode emoji to display</span>
+<span style="color:#75715e"># this is for better terminal support</span>
+<span style="color:#75715e"># \u2728 == ✨ but you can use emoji if your settings support it !</span>
+shloader -l emoji_face -m <span style="color:#e6db74">&#34;Testing&#34;</span> -e <span style="color:#e6db74">&#34;\u2728 All good !&#34;</span> 
+  sleep <span style="color:#ae81ff">2</span>   <span style="color:#75715e"># remove it in your code</span>
+
+  <span style="color:#75715e"># … your logic goes here</span>
+  <span style="color:#75715e"># if you want to hide some output from loader</span>
+  <span style="color:#75715e"># don&#39;t forget to redirect your STD*</span>
+  <span style="color:#75715e">#</span>
+  <span style="color:#75715e"># eg :</span>
+  <span style="color:#75715e"># STDOUT</span>
+  <span style="color:#75715e"># my_cmd 1&gt; /dev/null</span>
+  <span style="color:#75715e"># STDERR</span>
+  <span style="color:#75715e"># my_cmd 2&gt; /dev/null</span>
+  <span style="color:#75715e"># BOTH</span>
+  <span style="color:#75715e"># my_cmd &amp;&gt; /dev/null</span>
+
+<span style="color:#75715e"># stop loader</span>
+end_shloader
+</code></pre></div><h1 id="conclusion">Conclusion</h1>
+<p>As all things useless… it may become mandatory 😂.</p>
+
+        </p>
+    </div>
+<style>
+.utterances {
+  margin-right: 10%;
+}
+</style>
+        <script src="https://utteranc.es/client.js"
+                repo="Kaderovski/blog"
+                issue-term="pathname"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+        </script>
+</div>
+
+<aside class="post-toc">
+    <nav id="toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#why">Why</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#preview">Preview</a></li>
+    <li><a href="#templating">Templating</a></li>
+    <li><a href="#usage">Usage</a>
+      <ul>
+        <li>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#parsing-arguments">Parsing Arguments</a></li>
+    <li><a href="#shell-configurations">Shell Configurations</a></li>
+    <li><a href="#trap-error-and-exit">Trap Error and Exit</a></li>
+    <li><a href="#display-loader">Display Loader</a></li>
+    <li><a href="#call-loader">Call Loader</a></li>
+    <li><a href="#script-library-integration">Script Library Integration</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+    </nav>
+</aside>
+
+
+
+    
+
+        </main><footer class="footer">
+    <span>&copy; 2022 Kaderovski</span>
+</footer>
+</body>
+</html>

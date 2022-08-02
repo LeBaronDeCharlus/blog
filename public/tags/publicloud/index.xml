@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>publicloud on Kaderovski</title>
+    <link>https://kaderovski.com/tags/publicloud/</link>
+    <description>Recent content in publicloud on Kaderovski</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© Kaderovski</copyright>
+    <lastBuildDate>Sun, 04 Mar 2018 14:56:33 +0000</lastBuildDate><atom:link href="https://kaderovski.com/tags/publicloud/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Freebsd Pci Disk Space</title>
+      <link>https://kaderovski.com/posts/freebsd-pci-disk-space/</link>
+      <pubDate>Sun, 04 Mar 2018 14:56:33 +0000</pubDate>
+      
+      <guid>https://kaderovski.com/posts/freebsd-pci-disk-space/</guid>
+      <description>When you create an OVH Public Cloud instance under Freebsd with a certain amount of disk space, let’s say 50G, you will find that it is not applied on your partition.
+First let&amp;rsquo;s look at what we have:
+# gpart show =&amp;gt; 40 10239920 da0 GPT (50G) [CORRUPT] 40 1024 1 freebsd-boot (512K) 1064 984 - free - (492K) 2048 10235904 2 freebsd-zfs (4.9G) 10237952 2008 - free - (1.0M) We note that our volume da0 is tagged as CORRUPT.</description>
+    </item>
+    
+  </channel>
+</rss>

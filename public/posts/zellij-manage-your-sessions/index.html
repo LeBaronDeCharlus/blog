@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --accent-color: #FF4D4D;
+        }
+    </style>
+
+    
+    
+    
+    
+    
+    
+
+    
+    <title>Manage your Zellij sessions</title>
+    <meta name="description" content="Some tech &amp; personal posts">
+    <meta name="keywords" content='blog, programming, kaderovski, system, projects, zellij, sessions, shell'>
+
+    <meta property="og:url" content="https://kaderovski.com/posts/zellij-manage-your-sessions/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Manage your Zellij sessions">
+    <meta property="og:description" content="Some tech &amp; personal posts">
+    <meta property="og:image" content="/images/zellij.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Manage your Zellij sessions">
+    <meta name="twitter:description" content="Some tech &amp; personal posts">
+    <meta property="twitter:domain" content="https://kaderovski.com/posts/zellij-manage-your-sessions/">
+    <meta property="twitter:url" content="https://kaderovski.com/posts/zellij-manage-your-sessions/">
+    <meta name="twitter:image" content="/images/zellij.png">
+
+    
+    <link rel="canonical" href="https://kaderovski.com/posts/zellij-manage-your-sessions/" />
+
+    <link rel="stylesheet" type="text/css" href="https://kaderovski.com//css/normalize.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" type="text/css" href="https://kaderovski.com//css/main.css">
+    <link disabled id="dark-theme" rel="stylesheet" href="https://kaderovski.com//css/dark.css">
+
+    <script src="https://kaderovski.com//js/svg-injector.min.js"></script>
+    <script src="https://kaderovski.com//js/feather-icons.min.js"></script>
+    <script src="https://kaderovski.com//js/main.js"></script>
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-90WT63PBHV"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-90WT63PBHV', { 'anonymize_ip': false });
+}
+</script>
+
+
+    
+    
+        <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/katex.min.css" integrity="sha384-6LkG2wmY8FK9E0vU9OOr8UvLwsaqUg9SETfpq4uTCN1agNe8HRdE9ABlk+fVx6gZ" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/katex.min.js" integrity="sha384-31El76TwmbHj4rF9DyLsygbq6xoIobG0W+jqXim+a3dU9W53tdH3A/ngRPxOzzaB" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+  
+    
+</head>
+<body>
+        <script type="text/javascript">
+            
+            setThemeByUserPref();
+        </script><header class="header">
+    <nav class="header-nav">
+
+        
+        <div class="avatar">
+            <a href="https://kaderovski.com/">
+                <img src="https://kaderovski.com/images/me.jpg" alt="avatar" />
+            </a>
+        </div>
+        
+
+        <div class="nav-title">
+            <a class="nav-brand" href="https://kaderovski.com/">Kaderovski</a>
+        </div>
+
+        <div class="nav-links">
+            
+            <div class="nav-link">
+                <a href="https://kaderovski.com/"> Home </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://kaderovski.com/posts/"> Posts </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://kaderovski.com/tags/"> Tags </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://photos.kaderovski.com"> Photos </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://kaderovski.com/cv"> CV </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://kaderovski.com/index.xml"><span data-feather='rss'></span>  </a>
+            </div>
+            
+
+            <span class="nav-icons-divider"></span>
+            <div class="nav-link dark-theme-toggle">
+                <a>
+                    <span id="theme-toggle-icon" data-feather="moon"></span>
+                </a>
+            </div>
+
+            <div class="nav-link" id="hamburger-menu-toggle">
+                <a>
+                    <span data-feather="menu"></span>
+                </a>
+            </div>
+
+            
+            <ul class="nav-hamburger-list visibility-hidden">
+                
+                <li class="nav-item">
+                    <a href="https://kaderovski.com/"> Home </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://kaderovski.com/posts/"> Posts </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://kaderovski.com/tags/"> Tags </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://photos.kaderovski.com"> Photos </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://kaderovski.com/cv"> CV </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://kaderovski.com/index.xml"><span data-feather='rss'></span>  </a>
+                </li>
+                
+                <li class="nav-item dark-theme-toggle">
+                    <a>
+                        <span id="theme-toggle-icon" data-feather="moon"></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<main id="content">
+    <div class="post container">
+    <div class="post-header-section">
+        <h1>Manage your Zellij sessions</h1>
+        <small role="doc-subtitle"></small>
+        <p class="post-date">
+            July 12, 2022
+        </p>
+
+        <ul class="post-tags">
+        
+            <li class="post-tag"><a href="https://kaderovski.com/tags/zellij">zellij</a></li>
+        
+            <li class="post-tag"><a href="https://kaderovski.com/tags/sessions">sessions</a></li>
+        
+            <li class="post-tag"><a href="https://kaderovski.com/tags/shell">shell</a></li>
+        
+        </ul>
+    </div>
+
+    <div class="post-content">
+        <p>
+            <img src="/images/zellij.png" width="50%">
+<p>Quick post on great <code>Zellij</code> tool I&rsquo;ve been using for some weeks now in <code>Tmux</code> replacement.</p>
+<p>I&rsquo;ve been missing to manage my <code>sessions</code> on multiplexer init while starting a new <code>shell</code> or <code>terminal</code> so I&rsquo;ve ended creating a quick feature to manage it on startup.</p>
+<h3 id="dependencies">Dependencies</h3>
+<p>You need <a href="https://github.com/lotabout/skim" target="_blank">sk</a> binary installed and in your <code>$PATH</code> and of course <a href="https://github.com/zellij-org/zellij/" target="_blank">zellij</a>.</p>
+<h3 id="demo">Demo</h3>
+<p><img src="/images/sessions.gif" alt="Zellij Sessions"></p>
+<h3 id="installation">Installation</h3>
+<p>Add this block at the end of your <code>$SHELLrc</code> file <i>(tested with BASH and ZSH)</i> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ZJ_SESSIONS<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>zellij list-sessions<span style="color:#66d9ef">)</span>
+NO_SESSIONS<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>ZJ_SESSIONS<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> | wc -l<span style="color:#66d9ef">)</span>
+
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;{</span>$ZELLIJ<span style="color:#e6db74">}&#34;</span> <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">[</span> -z <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>ZELLIJ_SESSION_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+  echo -ne <span style="color:#e6db74">&#34;Active Zellij sessions :\n&#34;</span>
+  <span style="color:#66d9ef">for</span> i in <span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>ZJ_SESSIONS<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span>; <span style="color:#66d9ef">do</span> echo -ne <span style="color:#e6db74">&#34;*</span><span style="color:#e6db74">${</span>i<span style="color:#e6db74">}</span><span style="color:#e6db74">\n&#34;</span>; <span style="color:#66d9ef">done</span>
+  echo -ne <span style="color:#e6db74">&#39;\n&#39;</span>
+  read REPLY<span style="color:#ae81ff">\?</span><span style="color:#e6db74">&#34;New zellij session [y/n] ? &#34;</span>
+  <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>REPLY<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;y&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    read SESS<span style="color:#ae81ff">\?</span><span style="color:#e6db74">&#34;Session name : &#34;</span>
+    zellij --layout compact attach -c <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>SESS<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+  <span style="color:#66d9ef">else</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>NO_SESSIONS<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> -ge <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+      zellij --layout compact attach <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>      <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>ZJ_SESSIONS<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> | sk<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+    <span style="color:#66d9ef">else</span>
+    <span style="color:#66d9ef">fi</span>
+  <span style="color:#66d9ef">fi</span>
+<span style="color:#66d9ef">fi</span>
+</code></pre></div><h3 id="contributing">Contributing</h3>
+<p>Feel free to fork and contribute.</p>
+<p><a href="https://github.com/Kaderovski/zellij-sessions" target="_blank">Sources are here.</a></p>
+
+        </p>
+    </div>
+<style>
+.utterances {
+  margin-right: 10%;
+}
+</style>
+        <script src="https://utteranc.es/client.js"
+                repo="Kaderovski/blog"
+                issue-term="pathname"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+        </script>
+</div>
+
+
+
+    
+
+        </main><footer class="footer">
+    <span>&copy; 2022 Kaderovski</span>
+</footer>
+</body>
+</html>
