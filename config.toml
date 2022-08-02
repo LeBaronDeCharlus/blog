@@ -73,8 +73,8 @@ googleAnalytics = 'G-90WT63PBHV'
     weight = 3
 
   [[menu.main]]
-    name = "Photos"
-    url = "https://photos.kaderovski.com"
+    name = "Photography"
+    url = "/photography/"
     weight = 5
   
   [[menu.main]]
