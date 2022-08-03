@@ -743,7 +743,7 @@ div.thumbnail img {
     }
 
     div.thumbnail {
-        border: 5px solid #000000;
+        /* border: 5px solid #000000; */
     }
 
     .thumbnail-size-sm div.thumbnail {
