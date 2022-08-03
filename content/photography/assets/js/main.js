@@ -85,8 +85,7 @@ function init(){
             LR.images[i].caption = "";
         }
         // Create the individual thumbnail partial
-        //LR.images[i].$thumbnail = $('<div class="thumbnail not-loaded" data-large-img="images/large/'+ LR.images[i].exportFilename +'.jpg" data-id="ID'+ LR.images[i].id +'" data-title="' + LR.images[i].title + '" data-caption="' + LR.images[i].caption + '" data-native-width="' + LR.images[i].largeWidth + '" data-native-height="' + LR.images[i].largeHeight + '"><img class="thumb-img" src="" /></div>');
-        LR.images[i].$thumbnail = $('<div class="thumbnail" data-large-img="images/large/'+ LR.images[i].exportFilename +'.jpg" data-id="ID'+ LR.images[i].id +'" data-title="' + LR.images[i].title + '" data-caption="' + LR.images[i].caption + '" data-native-width="' + LR.images[i].largeWidth + '" data-native-height="' + LR.images[i].largeHeight + '"><img class="thumb-img" src="" /></div>');
+        LR.images[i].$thumbnail = $('<div class="thumbnail not-loaded" data-large-img="images/large/'+ LR.images[i].exportFilename +'.jpg" data-id="ID'+ LR.images[i].id +'" data-title="' + LR.images[i].title + '" data-caption="' + LR.images[i].caption + '" data-native-width="' + LR.images[i].largeWidth + '" data-native-height="' + LR.images[i].largeHeight + '"><img class="thumb-img" src="" /></div>');
         LR.images[i].$thumbnail.data("index", i);
         // Isolate the actual thumbnail image
         LR.images[i].$thumbnailImg = $(LR.images[i].$thumbnail.find("img")[0]);
@@ -320,8 +319,8 @@ function init(){
                 "background-position"   : "center center"
             }
         );
-        // $el.css("display", "none");
-        // $el.parent().removeClass("not-loaded");
+        $el.css("display", "none");
+        $el.parent().removeClass("not-loaded");
         if(_thumbsToLoad > 0){
             _thumbsToLoad--;
         }
