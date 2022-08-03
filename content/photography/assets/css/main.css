@@ -337,9 +337,9 @@ div.thumbnail:hover {
     margin-bottom: 16px;
 }
 
-div.thumbnail.not-loaded {
-    display: none;
-}
+/* div.thumbnail.not-loaded { */
+/*     display: none; */
+/* } */
 
 div.thumbnail img {
     display: block;
