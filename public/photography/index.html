@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Galerie Lightroom</title>
+        <title>Through my eyes</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="assets/css/normalize.css">
@@ -14,17 +14,55 @@
         <link rel="stylesheet" type="text/css" media="screen" title="Custom Settings" href="assets/css/custom.css" >
         <script src="assets/js/libs/modernizr.custom.23122.js"></script>
     </head>
-    <body class=" row-spacing-lg" data-pagination-style="scroll" data-target-row-height="300">
-                        <div id="thumbnailContainer">
-            <div class="thumbnails"></div>
+    <body class="has-header" data-pagination-style="none">
+                        <header class="">
+            <div class="background"></div>
+            <div class="meta-left">
+                <p id="galleryTitle" class="title">Through my eyes</p>
+                                <p id="galleryAuthor" class="author">by <a id="galleryAuthorURL" href="https://kaderovski.com" target="_blank">Kaderovski</a></p>
+                            </div>
+            <div class="meta-right">
+                <p class="extra" id="galleryExtra"></p>
+            </div>
+            <div id="buttonFullscreen" title="Fullscreen Mode">
+                <div class="icon">
+                    <svg version="1.1" id="svgIconFullscreen" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 18 16" style="enable-background:new 0 0 18 16;" xml:space="preserve">
+                    <g>
+                        <path class="custom-colorable" d="M5.3871,9.95599C5.19136,9.76858,4.99176,9.85763,4.79376,10.0472l-2.86173,2.74138v-1.55466
+                            c0-0.25257-0.21387-0.45733-0.47767-0.45733H0.47767C0.21387,10.7766,0,10.98136,0,11.23393v3.37367v0.93511
+                            C0,15.79524,0.21387,16,0.47767,16h0.97668h3.5238c0.26377,0,0.47764-0.20476,0.47764-0.45729v-0.93511
+                            c0-0.25254-0.21387-0.45733-0.47764-0.45733H3.34554l2.86694-2.7451c0.198-0.18957,0.30914-0.44923,0.11342-0.63664L5.3871,9.95599
+                            z"/>
+                        <path class="custom-colorable" d="M17.52233,10.7766h-0.97672c-0.26377,0-0.47764,0.20476-0.47764,0.45733v1.55466l-2.86172-2.74138
+                            c-0.198-0.18957-0.39764-0.27862-0.59335-0.09121l-0.93879,0.81254c-0.19575,0.18741-0.08458,0.44707,0.11342,0.63664
+                            l2.8669,2.7451h-1.63258c-0.26377,0-0.47764,0.20479-0.47764,0.45733v0.93511c0,0.25254,0.21387,0.45729,0.47764,0.45729h3.52376
+                            h0.97672C17.7861,16,18,15.79524,18,15.54271v-0.93511v-3.37367C18,10.98136,17.7861,10.7766,17.52233,10.7766z"/>
+                        <path class="custom-colorable" d="M3.34554,1.84973h1.63262c0.26377,0,0.47764-0.20479,0.47764-0.45733V0.45733C5.45579,0.20476,5.24193,0,4.97815,0h-3.5238
+                            H0.47767C0.21387,0,0,0.20476,0,0.45733v0.93508v3.3737C0,5.01864,0.21387,5.2234,0.47767,5.2234h0.97668
+                            c0.26381,0,0.47767-0.20476,0.47767-0.45729V3.21142L4.79376,5.9528c0.198,0.18957,0.3976,0.27862,0.59335,0.09121l0.93879-0.81254
+                            C6.52161,5.04409,6.41048,4.7844,6.21247,4.59483L3.34554,1.84973z"/>
+                        <path class="custom-colorable" d="M17.52233,0h-0.97672h-3.52376c-0.26377,0-0.47764,0.20476-0.47764,0.45733v0.93508
+                            c0,0.25254,0.21387,0.45733,0.47764,0.45733h1.63258l-2.8669,2.7451c-0.19801,0.18957-0.30917,0.44926-0.11342,0.63663
+                            l0.93879,0.81254c0.19571,0.18741,0.39535,0.09836,0.59335-0.09121l2.86172-2.74138V4.7661
+                            c0,0.25254,0.21387,0.45729,0.47764,0.45729h0.97672C17.7861,5.2234,18,5.01864,18,4.7661v-3.3737V0.45733
+                            C18,0.20476,17.7861,0,17.52233,0z"/>
+                    </g>
+                    </svg>
+                </div>
+            </div>
+        </header>
+                <div id="thumbnailContainer">
+            <div class="thumbnails thumbnail-size-md"></div>
         </div>
         <div id="loupeContainer" class="show-corners">
             <div class="background"></div>
-            <div class="image-container"></div>    
+            <div class="image-container"></div>
             <div class="side-navigation">
                 <div class="hotspot" id="hotspotPrevLoupe">
                     <div class="button" id="buttonPrevSideLoupe">
-                        <svg version="1.1" baseProfile="basic" id="svgIconPrevSideLoupe" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="50px" height="50px" viewBox="0 0 50 50" xml:space="preserve"><path class="icon custom-colorable" fill="#231F20" d="M0,0l0,50h50V0L0,0z M18.491,25.05l9.707-9.264c0.418-0.399,1.092-0.403,1.506-0.008l1.498,1.43c0.413,0.395,0.41,1.039-0.009,1.438l-6.765,6.456l6.613,6.31c0.41,0.392,0.414,1.024,0.008,1.412l-1.471,1.404c-0.406,0.387-1.068,0.384-1.479-0.008l-6.612-6.311L18.491,25.05z"/></svg>
+                        <svg version="1.1" baseProfile="basic" id="svgIconPrevSideLoupe" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="50px" height="50px" viewBox="0 0 50 50" xml:space="preserve">
+                            <path class="icon custom-colorable" fill="#231F20" d="M0,0l0,50h50V0L0,0z M18.49,25.05l9.707-9.264c0.418-0.399,1.093-0.403,1.506-0.008l1.498,1.43 c0.414,0.395,0.41,1.039-0.009,1.438l-6.765,6.456l6.613,6.31c0.411,0.392,0.414,1.024,0.008,1.412l-1.471,1.404 c-0.406,0.387-1.069,0.384-1.479-0.008l-6.612-6.311L18.49,25.05z"/>
+                        </svg>
                     </div>
                 </div>
                 <div class="hotspot" id="hotspotNextLoupe">
@@ -35,7 +73,8 @@
                     </div>
                 </div>
             </div>
-            <div class="lateral-nav-container">
+            <div class="info-container">
+                <div id="loupeMeta"></div>
                 <ul class="lateral-nav">
                     <li id="buttonPrev">
                         <svg version="1.1" id="svgIconPrevLoupe" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 45 45" style="enable-background:new 0 0 45 45;" xml:space="preserve">
@@ -60,9 +99,6 @@
                     </li>
                 </ul>
             </div>
-            <div class="info-container">
-                <div id="loupeMeta"></div>
-            </div>
             <div id="loupeCloseButton">
                 <svg version="1.1" id="svgIconLoupeClose" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                      viewBox="0 0 45 45" style="enable-background:new 0 0 45 45;" xml:space="preserve">
@@ -76,31 +112,43 @@
         </div>
         <script type="text/javascript">
             var LR = LR || {};
-            LR.images = [                                                                                        {"id": "2196", "largeWidth": "798", "largeHeight": "1200", "exportFilename": "DSC_5711", "title": "", "caption" : ""},
-                         {"id": "2195", "largeWidth": "1200", "largeHeight": "1200", "exportFilename": "DSC_5093", "title": "", "caption" : ""},
-                         {"id": "4312", "largeWidth": "1200", "largeHeight": "797", "exportFilename": "DSC_4834", "title": "", "caption" : ""},
-                         {"id": "4311", "largeWidth": "1200", "largeHeight": "798", "exportFilename": "DSC_4777", "title": "", "caption" : ""},
-                         {"id": "4310", "largeWidth": "1200", "largeHeight": "798", "exportFilename": "DSC_4735", "title": "", "caption" : ""},
-                         {"id": "4309", "largeWidth": "799", "largeHeight": "1200", "exportFilename": "DSC_4732", "title": "", "caption" : ""},
-                         {"id": "4308", "largeWidth": "1200", "largeHeight": "798", "exportFilename": "DSC_4704", "title": "", "caption" : ""},
-                         {"id": "4307", "largeWidth": "1200", "largeHeight": "799", "exportFilename": "DSC_4699", "title": "", "caption" : ""},
-                         {"id": "4306", "largeWidth": "799", "largeHeight": "1200", "exportFilename": "DSC_4634", "title": "", "caption" : ""},
-                         {"id": "4305", "largeWidth": "1200", "largeHeight": "799", "exportFilename": "DSC_4625", "title": "", "caption" : ""},
-                         {"id": "4304", "largeWidth": "1200", "largeHeight": "798", "exportFilename": "DSC_4603", "title": "", "caption" : ""},
-                         {"id": "4303", "largeWidth": "798", "largeHeight": "1200", "exportFilename": "DSC_4599", "title": "", "caption" : ""},
-                         {"id": "4302", "largeWidth": "1200", "largeHeight": "799", "exportFilename": "DSC_4584", "title": "", "caption" : ""},
-                         {"id": "4301", "largeWidth": "798", "largeHeight": "1200", "exportFilename": "DSC_4579", "title": "", "caption" : ""},
-                         {"id": "4300", "largeWidth": "798", "largeHeight": "1200", "exportFilename": "DSC_4539", "title": "", "caption" : ""},
-                         {"id": "4299", "largeWidth": "1200", "largeHeight": "798", "exportFilename": "DSC_4535", "title": "", "caption" : ""},
-                         {"id": "4298", "largeWidth": "1200", "largeHeight": "713", "exportFilename": "DSC_4531", "title": "", "caption" : ""},
-                         {"id": "4297", "largeWidth": "798", "largeHeight": "1200", "exportFilename": "DSC_4527", "title": "", "caption" : ""},
-                         {"id": "4296", "largeWidth": "1200", "largeHeight": "798", "exportFilename": "DSC_4509", "title": "", "caption" : ""},
-                         {"id": "4295", "largeWidth": "1200", "largeHeight": "799", "exportFilename": "DSC_4493", "title": "", "caption" : ""},
-                         {"id": "1455", "largeWidth": "1200", "largeHeight": "798", "exportFilename": "DSC_4299", "title": "", "caption" : ""},
+            LR.images = [                                                                                        {"id": "2196", "exportFilename": "DSC_5711", "title": "", "caption" : ""},
+                         {"id": "2195", "exportFilename": "DSC_5093", "title": "", "caption" : ""},
+                         {"id": "4312", "exportFilename": "DSC_4834", "title": "", "caption" : ""},
+                         {"id": "4311", "exportFilename": "DSC_4777", "title": "", "caption" : ""},
+                         {"id": "4310", "exportFilename": "DSC_4735", "title": "", "caption" : ""},
+                         {"id": "4309", "exportFilename": "DSC_4732", "title": "", "caption" : ""},
+                         {"id": "4308", "exportFilename": "DSC_4704", "title": "", "caption" : ""},
+                         {"id": "4307", "exportFilename": "DSC_4699", "title": "", "caption" : ""},
+                         {"id": "4306", "exportFilename": "DSC_4634", "title": "", "caption" : ""},
+                         {"id": "4305", "exportFilename": "DSC_4625", "title": "", "caption" : ""},
+                         {"id": "4304", "exportFilename": "DSC_4603", "title": "", "caption" : ""},
+                         {"id": "4303", "exportFilename": "DSC_4599", "title": "", "caption" : ""},
+                         {"id": "4302", "exportFilename": "DSC_4584", "title": "", "caption" : ""},
+                         {"id": "4301", "exportFilename": "DSC_4579", "title": "", "caption" : ""},
+                         {"id": "4300", "exportFilename": "DSC_4539", "title": "", "caption" : ""},
+                         {"id": "4299", "exportFilename": "DSC_4535", "title": "", "caption" : ""},
+                         {"id": "4298", "exportFilename": "DSC_4531", "title": "", "caption" : ""},
+                         {"id": "4297", "exportFilename": "DSC_4527", "title": "", "caption" : ""},
+                         {"id": "4296", "exportFilename": "DSC_4509", "title": "", "caption" : ""},
+                         {"id": "4295", "exportFilename": "DSC_4493", "title": "", "caption" : ""},
+                         {"id": "1455", "exportFilename": "DSC_4299", "title": "", "caption" : ""},
+                         {"id": "6320", "exportFilename": "DSC_3626", "title": "", "caption" : ""},
+                         {"id": "6319", "exportFilename": "DSC_3592", "title": "", "caption" : ""},
+                         {"id": "6318", "exportFilename": "DSC_3590", "title": "", "caption" : ""},
+                         {"id": "6317", "exportFilename": "DSC_3383", "title": "", "caption" : ""},
+                         {"id": "5406", "exportFilename": "DSC_1882", "title": "", "caption" : ""},
+                         {"id": "5405", "exportFilename": "DSC_1871", "title": "", "caption" : ""},
+                         {"id": "5404", "exportFilename": "DSC_0936", "title": "", "caption" : ""},
+                         {"id": "5403", "exportFilename": "factory", "title": "", "caption" : ""},
+                         {"id": "5402", "exportFilename": "DSC_0866", "title": "", "caption" : ""},
+                         {"id": "5401", "exportFilename": "DSC_0865", "title": "", "caption" : ""},
+                         {"id": "6113", "exportFilename": "DSC_0821", "title": "", "caption" : ""},
+                         {"id": "5400", "exportFilename": "DSC_0817", "title": "", "caption" : ""},
+                         {"id": "5399", "exportFilename": "DSC_0812", "title": "", "caption" : ""},
                                     ]        </script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="assets/js/libs/jquery-1.10.2.min.js"><\/script>')</script>
-        <script src="assets/js/libs/jquery.velocity.min.js"></script>
         <script src="assets/js/main.js"></script>
     </body>
 </html>

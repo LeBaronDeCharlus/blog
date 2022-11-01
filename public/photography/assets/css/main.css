@@ -10,6 +10,14 @@ img {
     vertical-align: middle;
 }
 
+.scrollbar-measure {
+    width: 100px;
+    height: 100px;
+    overflow: scroll;
+    position: absolute;
+    top: -9999px;
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -18,17 +26,13 @@ html, body {
    -webkit-font-smoothing: antialiased; 
 }
 
-body {
-    overflow-x: hidden;
-}
-
 body.loupe-active {
     overflow: hidden;
 }
 
 header {
     display: none;
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     margin: 0;
@@ -69,6 +73,7 @@ header div.background {
 }
 
 header div.meta-left {
+    position: static;
     width: 50%;
     float: left;
     padding-left: 20px;
@@ -78,6 +83,7 @@ header div.meta-left {
 }
 
 header div.meta-right {
+    position: static;
     width: 50%;
     float: right;
     padding-right: 6px;
@@ -89,7 +95,7 @@ header div.meta-right {
 header p.title {
     position: relative;
     margin: 0;
-    padding: 0 0 0 2px;
+    padding: 0;
     font-size: 24px;
     text-align: left;
     font-weight: bold;
@@ -101,12 +107,27 @@ header p.title {
 }
 
 header p.author {
-    position: relative;
-    margin: 2.5em 0 0 0;
-    padding: 0 0 0 2px;
-    color: #999999;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    padding: 0;
     font-size: 12px;
     text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+header p.extra {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    text-align: right;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -118,26 +139,6 @@ header a {
 
 header a:hover {
     opacity: .75;
-}
-
-header ul.gallery-meta {
-    display: block;
-    margin: -15px 0 0 0;
-    padding: 0;
-    list-style-type: none;
-
-    -webkit-transition: all .2s ease-out;
-    -moz-transition: all .2s ease-out;
-    -ms-transition: all .2s ease-out;
-    -o-transition: all .2s ease-out;
-    transition: all .2s ease-out;
-}
-
-header ul.gallery-meta li {
-    display: block;
-    float: right;
-    font-size: 14px;
-    line-height: 40px;
 }
 
 .scrolled header.is-fixed {
@@ -163,13 +164,11 @@ header ul.gallery-meta li {
     margin: .25em 0 0 0;
 }
 
-.scrolled header.is-fixed ul.gallery-meta {
-    margin: 0;
-}
-
 #buttonFullscreen {
+    position: absolute;
+    top: 10px;
+    right: 10px;
     display: none;
-    position: relative;
     width: 40px;
     height: 40px;
     cursor: pointer;
@@ -263,7 +262,7 @@ header ul.gallery-meta li {
 
 #thumbnailContainer {
     position: relative;
-    padding: 0px;
+    padding: 0px 0px 0px 0px;
     width: 100%;
    -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -271,21 +270,8 @@ header ul.gallery-meta li {
     font-size: 0;
 }
 
-.row-spacing-sm #thumbnailContainer {
-    padding-top: 2px;
-}
-
-.row-spacing-md #thumbnailContainer {
-    padding-top: 8px;
-}
-
-.row-spacing-lg #thumbnailContainer {
-    padding-top: 16px;
-}
-
 .has-header #thumbnailContainer {
     position: relative;
-    padding: 114px 0px 0px 0px;
     width: 100%;
    -moz-box-sizing: border-box;
     box-sizing: border-box; 
@@ -295,22 +281,27 @@ div.thumbnails {
     overflow: hidden;
     margin: 0 auto;
    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    text-align: center;
+    box-sizing: border-box;  
 }
 
 div.thumbnail {
     position: relative;
-    display:inline-block;
+    display:block;
+    float: left;
+    width: 20%;
+    height: 20%;
+    padding-bottom: 20%;
    -moz-box-sizing: border-box;
     box-sizing: border-box;
     cursor: pointer;
+    background-size: cover;
+    background-position: 50% 50%;
 
-   -webkit-transition: -webkit-box-shadow .03s ease-in;
-   -moz-transition: -moz-box-shadow .03s ease-in;
-   -ms-transition: box-shadow .03s ease-in;
-   -o-transition: box-shadow .03s ease-in;
-    transition: box-shadow .03s ease-in; 
+   -webkit-transition: all .1s ease-in;
+   -moz-transition: all .1s ease-in;
+   -ms-transition: all .1s ease-in;
+   -o-transition: all .1s ease-in;
+    transition: all .1s ease-in; 
 }
 
 div.thumbnail:hover {
@@ -318,27 +309,47 @@ div.thumbnail:hover {
    -webkit-box-shadow: inset 0 0 100px rgba(0, 0, 0, .4);   
     box-shadow: inset 0 0 100px rgba(0, 0, 0, .4);
 
-   -webkit-transition: all .03s ease-out;
-   -moz-transition: all .03s ease-out;
-   -ms-transition: all .03s ease-out;
-   -o-transition: all .03s ease-out;
-    transition: all .03s ease-out;  
+   -webkit-transition: all .1s ease-out;
+   -moz-transition: all .1s ease-out;
+   -ms-transition: all .1s ease-out;
+   -o-transition: all .1s ease-out;
+    transition: all .1s ease-out;  
 }
 
-.row-spacing-sm div.thumbnail {
-    margin-bottom: 2px;
+.thumbnail-size-sm div.thumbnail {
+    width: 12.5%;
+    height: 12.5%;
+    padding-bottom: 12.5%;
 }
 
-.row-spacing-md div.thumbnail {
-    margin-bottom: 8px;
+.thumbnail-size-md div.thumbnail {
+    width: 20%;
+    height: 20%;
+    padding-bottom: 20%;
 }
 
-.row-spacing-lg div.thumbnail {
-    margin-bottom: 16px;
+.thumbnail-size-lg div.thumbnail {
+    width: 25%;
+    height: 25%;
+    padding-bottom: 25%;
 }
 
-div.thumbnail.not-loaded {
-    display: none;
+div.thumbnail div.image-container {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+div.thumbnail div.image-container div.image {
+    display: table-cell;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+   -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: middle;
+    text-align: center;
 }
 
 div.thumbnail img {
@@ -361,18 +372,14 @@ div.thumbnail img {
     position: fixed;
     top: 0;
     left: 0;
-    padding: 45px 45px 180px 45px;
+    padding: 45px 45px 100px 45px;
     width: 100%;
     height: 100%;
    -moz-box-sizing: border-box;
     box-sizing: border-box;
     z-index: 2;
-    font-size: 14px;
+    font-size: 12px;
     text-align: center;
-}
-
-#loupeContainer.meta-empty {
-    padding: 45px;
 }
 
 #loupeContainer div.background {
@@ -416,17 +423,7 @@ div.thumbnail img {
     box-sizing: border-box;
 }
 
-#loupeContainer div.lateral-nav-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 45px;
-    overflow: hidden;
-    text-align: center;
-}
-
-#loupeContainer ul.lateral-nav {
+#loupeContainer ul {
     display: inline-block;
     margin: 0;
     padding: 0;
@@ -439,14 +436,6 @@ div.thumbnail img {
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 180px;
-    padding: 20px;
-   -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-#loupeContainer.meta-empty div.info-container {
-    display: none;
 }
 
 #loupeContainer div.side-navigation {
@@ -660,98 +649,28 @@ div.thumbnail img {
     fill: #a0a0a0;
 }
 
-@media screen and (max-width: 1280px) {
-
-    #loupeContainer {
-        padding: 45px 45px 150px 45px;
-        font-size: 13px;
-    }
-    
-    #loupeContainer div.info-container {
-        height: 150px;
-    }
-
-    #loupeMeta p.title {
-        margin: 0 auto 10px auto;
-        width: 75%;
-        max-height: 2.6em;
-        overflow: hidden;
-        font-size: 1.3em;
-        font-weight: bold;
-        line-height: 1.3em;
-    }
-
-    #loupeMeta p.caption {
-        margin: 0 auto;
-        padding: 0;
-        width: 75%;
-        max-height: 5.1em;
-        overflow: hidden;
-        line-height: 1.3em;
-    }
-
-}
-
-@media screen and (max-width: 960px) {
-
-    #loupeContainer {
-        padding: 45px 45px 120px 45px;
-        font-size: 12px;
-    }
-
-    #loupeContainer div.info-container {
-        height: 120px;
-    }
-
-    #loupeMeta p.title {
-        width: 85%;
-        max-height: 2.6em;
-        overflow: hidden;
-        font-size: 1.1em;
-    }
-
-    #loupeMeta p.caption {
-        width: 85%;
-        max-height: 5.2em;
-        overflow: hidden;
-    }
-
-}
-
 @media screen and (max-width: 768px) {
 
     header p.title {
         font-size: 18px;
     }
 
-    .has-header #thumbnailContainer {
-        padding: 100px 0 0 0;
+    .thumbnail-size-sm div.thumbnail {
+        width: 20%;
+        height: 20%;
+        padding-bottom: 20%;
     }
 
-    #loupeContainer {
-        padding: 45px 35px 100px 35px;
-        font-size: 11px;
+    .thumbnail-size-md div.thumbnail {
+        width: 25%;
+        height: 25%;
+        padding-bottom: 25%;
     }
 
-    #loupeContainer div.info-container {
-        height: 100px;
-    }
-
-    #loupeMeta p.title {
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        width: 100%;
-        box-sizing: border-box;
-        overflow: hidden;
-        font-size: 1em;
-    }
-
-    #loupeMeta p.caption {
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        width: 100%;
-        box-sizing: border-box;
-        overflow: hidden;
+    .thumbnail-size-lg div.thumbnail {
+        width: 50%;
+        height: 50%;
+        padding-bottom: 50%;
     }
 
 }
@@ -770,16 +689,25 @@ div.thumbnail img {
     }
 
     header div.meta-right {
+        padding: 20px 20px 0 20px;
         width: 100%;
     }
 
-    header p.title,
     header p.author {
-
+        position: relative;
+        top: 0;
+        left: 0;
+        margin-top: 0;
     }
 
-    header p.author {
-        margin-top: .5em;
+    header p.extra {
+        position: relative;
+        bottom: inherit;
+        right: inherit;
+        width: 100%;
+        text-align: left;
+        white-space: normal;
+        overflow: visible;
     }
 
     .scrolled header.is-fixed {
@@ -810,29 +738,30 @@ div.thumbnail img {
         display: none;
     }
 
-    #loupeContainer {
-        padding: 45px 20px 80px 20px;
-        font-size: 11px;
+    #thumbnailContainer {
+        padding: 5px;
     }
 
-    #loupeContainer div.info-container {
-        height: 80px;
+    div.thumbnail {
+        /* border: 5px solid #000000; */
     }
 
-    #loupeMeta p.title {
-        white-space: nowrap;
-        text-overflow: ellipsis;
+    .thumbnail-size-sm div.thumbnail {
+        width: 33.3333%;
+        height: 33.3333%;
+        padding-bottom: 33.3333%;
+    }
+
+    .thumbnail-size-md div.thumbnail {
+        width: 50%;
+        height: 50%;
+        padding-bottom: 50%;
+    }
+
+    .thumbnail-size-lg div.thumbnail {
         width: 100%;
-        box-sizing: border-box;
-        overflow: hidden;
-    }
-
-    #loupeMeta p.caption {
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        width: 100%;
-        box-sizing: border-box;
-        overflow: hidden;
+        height: 100%;
+        padding-bottom: 100%;
     }
 
 }

@@ -21,8 +21,8 @@ pre {
 > whoami && uptime
     Kaderovski
     Software & System Engineer
-    Uptime : 27 years
-    Professional Experience : +7 years
+    Uptime : 28 years
+    Professional Experience : +8 years
 
 > describeme()
     Mail : jobs@kaderovski.com
@@ -67,7 +67,7 @@ pre {
     [Freebsd, RedHat(+forks), VoidLinux, Arch, Gentoo, Debian(+forks)]
 
 > skills.programming()
-    [REGEX, Python(2/3), Perl, Golang, PHP(5.*,7), Shell, Lua, Yaml, Toml, Json, Html5/Css3, Jinja2]
+    [REGEX, Python(2/3), Django, DRF, Perl, Golang, PHP(5.*,7), Shell, Lua, Yaml, Toml, Json, Html5/Css3, Jinja2]
 
 > skills.technologies()
     [Git, Ansible, Docker, Django, LXC, Vmware, ZFS, KVM, Proxmox, OpenVZ, OpenStack, Nutanix, Zabbix, Munin, Nagios, Shinken, SQL, Mariadb, PostgreSQL, Varnish, Nginx, Apache, HA-Proxy, Pfsense, Juniper, Openfire, Logstash, Elastisearch, Kibana, Filebeat, Swarm, Kubernetes, Rancher, Traefik, Terraform, RabbitMQ, Redis, GlusterFS, OpsGenie, Cloud-Init, Okta, ArgoCD, CircleCI, Sops, Slack]
@@ -82,9 +82,35 @@ pre {
 ###############
 # Experiences #
 ###############
+> Tarmakk()
+    Founder {
+        When : 2022
+        Description : Tarmakk is a SaaS software that allows you to get rid of monolithic tasks to properly onboard your employees. 
+}
+
+> Inleaf()
+  Founder {
+      When : 2022
+      Description : Inleaf is a great, Jamf compatible (but not only), SaaS assets management tool. Get your assets in one place, follow their lifecycle, your stock, and get your KPIs in time !
+
+}
+
 > Payfit()
+    Engineering Manager{
+      When : Sep 2022 & Today
+      Corp Security Team.
+      Devs & Automation & Security projects
+
+      Missions :
+          - Lead technical roadmap
+          - Train engineering team
+          - Solve complexe issue
+          - Improve Payfit security
+
+      - Technologies used : [Python, Shell, Linux, Django, Oauth2, Redis, Docker, Aws]
+      }
     Senior Software & System Engineer{
-	When : Sep 2021 & Today
+        When : Sep 2021 & Sep 2022
         Corp IT Security Team.
         Devs & Security projects.
 
