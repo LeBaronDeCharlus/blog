@@ -1,53 +1,63 @@
 {{ define "main" }}
 <section class="home-about">
-        <div class="avatar">
-        {{ if isset .Site.Params "avatarurl" }}
-        <img class={{ .Site.Params.AvatarSize | default "size-m" }} src='{{ .Site.BaseURL }}{{ .Site.Params.AvatarURL }}'>
-        {{ end }}
-        </div>
-    <h1>{{ .Site.Title }}</h1>
-    <h4>Founder @<a href="https://tarmakk.com" target="_blank">Tarmakk</a></h4>
-    <h4>Founder @<a href="https://inleaf.io" target="_blank">Inleaf</a></h4>
-    <h4>Engineering Technical Manager @<a href="https://payfit.com" target="_blank">Payfit</a></h4>
-    <h5>GPG : <code>F1912FA9</code></h5>
-    <h5>Living with the most incredible woman <a href="https://sassie.me" target="_blank">Sassie</a> 🐝</h5>
-    <!--<h3>{{ .Site.Params.Description }}</h3>-->
+  <div class="avatar">
+    {{ if isset .Site.Params "avatarurl" }} <img class={{
+    .Site.Params.AvatarSize | default "size-m" }} src='{{ .Site.BaseURL }}{{
+    .Site.Params.AvatarURL }}'> {{ end }}
+  </div>
+  <h1>{{ .Site.Title }}</h1>
+  <h4>
+    Founder @<a href="https://tarmakk.com" target="_blank">Tarmakk</a> & @<a
+      href="https://inleaf.io"
+      target="_blank"
+      >Inleaf</a
+    >
+  </h4>
+  <h4>
+    Engineering Technical Manager @<a href="https://payfit.com" target="_blank"
+      >Payfit</a
+    >
+  </h4>
+  <h5>GPG : <code>F1912FA9</code></h5>
+  <h5>
+    Living with the most incredible woman
+    <a href="https://sassie.me" target="_blank">Sassie</a> 🐝
+  </h5>
+  <!--<h3>{{ .Site.Params.Description }}</h3>-->
+  <h4>
+    <a href="https://cal.com/kaderovski/30min" target="_blank"
+      >Book me a meeting !</a
+    >
+  </h4>
 </section>
 
 <div class="flex-break"></div>
 
 {{ if isset .Site.Params "socialicons" }}
 <section class="social-icons">
-    <ul class="social-icons-list">
-        {{ range .Site.Params.SocialIcons }}
-        <li class="social-icon">
-            <a href="{{ .url }}">
-                <img class="svg-inject" src="{{ .Site.BaseURL }}/icons/{{ .name }}.svg" />
-            </a>
-        </li>
-        {{ end }}
-    </ul>
-</section>
-{{ end }}
-
-{{ if isset .Site.Params "showpostsonhomepage" }}
-
-    <div class="home-posts list-posts">
-        <h2>{{ .Site.Params.ShowPostsOnHomePage | humanize }} Posts</h2>
-
-    {{ $posts := where .Site.Pages "Params.type" "post" }}
-
-    {{ if eq .Site.Params.ShowPostsOnHomePage "popular" }}
-        {{ range $posts.ByWeight | first 4 }}
-            {{- partial "list-posts.html" . -}}
-        {{ end }}
-    {{ else if eq .Site.Params.ShowPostsOnHomePage "recent" }}
-        {{ range $posts.ByDate.Reverse | first 4 }}
-            {{- partial "list-posts.html" . -}}
-        {{ end }}
+  <ul class="social-icons-list">
+    {{ range .Site.Params.SocialIcons }}
+    <li class="social-icon">
+      <a href="{{ .url }}">
+        <img
+          class="svg-inject"
+          src="{{ .Site.BaseURL }}/icons/{{ .name }}.svg"
+        />
+      </a>
+    </li>
     {{ end }}
-    </div>
+  </ul>
+</section>
+{{ end }} {{ if isset .Site.Params "showpostsonhomepage" }}
 
-{{ end }}
+<div class="home-posts list-posts">
+  <h2>{{ .Site.Params.ShowPostsOnHomePage | humanize }} Posts</h2>
 
-{{ end }}
+  {{ $posts := where .Site.Pages "Params.type" "post" }} {{ if eq
+  .Site.Params.ShowPostsOnHomePage "popular" }} {{ range $posts.ByWeight | first
+  4 }} {{- partial "list-posts.html" . -}} {{ end }} {{ else if eq
+  .Site.Params.ShowPostsOnHomePage "recent" }} {{ range $posts.ByDate.Reverse |
+  first 4 }} {{- partial "list-posts.html" . -}} {{ end }} {{ end }}
+</div>
+
+{{ end }} {{ end }}
