@@ -11,7 +11,7 @@ defaultContentLanguage = "en"
 pygmentsstyle = "github"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
-
+hideMadeWithLine = true
 #paginate=3 # articles per page
 
 [markup]
