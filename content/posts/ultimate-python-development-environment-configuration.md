@@ -426,10 +426,10 @@ Key does not expire at all
 Is this correct? (y/N) y
 
 Real name: Kader Ovski
-Email address: me@decharlus.sh
+Email address: me@lebaron.sh
 Comment: 
 You selected this USER-ID:
-    "Kader Ovski <me@decharlus.sh>"
+    "Kader Ovski <me@lebaron.sh>"
 
 Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O
 
@@ -442,7 +442,7 @@ gpg: key 0854057891EFB8F0 marked as ultimately trusted
 
 pub   rsa3072 2022-06-10 [SC]
       DC3EC748A8D97169F47C16690854057891EFB8F0
-uid                      Kader Ovski <me@decharlus.sh>
+uid                      Kader Ovski <me@lebaron.sh>
 sub   rsa3072 2022-06-10 [E]
 ```
 
@@ -457,7 +457,7 @@ $HOME/.gnupg/pubring.kbx
 ------------------------
 pub   rsa3072 2022-06-10 [SC]
       DC3EC748A8D97169F47C16690854057891EFB8F0
-uid           [ultimate] Kader Ovski <me@decharlus.sh>
+uid           [ultimate] Kader Ovski <me@lebaron.sh>
 sub   rsa3072 2022-06-10 [E]
 ```
 
@@ -485,25 +485,25 @@ Password store initialized for DC3EC748A8D97169F47C16690854057891EFB8F0
 
 Let's insert our first password :
 ```shell
-λ ~/ pass insert decharlus.sh/blog/some_secret
-mkdir: created directory '$HOME/.password-store/decharlus.sh'
-mkdir: created directory '$HOME/.password-store/decharlus.sh/blog'
-Enter password for decharlus.sh/blog/some_secret: 
-Retype password for decharlus.sh/blog/some_secret: 
+λ ~/ pass insert lebaron.sh/blog/some_secret
+mkdir: created directory '$HOME/.password-store/lebaron.sh'
+mkdir: created directory '$HOME/.password-store/lebaron.sh/blog'
+Enter password for lebaron.sh/blog/some_secret: 
+Retype password for lebaron.sh/blog/some_secret: 
 ```
 
 Our password is now store in our `pass` :
 ```shell
 λ ~/ pass
 Password Store
-`-- decharlus.sh
+`-- lebaron.sh
     `-- blog
         `-- some_secret
 ```
 
 You can get your secret by typing and entering your gpg secret passphrase :
 ```shell
-λ ~/ pass show decharlus.sh/blog/some_secret
+λ ~/ pass show lebaron.sh/blog/some_secret
 my_secret
 ```
 
@@ -572,13 +572,13 @@ When opening our `tomb` we are decrypting our password database :
 ```shell
 λ ~/ pass ; tree .password-store/
 Password Store
-├── decharlus.sh
+├── lebaron.sh
 │   └── blog
 │       └── some_secret.gpg
 
 λ ~/ tree .password-store/            
 .password-store/
-├── decharlus.sh
+├── lebaron.sh
 │   └── blog
 │       └── some_secret.gpg
 ```
@@ -618,7 +618,7 @@ if ! stat $HOME/.password-store/.gpg-id > /dev/null 2>&1 ; then
 fi
 
 # THEN PUT SECRET IN ENV
-export MY_SECRET=$(pass show decharlus.sh/blog/some_secret)
+export MY_SECRET=$(pass show lebaron.sh/blog/some_secret)
 ```
 
 We can now reload our `direnv`.
@@ -684,7 +684,7 @@ if ! stat $HOME/.password-store/.gpg-id > /dev/null 2>&1 ; then
 fi
 
 # THEN PUT SECRET IN ENV
-export MY_SECRET=$(pass show decharlus.sh/blog/some_secret)
+export MY_SECRET=$(pass show lebaron.sh/blog/some_secret)
 
 # CHECKING COMMANDS DEPENDENCIES
 DIRENV_CMD_DEPENDENCIES="unzip tar mkdir curl chmod rm"
@@ -732,7 +732,7 @@ if ! stat $HOME/.password-store/.gpg-id > /dev/null 2>&1 ; then
 fi
 
 # THEN PUT SECRET IN ENV
-export MY_SECRET=$(pass show decharlus.sh/blog/some_secret)
+export MY_SECRET=$(pass show lebaron.sh/blog/some_secret)
 
 # CHECKING COMMANDS DEPENDENCIES
 DIRENV_CMD_DEPENDENCIES="unzip tar mkdir curl chmod rm"
@@ -782,7 +782,7 @@ if ! stat $HOME/.password-store/.gpg-id > /dev/null 2>&1 ; then
 fi
 
 # THEN PUT SECRET IN ENV
-export MY_SECRET=$(pass show decharlus.sh/blog/some_secret)
+export MY_SECRET=$(pass show lebaron.sh/blog/some_secret)
 
 # CHECKING COMMANDS DEPENDENCIES
 DIRENV_CMD_DEPENDENCIES="unzip tar mkdir curl chmod rm"
@@ -905,7 +905,7 @@ if ! stat $HOME/.password-store/.gpg-id > /dev/null 2>&1 ; then
 fi
 
 # THEN PUT SECRET IN ENV
-export MY_SECRET=$(pass show decharlus.sh/blog/some_secret)
+export MY_SECRET=$(pass show lebaron.sh/blog/some_secret)
 
 # CHECKING COMMANDS DEPENDENCIES
 DIRENV_CMD_DEPENDENCIES="unzip tar mkdir curl chmod rm"

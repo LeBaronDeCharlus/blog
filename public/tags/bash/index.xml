@@ -2,36 +2,36 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>bash on Le Baron de Charlus</title>
-    <link>https://lebraon.sh/tags/bash/</link>
+    <link>https://lebaron.sh/tags/bash/</link>
     <description>Recent content in bash on Le Baron de Charlus</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© Le Baron de Charlus</copyright>
-    <lastBuildDate>Sat, 25 Jun 2022 18:03:17 +0200</lastBuildDate><atom:link href="https://lebraon.sh/tags/bash/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Jun 2022 18:03:17 +0200</lastBuildDate><atom:link href="https://lebaron.sh/tags/bash/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Shloader - A Modern Shell Loader</title>
-      <link>https://lebraon.sh/posts/shloader-modern-shell-loader/</link>
+      <link>https://lebaron.sh/posts/shloader-modern-shell-loader/</link>
       <pubDate>Sat, 25 Jun 2022 18:03:17 +0200</pubDate>
       
-      <guid>https://lebraon.sh/posts/shloader-modern-shell-loader/</guid>
+      <guid>https://lebaron.sh/posts/shloader-modern-shell-loader/</guid>
       <description>Why Features Preview Templating Usage Parsing Arguments Shell Configurations Trap Error and Exit Display Loader Call Loader Scrip Library Integration Conclusion Why I&amp;rsquo;ve been recently doing some old shell scripts to quickly automatize and distribute actions that were made manually, I&amp;rsquo;ll write a post on it later. For now I&amp;rsquo;d like to share with you how I&amp;rsquo;ve been coding a 100% shell loader library to use it in my scripts.</description>
     </item>
     
     <item>
       <title>Script restart services</title>
-      <link>https://lebraon.sh/posts/script-restart-services/</link>
+      <link>https://lebaron.sh/posts/script-restart-services/</link>
       <pubDate>Fri, 18 Aug 2017 22:29:53 +0200</pubDate>
       
-      <guid>https://lebraon.sh/posts/script-restart-services/</guid>
+      <guid>https://lebaron.sh/posts/script-restart-services/</guid>
       <description>Sometimes, we find ourselves having to pilote infrastructures services supported by panels managements and &amp;hellip; between us, I have a holy horror of Plesk, Cpanel, Ispconfig, Webmin &amp;hellip; Especially when under certain circumstances some components are falling down. It&amp;rsquo;s often badly done and messy that it&amp;rsquo;s difficult to find your way around. Between abobinable logs management (yes, I already found php logs in syslog), a non-existent server optimization&amp;hellip; well I stop here because it is not the purpose of this post.</description>
     </item>
     
     <item>
       <title>Online servers availability</title>
-      <link>https://lebraon.sh/posts/online-servers/</link>
+      <link>https://lebaron.sh/posts/online-servers/</link>
       <pubDate>Tue, 01 Aug 2017 09:40:07 +0000</pubDate>
       
-      <guid>https://lebraon.sh/posts/online-servers/</guid>
+      <guid>https://lebaron.sh/posts/online-servers/</guid>
       <description>We need servers at Online, but there is no availability! So they came to ask me if I didn&amp;rsquo;t have a magic solution&amp;hellip;
 A little bash&amp;hellip; a notify in this case Slack and here we go!
 As usual sources are available.

@@ -14,7 +14,7 @@
 <meta property="og:title" content="Shloader - A Modern Shell Loader" />
 <meta property="og:description" content="Why Features Preview Templating Usage Parsing Arguments Shell Configurations Trap Error and Exit Display Loader Call Loader Scrip Library Integration Conclusion Why I&rsquo;ve been recently doing some old shell scripts to quickly automatize and distribute actions that were made manually, I&rsquo;ll write a post on it later. For now I&rsquo;d like to share with you how I&rsquo;ve been coding a 100% shell loader library to use it in my scripts." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://lebraon.sh/posts/shloader-modern-shell-loader/" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://lebaron.sh/posts/shloader-modern-shell-loader/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-06-25T18:03:17+02:00" />
 <meta property="article:modified_time" content="2022-06-25T18:03:17+02:00" />
 
@@ -249,7 +249,7 @@
 <h1 id="why">Why</h1>
 <p>I&rsquo;ve been recently doing some old shell scripts to quickly automatize and distribute actions that were made manually, I&rsquo;ll write a post on it later. For now I&rsquo;d like to share with you how I&rsquo;ve been coding a 100% shell loader library to use it in my scripts.</p>
 <p>I&rsquo;ve been looking on the net for existing library, I&rsquo;ve found some interesting Github projects but it doesn&rsquo;t appear to be &ldquo;library&rdquo; ready. Furthermore, it was mostly old basic ASCII templates and I wanted to give a try to modern loaders and spinners on shell.</p>
-<p>So I ended create <a href="https://github.com/lebarondecharlus/shloader"><code>shloader</code></a>.</p>
+<p>So I ended create <a href="https://github.com/lebaronlebaron.shloader"><code>shloader</code></a>.</p>
 <h1 id="features">Features</h1>
 <p>shloader has nice features such as :</p>
 <p>😍 emoji support</p>
@@ -435,8 +435,8 @@
 </span></span></code></pre></div><h1 id="shell-configurations">Shell Configurations</h1>
 <p>We will make some quick configuration on the top header script under <code>shebang</code>.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/bash
-</span></span></span><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic"></span><span style="color:#998;font-style:italic"># https://github.com/lebarondecharlus/shloader</span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># me@decharlus.sh</span>
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic"></span><span style="color:#998;font-style:italic"># https://github.com/lebaronlebaron.shloader</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># me@lebaron.sh</span>
 </span></span><span style="display:flex;"><span><span style="color:#0086b3">set</span> -Eeuo pipefail
 </span></span><span style="display:flex;"><span><span style="color:#0086b3">trap</span> end_shloader SIGINT SIGTERM ERR EXIT RETURN
 </span></span><span style="display:flex;"><span>tput civis
@@ -483,7 +483,7 @@
 <p>We first print <code>loader</code> array content we save in <code>loader</code> variable. We know first element in array is time duration, so we save it in <code>speed</code> variable.</p>
 <p>Now we have split array, we can remove time duration as it is now under <code>speed</code> variable.
 We then hide cursor, call our <code>play_shloader</code> function and save <code>PID</code>.</p>
-<p>You can find the <a href="https://github.com/lebarondecharlus/shloader/blob/main/lib/shloader.sh">Full Library Code</a></p>
+<p>You can find the <a href="https://github.com/lebaronlebaron.shloader/blob/main/lib/shloader.sh">Full Library Code</a></p>
 <h1 id="script-library-integration">Script Library Integration</h1>
 <p>Nothing hard here !</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#0086b3">source</span> ./lib/shloader.sh
@@ -532,11 +532,11 @@ We then hide cursor, call our <code>play_shloader</code> function and save <code
 </content>
 <p>
   
-  <a href="https://lebraon.sh/tags/loader/">#loader</a>
+  <a href="https://lebaron.sh/tags/loader/">#loader</a>
   
-  <a href="https://lebraon.sh/tags/shell/">#shell</a>
+  <a href="https://lebaron.sh/tags/shell/">#shell</a>
   
-  <a href="https://lebraon.sh/tags/bash/">#bash</a>
+  <a href="https://lebaron.sh/tags/bash/">#bash</a>
   
 </p>
 

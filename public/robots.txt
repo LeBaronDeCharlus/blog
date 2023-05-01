@@ -1,2 +1,2 @@
 User-Agent: *
-Sitemap: https://lebraon.sh/sitemap.xml
+Sitemap: https://lebaron.sh/sitemap.xml
