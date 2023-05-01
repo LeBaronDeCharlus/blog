@@ -14,18 +14,18 @@ pre {
 }
 </style>
 
-<pre>
+```
 ###########
 # Hello ! #
 ###########
 > whoami && uptime
-    Kaderovski
+    Le Baron de Charlus
     Software & System Engineer
     Uptime : 28 years
     Professional Experience : +8 years
 
 > describeme()
-    Mail : jobs@kaderovski.com
+    Mail : jobs@decharlus.sh
     Nationality : French
     Languages : [French, English, Spanish, Greek, Chti]
     Countries where I lived : [France, Bulgaria, Cyprus, Congo, Kuwait]
@@ -219,6 +219,6 @@ pre {
     English/Thai boxer, Crossfit trainer, Climbing.
 
 > myworks.websites()
-    kaderovski.com
+    decharlus.sh
     pronostix.fr # as admin - founder and dev by <a href='https://www.linkedin.com/in/na%C3%ABl-abou-chahine/' target='_blank'>NABC</a> 
-</pre>
+```

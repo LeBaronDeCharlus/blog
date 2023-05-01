@@ -1,197 +1,260 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
 
-    <style>
-        :root {
-            --accent-color: #FF4D4D;
-        }
-    </style>
-
-    
-    
-    
-    
-    
-    
-
-    
-    <title>Online servers availability</title>
-    <meta name="description" content="Some tech &amp; personal posts">
-    <meta name="keywords" content='blog, programming, kaderovski, system, projects, bash, online, serveur, linux'>
-
-    <meta property="og:url" content="https://kaderovski.com/posts/online-servers/">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Online servers availability">
-    <meta property="og:description" content="Some tech &amp; personal posts">
-    <meta property="og:image" content="images/me.jpg">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Online servers availability">
-    <meta name="twitter:description" content="Some tech &amp; personal posts">
-    <meta property="twitter:domain" content="https://kaderovski.com/posts/online-servers/">
-    <meta property="twitter:url" content="https://kaderovski.com/posts/online-servers/">
-    <meta name="twitter:image" content="images/me.jpg">
-
-    
-    <link rel="canonical" href="https://kaderovski.com/posts/online-servers/" />
-
-    <link rel="stylesheet" type="text/css" href="https://kaderovski.com//css/normalize.min.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" type="text/css" href="https://kaderovski.com//css/main.css">
-    <link disabled id="dark-theme" rel="stylesheet" href="https://kaderovski.com//css/dark.css">
-
-    <script src="https://kaderovski.com//js/svg-injector.min.js"></script>
-    <script src="https://kaderovski.com//js/feather-icons.min.js"></script>
-    <script src="https://kaderovski.com//js/main.js"></script>
-
-    
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-90WT63PBHV"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-90WT63PBHV', { 'anonymize_ip': false });
-}
-</script>
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Online servers availability | Le Baron de Charlus</title>
+<meta name="title" content="Online servers availability" />
+<meta name="description" content="We need servers at Online, but there is no availability! So they came to ask me if I didn&rsquo;t have a magic solution&hellip;
+A little bash&hellip; a notify in this case Slack and here we go!
+As usual sources are available.
+Dirty way *To be alerted via slack you have to create an incoming-webhook which will generate a link.
+For an XC 2016 series server:
+text=&quot;DISPO : https://www.online.net/fr/serveur-dedie/dedibox-xc&quot;; json=&quot;{\&quot;channel\&quot;: \&quot;#infra\&quot;, \&quot;text\&quot;: \&quot;$text\&quot;}&quot; ; while true ; do curl --silent https://www." />
+<meta name="keywords" content="bash,online,serveur,linux," />
 
 
-    
-    
-        <!-- KaTeX -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/katex.min.css" integrity="sha384-6LkG2wmY8FK9E0vU9OOr8UvLwsaqUg9SETfpq4uTCN1agNe8HRdE9ABlk+fVx6gZ" crossorigin="anonymous">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/katex.min.js" integrity="sha384-31El76TwmbHj4rF9DyLsygbq6xoIobG0W+jqXim+a3dU9W53tdH3A/ngRPxOzzaB" crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
-        onload="renderMathInElement(document.body);"></script>
-  
-    
+<meta property="og:title" content="Online servers availability" />
+<meta property="og:description" content="We need servers at Online, but there is no availability! So they came to ask me if I didn&rsquo;t have a magic solution&hellip;
+A little bash&hellip; a notify in this case Slack and here we go!
+As usual sources are available.
+Dirty way *To be alerted via slack you have to create an incoming-webhook which will generate a link.
+For an XC 2016 series server:
+text=&quot;DISPO : https://www.online.net/fr/serveur-dedie/dedibox-xc&quot;; json=&quot;{\&quot;channel\&quot;: \&quot;#infra\&quot;, \&quot;text\&quot;: \&quot;$text\&quot;}&quot; ; while true ; do curl --silent https://www." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lebraon.sh/posts/online-servers/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-08-01T09:40:07+00:00" />
+<meta property="article:modified_time" content="2017-08-01T09:40:07+00:00" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Online servers availability"/>
+<meta name="twitter:description" content="We need servers at Online, but there is no availability! So they came to ask me if I didn&rsquo;t have a magic solution&hellip;
+A little bash&hellip; a notify in this case Slack and here we go!
+As usual sources are available.
+Dirty way *To be alerted via slack you have to create an incoming-webhook which will generate a link.
+For an XC 2016 series server:
+text=&quot;DISPO : https://www.online.net/fr/serveur-dedie/dedibox-xc&quot;; json=&quot;{\&quot;channel\&quot;: \&quot;#infra\&quot;, \&quot;text\&quot;: \&quot;$text\&quot;}&quot; ; while true ; do curl --silent https://www."/>
+
+
+
+<meta itemprop="name" content="Online servers availability">
+<meta itemprop="description" content="We need servers at Online, but there is no availability! So they came to ask me if I didn&rsquo;t have a magic solution&hellip;
+A little bash&hellip; a notify in this case Slack and here we go!
+As usual sources are available.
+Dirty way *To be alerted via slack you have to create an incoming-webhook which will generate a link.
+For an XC 2016 series server:
+text=&quot;DISPO : https://www.online.net/fr/serveur-dedie/dedibox-xc&quot;; json=&quot;{\&quot;channel\&quot;: \&quot;#infra\&quot;, \&quot;text\&quot;: \&quot;$text\&quot;}&quot; ; while true ; do curl --silent https://www."><meta itemprop="datePublished" content="2017-08-01T09:40:07+00:00" />
+<meta itemprop="dateModified" content="2017-08-01T09:40:07+00:00" />
+<meta itemprop="wordCount" content="233">
+<meta itemprop="keywords" content="bash,online,serveur,linux," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
 </head>
+
 <body>
-        <script type="text/javascript">
-            
-            setThemeByUserPref();
-        </script><header class="header">
-    <nav class="header-nav">
+  <header><a href="/" class="title">
+  <h2>Le Baron de Charlus</h2>
+</a>
+<nav><a href="/">Home</a>
 
-        
-        <div class="avatar">
-            <a href="https://kaderovski.com/">
-                <img src="https://kaderovski.com/images/me.jpg" alt="avatar" />
-            </a>
-        </div>
-        
+<a href="/posts/">Posts</a>
 
-        <div class="nav-title">
-            <a class="nav-brand" href="https://kaderovski.com/">Kaderovski</a>
-        </div>
+<a href="/tags/">Tags</a>
 
-        <div class="nav-links">
-            
-            <div class="nav-link">
-                <a href="https://kaderovski.com/"> Home </a>
-            </div>
-            
-            <div class="nav-link">
-                <a href="https://kaderovski.com/posts/"> Posts </a>
-            </div>
-            
-            <div class="nav-link">
-                <a href="https://kaderovski.com/tags/"> Tags </a>
-            </div>
-            
-            <div class="nav-link">
-                <a href="https://kaderovski.com/photography/"> Photography </a>
-            </div>
-            
-            <div class="nav-link">
-                <a href="https://kaderovski.com/cv"> CV </a>
-            </div>
-            
-            <div class="nav-link">
-                <a href="https://kaderovski.com/index.xml"><span data-feather='rss'></span>  </a>
-            </div>
-            
+<a href="/photography/">Photography</a>
 
-            <span class="nav-icons-divider"></span>
-            <div class="nav-link dark-theme-toggle">
-                <a>
-                    <span id="theme-toggle-icon" data-feather="moon"></span>
-                </a>
-            </div>
+<a href="/cv">CV</a>
 
-            <div class="nav-link" id="hamburger-menu-toggle">
-                <a>
-                    <span data-feather="menu"></span>
-                </a>
-            </div>
+<a href="/index.xml"></a>
 
-            
-            <ul class="nav-hamburger-list visibility-hidden">
-                
-                <li class="nav-item">
-                    <a href="https://kaderovski.com/"> Home </a>
-                </li>
-                
-                <li class="nav-item">
-                    <a href="https://kaderovski.com/posts/"> Posts </a>
-                </li>
-                
-                <li class="nav-item">
-                    <a href="https://kaderovski.com/tags/"> Tags </a>
-                </li>
-                
-                <li class="nav-item">
-                    <a href="https://kaderovski.com/photography/"> Photography </a>
-                </li>
-                
-                <li class="nav-item">
-                    <a href="https://kaderovski.com/cv"> CV </a>
-                </li>
-                
-                <li class="nav-item">
-                    <a href="https://kaderovski.com/index.xml"><span data-feather='rss'></span>  </a>
-                </li>
-                
-                <li class="nav-item dark-theme-toggle">
-                    <a>
-                        <span id="theme-toggle-icon" data-feather="moon"></span>
-                    </a>
-                </li>
-            </ul>
 
-        </div>
-    </nav>
+</nav>
 </header>
-<main id="content">
-    <div class="post container">
-    <div class="post-header-section">
-        <h1>Online servers availability</h1>
-        <small role="doc-subtitle"></small>
-        <p class="post-date">
-            August 1, 2017
-        </p>
+  <main>
 
-        <ul class="post-tags">
-        
-            <li class="post-tag"><a href="https://kaderovski.com/tags/bash">bash</a></li>
-        
-            <li class="post-tag"><a href="https://kaderovski.com/tags/online">online</a></li>
-        
-            <li class="post-tag"><a href="https://kaderovski.com/tags/serveur">serveur</a></li>
-        
-            <li class="post-tag"><a href="https://kaderovski.com/tags/linux">linux</a></li>
-        
-        </ul>
-    </div>
-
-    <div class="post-content">
-        <p>
-            <p>We need servers at Online, but there is no availability!
+<content>
+  <p>We need servers at Online, but there is no availability!
 So they came to ask me if I didn&rsquo;t have a magic solution&hellip;</p>
 <p>A little <code>bash</code>&hellip; a <code>notify</code> in this case <code>Slack</code> and here we go!<br>
-As usual <a href="https://github.com/Kaderovski/OnlineSrvDispo">sources are available</a>.</p>
+As usual <a href="https://github.com/lebarondecharlus/OnlineSrvDispo">sources are available</a>.</p>
 <h4 id="dirty-way">Dirty way</h4>
 <p>*To be alerted via slack you have to create an <a href="https://my.slack.com/services/new/incoming-webhook/">incoming-webhook</a> which will generate a link.</p>
 <p>For an XC 2016 series server:</p>
@@ -200,50 +263,46 @@ As usual <a href="https://github.com/Kaderovski/OnlineSrvDispo">sources are avai
 <p>Curl will be done only if one server is available.</p>
 <h4 id="clean-way">Clean way</h4>
 <p>Just code formating :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
-</span><span style="color:#75715e"></span>
-webhook<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://hooks.slack.com/services/XXX/XXXX/XXXX/XXXX&#34;</span>
-url<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://www.online.net/fr/serveur-dedie/XXXXX&#34;</span>
-text<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;DISPO : </span>$url<span style="color:#e6db74">&#34;</span>
-channel<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;test&#34;</span>
-json<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{\&#34;channel\&#34;: \&#34;#</span>$channel<span style="color:#e6db74">\&#34;, \&#34;text\&#34;: \&#34;</span>$text<span style="color:#e6db74">\&#34;}&#34;</span>
-server<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;XC 2016&#34;</span>
-
-<span style="color:#66d9ef">while</span> true
-    <span style="color:#66d9ef">do</span> curl --silent https://www.online.net/fr/serveur-dedie | <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    grep <span style="color:#e6db74">&#39;&lt;button class=&#34;btn btn--primary js-order-dedibox&#34;&#39;</span> | <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    grep -i <span style="color:#e6db74">&#34;</span>$server<span style="color:#e6db74">&#34;</span> | grep -i <span style="color:#e6db74">&#39;victime&#39;</span> <span style="color:#f92672">||</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    curl -s -d <span style="color:#e6db74">&#34;payload=</span>$json<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$webhook<span style="color:#e6db74">&#34;</span> ; <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    sleep <span style="color:#ae81ff">5</span> ; <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span><span style="color:#66d9ef">done</span>
-</code></pre></div><p>You can also push the vice further by filtering on the <strong>region</strong> and the <strong>disc types</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">webhook</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;https://hooks.slack.com/services/XXX/XXXX/XXXX/XXXX&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">url</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;https://www.online.net/fr/serveur-dedie/XXXXX&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">text</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;DISPO : </span><span style="color:#008080">$url</span><span style="color:#d14">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">channel</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;test&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">json</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;{\&#34;channel\&#34;: \&#34;#</span><span style="color:#008080">$channel</span><span style="color:#d14">\&#34;, \&#34;text\&#34;: \&#34;</span><span style="color:#008080">$text</span><span style="color:#d14">\&#34;}&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">server</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;XC 2016&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">while</span> <span style="color:#0086b3">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">do</span> curl --silent https://www.online.net/fr/serveur-dedie | <span style="color:#d14">\
+</span></span></span><span style="display:flex;"><span><span style="color:#d14"></span>    grep <span style="color:#d14">&#39;&lt;button class=&#34;btn btn--primary js-order-dedibox&#34;&#39;</span> | <span style="color:#d14">\
+</span></span></span><span style="display:flex;"><span><span style="color:#d14"></span>    grep -i <span style="color:#d14">&#34;</span><span style="color:#008080">$server</span><span style="color:#d14">&#34;</span> | grep -i <span style="color:#d14">&#39;victime&#39;</span> <span style="color:#000;font-weight:bold">||</span> <span style="color:#d14">\
+</span></span></span><span style="display:flex;"><span><span style="color:#d14"></span>    curl -s -d <span style="color:#d14">&#34;payload=</span><span style="color:#008080">$json</span><span style="color:#d14">&#34;</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$webhook</span><span style="color:#d14">&#34;</span> ; <span style="color:#d14">\
+</span></span></span><span style="display:flex;"><span><span style="color:#d14"></span>    sleep <span style="color:#099">5</span> ; <span style="color:#d14">\
+</span></span></span><span style="display:flex;"><span><span style="color:#d14"></span><span style="color:#000;font-weight:bold">done</span>
+</span></span></code></pre></div><p>You can also push the vice further by filtering on the <strong>region</strong> and the <strong>disc types</strong>.</p>
 <h4 id="pig-mode">Pig mode</h4>
 <p>Because&hellip; why not ?</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">text=&#34;DISPO https://www.online.net/fr/serveur-dedie/dedibox-xc&#34;; json=&#34;{\&#34;channel\&#34;: \&#34;#test\&#34;, \&#34;text\&#34;: \&#34;$text\&#34;}&#34; ; while true ; do curl --silent https://www.online.net/fr/serveur-dedie/dedibox-xc | egrep -io &#39;&lt;option value=&#34;\w+&#34;&gt;ssd / france / dc2&lt;/option&gt;&#39; &amp;&amp; curl -s -d &#34;payload=$json&#34; &#34;https://hooks.slack.com/services/XXX/XXXX/XXXX&#34; ; sleep 5 ; done
-</code></pre></div><p>Next step, simulate an order ?</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>text=&#34;DISPO https://www.online.net/fr/serveur-dedie/dedibox-xc&#34;; json=&#34;{\&#34;channel\&#34;: \&#34;#test\&#34;, \&#34;text\&#34;: \&#34;$text\&#34;}&#34; ; while true ; do curl --silent https://www.online.net/fr/serveur-dedie/dedibox-xc | egrep -io &#39;&lt;option value=&#34;\w+&#34;&gt;ssd / france / dc2&lt;/option&gt;&#39; &amp;&amp; curl -s -d &#34;payload=$json&#34; &#34;https://hooks.slack.com/services/XXX/XXXX/XXXX&#34; ; sleep 5 ; done
+</span></span></code></pre></div><p>Next step, simulate an order ?</p>
 
-        </p>
-    </div>
-<style>
-.utterances {
-  margin-right: 10%;
-}
-</style>
-        <script src="https://utteranc.es/client.js"
-                repo="Kaderovski/blog"
-                issue-term="pathname"
-                theme="github-light"
-                crossorigin="anonymous"
-                async>
-        </script>
-</div>
+</content>
+<p>
+  
+  <a href="https://lebraon.sh/tags/bash/">#bash</a>
+  
+  <a href="https://lebraon.sh/tags/online/">#online</a>
+  
+  <a href="https://lebraon.sh/tags/serveur/">#serveur</a>
+  
+  <a href="https://lebraon.sh/tags/linux/">#linux</a>
+  
+</p>
 
-
+  </main>
+  <footer>lebaron.sh ©
+</footer>
 
     
-
-        </main><footer class="footer">
-    <span>&copy; 2022 Kaderovski</span>
-</footer>
 </body>
+
 </html>

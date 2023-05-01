@@ -10,7 +10,7 @@ Sometimes making small `OneJob` services is efficient in terms of time, organiza
 In the example of this article, I will try to show how it can be relevant to write `microscripts' under this model.
 
 Let's say we want to make sure, for a given list of sites, that they all return `200` codes in less than `2s`, in which case we'll get a notification on `Slack`.
-The sources for these posts are available [here](https://github.com/Kaderovski/Slack-Bot-Web-Alert/blob/master/bot.py).
+The sources for these posts are available [here](https://github.com/lebarondecharlus/Slack-Bot-Web-Alert/blob/master/bot.py).
 
 For the language, `python3` will be more than enough.
 

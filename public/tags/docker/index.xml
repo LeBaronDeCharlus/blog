@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>docker on Kaderovski</title>
-    <link>https://kaderovski.com/tags/docker/</link>
-    <description>Recent content in docker on Kaderovski</description>
+    <title>docker on Le Baron de Charlus</title>
+    <link>https://lebraon.sh/tags/docker/</link>
+    <description>Recent content in docker on Le Baron de Charlus</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>© Kaderovski</copyright>
-    <lastBuildDate>Tue, 08 Aug 2017 13:52:07 +0000</lastBuildDate><atom:link href="https://kaderovski.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© Le Baron de Charlus</copyright>
+    <lastBuildDate>Tue, 08 Aug 2017 13:52:07 +0000</lastBuildDate><atom:link href="https://lebraon.sh/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Dockerize Nova client</title>
-      <link>https://kaderovski.com/posts/dockerise-nova/</link>
+      <link>https://lebraon.sh/posts/dockerise-nova/</link>
       <pubDate>Tue, 08 Aug 2017 13:52:07 +0000</pubDate>
       
-      <guid>https://kaderovski.com/posts/dockerise-nova/</guid>
+      <guid>https://lebraon.sh/posts/dockerise-nova/</guid>
       <description>With OVH Public Cloud, it is possible for you to control your OpenStack instances directly from the Nova client.
 It is rather practical to go through the command line rather than having to access the manager which is often, let us say it, slow.
 But to avoid having to prepare each time a working environment compatible with Nova, I find more interesting to directly create a Docker image for this purpose.</description>
@@ -21,10 +21,10 @@ But to avoid having to prepare each time a working environment compatible with N
     
     <item>
       <title>Setup Rancher cluster on OVH Public Cloud</title>
-      <link>https://kaderovski.com/posts/cluster-rancher-public-cloud-ovh/</link>
+      <link>https://lebraon.sh/posts/cluster-rancher-public-cloud-ovh/</link>
       <pubDate>Fri, 04 Aug 2017 19:04:11 +0000</pubDate>
       
-      <guid>https://kaderovski.com/posts/cluster-rancher-public-cloud-ovh/</guid>
+      <guid>https://lebraon.sh/posts/cluster-rancher-public-cloud-ovh/</guid>
       <description>The world of hosting is changing, and so is the world of application development. Today we are turning less and less to dedicated hosting for a single application, but more to build the infrastructure that will support it.
 In this sense, we prefer to use an Iaas solution on dedicated &amp;ldquo;bare metal&amp;rdquo; for our application overlay than pure &amp;ldquo;bare metal&amp;rdquo; per service.
 Application deployment missions pushed by developers must fit with the technology and logic of production.</description>

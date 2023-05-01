@@ -1,189 +1,260 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
 
-    <style>
-        :root {
-            --accent-color: #FF4D4D;
-        }
-    </style>
-
-    
-    
-    
-    
-    
-    
-
-    
-    <title>random</title>
-    <meta name="description" content="Some tech &amp; personal posts">
-    <meta name="keywords" content='blog, programming, kaderovski, system, projects'>
-
-    <meta property="og:url" content="https://kaderovski.com/tags/random/">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="random">
-    <meta property="og:description" content="Some tech &amp; personal posts">
-    <meta property="og:image" content="images/me.jpg">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="random">
-    <meta name="twitter:description" content="Some tech &amp; personal posts">
-    <meta property="twitter:domain" content="https://kaderovski.com/tags/random/">
-    <meta property="twitter:url" content="https://kaderovski.com/tags/random/">
-    <meta name="twitter:image" content="images/me.jpg">
-
-    
-    <link rel="canonical" href="https://kaderovski.com/tags/random/" />
-
-    <link rel="stylesheet" type="text/css" href="https://kaderovski.com//css/normalize.min.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" type="text/css" href="https://kaderovski.com//css/main.css">
-    <link disabled id="dark-theme" rel="stylesheet" href="https://kaderovski.com//css/dark.css">
-
-    <script src="https://kaderovski.com//js/svg-injector.min.js"></script>
-    <script src="https://kaderovski.com//js/feather-icons.min.js"></script>
-    <script src="https://kaderovski.com//js/main.js"></script>
-
-    
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-90WT63PBHV"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-90WT63PBHV', { 'anonymize_ip': false });
-}
-</script>
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>random | Le Baron de Charlus</title>
+<meta name="title" content="random" />
+<meta name="description" content="" />
+<meta name="keywords" content="awesomewm,baremetal,bash,bug,cattle,cloud,dev,direnv,disk,docker,freebsd,galera,gitlab,golang,gpg,kubernetes,linux,loader,lxc,monitoring,nova,online,openstack,openvz,ovh,pass,pci,poetry,programming,proxmox,publicloud,pyenv,pyinotify,python,rancher,random,registry,script,secrets,serveur,sessions,shell,templates,tomb,vrack,wallpaper,zellij," />
 
 
-    
-    
-        <!-- KaTeX -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/katex.min.css" integrity="sha384-6LkG2wmY8FK9E0vU9OOr8UvLwsaqUg9SETfpq4uTCN1agNe8HRdE9ABlk+fVx6gZ" crossorigin="anonymous">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/katex.min.js" integrity="sha384-31El76TwmbHj4rF9DyLsygbq6xoIobG0W+jqXim+a3dU9W53tdH3A/ngRPxOzzaB" crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
-        onload="renderMathInElement(document.body);"></script>
-  
-    
+<meta property="og:title" content="random" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lebraon.sh/tags/random/" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="random"/>
+<meta name="twitter:description" content=""/>
+
+
+
+<meta itemprop="name" content="random">
+<meta itemprop="description" content="">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <link rel="alternate" type="application/rss+xml" href="https://lebraon.sh/tags/random/index.xml" title="Le Baron de Charlus" />
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
 </head>
+
 <body>
-        <script type="text/javascript">
-            
-            setThemeByUserPref();
-        </script><header class="header">
-    <nav class="header-nav">
+  <header><a href="/" class="title">
+  <h2>Le Baron de Charlus</h2>
+</a>
+<nav><a href="/">Home</a>
 
-        
-        <div class="avatar">
-            <a href="https://kaderovski.com/">
-                <img src="https://kaderovski.com/images/me.jpg" alt="avatar" />
-            </a>
-        </div>
-        
+<a href="/posts/">Posts</a>
 
-        <div class="nav-title">
-            <a class="nav-brand" href="https://kaderovski.com/">Kaderovski</a>
-        </div>
+<a href="/tags/">Tags</a>
 
-        <div class="nav-links">
-            
-            <div class="nav-link">
-                <a href="https://kaderovski.com/"> Home </a>
-            </div>
-            
-            <div class="nav-link">
-                <a href="https://kaderovski.com/posts/"> Posts </a>
-            </div>
-            
-            <div class="nav-link">
-                <a href="https://kaderovski.com/tags/"> Tags </a>
-            </div>
-            
-            <div class="nav-link">
-                <a href="https://kaderovski.com/photography/"> Photography </a>
-            </div>
-            
-            <div class="nav-link">
-                <a href="https://kaderovski.com/cv"> CV </a>
-            </div>
-            
-            <div class="nav-link">
-                <a href="https://kaderovski.com/index.xml"><span data-feather='rss'></span>  </a>
-            </div>
-            
+<a href="/photography/">Photography</a>
 
-            <span class="nav-icons-divider"></span>
-            <div class="nav-link dark-theme-toggle">
-                <a>
-                    <span id="theme-toggle-icon" data-feather="moon"></span>
-                </a>
-            </div>
+<a href="/cv">CV</a>
 
-            <div class="nav-link" id="hamburger-menu-toggle">
-                <a>
-                    <span data-feather="menu"></span>
-                </a>
-            </div>
+<a href="/index.xml"></a>
 
-            
-            <ul class="nav-hamburger-list visibility-hidden">
-                
-                <li class="nav-item">
-                    <a href="https://kaderovski.com/"> Home </a>
-                </li>
-                
-                <li class="nav-item">
-                    <a href="https://kaderovski.com/posts/"> Posts </a>
-                </li>
-                
-                <li class="nav-item">
-                    <a href="https://kaderovski.com/tags/"> Tags </a>
-                </li>
-                
-                <li class="nav-item">
-                    <a href="https://kaderovski.com/photography/"> Photography </a>
-                </li>
-                
-                <li class="nav-item">
-                    <a href="https://kaderovski.com/cv"> CV </a>
-                </li>
-                
-                <li class="nav-item">
-                    <a href="https://kaderovski.com/index.xml"><span data-feather='rss'></span>  </a>
-                </li>
-                
-                <li class="nav-item dark-theme-toggle">
-                    <a>
-                        <span id="theme-toggle-icon" data-feather="moon"></span>
-                    </a>
-                </li>
-            </ul>
 
-        </div>
-    </nav>
+</nav>
 </header>
-<main id="content">
-    <div class="container list-posts">
-
-    <h1 class="list-title">random</h2>
-
+  <main>
+<content>
+  
+  <h3 style="margin-bottom:0">Filtering for "random"</h3>
+  <small>
+    <a href="/blog">Remove filter</a>
+  </small>
+  
+  <ul class="blog-posts">
     
-
-    <h2 class="posts-year">2020</h2><article class="post-title">
-    <a href="https://kaderovski.com/posts/randomwallpaper-on-awesomewm/" class="post-link">Random wallpaper with AwesomeWM !</a>
-    <div class="flex-break"></div>
-    <span class="post-date">January 10, 2020</span>
-</article>
-
+    <li>
+      <span>
+        <i>
+          <time datetime='2020-01-10' pubdate>
+            10 Jan, 2020
+          </time>
+        </i>
+      </span>
+      <a href="https://lebraon.sh/posts/randomwallpaper-on-awesomewm/">Random wallpaper with AwesomeWM !</a>
+    </li>
     
+  </ul>
+  
+  
+</content>
 
-</div>
-
-
-        </main><footer class="footer">
-    <span>&copy; 2022 Kaderovski</span>
+  </main>
+  <footer>lebaron.sh ©
 </footer>
+
+    
 </body>
+
 </html>

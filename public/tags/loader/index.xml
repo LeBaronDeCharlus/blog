@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>loader on Kaderovski</title>
-    <link>https://kaderovski.com/tags/loader/</link>
-    <description>Recent content in loader on Kaderovski</description>
+    <title>loader on Le Baron de Charlus</title>
+    <link>https://lebraon.sh/tags/loader/</link>
+    <description>Recent content in loader on Le Baron de Charlus</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>© Kaderovski</copyright>
-    <lastBuildDate>Sat, 25 Jun 2022 18:03:17 +0200</lastBuildDate><atom:link href="https://kaderovski.com/tags/loader/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© Le Baron de Charlus</copyright>
+    <lastBuildDate>Sat, 25 Jun 2022 18:03:17 +0200</lastBuildDate><atom:link href="https://lebraon.sh/tags/loader/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Shloader - A Modern Shell Loader</title>
-      <link>https://kaderovski.com/posts/shloader-modern-shell-loader/</link>
+      <link>https://lebraon.sh/posts/shloader-modern-shell-loader/</link>
       <pubDate>Sat, 25 Jun 2022 18:03:17 +0200</pubDate>
       
-      <guid>https://kaderovski.com/posts/shloader-modern-shell-loader/</guid>
-      <description>Why Features Preview Templating Usage Parsing Arguments Shell Configurations Trap Error and Exit Display Loader Call Loader Scrip Library Integration Conclusion  Why I&amp;rsquo;ve been recently doing some old shell scripts to quickly automatize and distribute actions that were made manually, I&amp;rsquo;ll write a post on it later. For now I&amp;rsquo;d like to share with you how I&amp;rsquo;ve been coding a 100% shell loader library to use it in my scripts.</description>
+      <guid>https://lebraon.sh/posts/shloader-modern-shell-loader/</guid>
+      <description>Why Features Preview Templating Usage Parsing Arguments Shell Configurations Trap Error and Exit Display Loader Call Loader Scrip Library Integration Conclusion Why I&amp;rsquo;ve been recently doing some old shell scripts to quickly automatize and distribute actions that were made manually, I&amp;rsquo;ll write a post on it later. For now I&amp;rsquo;d like to share with you how I&amp;rsquo;ve been coding a 100% shell loader library to use it in my scripts.</description>
     </item>
     
   </channel>

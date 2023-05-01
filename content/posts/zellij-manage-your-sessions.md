@@ -48,4 +48,4 @@ fi
 ### Contributing
 Feel free to fork and contribute.
 
-<a href="https://github.com/Kaderovski/zellij-sessions" target="_blank">Sources are here.</a>
+<a href="https://github.com/lebarondecharlus/zellij-sessions" target="_blank">Sources are here.</a>

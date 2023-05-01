@@ -30,7 +30,7 @@ I've been recently doing some old shell scripts to quickly automatize and distri
 
 I've been looking on the net for existing library, I've found some interesting Github projects but it doesn't appear to be "library" ready. Furthermore, it was mostly old basic ASCII templates and I wanted to give a try to modern loaders and spinners on shell.
 
-So I ended create [`shloader`](https://github.com/kaderovski/shloader).
+So I ended create [`shloader`](https://github.com/lebarondecharlus/shloader).
 
 # Features
 
@@ -226,8 +226,8 @@ We will make some quick configuration on the top header script under `shebang`.
 
 ```shell
 #!/bin/bash
-# https://github.com/Kaderovski/shloader
-# me@kaderovski.com
+# https://github.com/lebarondecharlus/shloader
+# me@decharlus.sh
 set -Eeuo pipefail
 trap end_shloader SIGINT SIGTERM ERR EXIT RETURN
 tput civis
@@ -300,7 +300,7 @@ We first print `loader` array content we save in `loader` variable. We know firs
 Now we have split array, we can remove time duration as it is now under `speed` variable.
 We then hide cursor, call our `play_shloader` function and save `PID`.
 
-You can find the [Full Library Code](https://github.com/Kaderovski/shloader/blob/main/lib/shloader.sh)
+You can find the [Full Library Code](https://github.com/lebarondecharlus/shloader/blob/main/lib/shloader.sh)
 
 # Script Library Integration
 

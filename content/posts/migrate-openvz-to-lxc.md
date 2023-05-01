@@ -12,7 +12,7 @@ Problem, there are a lot of containers to migrate/"convert" to run under LXC. So
 
 Luckily, the [migration documentation](https://pve.proxmox.com/wiki/Convert_OpenVZ_to_LXC) is very well detailed. So I used it to "bash" the operation.
 
-You can find all the sources on my [github](https://github.com/Kaderovski/vz2lxc)
+You can find all the sources on my [github](https://github.com/lebarondecharlus/vz2lxc)
 
 I cut the operation under two scripts, an export script and an import script.
 

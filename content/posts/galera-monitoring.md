@@ -16,7 +16,7 @@ I based myself on [the official Galera documentation](http://galeracluster.com/d
 For the choice of the Golang language, it seemed to me that it provided me with the necessary functionalities.
 As for the choice of alerting, I decided to use a Slack App.
 
-You can find the [sources of my project here](https://github.com/Kaderovski/GaleraMonitoring).
+You can find the [sources of my project here](https://github.com/lebarondecharlus/GaleraMonitoring).
 
 Example of a healthy output :
 

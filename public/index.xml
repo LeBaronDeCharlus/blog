@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Kaderovski</title>
-    <link>https://kaderovski.com/</link>
-    <description>Recent content on Kaderovski</description>
+    <title>Le Baron de Charlus</title>
+    <link>https://lebraon.sh/</link>
+    <description>Recent content on Le Baron de Charlus</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>© Kaderovski</copyright>
-    <lastBuildDate>Tue, 12 Jul 2022 12:22:42 +0200</lastBuildDate><atom:link href="https://kaderovski.com/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© Le Baron de Charlus</copyright>
+    <lastBuildDate>Tue, 12 Jul 2022 12:22:42 +0200</lastBuildDate><atom:link href="https://lebraon.sh/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Manage your Zellij sessions</title>
-      <link>https://kaderovski.com/posts/zellij-manage-your-sessions/</link>
+      <link>https://lebraon.sh/posts/zellij-manage-your-sessions/</link>
       <pubDate>Tue, 12 Jul 2022 12:22:42 +0200</pubDate>
       
-      <guid>https://kaderovski.com/posts/zellij-manage-your-sessions/</guid>
+      <guid>https://lebraon.sh/posts/zellij-manage-your-sessions/</guid>
       <description>Quick post on great Zellij tool I&amp;rsquo;ve been using for some weeks now in Tmux replacement.
 I&amp;rsquo;ve been missing to manage my sessions on multiplexer init while starting a new shell or terminal so I&amp;rsquo;ve ended creating a quick feature to manage it on startup.
 Dependencies You need sk binary installed and in your $PATH and of course zellij.
@@ -22,37 +22,37 @@ Demo Installation Add this block at the end of your $SHELLrc file (tested with B
     
     <item>
       <title>Shloader - A Modern Shell Loader</title>
-      <link>https://kaderovski.com/posts/shloader-modern-shell-loader/</link>
+      <link>https://lebraon.sh/posts/shloader-modern-shell-loader/</link>
       <pubDate>Sat, 25 Jun 2022 18:03:17 +0200</pubDate>
       
-      <guid>https://kaderovski.com/posts/shloader-modern-shell-loader/</guid>
-      <description>Why Features Preview Templating Usage Parsing Arguments Shell Configurations Trap Error and Exit Display Loader Call Loader Scrip Library Integration Conclusion  Why I&amp;rsquo;ve been recently doing some old shell scripts to quickly automatize and distribute actions that were made manually, I&amp;rsquo;ll write a post on it later. For now I&amp;rsquo;d like to share with you how I&amp;rsquo;ve been coding a 100% shell loader library to use it in my scripts.</description>
+      <guid>https://lebraon.sh/posts/shloader-modern-shell-loader/</guid>
+      <description>Why Features Preview Templating Usage Parsing Arguments Shell Configurations Trap Error and Exit Display Loader Call Loader Scrip Library Integration Conclusion Why I&amp;rsquo;ve been recently doing some old shell scripts to quickly automatize and distribute actions that were made manually, I&amp;rsquo;ll write a post on it later. For now I&amp;rsquo;d like to share with you how I&amp;rsquo;ve been coding a 100% shell loader library to use it in my scripts.</description>
     </item>
     
     <item>
       <title>Ultimate Python development environment configuration</title>
-      <link>https://kaderovski.com/posts/ultimate-python-development-environment-configuration/</link>
+      <link>https://lebraon.sh/posts/ultimate-python-development-environment-configuration/</link>
       <pubDate>Fri, 10 Jun 2022 08:12:12 +0200</pubDate>
       
-      <guid>https://kaderovski.com/posts/ultimate-python-development-environment-configuration/</guid>
-      <description>The Old Way Direnv  What is direnv and how it works direnv installation Shell configuration How Python works with direnv   Pyenv  Installation and Configuration Use pyenv with direnv   Poetry  What is Poetry Poetry installation Shell configuration New project Existing project Poetry usage Link Poetry with direnv   GPG  Generate a key Get key ID   Pass  Pass installation Pass usage   Tomb  Tomb installation Tomb usage   Secrets with Direnv and Pass Direnv advanced configurations  Check for commands dependencies Third-party binaries Third-party configs   Final template Conclusion  Disclaimer: I&amp;rsquo;m not saying virtualenv methods are bad.</description>
+      <guid>https://lebraon.sh/posts/ultimate-python-development-environment-configuration/</guid>
+      <description>The Old Way Direnv What is direnv and how it works direnv installation Shell configuration How Python works with direnv Pyenv Installation and Configuration Use pyenv with direnv Poetry What is Poetry Poetry installation Shell configuration New project Existing project Poetry usage Link Poetry with direnv GPG Generate a key Get key ID Pass Pass installation Pass usage Tomb Tomb installation Tomb usage Secrets with Direnv and Pass Direnv advanced configurations Check for commands dependencies Third-party binaries Third-party configs Final template Conclusion Disclaimer: I&amp;rsquo;m not saying virtualenv methods are bad.</description>
     </item>
     
     <item>
       <title>CV</title>
-      <link>https://kaderovski.com/cv/</link>
+      <link>https://lebraon.sh/cv/</link>
       <pubDate>Fri, 31 Dec 2021 11:38:18 +0000</pubDate>
       
-      <guid>https://kaderovski.com/cv/</guid>
-      <description>pre { white-space: pre-wrap; /* Since CSS 2.1 */ white-space: -moz-pre-wrap; /* Mozilla, since 1999 */ white-space: -pre-wrap; /* Opera 4-6 */ white-space: -o-pre-wrap; /* Opera 7 */ word-wrap: break-word; /* Internet Explorer 5.5+ */ }   ########### # Hello ! # ###########  whoami &amp;&amp; uptime Kaderovski Software &amp; System Engineer Uptime : 28 years Professional Experience : +8 years  describeme() Mail : jobs@kaderovski.com Nationality : French Languages : [French, English, Spanish, Greek, Chti] Countries where I lived : [France, Bulgaria, Cyprus, Congo, Kuwait] Countries I visited : [England, Jordan, Belgium, Egypt, Poland, Greece, Germany, Holland, Italy, Vatican, Irland, Scotland] I love : [my wife, my cat, Devoxx, Weboob.</description>
+      <guid>https://lebraon.sh/cv/</guid>
+      <description>########### # Hello ! # ########### &amp;gt; whoami &amp;amp;&amp;amp; uptime Le Baron de Charlus Software &amp;amp; System Engineer Uptime : 28 years Professional Experience : +8 years &amp;gt; describeme() Mail : jobs@decharlus.sh Nationality : French Languages : [French, English, Spanish, Greek, Chti] Countries where I lived : [France, Bulgaria, Cyprus, Congo, Kuwait] Countries I visited : [England, Jordan, Belgium, Egypt, Poland, Greece, Germany, Holland, Italy, Vatican, Irland, Scotland] I love : [my wife, my cat, Devoxx, Weboob.</description>
     </item>
     
     <item>
       <title>Bring Your Own Image</title>
-      <link>https://kaderovski.com/posts/bring-your-own-image/</link>
+      <link>https://lebraon.sh/posts/bring-your-own-image/</link>
       <pubDate>Mon, 20 Jul 2020 12:00:00 +0000</pubDate>
       
-      <guid>https://kaderovski.com/posts/bring-your-own-image/</guid>
+      <guid>https://lebraon.sh/posts/bring-your-own-image/</guid>
       <description>When I was working at OVHCloud company, I&amp;rsquo;ve developed a feature called BYOI (Bring Your Own Image).
 Bring Your Own Image technology allows you to boot any cloud (or not) images on a baremetal.
 Even if today not all editors are ready to provide completely agnostic images (and I mean UEFI ready and/or legacy boot), by triturating (packer) a bit the whole, we can have something functional.
@@ -61,10 +61,10 @@ This mark the first step towards the Hybrid IAC.</description>
     
     <item>
       <title>Random wallpaper with AwesomeWM !</title>
-      <link>https://kaderovski.com/posts/randomwallpaper-on-awesomewm/</link>
+      <link>https://lebraon.sh/posts/randomwallpaper-on-awesomewm/</link>
       <pubDate>Fri, 10 Jan 2020 11:10:33 +0000</pubDate>
       
-      <guid>https://kaderovski.com/posts/randomwallpaper-on-awesomewm/</guid>
+      <guid>https://lebraon.sh/posts/randomwallpaper-on-awesomewm/</guid>
       <description>I&amp;rsquo;ve been looking for a way to break my routine a bit when I&amp;rsquo;m working on my laptop. I figured that changing the wallpaper randomly and automatically was a good way to break the monotony.
 I use awesomeWM (version 4)
 [f00b@void ~]$ awesome --version awesome v4.3 (Too long) • Compiled against Lua 5.3.5 (running with Lua 5.3) • D-Bus support: ✔ • execinfo support: ✘ • xcb-randr version: 1.6 • LGI version: 0.</description>
@@ -72,10 +72,10 @@ I use awesomeWM (version 4)
     
     <item>
       <title>Freebsd Pci Disk Space</title>
-      <link>https://kaderovski.com/posts/freebsd-pci-disk-space/</link>
+      <link>https://lebraon.sh/posts/freebsd-pci-disk-space/</link>
       <pubDate>Sun, 04 Mar 2018 14:56:33 +0000</pubDate>
       
-      <guid>https://kaderovski.com/posts/freebsd-pci-disk-space/</guid>
+      <guid>https://lebraon.sh/posts/freebsd-pci-disk-space/</guid>
       <description>When you create an OVH Public Cloud instance under Freebsd with a certain amount of disk space, let’s say 50G, you will find that it is not applied on your partition.
 First let&amp;rsquo;s look at what we have:
 # gpart show =&amp;gt; 40 10239920 da0 GPT (50G) [CORRUPT] 40 1024 1 freebsd-boot (512K) 1064 984 - free - (492K) 2048 10235904 2 freebsd-zfs (4.9G) 10237952 2008 - free - (1.0M) We note that our volume da0 is tagged as CORRUPT.</description>
@@ -83,10 +83,10 @@ First let&amp;rsquo;s look at what we have:
     
     <item>
       <title>Ubuntu Vrack Ovh Fix</title>
-      <link>https://kaderovski.com/posts/ubuntu-vrack-ovh-fix/</link>
+      <link>https://lebraon.sh/posts/ubuntu-vrack-ovh-fix/</link>
       <pubDate>Sun, 04 Mar 2018 14:41:25 +0000</pubDate>
       
-      <guid>https://kaderovski.com/posts/ubuntu-vrack-ovh-fix/</guid>
+      <guid>https://lebraon.sh/posts/ubuntu-vrack-ovh-fix/</guid>
       <description>You may have noticed it, but when you populate a PCI OVH instance under Ubuntu by activating Vrack, your Vm does not have its private IP at boot time. So, yes, I don&amp;rsquo;t like Ubuntu, but sometimes you don&amp;rsquo;t have a choice.
 Anyway, all this to say that we don&amp;rsquo;t have our private IP and it&amp;rsquo;s too sad. (RT)
 The fix trick is stupid. Very stupid.
@@ -96,31 +96,31 @@ allow-hotplug ens4 iface ens4 inet dhcp In /etc/network/interface file.</descrip
     
     <item>
       <title>Script restart services</title>
-      <link>https://kaderovski.com/posts/script-restart-services/</link>
+      <link>https://lebraon.sh/posts/script-restart-services/</link>
       <pubDate>Fri, 18 Aug 2017 22:29:53 +0200</pubDate>
       
-      <guid>https://kaderovski.com/posts/script-restart-services/</guid>
+      <guid>https://lebraon.sh/posts/script-restart-services/</guid>
       <description>Sometimes, we find ourselves having to pilote infrastructures services supported by panels managements and &amp;hellip; between us, I have a holy horror of Plesk, Cpanel, Ispconfig, Webmin &amp;hellip; Especially when under certain circumstances some components are falling down. It&amp;rsquo;s often badly done and messy that it&amp;rsquo;s difficult to find your way around. Between abobinable logs management (yes, I already found php logs in syslog), a non-existent server optimization&amp;hellip; well I stop here because it is not the purpose of this post.</description>
     </item>
     
     <item>
       <title>Add Gitlab Registry in Kubernetes</title>
-      <link>https://kaderovski.com/posts/gitlab-registry-kubernetes/</link>
+      <link>https://lebraon.sh/posts/gitlab-registry-kubernetes/</link>
       <pubDate>Thu, 10 Aug 2017 12:06:05 +0000</pubDate>
       
-      <guid>https://kaderovski.com/posts/gitlab-registry-kubernetes/</guid>
+      <guid>https://lebraon.sh/posts/gitlab-registry-kubernetes/</guid>
       <description>Now that Gitlab offers its own image registry, it is possible to use it directly in our K8s environment! If you missed the info (which is starting to date now), I refer you to this article.
 To add the Gitlab private registry in Kubernetes you have to create a secret :
-&amp;gt; kubectl create secret docker-registry regsecret --docker-server=registry.gitlab.xyz --docker-username=&#39;&#39; --docker-password=&#39;&#39; --docker-email=&amp;quot;&amp;quot;  Where :
+&amp;gt; kubectl create secret docker-registry regsecret --docker-server=registry.gitlab.xyz --docker-username=&#39;&#39; --docker-password=&#39;&#39; --docker-email=&amp;quot;&amp;quot; Where :
 --docker-server regitry gitlab --docker-username user gitlab autorisé à acceder au registry --docker-password son mot de passe --docker-email son email We will check secret creation :</description>
     </item>
     
     <item>
       <title>Dockerize Nova client</title>
-      <link>https://kaderovski.com/posts/dockerise-nova/</link>
+      <link>https://lebraon.sh/posts/dockerise-nova/</link>
       <pubDate>Tue, 08 Aug 2017 13:52:07 +0000</pubDate>
       
-      <guid>https://kaderovski.com/posts/dockerise-nova/</guid>
+      <guid>https://lebraon.sh/posts/dockerise-nova/</guid>
       <description>With OVH Public Cloud, it is possible for you to control your OpenStack instances directly from the Nova client.
 It is rather practical to go through the command line rather than having to access the manager which is often, let us say it, slow.
 But to avoid having to prepare each time a working environment compatible with Nova, I find more interesting to directly create a Docker image for this purpose.</description>
@@ -128,10 +128,10 @@ But to avoid having to prepare each time a working environment compatible with N
     
     <item>
       <title>Setup Rancher cluster on OVH Public Cloud</title>
-      <link>https://kaderovski.com/posts/cluster-rancher-public-cloud-ovh/</link>
+      <link>https://lebraon.sh/posts/cluster-rancher-public-cloud-ovh/</link>
       <pubDate>Fri, 04 Aug 2017 19:04:11 +0000</pubDate>
       
-      <guid>https://kaderovski.com/posts/cluster-rancher-public-cloud-ovh/</guid>
+      <guid>https://lebraon.sh/posts/cluster-rancher-public-cloud-ovh/</guid>
       <description>The world of hosting is changing, and so is the world of application development. Today we are turning less and less to dedicated hosting for a single application, but more to build the infrastructure that will support it.
 In this sense, we prefer to use an Iaas solution on dedicated &amp;ldquo;bare metal&amp;rdquo; for our application overlay than pure &amp;ldquo;bare metal&amp;rdquo; per service.
 Application deployment missions pushed by developers must fit with the technology and logic of production.</description>
@@ -139,20 +139,20 @@ Application deployment missions pushed by developers must fit with the technolog
     
     <item>
       <title>Little Web Monitoring</title>
-      <link>https://kaderovski.com/posts/little-web-monitoring/</link>
+      <link>https://lebraon.sh/posts/little-web-monitoring/</link>
       <pubDate>Wed, 02 Aug 2017 08:22:16 +0000</pubDate>
       
-      <guid>https://kaderovski.com/posts/little-web-monitoring/</guid>
-      <description>Sometimes making small OneJob services is efficient in terms of time, organization, functionality. In the example of this article, I will try to show how it can be relevant to write `microscripts&#39; under this model.
+      <guid>https://lebraon.sh/posts/little-web-monitoring/</guid>
+      <description>Sometimes making small OneJob services is efficient in terms of time, organization, functionality. In the example of this article, I will try to show how it can be relevant to write `microscripts&amp;rsquo; under this model.
 Let&amp;rsquo;s say we want to make sure, for a given list of sites, that they all return 200 codes in less than 2s, in which case we&amp;rsquo;ll get a notification on Slack. The sources for these posts are available here.</description>
     </item>
     
     <item>
       <title>Online servers availability</title>
-      <link>https://kaderovski.com/posts/online-servers/</link>
+      <link>https://lebraon.sh/posts/online-servers/</link>
       <pubDate>Tue, 01 Aug 2017 09:40:07 +0000</pubDate>
       
-      <guid>https://kaderovski.com/posts/online-servers/</guid>
+      <guid>https://lebraon.sh/posts/online-servers/</guid>
       <description>We need servers at Online, but there is no availability! So they came to ask me if I didn&amp;rsquo;t have a magic solution&amp;hellip;
 A little bash&amp;hellip; a notify in this case Slack and here we go!
 As usual sources are available.
@@ -163,10 +163,10 @@ text=&amp;quot;DISPO : https://www.online.net/fr/serveur-dedie/dedibox-xc&amp;qu
     
     <item>
       <title>Migrate Openvz To Lxc</title>
-      <link>https://kaderovski.com/posts/migrate-openvz-to-lxc/</link>
+      <link>https://lebraon.sh/posts/migrate-openvz-to-lxc/</link>
       <pubDate>Mon, 31 Jul 2017 18:15:50 +0000</pubDate>
       
-      <guid>https://kaderovski.com/posts/migrate-openvz-to-lxc/</guid>
+      <guid>https://lebraon.sh/posts/migrate-openvz-to-lxc/</guid>
       <description>I recently had to migrate containers from a proxmox3 (under OpenVZ) to a proxmox4 (under LXC).
 Problem, there are a lot of containers to migrate/&amp;ldquo;convert&amp;rdquo; to run under LXC. So I needed a way to automate the procedure as much as possible.
 Luckily, the migration documentation is very well detailed. So I used it to &amp;ldquo;bash&amp;rdquo; the operation.
@@ -176,40 +176,40 @@ I cut the operation under two scripts, an export script and an import script.</d
     
     <item>
       <title>Additional Volume Public Cloud Ovh</title>
-      <link>https://kaderovski.com/posts/additional-volume-pci/</link>
+      <link>https://lebraon.sh/posts/additional-volume-pci/</link>
       <pubDate>Mon, 31 Jul 2017 11:38:18 +0000</pubDate>
       
-      <guid>https://kaderovski.com/posts/additional-volume-pci/</guid>
+      <guid>https://lebraon.sh/posts/additional-volume-pci/</guid>
       <description>To add an additional disk/volume on your OVH public cloud, you need to follow some steps.
 First, identify your new disk :
-fdisk -l  You can have different output depending of your system (sd{x}, vd{x}).
+fdisk -l You can have different output depending of your system (sd{x}, vd{x}).
 Then create a new partition :
 # parted /dev/{{disk}} mktable gpt mkpart primary ext4 512 100% quit Format it :
-mkfs -t ext4 -L rootfs /dev/{{disk}}1  Mount :
-mount /dev/{{disk}}1 /mnt  Let’s make it peristent, we need UUID.</description>
+mkfs -t ext4 -L rootfs /dev/{{disk}}1 Mount :
+mount /dev/{{disk}}1 /mnt Let’s make it peristent, we need UUID.</description>
     </item>
     
     <item>
       <title>Additional Volume Public Cloud Ovh</title>
-      <link>https://kaderovski.com/projects/hello/</link>
+      <link>https://lebraon.sh/projects/hello/</link>
       <pubDate>Mon, 31 Jul 2017 11:38:18 +0000</pubDate>
       
-      <guid>https://kaderovski.com/projects/hello/</guid>
+      <guid>https://lebraon.sh/projects/hello/</guid>
       <description>To add an additional disk/volume on your OVH public cloud, you need to follow some steps.
 First, identify your new disk :
-fdisk -l  You can have different output depending of your system (sd{x}, vd{x}).
+fdisk -l You can have different output depending of your system (sd{x}, vd{x}).
 Then create a new partition :
 # parted /dev/{{disk}} mktable gpt mkpart primary ext4 512 100% quit Format it :
-mkfs -t ext4 -L rootfs /dev/{{disk}}1  Mount :
-mount /dev/{{disk}}1 /mnt  Let’s make it peristent, we need UUID.</description>
+mkfs -t ext4 -L rootfs /dev/{{disk}}1 Mount :
+mount /dev/{{disk}}1 /mnt Let’s make it peristent, we need UUID.</description>
     </item>
     
     <item>
       <title>Galera Monitoring</title>
-      <link>https://kaderovski.com/posts/galera-monitoring/</link>
+      <link>https://lebraon.sh/posts/galera-monitoring/</link>
       <pubDate>Sun, 30 Jul 2017 15:08:41 +0000</pubDate>
       
-      <guid>https://kaderovski.com/posts/galera-monitoring/</guid>
+      <guid>https://lebraon.sh/posts/galera-monitoring/</guid>
       <description>Monitoring a database in standalone mode is one thing, but when it comes to clustering, it&amp;rsquo;s a little more complex.
 This is the case with Galera clustering (mariaDB/mysql). Zabbix (&amp;amp;co) offered me simple solutions for single database servers, but I didn&amp;rsquo;t find a really interesting template for monitoring a Galera cluster for production.
 So several questions, what to monitor, how to alert, what&amp;rsquo;s the best method?
@@ -218,20 +218,20 @@ I based myself on the official Galera documentation to have all the important el
     
     <item>
       <title>Update Proxmox templates</title>
-      <link>https://kaderovski.com/posts/update-templates-proxmox/</link>
+      <link>https://lebraon.sh/posts/update-templates-proxmox/</link>
       <pubDate>Sun, 30 Jul 2017 14:53:16 +0000</pubDate>
       
-      <guid>https://kaderovski.com/posts/update-templates-proxmox/</guid>
+      <guid>https://lebraon.sh/posts/update-templates-proxmox/</guid>
       <description>To automatically update the list of templates available via prox in your local space just use the following command:
-pveam update  I found it good to put it in cron once a week so as not to have too much space for minor versions.</description>
+pveam update I found it good to put it in cron once a week so as not to have too much space for minor versions.</description>
     </item>
     
     <item>
       <title>Event Watcher Manager Python3</title>
-      <link>https://kaderovski.com/posts/event-watcher-manager-python3/</link>
+      <link>https://lebraon.sh/posts/event-watcher-manager-python3/</link>
       <pubDate>Sun, 30 Jul 2017 12:53:16 +0000</pubDate>
       
-      <guid>https://kaderovski.com/posts/event-watcher-manager-python3/</guid>
+      <guid>https://lebraon.sh/posts/event-watcher-manager-python3/</guid>
       <description>On one specific request, I had to work on the elaboration of an automating program reacting on SFTP users updates.
 The main technical issue of this request is that the SFTP protocol does not have a logging system.
 I had heard about the pyinotify library so I started working on it.
@@ -241,10 +241,10 @@ Technical requests concerning the project Details of the context of realization 
     
     <item>
       <title>&gt; whoami</title>
-      <link>https://kaderovski.com/about/</link>
+      <link>https://lebraon.sh/about/</link>
       <pubDate>Sun, 30 Jul 2017 11:23:33 +0000</pubDate>
       
-      <guid>https://kaderovski.com/about/</guid>
+      <guid>https://lebraon.sh/about/</guid>
       <description>I’m systems engineer and acting for opensource digital world, I love technologies, especially when they include environment issues. Digital industry is not the best regarding green impact and behavior, I think it’s my duty to work and carry values of change.
 I have a great interest in cultural things. I like music (classical, jazz, metal), (good &amp;amp; bad) movies, French and international literature. I look forward to meeting you :)</description>
     </item>

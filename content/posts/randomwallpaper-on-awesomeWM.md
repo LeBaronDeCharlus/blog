@@ -30,7 +30,7 @@ For the images, I use [the excellent repo](https://github.com/LukeSmithxyz/wallp
 As far as the script is concerned, nothing too hard:
 ```
 #!/bin/bash
-# author : Kaderovski
+# author : lebarondecharlus
 # descr : Make your wallpaper change on each start !
 #
 # I'm using Luck Smith wallpaper git repo for all images
@@ -61,4 +61,4 @@ awful.util.spawn_with_shell("~/bin/wallpaper.sh")
 
 On each awesomewm restart, you will have a new pretty (or not) wallpaper.
 
-[Script is on gist !](https://gist.github.com/Kaderovski/785796c5e4e37a4d759f0f8c89c41f0e)
+[Script is on gist !](https://gist.github.com/lebarondecharlus/785796c5e4e37a4d759f0f8c89c41f0e)

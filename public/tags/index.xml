@@ -1,433 +1,433 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Kaderovski</title>
-    <link>https://kaderovski.com/tags/</link>
-    <description>Recent content in Tags on Kaderovski</description>
+    <title>Tags on Le Baron de Charlus</title>
+    <link>https://lebraon.sh/tags/</link>
+    <description>Recent content in Tags on Le Baron de Charlus</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>© Kaderovski</copyright>
-    <lastBuildDate>Tue, 12 Jul 2022 12:22:42 +0200</lastBuildDate><atom:link href="https://kaderovski.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© Le Baron de Charlus</copyright>
+    <lastBuildDate>Tue, 12 Jul 2022 12:22:42 +0200</lastBuildDate><atom:link href="https://lebraon.sh/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>sessions</title>
-      <link>https://kaderovski.com/tags/sessions/</link>
+      <link>https://lebraon.sh/tags/sessions/</link>
       <pubDate>Tue, 12 Jul 2022 12:22:42 +0200</pubDate>
       
-      <guid>https://kaderovski.com/tags/sessions/</guid>
+      <guid>https://lebraon.sh/tags/sessions/</guid>
       <description></description>
     </item>
     
     <item>
       <title>shell</title>
-      <link>https://kaderovski.com/tags/shell/</link>
+      <link>https://lebraon.sh/tags/shell/</link>
       <pubDate>Tue, 12 Jul 2022 12:22:42 +0200</pubDate>
       
-      <guid>https://kaderovski.com/tags/shell/</guid>
+      <guid>https://lebraon.sh/tags/shell/</guid>
       <description></description>
     </item>
     
     <item>
       <title>zellij</title>
-      <link>https://kaderovski.com/tags/zellij/</link>
+      <link>https://lebraon.sh/tags/zellij/</link>
       <pubDate>Tue, 12 Jul 2022 12:22:42 +0200</pubDate>
       
-      <guid>https://kaderovski.com/tags/zellij/</guid>
+      <guid>https://lebraon.sh/tags/zellij/</guid>
       <description></description>
     </item>
     
     <item>
       <title>bash</title>
-      <link>https://kaderovski.com/tags/bash/</link>
+      <link>https://lebraon.sh/tags/bash/</link>
       <pubDate>Sat, 25 Jun 2022 18:03:17 +0200</pubDate>
       
-      <guid>https://kaderovski.com/tags/bash/</guid>
+      <guid>https://lebraon.sh/tags/bash/</guid>
       <description></description>
     </item>
     
     <item>
       <title>loader</title>
-      <link>https://kaderovski.com/tags/loader/</link>
+      <link>https://lebraon.sh/tags/loader/</link>
       <pubDate>Sat, 25 Jun 2022 18:03:17 +0200</pubDate>
       
-      <guid>https://kaderovski.com/tags/loader/</guid>
+      <guid>https://lebraon.sh/tags/loader/</guid>
       <description></description>
     </item>
     
     <item>
       <title>direnv</title>
-      <link>https://kaderovski.com/tags/direnv/</link>
+      <link>https://lebraon.sh/tags/direnv/</link>
       <pubDate>Fri, 10 Jun 2022 08:12:12 +0200</pubDate>
       
-      <guid>https://kaderovski.com/tags/direnv/</guid>
+      <guid>https://lebraon.sh/tags/direnv/</guid>
       <description></description>
     </item>
     
     <item>
       <title>gpg</title>
-      <link>https://kaderovski.com/tags/gpg/</link>
+      <link>https://lebraon.sh/tags/gpg/</link>
       <pubDate>Fri, 10 Jun 2022 08:12:12 +0200</pubDate>
       
-      <guid>https://kaderovski.com/tags/gpg/</guid>
+      <guid>https://lebraon.sh/tags/gpg/</guid>
       <description></description>
     </item>
     
     <item>
       <title>pass</title>
-      <link>https://kaderovski.com/tags/pass/</link>
+      <link>https://lebraon.sh/tags/pass/</link>
       <pubDate>Fri, 10 Jun 2022 08:12:12 +0200</pubDate>
       
-      <guid>https://kaderovski.com/tags/pass/</guid>
+      <guid>https://lebraon.sh/tags/pass/</guid>
       <description></description>
     </item>
     
     <item>
       <title>poetry</title>
-      <link>https://kaderovski.com/tags/poetry/</link>
+      <link>https://lebraon.sh/tags/poetry/</link>
       <pubDate>Fri, 10 Jun 2022 08:12:12 +0200</pubDate>
       
-      <guid>https://kaderovski.com/tags/poetry/</guid>
+      <guid>https://lebraon.sh/tags/poetry/</guid>
       <description></description>
     </item>
     
     <item>
       <title>programming</title>
-      <link>https://kaderovski.com/tags/programming/</link>
+      <link>https://lebraon.sh/tags/programming/</link>
       <pubDate>Fri, 10 Jun 2022 08:12:12 +0200</pubDate>
       
-      <guid>https://kaderovski.com/tags/programming/</guid>
+      <guid>https://lebraon.sh/tags/programming/</guid>
       <description></description>
     </item>
     
     <item>
       <title>pyenv</title>
-      <link>https://kaderovski.com/tags/pyenv/</link>
+      <link>https://lebraon.sh/tags/pyenv/</link>
       <pubDate>Fri, 10 Jun 2022 08:12:12 +0200</pubDate>
       
-      <guid>https://kaderovski.com/tags/pyenv/</guid>
+      <guid>https://lebraon.sh/tags/pyenv/</guid>
       <description></description>
     </item>
     
     <item>
       <title>python</title>
-      <link>https://kaderovski.com/tags/python/</link>
+      <link>https://lebraon.sh/tags/python/</link>
       <pubDate>Fri, 10 Jun 2022 08:12:12 +0200</pubDate>
       
-      <guid>https://kaderovski.com/tags/python/</guid>
+      <guid>https://lebraon.sh/tags/python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>secrets</title>
-      <link>https://kaderovski.com/tags/secrets/</link>
+      <link>https://lebraon.sh/tags/secrets/</link>
       <pubDate>Fri, 10 Jun 2022 08:12:12 +0200</pubDate>
       
-      <guid>https://kaderovski.com/tags/secrets/</guid>
+      <guid>https://lebraon.sh/tags/secrets/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tomb</title>
-      <link>https://kaderovski.com/tags/tomb/</link>
+      <link>https://lebraon.sh/tags/tomb/</link>
       <pubDate>Fri, 10 Jun 2022 08:12:12 +0200</pubDate>
       
-      <guid>https://kaderovski.com/tags/tomb/</guid>
+      <guid>https://lebraon.sh/tags/tomb/</guid>
       <description></description>
     </item>
     
     <item>
       <title>baremetal</title>
-      <link>https://kaderovski.com/tags/baremetal/</link>
+      <link>https://lebraon.sh/tags/baremetal/</link>
       <pubDate>Mon, 20 Jul 2020 12:00:00 +0000</pubDate>
       
-      <guid>https://kaderovski.com/tags/baremetal/</guid>
+      <guid>https://lebraon.sh/tags/baremetal/</guid>
       <description></description>
     </item>
     
     <item>
       <title>cloud</title>
-      <link>https://kaderovski.com/tags/cloud/</link>
+      <link>https://lebraon.sh/tags/cloud/</link>
       <pubDate>Mon, 20 Jul 2020 12:00:00 +0000</pubDate>
       
-      <guid>https://kaderovski.com/tags/cloud/</guid>
+      <guid>https://lebraon.sh/tags/cloud/</guid>
       <description></description>
     </item>
     
     <item>
       <title>linux</title>
-      <link>https://kaderovski.com/tags/linux/</link>
+      <link>https://lebraon.sh/tags/linux/</link>
       <pubDate>Mon, 20 Jul 2020 12:00:00 +0000</pubDate>
       
-      <guid>https://kaderovski.com/tags/linux/</guid>
+      <guid>https://lebraon.sh/tags/linux/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ovh</title>
-      <link>https://kaderovski.com/tags/ovh/</link>
+      <link>https://lebraon.sh/tags/ovh/</link>
       <pubDate>Mon, 20 Jul 2020 12:00:00 +0000</pubDate>
       
-      <guid>https://kaderovski.com/tags/ovh/</guid>
+      <guid>https://lebraon.sh/tags/ovh/</guid>
       <description></description>
     </item>
     
     <item>
       <title>awesomewm</title>
-      <link>https://kaderovski.com/tags/awesomewm/</link>
+      <link>https://lebraon.sh/tags/awesomewm/</link>
       <pubDate>Fri, 10 Jan 2020 11:10:33 +0000</pubDate>
       
-      <guid>https://kaderovski.com/tags/awesomewm/</guid>
+      <guid>https://lebraon.sh/tags/awesomewm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>random</title>
-      <link>https://kaderovski.com/tags/random/</link>
+      <link>https://lebraon.sh/tags/random/</link>
       <pubDate>Fri, 10 Jan 2020 11:10:33 +0000</pubDate>
       
-      <guid>https://kaderovski.com/tags/random/</guid>
+      <guid>https://lebraon.sh/tags/random/</guid>
       <description></description>
     </item>
     
     <item>
       <title>wallpaper</title>
-      <link>https://kaderovski.com/tags/wallpaper/</link>
+      <link>https://lebraon.sh/tags/wallpaper/</link>
       <pubDate>Fri, 10 Jan 2020 11:10:33 +0000</pubDate>
       
-      <guid>https://kaderovski.com/tags/wallpaper/</guid>
+      <guid>https://lebraon.sh/tags/wallpaper/</guid>
       <description></description>
     </item>
     
     <item>
       <title>freebsd</title>
-      <link>https://kaderovski.com/tags/freebsd/</link>
+      <link>https://lebraon.sh/tags/freebsd/</link>
       <pubDate>Sun, 04 Mar 2018 14:56:33 +0000</pubDate>
       
-      <guid>https://kaderovski.com/tags/freebsd/</guid>
+      <guid>https://lebraon.sh/tags/freebsd/</guid>
       <description></description>
     </item>
     
     <item>
       <title>publicloud</title>
-      <link>https://kaderovski.com/tags/publicloud/</link>
+      <link>https://lebraon.sh/tags/publicloud/</link>
       <pubDate>Sun, 04 Mar 2018 14:56:33 +0000</pubDate>
       
-      <guid>https://kaderovski.com/tags/publicloud/</guid>
+      <guid>https://lebraon.sh/tags/publicloud/</guid>
       <description></description>
     </item>
     
     <item>
       <title>serveur</title>
-      <link>https://kaderovski.com/tags/serveur/</link>
+      <link>https://lebraon.sh/tags/serveur/</link>
       <pubDate>Sun, 04 Mar 2018 14:56:33 +0000</pubDate>
       
-      <guid>https://kaderovski.com/tags/serveur/</guid>
+      <guid>https://lebraon.sh/tags/serveur/</guid>
       <description></description>
     </item>
     
     <item>
       <title>bug</title>
-      <link>https://kaderovski.com/tags/bug/</link>
+      <link>https://lebraon.sh/tags/bug/</link>
       <pubDate>Sun, 04 Mar 2018 14:41:25 +0000</pubDate>
       
-      <guid>https://kaderovski.com/tags/bug/</guid>
+      <guid>https://lebraon.sh/tags/bug/</guid>
       <description></description>
     </item>
     
     <item>
       <title>vrack</title>
-      <link>https://kaderovski.com/tags/vrack/</link>
+      <link>https://lebraon.sh/tags/vrack/</link>
       <pubDate>Sun, 04 Mar 2018 14:41:25 +0000</pubDate>
       
-      <guid>https://kaderovski.com/tags/vrack/</guid>
+      <guid>https://lebraon.sh/tags/vrack/</guid>
       <description></description>
     </item>
     
     <item>
       <title>script</title>
-      <link>https://kaderovski.com/tags/script/</link>
+      <link>https://lebraon.sh/tags/script/</link>
       <pubDate>Fri, 18 Aug 2017 22:29:53 +0200</pubDate>
       
-      <guid>https://kaderovski.com/tags/script/</guid>
+      <guid>https://lebraon.sh/tags/script/</guid>
       <description></description>
     </item>
     
     <item>
       <title>gitlab</title>
-      <link>https://kaderovski.com/tags/gitlab/</link>
+      <link>https://lebraon.sh/tags/gitlab/</link>
       <pubDate>Thu, 10 Aug 2017 12:06:05 +0000</pubDate>
       
-      <guid>https://kaderovski.com/tags/gitlab/</guid>
+      <guid>https://lebraon.sh/tags/gitlab/</guid>
       <description></description>
     </item>
     
     <item>
       <title>kubernetes</title>
-      <link>https://kaderovski.com/tags/kubernetes/</link>
+      <link>https://lebraon.sh/tags/kubernetes/</link>
       <pubDate>Thu, 10 Aug 2017 12:06:05 +0000</pubDate>
       
-      <guid>https://kaderovski.com/tags/kubernetes/</guid>
+      <guid>https://lebraon.sh/tags/kubernetes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>registry</title>
-      <link>https://kaderovski.com/tags/registry/</link>
+      <link>https://lebraon.sh/tags/registry/</link>
       <pubDate>Thu, 10 Aug 2017 12:06:05 +0000</pubDate>
       
-      <guid>https://kaderovski.com/tags/registry/</guid>
+      <guid>https://lebraon.sh/tags/registry/</guid>
       <description></description>
     </item>
     
     <item>
       <title>docker</title>
-      <link>https://kaderovski.com/tags/docker/</link>
+      <link>https://lebraon.sh/tags/docker/</link>
       <pubDate>Tue, 08 Aug 2017 13:52:07 +0000</pubDate>
       
-      <guid>https://kaderovski.com/tags/docker/</guid>
+      <guid>https://lebraon.sh/tags/docker/</guid>
       <description></description>
     </item>
     
     <item>
       <title>nova</title>
-      <link>https://kaderovski.com/tags/nova/</link>
+      <link>https://lebraon.sh/tags/nova/</link>
       <pubDate>Tue, 08 Aug 2017 13:52:07 +0000</pubDate>
       
-      <guid>https://kaderovski.com/tags/nova/</guid>
+      <guid>https://lebraon.sh/tags/nova/</guid>
       <description></description>
     </item>
     
     <item>
       <title>openstack</title>
-      <link>https://kaderovski.com/tags/openstack/</link>
+      <link>https://lebraon.sh/tags/openstack/</link>
       <pubDate>Tue, 08 Aug 2017 13:52:07 +0000</pubDate>
       
-      <guid>https://kaderovski.com/tags/openstack/</guid>
+      <guid>https://lebraon.sh/tags/openstack/</guid>
       <description></description>
     </item>
     
     <item>
       <title>cattle</title>
-      <link>https://kaderovski.com/tags/cattle/</link>
+      <link>https://lebraon.sh/tags/cattle/</link>
       <pubDate>Fri, 04 Aug 2017 19:04:11 +0000</pubDate>
       
-      <guid>https://kaderovski.com/tags/cattle/</guid>
+      <guid>https://lebraon.sh/tags/cattle/</guid>
       <description></description>
     </item>
     
     <item>
       <title>pci</title>
-      <link>https://kaderovski.com/tags/pci/</link>
+      <link>https://lebraon.sh/tags/pci/</link>
       <pubDate>Fri, 04 Aug 2017 19:04:11 +0000</pubDate>
       
-      <guid>https://kaderovski.com/tags/pci/</guid>
+      <guid>https://lebraon.sh/tags/pci/</guid>
       <description></description>
     </item>
     
     <item>
       <title>rancher</title>
-      <link>https://kaderovski.com/tags/rancher/</link>
+      <link>https://lebraon.sh/tags/rancher/</link>
       <pubDate>Fri, 04 Aug 2017 19:04:11 +0000</pubDate>
       
-      <guid>https://kaderovski.com/tags/rancher/</guid>
+      <guid>https://lebraon.sh/tags/rancher/</guid>
       <description></description>
     </item>
     
     <item>
       <title>monitoring</title>
-      <link>https://kaderovski.com/tags/monitoring/</link>
+      <link>https://lebraon.sh/tags/monitoring/</link>
       <pubDate>Wed, 02 Aug 2017 08:22:16 +0000</pubDate>
       
-      <guid>https://kaderovski.com/tags/monitoring/</guid>
+      <guid>https://lebraon.sh/tags/monitoring/</guid>
       <description></description>
     </item>
     
     <item>
       <title>online</title>
-      <link>https://kaderovski.com/tags/online/</link>
+      <link>https://lebraon.sh/tags/online/</link>
       <pubDate>Tue, 01 Aug 2017 09:40:07 +0000</pubDate>
       
-      <guid>https://kaderovski.com/tags/online/</guid>
+      <guid>https://lebraon.sh/tags/online/</guid>
       <description></description>
     </item>
     
     <item>
       <title>LXC</title>
-      <link>https://kaderovski.com/tags/lxc/</link>
+      <link>https://lebraon.sh/tags/lxc/</link>
       <pubDate>Mon, 31 Jul 2017 18:15:50 +0000</pubDate>
       
-      <guid>https://kaderovski.com/tags/lxc/</guid>
+      <guid>https://lebraon.sh/tags/lxc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>openVZ</title>
-      <link>https://kaderovski.com/tags/openvz/</link>
+      <link>https://lebraon.sh/tags/openvz/</link>
       <pubDate>Mon, 31 Jul 2017 18:15:50 +0000</pubDate>
       
-      <guid>https://kaderovski.com/tags/openvz/</guid>
+      <guid>https://lebraon.sh/tags/openvz/</guid>
       <description></description>
     </item>
     
     <item>
       <title>proxmox</title>
-      <link>https://kaderovski.com/tags/proxmox/</link>
+      <link>https://lebraon.sh/tags/proxmox/</link>
       <pubDate>Mon, 31 Jul 2017 18:15:50 +0000</pubDate>
       
-      <guid>https://kaderovski.com/tags/proxmox/</guid>
+      <guid>https://lebraon.sh/tags/proxmox/</guid>
       <description></description>
     </item>
     
     <item>
       <title>disk</title>
-      <link>https://kaderovski.com/tags/disk/</link>
+      <link>https://lebraon.sh/tags/disk/</link>
       <pubDate>Mon, 31 Jul 2017 11:38:18 +0000</pubDate>
       
-      <guid>https://kaderovski.com/tags/disk/</guid>
+      <guid>https://lebraon.sh/tags/disk/</guid>
       <description></description>
     </item>
     
     <item>
       <title>dev</title>
-      <link>https://kaderovski.com/tags/dev/</link>
+      <link>https://lebraon.sh/tags/dev/</link>
       <pubDate>Sun, 30 Jul 2017 15:08:41 +0000</pubDate>
       
-      <guid>https://kaderovski.com/tags/dev/</guid>
+      <guid>https://lebraon.sh/tags/dev/</guid>
       <description></description>
     </item>
     
     <item>
       <title>galera</title>
-      <link>https://kaderovski.com/tags/galera/</link>
+      <link>https://lebraon.sh/tags/galera/</link>
       <pubDate>Sun, 30 Jul 2017 15:08:41 +0000</pubDate>
       
-      <guid>https://kaderovski.com/tags/galera/</guid>
+      <guid>https://lebraon.sh/tags/galera/</guid>
       <description></description>
     </item>
     
     <item>
       <title>golang</title>
-      <link>https://kaderovski.com/tags/golang/</link>
+      <link>https://lebraon.sh/tags/golang/</link>
       <pubDate>Sun, 30 Jul 2017 15:08:41 +0000</pubDate>
       
-      <guid>https://kaderovski.com/tags/golang/</guid>
+      <guid>https://lebraon.sh/tags/golang/</guid>
       <description></description>
     </item>
     
     <item>
       <title>templates</title>
-      <link>https://kaderovski.com/tags/templates/</link>
+      <link>https://lebraon.sh/tags/templates/</link>
       <pubDate>Sun, 30 Jul 2017 14:53:16 +0000</pubDate>
       
-      <guid>https://kaderovski.com/tags/templates/</guid>
+      <guid>https://lebraon.sh/tags/templates/</guid>
       <description></description>
     </item>
     
     <item>
       <title>pyinotify</title>
-      <link>https://kaderovski.com/tags/pyinotify/</link>
+      <link>https://lebraon.sh/tags/pyinotify/</link>
       <pubDate>Sun, 30 Jul 2017 12:53:16 +0000</pubDate>
       
-      <guid>https://kaderovski.com/tags/pyinotify/</guid>
+      <guid>https://lebraon.sh/tags/pyinotify/</guid>
       <description></description>
     </item>
     

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>proxmox on Kaderovski</title>
-    <link>https://kaderovski.com/tags/proxmox/</link>
-    <description>Recent content in proxmox on Kaderovski</description>
+    <title>proxmox on Le Baron de Charlus</title>
+    <link>https://lebraon.sh/tags/proxmox/</link>
+    <description>Recent content in proxmox on Le Baron de Charlus</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>© Kaderovski</copyright>
-    <lastBuildDate>Mon, 31 Jul 2017 18:15:50 +0000</lastBuildDate><atom:link href="https://kaderovski.com/tags/proxmox/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© Le Baron de Charlus</copyright>
+    <lastBuildDate>Mon, 31 Jul 2017 18:15:50 +0000</lastBuildDate><atom:link href="https://lebraon.sh/tags/proxmox/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Migrate Openvz To Lxc</title>
-      <link>https://kaderovski.com/posts/migrate-openvz-to-lxc/</link>
+      <link>https://lebraon.sh/posts/migrate-openvz-to-lxc/</link>
       <pubDate>Mon, 31 Jul 2017 18:15:50 +0000</pubDate>
       
-      <guid>https://kaderovski.com/posts/migrate-openvz-to-lxc/</guid>
+      <guid>https://lebraon.sh/posts/migrate-openvz-to-lxc/</guid>
       <description>I recently had to migrate containers from a proxmox3 (under OpenVZ) to a proxmox4 (under LXC).
 Problem, there are a lot of containers to migrate/&amp;ldquo;convert&amp;rdquo; to run under LXC. So I needed a way to automate the procedure as much as possible.
 Luckily, the migration documentation is very well detailed. So I used it to &amp;ldquo;bash&amp;rdquo; the operation.
@@ -23,12 +23,12 @@ I cut the operation under two scripts, an export script and an import script.</d
     
     <item>
       <title>Update Proxmox templates</title>
-      <link>https://kaderovski.com/posts/update-templates-proxmox/</link>
+      <link>https://lebraon.sh/posts/update-templates-proxmox/</link>
       <pubDate>Sun, 30 Jul 2017 14:53:16 +0000</pubDate>
       
-      <guid>https://kaderovski.com/posts/update-templates-proxmox/</guid>
+      <guid>https://lebraon.sh/posts/update-templates-proxmox/</guid>
       <description>To automatically update the list of templates available via prox in your local space just use the following command:
-pveam update  I found it good to put it in cron once a week so as not to have too much space for minor versions.</description>
+pveam update I found it good to put it in cron once a week so as not to have too much space for minor versions.</description>
     </item>
     
   </channel>

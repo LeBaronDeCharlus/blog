@@ -1,89 +1,52 @@
-baseURL = "https://kaderovski.com/"
-title = "Kaderovski"
-theme="gokarna"
-copyright = "© Kaderovski"
+baseURL = "https://lebraon.sh/"
+title = "Le Baron de Charlus"
+theme = "hugo-bearblog"
+copyright = "© Le Baron de Charlus"
 enableEmoji = true
 enableRobotsTXT = true
 languageCode = "en"
 defaultContentLanguage = "en"
 
 # Code Highlight
-pygmentsstyle = "monokai"
+pygmentsstyle = "github"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
-
-googleAnalytics = 'G-90WT63PBHV'
 
 #paginate=3 # articles per page
 
 [markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
 
-  [markup.tableOfContents]
-    startLevel = 1
-    endLevel = 3
-    ordered = false
+[markup.tableOfContents]
+startLevel = 1
+endLevel = 3
+ordered = false
 
 
-[params]
-  footer = "Kaderovski"
-  description = "Some tech & personal posts"
-  avatarURL = "images/me.jpg"
-  avatarSize = "size-xl"
-  theme-preference = "dark"
-  customHeadHTML = """
-    <!-- KaTeX -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/katex.min.css" integrity="sha384-6LkG2wmY8FK9E0vU9OOr8UvLwsaqUg9SETfpq4uTCN1agNe8HRdE9ABlk+fVx6gZ" crossorigin="anonymous">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/katex.min.js" integrity="sha384-31El76TwmbHj4rF9DyLsygbq6xoIobG0W+jqXim+a3dU9W53tdH3A/ngRPxOzzaB" crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
-        onload="renderMathInElement(document.body);"></script>
-  """
-  socialIcons = [
-    {name = "github", url = "https://github.com/Kaderovski"},
-    {name = "gitlab", url = "https://gitlab.com/F00b4rch"},
-    {name = "linkedin", url = "https://www.linkedin.com/in/kaderovski/"},
-    {name = "mail", url = "mailto:me@kaderovkis.com?subject=from kaderovski.com"},
-  ]
-  metaKeywords = ["blog", "programming", "kaderovski", "system", "projects"]
+[[menu.main]]
+name = "Posts"
+url = "/posts/"
+weight = 2
 
-# Social Tags
+[[menu.main]]
+name = "Tags"
+url = "/tags/"
+weight = 3
 
-# Main menu Items
-[menu]
-  [[menu.main]]
-    name = "Home"
-    url = "/"
-    weight = 1
+[[menu.main]]
+name = "Photography"
+url = "/photography/"
+weight = 5
 
-  [[menu.main]]
-    name = "Posts"
-    url = "/posts/"
-    weight = 2
+[[menu.main]]
+name = "CV"
+url = "/cv"
+weight = 6
 
-#  [[menu.main]]
-#    name = "Projects"
-#    url = "/projects/"
-#    weight = 3
-
-  [[menu.main]]
-    name = "Tags"
-    url = "/tags/"
-    weight = 3
-
-  [[menu.main]]
-    name = "Photography"
-    url = "/photography/"
-    weight = 5
-  
-  [[menu.main]]
-    name = "CV"
-    url = "/cv"
-    weight = 6
-  
-  [[menu.main]]
-    identifier = "rss"
-    pre = "<span data-feather='rss'></span>"
-    url = "/index.xml"
-    weight = 9
+[[menu.main]]
+identifier = "rss"
+pre = "<span data-feather='rss'></span>"
+url = "/index.xml"
+weight = 9

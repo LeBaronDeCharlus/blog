@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>golang on Kaderovski</title>
-    <link>https://kaderovski.com/tags/golang/</link>
-    <description>Recent content in golang on Kaderovski</description>
+    <title>golang on Le Baron de Charlus</title>
+    <link>https://lebraon.sh/tags/golang/</link>
+    <description>Recent content in golang on Le Baron de Charlus</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>© Kaderovski</copyright>
-    <lastBuildDate>Sun, 30 Jul 2017 15:08:41 +0000</lastBuildDate><atom:link href="https://kaderovski.com/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© Le Baron de Charlus</copyright>
+    <lastBuildDate>Sun, 30 Jul 2017 15:08:41 +0000</lastBuildDate><atom:link href="https://lebraon.sh/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Galera Monitoring</title>
-      <link>https://kaderovski.com/posts/galera-monitoring/</link>
+      <link>https://lebraon.sh/posts/galera-monitoring/</link>
       <pubDate>Sun, 30 Jul 2017 15:08:41 +0000</pubDate>
       
-      <guid>https://kaderovski.com/posts/galera-monitoring/</guid>
+      <guid>https://lebraon.sh/posts/galera-monitoring/</guid>
       <description>Monitoring a database in standalone mode is one thing, but when it comes to clustering, it&amp;rsquo;s a little more complex.
 This is the case with Galera clustering (mariaDB/mysql). Zabbix (&amp;amp;co) offered me simple solutions for single database servers, but I didn&amp;rsquo;t find a really interesting template for monitoring a Galera cluster for production.
 So several questions, what to monitor, how to alert, what&amp;rsquo;s the best method?
