@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Le Baron de Charlus</title>
+    <link>https://lebaron.sh/projects/</link>
+    <description>Recent content in Projects on Le Baron de Charlus</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© Le Baron de Charlus</copyright>
+    <lastBuildDate>Mon, 31 Jul 2017 11:38:18 +0000</lastBuildDate><atom:link href="https://lebaron.sh/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Additional Volume Public Cloud Ovh</title>
+      <link>https://lebaron.sh/projects/hello/</link>
+      <pubDate>Mon, 31 Jul 2017 11:38:18 +0000</pubDate>
+      
+      <guid>https://lebaron.sh/projects/hello/</guid>
+      <description>To add an additional disk/volume on your OVH public cloud, you need to follow some steps.
+First, identify your new disk :
+fdisk -l You can have different output depending of your system (sd{x}, vd{x}).
+Then create a new partition :
+# parted /dev/{{disk}} mktable gpt mkpart primary ext4 512 100% quit Format it :
+mkfs -t ext4 -L rootfs /dev/{{disk}}1 Mount :
+mount /dev/{{disk}}1 /mnt Let’s make it peristent, we need UUID.</description>
+    </item>
+    
+  </channel>
+</rss>

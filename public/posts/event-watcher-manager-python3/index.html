@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Event Watcher Manager Python3 | Le Baron de Charlus</title>
+<meta name="title" content="Event Watcher Manager Python3" />
+<meta name="description" content="On one specific request, I had to work on the elaboration of an automating program reacting on SFTP users updates.
+The main technical issue of this request is that the SFTP protocol does not have a logging system.
+I had heard about the pyinotify library so I started working on it.
+The project is presented in its primary mechanism, for more details, I invite you to read the sources.
+Technical requests concerning the project Details of the context of realization : Details of the context of realization :." />
+<meta name="keywords" content="python,dev,pyinotify,linux," />
+
+
+<meta property="og:title" content="Event Watcher Manager Python3" />
+<meta property="og:description" content="On one specific request, I had to work on the elaboration of an automating program reacting on SFTP users updates.
+The main technical issue of this request is that the SFTP protocol does not have a logging system.
+I had heard about the pyinotify library so I started working on it.
+The project is presented in its primary mechanism, for more details, I invite you to read the sources.
+Technical requests concerning the project Details of the context of realization : Details of the context of realization :." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lebaron.sh/posts/event-watcher-manager-python3/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-07-30T12:53:16+00:00" />
+<meta property="article:modified_time" content="2017-07-30T12:53:16+00:00" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Event Watcher Manager Python3"/>
+<meta name="twitter:description" content="On one specific request, I had to work on the elaboration of an automating program reacting on SFTP users updates.
+The main technical issue of this request is that the SFTP protocol does not have a logging system.
+I had heard about the pyinotify library so I started working on it.
+The project is presented in its primary mechanism, for more details, I invite you to read the sources.
+Technical requests concerning the project Details of the context of realization : Details of the context of realization :."/>
+
+
+
+<meta itemprop="name" content="Event Watcher Manager Python3">
+<meta itemprop="description" content="On one specific request, I had to work on the elaboration of an automating program reacting on SFTP users updates.
+The main technical issue of this request is that the SFTP protocol does not have a logging system.
+I had heard about the pyinotify library so I started working on it.
+The project is presented in its primary mechanism, for more details, I invite you to read the sources.
+Technical requests concerning the project Details of the context of realization : Details of the context of realization :."><meta itemprop="datePublished" content="2017-07-30T12:53:16+00:00" />
+<meta itemprop="dateModified" content="2017-07-30T12:53:16+00:00" />
+<meta itemprop="wordCount" content="912">
+<meta itemprop="keywords" content="python,dev,pyinotify,linux," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>Le Baron de Charlus</h2>
+</a>
+<nav><a href="/">Home</a>
+
+<a href="/posts/">Posts</a>
+
+<a href="/tags/">Tags</a>
+
+<a href="/photography/">Photography</a>
+
+<a href="/cv">CV</a>
+
+<a href="/index.xml"></a>
+
+
+</nav>
+</header>
+  <main>
+
+<content>
+  <p>On one specific request, I had to work on the elaboration of an automating program reacting on SFTP users updates.<br>
+The main technical issue of this request is that the SFTP protocol does not have a logging system.</p>
+<p>I had heard about <a href="https://github.com/seb-m/pyinotify/blob/master/python3/pyinotify.py">the pyinotify library</a> so I started working on it.<br>
+<strong>The project is presented in its primary mechanism</strong>, for more details, I invite you to read the sources.</p>
+<h4 id="technical-requests-concerning-the-project">Technical requests concerning the project</h4>
+<p>Details of the context of realization :
+</u>Details of the context of realization :</u>.<br>
+The program must monitor SFTP user actions. These users have their HomeDir which are NFS mounts.<br>
+The user can upload anything to his account, but the program must detect video uploads (in some formats) and then perform a series of successive actions.</p>
+<p>&lt;The operation should be as follows:</u><br>
+For each detected video repository, the video must check the allowed format, then it must be converted to .flv, have metadata, have a scree nshot (video thumbnail) and an email must be sent to the SFTP user&rsquo;s email address.</p>
+<h4 id="preparation">Preparation</h4>
+<p>Several specific details are binding to begin with. The main one being the association of the account user&rsquo;s mail to his own mail with the detection of the video repository.<br>
+That&rsquo;s why I chose to start on a static file, knowing in advance the list of users.</p>
+<pre><code># Création de la classe
+class Person:
+    def __init__(self, name, surname, login, homedir, email, realpath):
+        self.name = name
+        self.surname = surname
+        self.login = login
+        self.homedir = homedir
+        self.email = email
+        self.realpath = realpath
+#
+# Et instanciation des utilisateurs
+#
+user_test = Person(
+        'Test',
+        'test',
+        'test',
+        '/test/test/test.fr',
+        'test@test.fr',
+        '/test.fr/')
+</code></pre>
+<p>Then I worked on the <em>core</em> of the program. First of all to get the information from my user file and to make a grouping by list.</p>
+<pre><code># Définition des listes
+user_list = []
+user_path = []
+user_mail = []
+user_realpath = []
+# On appelle le fichier utilisateur pour implémenter les listes
+### LOGIN ###
+for users.obj in gc.get_objects():
+    if isinstance(users.obj, users.Person):
+        user_list.append(users.obj.login)
+### DOCUMENT_ROOT ###
+for users.obj in gc.get_objects():
+    if isinstance(users.obj, users.Person):
+        user_path.append(users.obj.homedir
+
+### EMAIL ###
+for users.obj in gc.get_objects():
+    if isinstance(users.obj, users.Person):
+        user_mail.append(users.obj.email)
+### REALPATH ###
+for users.obj in gc.get_objects():
+    if isinstance(users.obj, users.Person):
+        user_realpath.append(users.obj.realpath)
+</code></pre>
+<p>The definition of a first function whose purpose will be the associative call with an ID position system.</p>
+<pre><code>def owner_func():
+    for filename in multiple_file_types('*.avi', '*.mov', '*.mp4', '*.mpg', '*.wmv'):
+        # On affiche l'utilisateur
+        owner = pwd.getpwuid(os.stat(filename).st_uid).pw_name
+        # On vérifie que ce dernier est bien présent dans notr liste
+        if owner in user_list:
+            print('The owner of file is :   ' + owner)
+            position = user_list.index(owner)
+            print('Owner_login_path :' + user_path[position])
+            mail = user_mail[position]
+            mailp = print(mail)
+            realpath = user_realpath[position]
+            return(realpath)
+        else:
+            print('The owner was not found.')
+</code></pre>
+<h4 id="pyinotifier-introduction">Pyinotifier Introduction</h4>
+<p>Pyinotifier has functions related to the creation and deletion of data (IN_CREATE and IN_DELETE).<br>
+Once the basic setup was done, I used the basic definition to implement with the <strong>owner_func()</strong> function.</p>
+<pre><code>class EventHandler(pyinotify.ProcessEvent):
+    def process_IN_CREATE(self, event):
+        print('\n\n===========================')
+        print(time.strftime(&quot;%d/%m/%Y %H:%M:%S&quot;))
+        evp = print('Path complet :' + '\'' + event.pathname + '\'')
+        evn = print('Objet crée : ' + '\'' + event.name + '\'')
+        Ouser = event.pathname.split('/')[2]
+        print('Utilisateur : ' + Ouser)
+        Oplace = [i for i,x in enumerate(user_list) if x == Ouser][0]
+        Orelatif = user_realpath[Oplace]
+        Omail = user_mail[Oplace]
+        print('Chroot Sftp : ' + Orelatif)
+        print('Mail : ' + Omail)
+        command = 'convert.bash '+str(event.pathname)
+        previous_size=0
+        upload_finished = False
+        try:
+            while True:
+                time.sleep(1)
+                size=os.stat(event.pathname).st_size
+                print(previous_size)
+                print(size)
+                if size == previous_size:
+                    break
+                else:
+                    previous_size = size
+        except:
+            return False
+        print(command)
+
+        os.rename(event.pathname, event.pathname.replace(&quot; &quot;, &quot;_&quot;))
+        neventpathname = event.pathname.replace(' ', '_')
+        neventname = event.name.replace(' ', '_')
+        print(neventpathname + neventname)
+        p1 = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        print('convert.bash', neventpathname)
+        print(p1.stdout.read())
+        p1.wait()
+        p2 = subprocess.Popen(['generatemetadata.bash', neventpathname])
+        p2.wait()
+        p3 = subprocess.Popen(['extractpng.sh', neventpathname])
+        p3.wait()
+        if neventname.endswith('.html') :
+            p5 = subprocess.Popen(['mail.bash', Omail, Orelatif,  neventpathname])
+            print('MAIL SENT')
+        print('===========================')
+    def process_IN_DELETE(self, event):
+        print('\n\n===========================')
+        print(time.strftime(&quot;%d/%m/%Y %H:%M:%S&quot;) + &quot;    Deleting:&quot;, event.pathname)
+        print('===========================')
+</code></pre>
+<p><strong>Explanations :</strong><br>
+The principle of Pyinotify is to create an automatic action at a given event. Let&rsquo;s take the deposit of a video corresponding to the right format as the event.<br>
+The <strong>IN_CREATE</strong> function is then triggered and will send us first information including: the creation date, the full path of the event, the relative path (HomeDir of the SFTP user), the user, his email&hellip;</p>
+<p>In a second step we apply the conversion to the right format (with <strong>ffmpeg</strong>). However, we have to make sure that the video is complete and submitted. This corresponds to the block :</p>
+<pre><code>        command = 'convert.bash '+str(event.pathname)
+        previous_size=0
+        upload_finished = False
+        try:
+            while True:
+                time.sleep(1)
+                size=os.stat(event.pathname).st_size
+                print(previous_size)
+                print(size)
+                if size == previous_size:
+                    break
+                else:
+                    previous_size = size
+        except:
+            return False
+        print(command)
+</code></pre>
+<p>Then we will be able to run the bash scripts in subprocess.</p>
+<h4 id="interests">Interests</h4>
+<p>The interests are multiple!<br>
+The first one is obvious since it is now possible to perform a logging on a service that was not natively available. The second one is that it is possible to set up a logging and PID system very simply.</p>
+<pre><code>notifier.loop(daemonize=True, callback=on_loop_func, pid_file='logs/pyinotify.pid', stdout='logs/%s.log' % timestr)
+</code></pre>
+<p>This opens a very interesting new door on event automation by a Python subroutine that would take the work done by the kernel out of the box.</p>
+<p>I was just thinking of making a kind of API calling this type of operation scalable on different environments.<br>
+This project being in my famous <strong>ToDoList</strong> would be very close to a Master-Slaving system with certainly an imitation of what already exists with Puppet &hellip; but in Python.</p>
+<p>Wait and see what will be done !</p>
+
+</content>
+<p>
+  
+  <a href="https://lebaron.sh/tags/python/">#python</a>
+  
+  <a href="https://lebaron.sh/tags/dev/">#dev</a>
+  
+  <a href="https://lebaron.sh/tags/pyinotify/">#pyinotify</a>
+  
+  <a href="https://lebaron.sh/tags/linux/">#linux</a>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+    
+</body>
+
+</html>

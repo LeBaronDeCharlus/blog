@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gpg on Le Baron de Charlus</title>
+    <link>https://lebaron.sh/tags/gpg/</link>
+    <description>Recent content in gpg on Le Baron de Charlus</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© Le Baron de Charlus</copyright>
+    <lastBuildDate>Fri, 10 Jun 2022 08:12:12 +0200</lastBuildDate><atom:link href="https://lebaron.sh/tags/gpg/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ultimate Python development environment configuration</title>
+      <link>https://lebaron.sh/posts/ultimate-python-development-environment-configuration/</link>
+      <pubDate>Fri, 10 Jun 2022 08:12:12 +0200</pubDate>
+      
+      <guid>https://lebaron.sh/posts/ultimate-python-development-environment-configuration/</guid>
+      <description>The Old Way Direnv What is direnv and how it works direnv installation Shell configuration How Python works with direnv Pyenv Installation and Configuration Use pyenv with direnv Poetry What is Poetry Poetry installation Shell configuration New project Existing project Poetry usage Link Poetry with direnv GPG Generate a key Get key ID Pass Pass installation Pass usage Tomb Tomb installation Tomb usage Secrets with Direnv and Pass Direnv advanced configurations Check for commands dependencies Third-party binaries Third-party configs Final template Conclusion Disclaimer: I&amp;rsquo;m not saying virtualenv methods are bad.</description>
+    </item>
+    
+  </channel>
+</rss>
