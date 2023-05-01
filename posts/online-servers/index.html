@@ -8,7 +8,7 @@ A little bash&mldr; a notify in this case Slack and here we go!
 As usual sources are available.
 Dirty way *To be alerted via slack you have to create an incoming-webhook which will generate a link.
 For an XC 2016 series server:
-text=&#34;DISPO : https://www.online.net/fr/serveur-dedie/dedibox-xc&#34;; json=&#34;{\&#34;channel\&#34;: \&#34;#infra\&#34;, \&#34;text\&#34;: \&#34;$text\&#34;}&#34; ; while true ; do curl --silent https://www."><meta property="og:type" content="article"><meta property="og:url" content="https://lebraon.sh/posts/online-servers/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2017-08-01T09:40:07+00:00"><meta property="article:modified_time" content="2017-08-01T09:40:07+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Online servers availability"><meta name=twitter:description content="We need servers at Online, but there is no availability! So they came to ask me if I didn&rsquo;t have a magic solution&mldr;
+text=&#34;DISPO : https://www.online.net/fr/serveur-dedie/dedibox-xc&#34;; json=&#34;{\&#34;channel\&#34;: \&#34;#infra\&#34;, \&#34;text\&#34;: \&#34;$text\&#34;}&#34; ; while true ; do curl --silent https://www."><meta property="og:type" content="article"><meta property="og:url" content="https://lebaron.sh/posts/online-servers/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2017-08-01T09:40:07+00:00"><meta property="article:modified_time" content="2017-08-01T09:40:07+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Online servers availability"><meta name=twitter:description content="We need servers at Online, but there is no availability! So they came to ask me if I didn&rsquo;t have a magic solution&mldr;
 A little bash&mldr; a notify in this case Slack and here we go!
 As usual sources are available.
 Dirty way *To be alerted via slack you have to create an incoming-webhook which will generate a link.
@@ -42,7 +42,7 @@ So they came to ask me if I didn&rsquo;t have a magic solution&mldr;</p><p>A lit
 </span></span></span><span style=display:flex><span><span style=color:#d14></span>    sleep <span style=color:#099>5</span> ; <span style=color:#d14>\
 </span></span></span><span style=display:flex><span><span style=color:#d14></span><span style=color:#000;font-weight:700>done</span>
 </span></span></code></pre></div><p>You can also push the vice further by filtering on the <strong>region</strong> and the <strong>disc types</strong>.</p><h4 id=pig-mode>Pig mode</h4><p>Because&mldr; why not ?</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>text=&#34;DISPO https://www.online.net/fr/serveur-dedie/dedibox-xc&#34;; json=&#34;{\&#34;channel\&#34;: \&#34;#test\&#34;, \&#34;text\&#34;: \&#34;$text\&#34;}&#34; ; while true ; do curl --silent https://www.online.net/fr/serveur-dedie/dedibox-xc | egrep -io &#39;&lt;option value=&#34;\w+&#34;&gt;ssd / france / dc2&lt;/option&gt;&#39; &amp;&amp; curl -s -d &#34;payload=$json&#34; &#34;https://hooks.slack.com/services/XXX/XXXX/XXXX&#34; ; sleep 5 ; done
-</span></span></code></pre></div><p>Next step, simulate an order ?</p></content><p><a href=https://lebraon.sh/tags/bash/>#bash</a>
-<a href=https://lebraon.sh/tags/online/>#online</a>
-<a href=https://lebraon.sh/tags/serveur/>#serveur</a>
-<a href=https://lebraon.sh/tags/linux/>#linux</a></p></main><footer>Made with <a href=https://github.com/janraasch/hugo-bearblog/>Hugo ʕ•ᴥ•ʔ Bear</a></footer></body></html>
+</span></span></code></pre></div><p>Next step, simulate an order ?</p></content><p><a href=https://lebaron.sh/tags/bash/>#bash</a>
+<a href=https://lebaron.sh/tags/online/>#online</a>
+<a href=https://lebaron.sh/tags/serveur/>#serveur</a>
+<a href=https://lebaron.sh/tags/linux/>#linux</a></p></main><footer>Made with <a href=https://github.com/janraasch/hugo-bearblog/>Hugo ʕ•ᴥ•ʔ Bear</a></footer></body></html>
