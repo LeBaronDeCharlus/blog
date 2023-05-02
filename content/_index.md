@@ -10,4 +10,11 @@ Hi, I'm *Le Baron de Charlus* also known as *Palamède de Guermantes*, a famous 
 Some things and stuffs.
 
 You can find me on [Github](https://github.com/lebarondecharlus).
+
+<br>
+
+bonjour@lebaron.sh
+
+`4AB1E814A04BEE40`
+
 </center>
