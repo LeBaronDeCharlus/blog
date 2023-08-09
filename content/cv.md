@@ -93,7 +93,7 @@ pre {
           - Terraform all software & infrastructure
 
       - Technologies used : [Rust, Golang, Python, Shell, Terraform, Redis, OVH, Aws, GCP]
-    }
+}
 
 > Tarmakk()
     Founder {
