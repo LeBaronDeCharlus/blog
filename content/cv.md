@@ -19,10 +19,10 @@ pre {
 # Hello ! #
 ###########
 > whoami && uptime
-    Le Baron de Charlus
-    Software & System Engineer
-    Uptime : 28 years
-    Professional Experience : +8 years
+    Corentin Deret
+    Software && System && SRE 
+    Uptime : 29 years
+    Professional Experience : +9 years
 
 > describeme()
     Mail : jobs@lebaron.sh
@@ -82,6 +82,19 @@ pre {
 ###############
 # Experiences #
 ###############
+> Ecov()
+    Senior SRE {
+      When : 2023
+      Description : Ecov is a car-pooling company that provide easy solutions to help French drivers and passenger.
+      Missions :
+          - Team Lead
+          - Migrate Kubernetes clusters
+          - Build GITOPS strategy
+          - Terraform all software & infrastructure
+
+      - Technologies used : [Rust, Golang, Python, Shell, Terraform, Redis, OVH, Aws, GCP]
+    }
+
 > Tarmakk()
     Founder {
         When : 2022
@@ -97,7 +110,7 @@ pre {
 
 > Payfit()
     Engineering Manager{
-      When : Sep 2022 & Today
+      When : Sep 2022 & Feb 2023
       Corp Security Team.
       Devs & Automation & Security projects
 
