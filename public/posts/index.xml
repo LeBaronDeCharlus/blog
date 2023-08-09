@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© Le Baron de Charlus</copyright>
-    <lastBuildDate>Tue, 12 Jul 2022 12:22:42 +0200</lastBuildDate><atom:link href="https://lebaron.sh/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Aug 2023 13:10:42 +0200</lastBuildDate><atom:link href="https://lebaron.sh/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>B, an ugly Bitwarden CLI</title>
+      <link>https://lebaron.sh/posts/b-ugly-bitwarden-cli/</link>
+      <pubDate>Wed, 09 Aug 2023 13:10:42 +0200</pubDate>
+      
+      <guid>https://lebaron.sh/posts/b-ugly-bitwarden-cli/</guid>
+      <description>b is (an ugly) a tool that allows you to copy your Bitwarden/Vaultwarden password directly from your terminal.
+Demo Dependencies bw (Bitwarden cli) xclip jq fzf fzf-tmux Installation You need to create a Bitwarden token, check documentation here. Then set variables in b script.
+# Fill these vars export BW_CLIENTID=&amp;#39;&amp;#39; export BW_CLIENTSECRET=&amp;#39;&amp;#39; export BW_PASSWORD=&amp;#39;&amp;#39; Finally move b file to /usr/local/bin.
+sudo mv b /usr/local/bin Usage Search for a password :</description>
+    </item>
+    
     <item>
       <title>Manage your Zellij sessions</title>
       <link>https://lebaron.sh/posts/zellij-manage-your-sessions/</link>
