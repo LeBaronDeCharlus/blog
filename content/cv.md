@@ -27,7 +27,7 @@ pre {
 > describeme()
     Mail : jobs@lebaron.sh
     Nationality : French
-    Languages : [French, English, Spanish, Greek, Chti]
+    Languages : [French, English, Japanese, Spanish, Greek, Chti]
     Countries where I lived : [France, Bulgaria, Cyprus, Congo, Kuwait]
     Countries I visited : [England, Jordan, Belgium, Egypt, Poland, Greece, Germany, Holland, Italy, Vatican, Irland, Scotland]
     I love : [my wife, my cat, Devoxx, Weboob.org, Thinkpads, english boxing, climbing, crossfit, bike touring, l'echo des gnous, music, photography, coffee, (and chocolate)]
