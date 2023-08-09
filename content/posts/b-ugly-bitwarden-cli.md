@@ -18,6 +18,15 @@ I was tired of wasting time clicking each time on the web extension or on the cl
 
 So, living in a terminal 90% of the time, I thought I'd do a quick script to put me out of my misery.
 
+I know, judge me, please yourself :
+
+``` shell
+# b
+# […]
+bw list items --search "${1}" --session "${BW_SESSION}" | jq -j '.[] | [.name, .login.password]' | tr -d '\n["'| tr ']' '\n'| tr ',' ':' | sed 's/^\ \ //g' | "${FZF}" --layout=reverse | tail -1 | tr -d '"' | cut -d ':' -f 2 | sed 's/^\ \ //g'| cat | xclip -se c > /dev/null 2> /dev/null
+# […]
+```
+
 I needed Bitwarden CLI tool `bw`, a way to copy in clipboard password `xclip`, some json parsing with `jq` and `fzf` (and `fzf-tmux`).
 
 So dependencies are :
