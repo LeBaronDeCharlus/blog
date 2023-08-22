@@ -11,6 +11,9 @@
     <loc>https://lebaron.sh/posts/shloader-modern-shell-loader/</loc>
     <lastmod>2022-06-25T18:03:17+02:00</lastmod>
   </url><url>
+    <loc>https://lebaron.sh/posts/pulldozer-custom-shell-modular-continous-delivery/</loc>
+    <lastmod>2022-06-22T21:53:45+02:00</lastmod>
+  </url><url>
     <loc>https://lebaron.sh/posts/ultimate-python-development-environment-configuration/</loc>
     <lastmod>2022-06-10T08:12:12+02:00</lastmod>
   </url><url>
@@ -43,6 +46,15 @@
   </url><url>
     <loc>https://lebaron.sh/tags/loader/</loc>
     <lastmod>2022-06-25T18:03:17+02:00</lastmod>
+  </url><url>
+    <loc>https://lebaron.sh/tags/cd/</loc>
+    <lastmod>2022-06-22T21:53:45+02:00</lastmod>
+  </url><url>
+    <loc>https://lebaron.sh/tags/continous-delivery/</loc>
+    <lastmod>2022-06-22T21:53:45+02:00</lastmod>
+  </url><url>
+    <loc>https://lebaron.sh/tags/git/</loc>
+    <lastmod>2022-06-22T21:53:45+02:00</lastmod>
   </url><url>
     <loc>https://lebaron.sh/tags/direnv/</loc>
     <lastmod>2022-06-10T08:12:12+02:00</lastmod>

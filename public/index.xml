@@ -14,10 +14,9 @@
       <pubDate>Wed, 09 Aug 2023 13:10:42 +0200</pubDate>
       
       <guid>https://lebaron.sh/posts/b-ugly-bitwarden-cli/</guid>
-      <description>b is (an ugly) a tool that allows you to copy your Bitwarden/Vaultwarden password directly from your terminal.
-Demo Dependencies bw (Bitwarden cli) xclip jq fzf fzf-tmux Installation You need to create a Bitwarden token, check documentation here. Then set variables in b script.
-# Fill these vars export BW_CLIENTID=&amp;#39;&amp;#39; export BW_CLIENTSECRET=&amp;#39;&amp;#39; export BW_PASSWORD=&amp;#39;&amp;#39; Finally move b file to /usr/local/bin.
-sudo mv b /usr/local/bin Usage Search for a password :</description>
+      <description>Yes, yes, yes, I know… I don&amp;rsquo;t like graphical interfaces so sometimes I like to make some TUI tools, and sometimes they can be ugly too…
+I was tired of wasting time clicking each time on the web extension or on the client, of having to systematically enter my login details, of not having a quick access directly accessible in shortcuts, etc.
+So, living in a terminal 90% of the time, I thought I&amp;rsquo;d do a quick script to put me out of my misery.</description>
     </item>
     
     <item>
@@ -42,6 +41,16 @@ Demo Installation Add this block at the end of your $SHELLrc file (tested with B
     </item>
     
     <item>
+      <title>Pulldozer - custom shell modular continous delivery</title>
+      <link>https://lebaron.sh/posts/pulldozer-custom-shell-modular-continous-delivery/</link>
+      <pubDate>Wed, 22 Jun 2022 21:53:45 +0200</pubDate>
+      
+      <guid>https://lebaron.sh/posts/pulldozer-custom-shell-modular-continous-delivery/</guid>
+      <description>Why Pulldozer Conception Shell loader Why In some way, CD, continous delivery, as defined today looks too much, in my opinion, like new JS framework, fashion effect. (I&amp;rsquo;m partially joking, please don&amp;rsquo;t kill me… now). New configurations, &amp;ldquo;new way&amp;rdquo;, new convention, new format…
+It&amp;rsquo;s exhausting to update each time workflow, even if it&amp;rsquo;s for better, what about old classic way that just works. What about full compliant manifest ?</description>
+    </item>
+    
+    <item>
       <title>Ultimate Python development environment configuration</title>
       <link>https://lebaron.sh/posts/ultimate-python-development-environment-configuration/</link>
       <pubDate>Fri, 10 Jun 2022 08:12:12 +0200</pubDate>
@@ -56,7 +65,7 @@ Demo Installation Add this block at the end of your $SHELLrc file (tested with B
       <pubDate>Fri, 31 Dec 2021 11:38:18 +0000</pubDate>
       
       <guid>https://lebaron.sh/cv/</guid>
-      <description>########### # Hello ! # ########### &amp;gt; whoami &amp;amp;&amp;amp; uptime Le Baron de Charlus Software &amp;amp; System Engineer Uptime : 28 years Professional Experience : +8 years &amp;gt; describeme() Mail : jobs@lebaron.sh Nationality : French Languages : [French, English, Spanish, Greek, Chti] Countries where I lived : [France, Bulgaria, Cyprus, Congo, Kuwait] Countries I visited : [England, Jordan, Belgium, Egypt, Poland, Greece, Germany, Holland, Italy, Vatican, Irland, Scotland] I love : [my wife, my cat, Devoxx, Weboob.</description>
+      <description>########### # Hello ! # ########### &amp;gt; whoami &amp;amp;&amp;amp; uptime Corentin Deret Software &amp;amp;&amp;amp; System &amp;amp;&amp;amp; SRE Uptime : 29 years Professional Experience : +9 years &amp;gt; describeme() Mail : jobs@lebaron.sh Nationality : French Languages : [French, English, Japanese, Spanish, Greek, Chti] Countries where I lived : [France, Bulgaria, Cyprus, Congo, Kuwait] Countries I visited : [England, Jordan, Belgium, Egypt, Poland, Greece, Germany, Holland, Italy, Vatican, Irland, Scotland] I love : [my wife, my cat, Devoxx, Weboob.</description>
     </item>
     
     <item>

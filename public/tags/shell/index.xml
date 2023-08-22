@@ -14,10 +14,9 @@
       <pubDate>Wed, 09 Aug 2023 13:10:42 +0200</pubDate>
       
       <guid>https://lebaron.sh/posts/b-ugly-bitwarden-cli/</guid>
-      <description>b is (an ugly) a tool that allows you to copy your Bitwarden/Vaultwarden password directly from your terminal.
-Demo Dependencies bw (Bitwarden cli) xclip jq fzf fzf-tmux Installation You need to create a Bitwarden token, check documentation here. Then set variables in b script.
-# Fill these vars export BW_CLIENTID=&amp;#39;&amp;#39; export BW_CLIENTSECRET=&amp;#39;&amp;#39; export BW_PASSWORD=&amp;#39;&amp;#39; Finally move b file to /usr/local/bin.
-sudo mv b /usr/local/bin Usage Search for a password :</description>
+      <description>Yes, yes, yes, I know… I don&amp;rsquo;t like graphical interfaces so sometimes I like to make some TUI tools, and sometimes they can be ugly too…
+I was tired of wasting time clicking each time on the web extension or on the client, of having to systematically enter my login details, of not having a quick access directly accessible in shortcuts, etc.
+So, living in a terminal 90% of the time, I thought I&amp;rsquo;d do a quick script to put me out of my misery.</description>
     </item>
     
     <item>
