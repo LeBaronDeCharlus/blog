@@ -28,6 +28,7 @@ I cut the operation under two scripts, an export script and an import script." /
 
 
 
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Migrate Openvz To Lxc"/>
 <meta name="twitter:description" content="I recently had to migrate containers from a proxmox3 (under OpenVZ) to a proxmox4 (under LXC).
@@ -235,7 +236,7 @@ I cut the operation under two scripts, an export script and an import script."><
 
 <a href="/tags/">Tags</a>
 
-<a href="/photography/">Photography</a>
+<a href="https://www.flickr.com/photos/lebarondecharlus/">Photography</a>
 
 <a href="/cv">CV</a>
 
@@ -256,40 +257,40 @@ I cut the operation under two scripts, an export script and an import script."><
 <p>The export script takes two parameters as input: <code>the container ID</code> and <code>the IP</code> of the destination server.</p>
 <p>It is also necessary to define some variables that will be used to send data via <code>scp</code>.</p>
 <p>The <em>export</em> procedure is done as follows:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span># Stop &amp; Dump
-</span></span><span style="display:flex;"><span>sudo vzctl stop $ID &amp;&amp; \
-</span></span><span style="display:flex;"><span>    echo &#34;$ID stopped [OK]&#34; &amp;&amp; \
-</span></span><span style="display:flex;"><span>    sudo vzdump $ID -dumpdir /home/$USER/vzdump &amp;&amp; \
-</span></span><span style="display:flex;"><span>    echo &#34;$ID : dump [OK]&#34; &amp;&amp; \
-</span></span></code></pre></div><p>We check dump is present :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span># DumpName
-</span></span><span style="display:flex;"><span>vzDumpName=$(ls /home/$USER/vzdump/)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>if [ -z $vzDumpName ] ; then
-</span></span><span style="display:flex;"><span>    echo &#34;No dump found in /home/$USER/vzdump/&#34;
-</span></span><span style="display:flex;"><span>    exit
-</span></span><span style="display:flex;"><span>fi
-</span></span></code></pre></div><p>Then we send it to <code>Proxmox 4</code> :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>sudo scp -i /home/$USER/.ssh/id_rsa &#34;-P $rPort&#34; $vzDumpName $rUSER@$rIP:$rPath &amp;&amp; \
-</span></span><span style="display:flex;"><span>    echo &#34;Sending Dump [OK]&#34; &amp;&amp; \
-</span></span><span style="display:flex;"><span>    sudo scp -i /home/$USER/.ssh/id_rsa &#34;-P $rPort&#34; vz.log $rUSER@$rIP:$rPath &amp;&amp; \
-</span></span><span style="display:flex;"><span>    echo &#34;Sending Log [OK]&#34; &amp;&amp; \
-</span></span><span style="display:flex;"><span>    sudo rm $vzDumpName &amp;&amp; \
-</span></span><span style="display:flex;"><span>    sudo rm vz.log &amp;&amp; \
-</span></span><span style="display:flex;"><span>    echo &#34;SCP $vzDumpName on $rIP [OK]&#34;
-</span></span></code></pre></div><h4 id="import-">Import :</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># Stop &amp; Dump
+sudo vzctl stop $ID &amp;&amp; \
+    echo &#34;$ID stopped [OK]&#34; &amp;&amp; \
+    sudo vzdump $ID -dumpdir /home/$USER/vzdump &amp;&amp; \
+    echo &#34;$ID : dump [OK]&#34; &amp;&amp; \
+</code></pre></div><p>We check dump is present :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># DumpName
+vzDumpName=$(ls /home/$USER/vzdump/)
+
+if [ -z $vzDumpName ] ; then
+    echo &#34;No dump found in /home/$USER/vzdump/&#34;
+    exit
+fi
+</code></pre></div><p>Then we send it to <code>Proxmox 4</code> :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">sudo scp -i /home/$USER/.ssh/id_rsa &#34;-P $rPort&#34; $vzDumpName $rUSER@$rIP:$rPath &amp;&amp; \
+    echo &#34;Sending Dump [OK]&#34; &amp;&amp; \
+    sudo scp -i /home/$USER/.ssh/id_rsa &#34;-P $rPort&#34; vz.log $rUSER@$rIP:$rPath &amp;&amp; \
+    echo &#34;Sending Log [OK]&#34; &amp;&amp; \
+    sudo rm $vzDumpName &amp;&amp; \
+    sudo rm vz.log &amp;&amp; \
+    echo &#34;SCP $vzDumpName on $rIP [OK]&#34;
+</code></pre></div><h4 id="import-">Import :</h4>
 <p>As for the import, only one argument is passed as input, which is the container&rsquo;s &ldquo;ID&rdquo;.</p>
 <p>Then we start the <strong>conversion</strong> and <strong>restoration</strong> part.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>sudo pct restore $ID $dumpPath/$dumpName &amp;&amp; \
-</span></span><span style="display:flex;"><span>    echo &#34;pct $ID restoring [OK]&#34;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span># At this poin, you can set network configuration
-</span></span><span style="display:flex;"><span># exemple : pct set 101 -net0 name=eth0,bridge=vmbr0,ip=192.168.15.144/24,gw=192.168.15.1
-</span></span><span style="display:flex;"><span># I prefer doing it manually
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>sudo pct start $ID
-</span></span><span style="display:flex;"><span>sudo pct enter $ID
-</span></span></code></pre></div><p>I omitted to tell you that there is a small logging system for the operations in order to be able to trace the process a bit.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">sudo pct restore $ID $dumpPath/$dumpName &amp;&amp; \
+    echo &#34;pct $ID restoring [OK]&#34;
+
+# At this poin, you can set network configuration
+# exemple : pct set 101 -net0 name=eth0,bridge=vmbr0,ip=192.168.15.144/24,gw=192.168.15.1
+# I prefer doing it manually
+
+sudo pct start $ID
+sudo pct enter $ID
+</code></pre></div><p>I omitted to tell you that there is a small logging system for the operations in order to be able to trace the process a bit.</p>
 
 </content>
 <p>

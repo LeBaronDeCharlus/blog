@@ -15,7 +15,7 @@
       
       <guid>https://lebaron.sh/posts/update-templates-proxmox/</guid>
       <description>To automatically update the list of templates available via prox in your local space just use the following command:
-pveam update I found it good to put it in cron once a week so as not to have too much space for minor versions.</description>
+pveam update  I found it good to put it in cron once a week so as not to have too much space for minor versions.</description>
     </item>
     
   </channel>

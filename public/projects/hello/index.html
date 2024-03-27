@@ -9,22 +9,22 @@
 <meta name="title" content="Additional Volume Public Cloud Ovh" />
 <meta name="description" content="To add an additional disk/volume on your OVH public cloud, you need to follow some steps.
 First, identify your new disk :
-fdisk -l You can have different output depending of your system (sd{x}, vd{x}).
+fdisk -l  You can have different output depending of your system (sd{x}, vd{x}).
 Then create a new partition :
 # parted /dev/{{disk}} mktable gpt mkpart primary ext4 512 100% quit Format it :
-mkfs -t ext4 -L rootfs /dev/{{disk}}1 Mount :
-mount /dev/{{disk}}1 /mnt Let’s make it peristent, we need UUID." />
+mkfs -t ext4 -L rootfs /dev/{{disk}}1  Mount :
+mount /dev/{{disk}}1 /mnt  Let’s make it peristent, we need UUID." />
 <meta name="keywords" content="ovh,linux,disk," />
 
 
 <meta property="og:title" content="Additional Volume Public Cloud Ovh" />
 <meta property="og:description" content="To add an additional disk/volume on your OVH public cloud, you need to follow some steps.
 First, identify your new disk :
-fdisk -l You can have different output depending of your system (sd{x}, vd{x}).
+fdisk -l  You can have different output depending of your system (sd{x}, vd{x}).
 Then create a new partition :
 # parted /dev/{{disk}} mktable gpt mkpart primary ext4 512 100% quit Format it :
-mkfs -t ext4 -L rootfs /dev/{{disk}}1 Mount :
-mount /dev/{{disk}}1 /mnt Let’s make it peristent, we need UUID." />
+mkfs -t ext4 -L rootfs /dev/{{disk}}1  Mount :
+mount /dev/{{disk}}1 /mnt  Let’s make it peristent, we need UUID." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebaron.sh/projects/hello/" /><meta property="article:section" content="projects" />
 <meta property="article:published_time" content="2017-07-31T11:38:18+00:00" />
@@ -32,26 +32,27 @@ mount /dev/{{disk}}1 /mnt Let’s make it peristent, we need UUID." />
 
 
 
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Additional Volume Public Cloud Ovh"/>
 <meta name="twitter:description" content="To add an additional disk/volume on your OVH public cloud, you need to follow some steps.
 First, identify your new disk :
-fdisk -l You can have different output depending of your system (sd{x}, vd{x}).
+fdisk -l  You can have different output depending of your system (sd{x}, vd{x}).
 Then create a new partition :
 # parted /dev/{{disk}} mktable gpt mkpart primary ext4 512 100% quit Format it :
-mkfs -t ext4 -L rootfs /dev/{{disk}}1 Mount :
-mount /dev/{{disk}}1 /mnt Let’s make it peristent, we need UUID."/>
+mkfs -t ext4 -L rootfs /dev/{{disk}}1  Mount :
+mount /dev/{{disk}}1 /mnt  Let’s make it peristent, we need UUID."/>
 
 
 
 <meta itemprop="name" content="Additional Volume Public Cloud Ovh">
 <meta itemprop="description" content="To add an additional disk/volume on your OVH public cloud, you need to follow some steps.
 First, identify your new disk :
-fdisk -l You can have different output depending of your system (sd{x}, vd{x}).
+fdisk -l  You can have different output depending of your system (sd{x}, vd{x}).
 Then create a new partition :
 # parted /dev/{{disk}} mktable gpt mkpart primary ext4 512 100% quit Format it :
-mkfs -t ext4 -L rootfs /dev/{{disk}}1 Mount :
-mount /dev/{{disk}}1 /mnt Let’s make it peristent, we need UUID."><meta itemprop="datePublished" content="2017-07-31T11:38:18+00:00" />
+mkfs -t ext4 -L rootfs /dev/{{disk}}1  Mount :
+mount /dev/{{disk}}1 /mnt  Let’s make it peristent, we need UUID."><meta itemprop="datePublished" content="2017-07-31T11:38:18+00:00" />
 <meta itemprop="dateModified" content="2017-07-31T11:38:18+00:00" />
 <meta itemprop="wordCount" content="113">
 <meta itemprop="keywords" content="ovh,linux,disk," />
@@ -243,7 +244,7 @@ mount /dev/{{disk}}1 /mnt Let’s make it peristent, we need UUID."><meta itempr
 
 <a href="/tags/">Tags</a>
 
-<a href="/photography/">Photography</a>
+<a href="https://www.flickr.com/photos/lebarondecharlus/">Photography</a>
 
 <a href="/cv">CV</a>
 
@@ -261,11 +262,11 @@ mount /dev/{{disk}}1 /mnt Let’s make it peristent, we need UUID."><meta itempr
 </code></pre>
 <p>You can have different output depending of your system (<code>sd{x}</code>, <code>vd{x}</code>).</p>
 <p>Then create a new partition :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span># parted /dev/{{disk}}
-</span></span><span style="display:flex;"><span>mktable gpt
-</span></span><span style="display:flex;"><span>mkpart primary ext4 512 100%
-</span></span><span style="display:flex;"><span>quit
-</span></span></code></pre></div><p>Format it :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># parted /dev/{{disk}}
+mktable gpt
+mkpart primary ext4 512 100%
+quit
+</code></pre></div><p>Format it :</p>
 <pre><code>mkfs -t ext4 -L rootfs /dev/{{disk}}1
 </code></pre>
 <p>Mount :</p>
@@ -273,15 +274,15 @@ mount /dev/{{disk}}1 /mnt Let’s make it peristent, we need UUID."><meta itempr
 </code></pre>
 <p>Let’s make it peristent, we need <strong>UUID</strong>.
 To get block ID.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span># blkid
-</span></span><span style="display:flex;"><span>/dev/sdb1: LABEL=&#34;rootfs&#34; UUID=&#34;6b75bbb4-b311-4b9d-a8fd-6e6ff23c401f&#34; TYPE=&#34;ext4&#34; PARTLABEL=&#34;primary&#34; 
-</span></span><span style="display:flex;"><span>PARTUUID=&#34;e20dc227-9d10-41c4-a714-2fb53d190c11&#34;
-</span></span><span style="display:flex;"><span>/dev/sda1: UUID=&#34;9abb590f-8a5e-496f-ad2a-2c877415bdc5&#34; TYPE=&#34;ext4&#34; PARTUUID=&#34;71036eb1-01&#34;
-</span></span></code></pre></div><p>Add it on <code>/etc/fstab</code> file with mount information.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span># vim /etc/fstab
-</span></span><span style="display:flex;"><span>[...]
-</span></span><span style="display:flex;"><span>UUID=6b75bbb4-b311-4b9d-a8fd-6e6ff23c401f /mnt ext4 errors=remount-ro,discard 0 1
-</span></span></code></pre></div><p>Confirm good configuration with one reboot.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># blkid
+/dev/sdb1: LABEL=&#34;rootfs&#34; UUID=&#34;6b75bbb4-b311-4b9d-a8fd-6e6ff23c401f&#34; TYPE=&#34;ext4&#34; PARTLABEL=&#34;primary&#34; 
+PARTUUID=&#34;e20dc227-9d10-41c4-a714-2fb53d190c11&#34;
+/dev/sda1: UUID=&#34;9abb590f-8a5e-496f-ad2a-2c877415bdc5&#34; TYPE=&#34;ext4&#34; PARTUUID=&#34;71036eb1-01&#34;
+</code></pre></div><p>Add it on <code>/etc/fstab</code> file with mount information.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># vim /etc/fstab
+[...]
+UUID=6b75bbb4-b311-4b9d-a8fd-6e6ff23c401f /mnt ext4 errors=remount-ro,discard 0 1
+</code></pre></div><p>Confirm good configuration with one reboot.</p>
 
 </content>
 <p>

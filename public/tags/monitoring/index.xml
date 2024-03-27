@@ -14,7 +14,7 @@
       <pubDate>Wed, 02 Aug 2017 08:22:16 +0000</pubDate>
       
       <guid>https://lebaron.sh/posts/little-web-monitoring/</guid>
-      <description>Sometimes making small OneJob services is efficient in terms of time, organization, functionality. In the example of this article, I will try to show how it can be relevant to write `microscripts&amp;rsquo; under this model.
+      <description>Sometimes making small OneJob services is efficient in terms of time, organization, functionality. In the example of this article, I will try to show how it can be relevant to write `microscripts&#39; under this model.
 Let&amp;rsquo;s say we want to make sure, for a given list of sites, that they all return 200 codes in less than 2s, in which case we&amp;rsquo;ll get a notification on Slack. The sources for these posts are available here.</description>
     </item>
     

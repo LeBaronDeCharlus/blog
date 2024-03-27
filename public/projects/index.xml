@@ -16,11 +16,11 @@
       <guid>https://lebaron.sh/projects/hello/</guid>
       <description>To add an additional disk/volume on your OVH public cloud, you need to follow some steps.
 First, identify your new disk :
-fdisk -l You can have different output depending of your system (sd{x}, vd{x}).
+fdisk -l  You can have different output depending of your system (sd{x}, vd{x}).
 Then create a new partition :
 # parted /dev/{{disk}} mktable gpt mkpart primary ext4 512 100% quit Format it :
-mkfs -t ext4 -L rootfs /dev/{{disk}}1 Mount :
-mount /dev/{{disk}}1 /mnt Let’s make it peristent, we need UUID.</description>
+mkfs -t ext4 -L rootfs /dev/{{disk}}1  Mount :
+mount /dev/{{disk}}1 /mnt  Let’s make it peristent, we need UUID.</description>
     </item>
     
   </channel>

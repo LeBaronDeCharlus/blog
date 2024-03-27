@@ -24,6 +24,7 @@ But to avoid having to prepare each time a working environment compatible with N
 
 
 
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Dockerize Nova client"/>
 <meta name="twitter:description" content="With OVH Public Cloud, it is possible for you to control your OpenStack instances directly from the Nova client.
@@ -227,7 +228,7 @@ But to avoid having to prepare each time a working environment compatible with N
 
 <a href="/tags/">Tags</a>
 
-<a href="/photography/">Photography</a>
+<a href="https://www.flickr.com/photos/lebarondecharlus/">Photography</a>
 
 <a href="/cv">CV</a>
 
@@ -244,20 +245,20 @@ But to avoid having to prepare each time a working environment compatible with N
 <p>But to avoid having to prepare each time a working environment compatible with Nova, I find more interesting to directly create a Docker image for this purpose.
 In this way, no more need to install anything except the Docker daemon on its workstation.</p>
 <p>The DockerFile looks like :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>FROM debian:latest
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>RUN apt-get update &amp;&amp; \
-</span></span><span style="display:flex;"><span>    apt-get install -y \
-</span></span><span style="display:flex;"><span>    python-glanceclient \
-</span></span><span style="display:flex;"><span>    python-novaclient
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>env OS_AUTH_URL=&#34;&#34;
-</span></span><span style="display:flex;"><span>env OS_TENANT_ID=&#34;&#34;
-</span></span><span style="display:flex;"><span>env OS_TENANT_NAME=&#34;&#34;
-</span></span><span style="display:flex;"><span>env OS_USERNAME=&#34;&#34;
-</span></span><span style="display:flex;"><span>env OS_PASSWORD=&#34;&#34;
-</span></span><span style="display:flex;"><span>env OS_REGION_NAME=&#34;&#34;
-</span></span></code></pre></div><p>Note that I use the basic debian image because I already have it locally, but you can replace the bone with the one you want and adapt the content of RUN.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">FROM debian:latest
+
+RUN apt-get update &amp;&amp; \
+    apt-get install -y \
+    python-glanceclient \
+    python-novaclient
+
+env OS_AUTH_URL=&#34;&#34;
+env OS_TENANT_ID=&#34;&#34;
+env OS_TENANT_NAME=&#34;&#34;
+env OS_USERNAME=&#34;&#34;
+env OS_PASSWORD=&#34;&#34;
+env OS_REGION_NAME=&#34;&#34;
+</code></pre></div><p>Note that I use the basic debian image because I already have it locally, but you can replace the bone with the one you want and adapt the content of RUN.</p>
 <p>You also need to fill the environment variables with information about your OpenStack env.</p>
 <p>Let’s go with :</p>
 <pre><code>sudo docker build -t clientNova .
