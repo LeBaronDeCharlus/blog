@@ -82,6 +82,18 @@ pre {
 ###############
 # Experiences #
 ###############
+> Altirnao()
+    Senior SRE {
+      When : 2024
+      Description : Build on top Google Drive app
+      Missions :
+          - Cloud Platform engineering
+          - Developer
+          - Terraform all software & infrastructure
+
+      - Technologies used : [Golang, Python, Shell, Terraform, GCP]
+}
+
 > Ecov()
     Senior SRE {
       When : 2023
