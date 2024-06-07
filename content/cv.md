@@ -21,7 +21,7 @@ pre {
 > whoami && uptime
     Corentin Deret
     Software && System && SRE 
-    Uptime : 29 years
+    Uptime : 30 years
     Professional Experience : +10 years
 
 > describeme()
@@ -89,7 +89,7 @@ pre {
       Missions :
           - Cloud Platform engineering
           - Developer
-          - Terraform all software & infrastructure
+          - Instructor
 
       - Technologies used : [Golang, Python, Shell, Terraform, GCP]
 }
