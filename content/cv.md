@@ -30,7 +30,7 @@ pre {
     Languages : [French, English, Japanese, Spanish, Greek, Chti]
     Countries where I lived : [France, Bulgaria, Cyprus, Congo, Kuwait]
     Countries I visited : [England, Jordan, Belgium, Egypt, Poland, Greece, Germany, Holland, Italy, Vatican, Irland, Scotland, Portugal]
-    I love : [my wife, my cat, Devoxx, Weboob.org, Thinkpads, english boxing, climbing, crossfit, bike touring, l'echo des gnous, music, photography, coffee, (and chocolate)]
+    I love : [my wife, my cat, Devoxx, Weboob.org, Thinkpads, english boxing, climbing, crossfit, bike touring, l\'echo des gnous, music, photography, coffee, (and chocolate)]
 
 > donation()
     [FreeBSD Foundation, Cloud Native Foundation]
@@ -44,9 +44,9 @@ pre {
 #######################
 > aboutme()
     Hello !
-    I'm a nice guy (that's what my mother says) who likes to learn from others and help make the world a better place. 
+    I\'m a nice guy (that\'s what my mother says) who likes to learn from others and help make the world a better place. 
     I like to feel useful and participate in making people happy.
-    Important thing to know, I'm always smiling.
+    Important thing to know, I\'m always smiling.
     
     I have been working in the IT world for over ten years now. What great human and technical adventures! 
     I have worked for large groups, small structures, startups, with people living less than a kilometre from my home… and on other continents! 
@@ -57,7 +57,7 @@ pre {
     I love my girlfriend, we are getting married in september !
     + sports, listening to music, discovering the world, eating well and cinema!
     
-    I'm looking forward to meet you :)
+    I\'m looking forward to meet you :)
 
 
 ##################
@@ -201,8 +201,8 @@ pre {
     }
     DevOps Engineer{
         When : 2017
-        Management/control/automation/development on Radio's applications & infrastructures.
-	Also worked on multiple self deployment infrastructure's stack with Terraform.
+        Management/control/automation/development on Radio\'s applications & infrastructures.
+	Also worked on multiple self deployment infrastructure\'s stack with Terraform.
         Technologies used :
         [Kubernetes, Python, Bash, Golang, Ansible, ELK, Graylog, Docker, Swarm, Rancher,
         Varnish, Traefik, Terraform, ZFS, Redis, RabbitMQ, Postgres, LXC, GlusterFS]
@@ -217,7 +217,7 @@ pre {
     }
     System Engineer{
         When : 2016
-        - Infrastructure\'s pilot of the French Ministry of Education.
+        - Infrastructure\\'s pilot of the French Ministry of Education.
             Deployment and system configuration of RedHat&Centos servers.
             Technologies used :
             [Pfsense, HA-Proxy, Nginx, Apache, Varnish, Tomcat, NFS, MariaDB, PostGreSQL, Python, PHP]
@@ -250,5 +250,5 @@ pre {
 
 > myworks.websites()
     lebaron.sh
-    pronostix.fr # as admin - founder and dev by <a href='https://www.linkedin.com/in/na%C3%ABl-abou-chahine/' target='_blank'>NABC</a> 
+    pronostix.fr 
 ```
