@@ -20,7 +20,7 @@ pre {
 ###########
 > whoami && uptime
     Corentin Deret
-    Software && System && SRE 
+    Software && System && SRE && Teacher 
     Uptime : 30 years
     Professional Experience : +10 years
 
@@ -48,14 +48,14 @@ pre {
     I like to feel useful and participate in making people happy.
     Important thing to know, I'm always smiling.
     
-    I have been working in the IT world for over seven years now. What great human and technical adventures! 
+    I have been working in the IT world for over ten years now. What great human and technical adventures! 
     I have worked for large groups, small structures, startups, with people living less than a kilometre from my home… and on other continents! 
     I really enjoy learning from different cultures and share knowledge and anecdotes with my colleagues.
     Happiness is an essential part of my daily life and my job.
     
-    And to talk less about work, I have a little cat, his name is "Herr Ludwig Van Chacha" (be precise, he easily get offended)!
-    My wife is on the road to be UX/UI Designer and I'm really proud of her.
-    I love sports, listening to music, discovering the world, eating well and cinema!
+    And to talk less about work, I have a little cat, his name is "Herr Ludwig Van Chacha" (be precise, he easily get offended) and a cute dog, Franz Chienbert !
+    I love my girlfriend, we are getting married in september !
+    + sports, listening to music, discovering the world, eating well and cinema!
     
     I'm looking forward to meet you :)
 
@@ -82,14 +82,19 @@ pre {
 ###############
 # Experiences #
 ###############
+> Teacher {
+    When : 2024 & now
+    Description : Teach students how to become a System Engineer (1st, 2nd grade) @Caen
+}
+
 > Altirnao()
     Senior SRE {
-      When : 2024
+      When : 2024 & now
       Description : Build on top Google Drive app
       Missions :
           - Cloud Platform engineering
+          - DevX engineering
           - Developer
-          - Instructor
 
       - Technologies used : [Golang, Python, Shell, Terraform, GCP]
 }
