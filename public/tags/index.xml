@@ -7,474 +7,350 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© Le Baron de Charlus</copyright>
-    <lastBuildDate>Wed, 09 Aug 2023 13:10:42 +0200</lastBuildDate><atom:link href="https://lebaron.sh/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Aug 2023 13:10:42 +0200</lastBuildDate>
+    <atom:link href="https://lebaron.sh/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>bitwarden</title>
+      <title>Bitwarden</title>
       <link>https://lebaron.sh/tags/bitwarden/</link>
       <pubDate>Wed, 09 Aug 2023 13:10:42 +0200</pubDate>
-      
       <guid>https://lebaron.sh/tags/bitwarden/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>cli</title>
+      <title>Cli</title>
       <link>https://lebaron.sh/tags/cli/</link>
       <pubDate>Wed, 09 Aug 2023 13:10:42 +0200</pubDate>
-      
       <guid>https://lebaron.sh/tags/cli/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>shell</title>
+      <title>Shell</title>
       <link>https://lebaron.sh/tags/shell/</link>
       <pubDate>Wed, 09 Aug 2023 13:10:42 +0200</pubDate>
-      
       <guid>https://lebaron.sh/tags/shell/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>sessions</title>
+      <title>Sessions</title>
       <link>https://lebaron.sh/tags/sessions/</link>
       <pubDate>Tue, 12 Jul 2022 12:22:42 +0200</pubDate>
-      
       <guid>https://lebaron.sh/tags/sessions/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>zellij</title>
+      <title>Zellij</title>
       <link>https://lebaron.sh/tags/zellij/</link>
       <pubDate>Tue, 12 Jul 2022 12:22:42 +0200</pubDate>
-      
       <guid>https://lebaron.sh/tags/zellij/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>bash</title>
+      <title>Bash</title>
       <link>https://lebaron.sh/tags/bash/</link>
       <pubDate>Sat, 25 Jun 2022 18:03:17 +0200</pubDate>
-      
       <guid>https://lebaron.sh/tags/bash/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>loader</title>
+      <title>Loader</title>
       <link>https://lebaron.sh/tags/loader/</link>
       <pubDate>Sat, 25 Jun 2022 18:03:17 +0200</pubDate>
-      
       <guid>https://lebaron.sh/tags/loader/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>cd</title>
-      <link>https://lebaron.sh/tags/cd/</link>
-      <pubDate>Wed, 22 Jun 2022 21:53:45 +0200</pubDate>
-      
-      <guid>https://lebaron.sh/tags/cd/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>continous delivery</title>
-      <link>https://lebaron.sh/tags/continous-delivery/</link>
-      <pubDate>Wed, 22 Jun 2022 21:53:45 +0200</pubDate>
-      
-      <guid>https://lebaron.sh/tags/continous-delivery/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>git</title>
-      <link>https://lebaron.sh/tags/git/</link>
-      <pubDate>Wed, 22 Jun 2022 21:53:45 +0200</pubDate>
-      
-      <guid>https://lebaron.sh/tags/git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>direnv</title>
+      <title>Direnv</title>
       <link>https://lebaron.sh/tags/direnv/</link>
       <pubDate>Fri, 10 Jun 2022 08:12:12 +0200</pubDate>
-      
       <guid>https://lebaron.sh/tags/direnv/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>gpg</title>
+      <title>Gpg</title>
       <link>https://lebaron.sh/tags/gpg/</link>
       <pubDate>Fri, 10 Jun 2022 08:12:12 +0200</pubDate>
-      
       <guid>https://lebaron.sh/tags/gpg/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>pass</title>
+      <title>Pass</title>
       <link>https://lebaron.sh/tags/pass/</link>
       <pubDate>Fri, 10 Jun 2022 08:12:12 +0200</pubDate>
-      
       <guid>https://lebaron.sh/tags/pass/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>poetry</title>
+      <title>Poetry</title>
       <link>https://lebaron.sh/tags/poetry/</link>
       <pubDate>Fri, 10 Jun 2022 08:12:12 +0200</pubDate>
-      
       <guid>https://lebaron.sh/tags/poetry/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>programming</title>
+      <title>Programming</title>
       <link>https://lebaron.sh/tags/programming/</link>
       <pubDate>Fri, 10 Jun 2022 08:12:12 +0200</pubDate>
-      
       <guid>https://lebaron.sh/tags/programming/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>pyenv</title>
+      <title>Pyenv</title>
       <link>https://lebaron.sh/tags/pyenv/</link>
       <pubDate>Fri, 10 Jun 2022 08:12:12 +0200</pubDate>
-      
       <guid>https://lebaron.sh/tags/pyenv/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>python</title>
+      <title>Python</title>
       <link>https://lebaron.sh/tags/python/</link>
       <pubDate>Fri, 10 Jun 2022 08:12:12 +0200</pubDate>
-      
       <guid>https://lebaron.sh/tags/python/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>secrets</title>
+      <title>Secrets</title>
       <link>https://lebaron.sh/tags/secrets/</link>
       <pubDate>Fri, 10 Jun 2022 08:12:12 +0200</pubDate>
-      
       <guid>https://lebaron.sh/tags/secrets/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>tomb</title>
+      <title>Tomb</title>
       <link>https://lebaron.sh/tags/tomb/</link>
       <pubDate>Fri, 10 Jun 2022 08:12:12 +0200</pubDate>
-      
       <guid>https://lebaron.sh/tags/tomb/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>baremetal</title>
+      <title>Baremetal</title>
       <link>https://lebaron.sh/tags/baremetal/</link>
       <pubDate>Mon, 20 Jul 2020 12:00:00 +0000</pubDate>
-      
       <guid>https://lebaron.sh/tags/baremetal/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>cloud</title>
+      <title>Cloud</title>
       <link>https://lebaron.sh/tags/cloud/</link>
       <pubDate>Mon, 20 Jul 2020 12:00:00 +0000</pubDate>
-      
       <guid>https://lebaron.sh/tags/cloud/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>linux</title>
+      <title>Linux</title>
       <link>https://lebaron.sh/tags/linux/</link>
       <pubDate>Mon, 20 Jul 2020 12:00:00 +0000</pubDate>
-      
       <guid>https://lebaron.sh/tags/linux/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>ovh</title>
+      <title>Ovh</title>
       <link>https://lebaron.sh/tags/ovh/</link>
       <pubDate>Mon, 20 Jul 2020 12:00:00 +0000</pubDate>
-      
       <guid>https://lebaron.sh/tags/ovh/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>awesomewm</title>
+      <title>Awesomewm</title>
       <link>https://lebaron.sh/tags/awesomewm/</link>
       <pubDate>Fri, 10 Jan 2020 11:10:33 +0000</pubDate>
-      
       <guid>https://lebaron.sh/tags/awesomewm/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>random</title>
+      <title>Random</title>
       <link>https://lebaron.sh/tags/random/</link>
       <pubDate>Fri, 10 Jan 2020 11:10:33 +0000</pubDate>
-      
       <guid>https://lebaron.sh/tags/random/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>wallpaper</title>
+      <title>Wallpaper</title>
       <link>https://lebaron.sh/tags/wallpaper/</link>
       <pubDate>Fri, 10 Jan 2020 11:10:33 +0000</pubDate>
-      
       <guid>https://lebaron.sh/tags/wallpaper/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>freebsd</title>
+      <title>Freebsd</title>
       <link>https://lebaron.sh/tags/freebsd/</link>
       <pubDate>Sun, 04 Mar 2018 14:56:33 +0000</pubDate>
-      
       <guid>https://lebaron.sh/tags/freebsd/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>publicloud</title>
+      <title>Publicloud</title>
       <link>https://lebaron.sh/tags/publicloud/</link>
       <pubDate>Sun, 04 Mar 2018 14:56:33 +0000</pubDate>
-      
       <guid>https://lebaron.sh/tags/publicloud/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>serveur</title>
+      <title>Serveur</title>
       <link>https://lebaron.sh/tags/serveur/</link>
       <pubDate>Sun, 04 Mar 2018 14:56:33 +0000</pubDate>
-      
       <guid>https://lebaron.sh/tags/serveur/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>bug</title>
+      <title>Bug</title>
       <link>https://lebaron.sh/tags/bug/</link>
       <pubDate>Sun, 04 Mar 2018 14:41:25 +0000</pubDate>
-      
       <guid>https://lebaron.sh/tags/bug/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>vrack</title>
+      <title>Vrack</title>
       <link>https://lebaron.sh/tags/vrack/</link>
       <pubDate>Sun, 04 Mar 2018 14:41:25 +0000</pubDate>
-      
       <guid>https://lebaron.sh/tags/vrack/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>script</title>
+      <title>Script</title>
       <link>https://lebaron.sh/tags/script/</link>
       <pubDate>Fri, 18 Aug 2017 22:29:53 +0200</pubDate>
-      
       <guid>https://lebaron.sh/tags/script/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>gitlab</title>
+      <title>Gitlab</title>
       <link>https://lebaron.sh/tags/gitlab/</link>
       <pubDate>Thu, 10 Aug 2017 12:06:05 +0000</pubDate>
-      
       <guid>https://lebaron.sh/tags/gitlab/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>kubernetes</title>
+      <title>Kubernetes</title>
       <link>https://lebaron.sh/tags/kubernetes/</link>
       <pubDate>Thu, 10 Aug 2017 12:06:05 +0000</pubDate>
-      
       <guid>https://lebaron.sh/tags/kubernetes/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>registry</title>
+      <title>Registry</title>
       <link>https://lebaron.sh/tags/registry/</link>
       <pubDate>Thu, 10 Aug 2017 12:06:05 +0000</pubDate>
-      
       <guid>https://lebaron.sh/tags/registry/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>docker</title>
+      <title>Docker</title>
       <link>https://lebaron.sh/tags/docker/</link>
       <pubDate>Tue, 08 Aug 2017 13:52:07 +0000</pubDate>
-      
       <guid>https://lebaron.sh/tags/docker/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>nova</title>
+      <title>Nova</title>
       <link>https://lebaron.sh/tags/nova/</link>
       <pubDate>Tue, 08 Aug 2017 13:52:07 +0000</pubDate>
-      
       <guid>https://lebaron.sh/tags/nova/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>openstack</title>
+      <title>Openstack</title>
       <link>https://lebaron.sh/tags/openstack/</link>
       <pubDate>Tue, 08 Aug 2017 13:52:07 +0000</pubDate>
-      
       <guid>https://lebaron.sh/tags/openstack/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>cattle</title>
+      <title>Cattle</title>
       <link>https://lebaron.sh/tags/cattle/</link>
       <pubDate>Fri, 04 Aug 2017 19:04:11 +0000</pubDate>
-      
       <guid>https://lebaron.sh/tags/cattle/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>pci</title>
+      <title>Pci</title>
       <link>https://lebaron.sh/tags/pci/</link>
       <pubDate>Fri, 04 Aug 2017 19:04:11 +0000</pubDate>
-      
       <guid>https://lebaron.sh/tags/pci/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>rancher</title>
+      <title>Rancher</title>
       <link>https://lebaron.sh/tags/rancher/</link>
       <pubDate>Fri, 04 Aug 2017 19:04:11 +0000</pubDate>
-      
       <guid>https://lebaron.sh/tags/rancher/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>monitoring</title>
+      <title>Monitoring</title>
       <link>https://lebaron.sh/tags/monitoring/</link>
       <pubDate>Wed, 02 Aug 2017 08:22:16 +0000</pubDate>
-      
       <guid>https://lebaron.sh/tags/monitoring/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>online</title>
+      <title>Online</title>
       <link>https://lebaron.sh/tags/online/</link>
       <pubDate>Tue, 01 Aug 2017 09:40:07 +0000</pubDate>
-      
       <guid>https://lebaron.sh/tags/online/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>LXC</title>
       <link>https://lebaron.sh/tags/lxc/</link>
       <pubDate>Mon, 31 Jul 2017 18:15:50 +0000</pubDate>
-      
       <guid>https://lebaron.sh/tags/lxc/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>openVZ</title>
+      <title>OpenVZ</title>
       <link>https://lebaron.sh/tags/openvz/</link>
       <pubDate>Mon, 31 Jul 2017 18:15:50 +0000</pubDate>
-      
       <guid>https://lebaron.sh/tags/openvz/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>proxmox</title>
+      <title>Proxmox</title>
       <link>https://lebaron.sh/tags/proxmox/</link>
       <pubDate>Mon, 31 Jul 2017 18:15:50 +0000</pubDate>
-      
       <guid>https://lebaron.sh/tags/proxmox/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>disk</title>
+      <title>Disk</title>
       <link>https://lebaron.sh/tags/disk/</link>
       <pubDate>Mon, 31 Jul 2017 11:38:18 +0000</pubDate>
-      
       <guid>https://lebaron.sh/tags/disk/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>dev</title>
+      <title>Dev</title>
       <link>https://lebaron.sh/tags/dev/</link>
       <pubDate>Sun, 30 Jul 2017 15:08:41 +0000</pubDate>
-      
       <guid>https://lebaron.sh/tags/dev/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>galera</title>
+      <title>Galera</title>
       <link>https://lebaron.sh/tags/galera/</link>
       <pubDate>Sun, 30 Jul 2017 15:08:41 +0000</pubDate>
-      
       <guid>https://lebaron.sh/tags/galera/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>golang</title>
+      <title>Golang</title>
       <link>https://lebaron.sh/tags/golang/</link>
       <pubDate>Sun, 30 Jul 2017 15:08:41 +0000</pubDate>
-      
       <guid>https://lebaron.sh/tags/golang/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>templates</title>
+      <title>Templates</title>
       <link>https://lebaron.sh/tags/templates/</link>
       <pubDate>Sun, 30 Jul 2017 14:53:16 +0000</pubDate>
-      
       <guid>https://lebaron.sh/tags/templates/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>pyinotify</title>
+      <title>Pyinotify</title>
       <link>https://lebaron.sh/tags/pyinotify/</link>
       <pubDate>Sun, 30 Jul 2017 12:53:16 +0000</pubDate>
-      
       <guid>https://lebaron.sh/tags/pyinotify/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

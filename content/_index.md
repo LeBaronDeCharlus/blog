@@ -7,6 +7,10 @@
 
 Hi, I'm *Le Baron de Charlus* also known as *Palamède de Guermantes*, a famous *Proust* character.
 
+<center> 
+  SRE and Teacher, *Open Source* enthusiast.
+</center>
+
 Some things and stuffs.
 
 You can find me on [Github](https://github.com/lebarondecharlus).

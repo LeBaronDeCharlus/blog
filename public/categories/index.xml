@@ -6,6 +6,7 @@
     <description>Recent content in Categories on Le Baron de Charlus</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>© Le Baron de Charlus</copyright><atom:link href="https://lebaron.sh/categories/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© Le Baron de Charlus</copyright>
+    <atom:link href="https://lebaron.sh/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

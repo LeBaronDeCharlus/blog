@@ -25,8 +25,7 @@ First let&rsquo;s look at what we have:
 
 
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Freebsd Pci Disk Space"/>
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Freebsd Pci Disk Space"/>
 <meta name="twitter:description" content="When you create an OVH Public Cloud instance under Freebsd with a certain amount of disk space, let’s say 50G, you will find that it is not applied on your partition.
 First let&rsquo;s look at what we have:
 # gpart show =&gt; 40 10239920 da0 GPT (50G) [CORRUPT] 40 1024 1 freebsd-boot (512K) 1064 984 - free - (492K) 2048 10235904 2 freebsd-zfs (4.9G) 10237952 2008 - free - (1.0M) We note that our volume da0 is tagged as CORRUPT."/>
@@ -240,85 +239,85 @@ First let&rsquo;s look at what we have:
 <content>
   <p>When you create an OVH Public Cloud instance under Freebsd with a certain amount of disk space, let’s say 50G, you will find that it is not applied on your partition.</p>
 <p>First let&rsquo;s look at what we have:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># gpart show
-=&gt;      40  10239920  da0  GPT  (50G) [CORRUPT]
-        40      1024    1  freebsd-boot  (512K)
-      1064       984       - free -  (492K)
-      2048  10235904    2  freebsd-zfs  (4.9G)
-  10237952      2008       - free -  (1.0M)
-</code></pre></div><p>We note that our volume da0 is tagged as CORRUPT. Don&rsquo;t panic, everyone knows that the Freebsd handbook is great. I quote:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span># gpart show
+</span></span><span style="display:flex;"><span>=&gt;      40  10239920  da0  GPT  (50G) [CORRUPT]
+</span></span><span style="display:flex;"><span>        40      1024    1  freebsd-boot  (512K)
+</span></span><span style="display:flex;"><span>      1064       984       - free -  (492K)
+</span></span><span style="display:flex;"><span>      2048  10235904    2  freebsd-zfs  (4.9G)
+</span></span><span style="display:flex;"><span>  10237952      2008       - free -  (1.0M)
+</span></span></code></pre></div><p>We note that our volume da0 is tagged as CORRUPT. Don&rsquo;t panic, everyone knows that the Freebsd handbook is great. I quote:</p>
 <blockquote>
 <p>If the disk was formatted with the GPT partitioning scheme, it may show as “corrupted” because the GPT backup partition table is no longer at the end of the drive. Fix the backup partition table with gpart:</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># gpart recover ada0
-ada0 recovered
-</code></pre></div><p>Well, let&rsquo;s apply this to our server by replacing <code>ada0</code> by <code>da0</code> :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># gpart recover da0
-da0 recovered
-</code></pre></div><p>Check :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># gpart show
-=&gt;       40  104857520  da0  GPT  (50G)
-         40       1024    1  freebsd-boot  (512K)
-       1064        984       - free -  (492K)
-       2048   10235904    2  freebsd-zfs  (4.9G)
-   10237952   94619608       - free -  (45G)
-</code></pre></div><p>Much better!
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span># gpart recover ada0
+</span></span><span style="display:flex;"><span>ada0 recovered
+</span></span></code></pre></div><p>Well, let&rsquo;s apply this to our server by replacing <code>ada0</code> by <code>da0</code> :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span># gpart recover da0
+</span></span><span style="display:flex;"><span>da0 recovered
+</span></span></code></pre></div><p>Check :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span># gpart show
+</span></span><span style="display:flex;"><span>=&gt;       40  104857520  da0  GPT  (50G)
+</span></span><span style="display:flex;"><span>         40       1024    1  freebsd-boot  (512K)
+</span></span><span style="display:flex;"><span>       1064        984       - free -  (492K)
+</span></span><span style="display:flex;"><span>       2048   10235904    2  freebsd-zfs  (4.9G)
+</span></span><span style="display:flex;"><span>   10237952   94619608       - free -  (45G)
+</span></span></code></pre></div><p>Much better!
 We see that our da0 &ldquo;disk&rdquo; has 50G. However if we look more closely at our system, we see that not all the space is present.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># df -h
-Filesystem            Size    Used   Avail Capacity  Mounted on
-zroot/ROOT/default    4.7G    493M    4.2G    10%    /
-devfs                 1.0K    1.0K      0B   100%    /dev
-zroot                 4.2G     96K    4.2G     0%    /zroot
-</code></pre></div><p>Once again, don&rsquo;t panic. The handbook is our friend.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span># df -h
+</span></span><span style="display:flex;"><span>Filesystem            Size    Used   Avail Capacity  Mounted on
+</span></span><span style="display:flex;"><span>zroot/ROOT/default    4.7G    493M    4.2G    10%    /
+</span></span><span style="display:flex;"><span>devfs                 1.0K    1.0K      0B   100%    /dev
+</span></span><span style="display:flex;"><span>zroot                 4.2G     96K    4.2G     0%    /zroot
+</span></span></code></pre></div><p>Once again, don&rsquo;t panic. The handbook is our friend.</p>
 <p>Let&rsquo;s apply the 45G free on our score :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># gpart resize -i 2 -a 4k -s 50G da0
-da0p2 resized
-</code></pre></div><p>Check :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># gpart show
-=&gt;       40  104857520  da0  GPT  (50G)
-         40       1024    1  freebsd-boot  (512K)
-       1064        984       - free -  (492K)
-       2048   94371840    2  freebsd-zfs  (45G)
-   94373888   10483672       - free -  (5.0G)
-</code></pre></div><p>Well, we are moving forward, however, the space is not yet usable as the return from df :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># df -h
-Filesystem            Size    Used   Avail Capacity  Mounted on
-zroot/ROOT/default    4.7G    493M    4.2G    10%    /
-devfs                 1.0K    1.0K      0B   100%    /dev
-zroot                 4.2G     96K    4.2G     0%    /zroot
-</code></pre></div><p>We must ask to our zpool to use this space.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span># gpart resize -i 2 -a 4k -s 50G da0
+</span></span><span style="display:flex;"><span>da0p2 resized
+</span></span></code></pre></div><p>Check :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span># gpart show
+</span></span><span style="display:flex;"><span>=&gt;       40  104857520  da0  GPT  (50G)
+</span></span><span style="display:flex;"><span>         40       1024    1  freebsd-boot  (512K)
+</span></span><span style="display:flex;"><span>       1064        984       - free -  (492K)
+</span></span><span style="display:flex;"><span>       2048   94371840    2  freebsd-zfs  (45G)
+</span></span><span style="display:flex;"><span>   94373888   10483672       - free -  (5.0G)
+</span></span></code></pre></div><p>Well, we are moving forward, however, the space is not yet usable as the return from df :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span># df -h
+</span></span><span style="display:flex;"><span>Filesystem            Size    Used   Avail Capacity  Mounted on
+</span></span><span style="display:flex;"><span>zroot/ROOT/default    4.7G    493M    4.2G    10%    /
+</span></span><span style="display:flex;"><span>devfs                 1.0K    1.0K      0B   100%    /dev
+</span></span><span style="display:flex;"><span>zroot                 4.2G     96K    4.2G     0%    /zroot
+</span></span></code></pre></div><p>We must ask to our zpool to use this space.</p>
 <p>Let’s first check our pool.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># zpool status
-  pool: zroot
- state: ONLINE
-  scan: none requested
-config:
-
-	NAME        STATE     READ WRITE CKSUM
-	zroot       ONLINE       0     0     0
-	  da0p2     ONLINE       0     0     0
-</code></pre></div><p>Ask it we want to autoexpand on zroot</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># zpool set autoexpand=on zroot
-</code></pre></div><p>Apply it on da0p2 :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># zpool online -e zroot /dev/da0p2
-</code></pre></div><p>Last check :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># df -h
-Filesystem            Size    Used   Avail Capacity  Mounted on
-zroot/ROOT/default     44G    493M     43G     1%    /
-devfs                 1.0K    1.0K      0B   100%    /dev
-zroot                  43G     96K     43G     0%    /zroot
-</code></pre></div><p>This is it !</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span># zpool status
+</span></span><span style="display:flex;"><span>  pool: zroot
+</span></span><span style="display:flex;"><span> state: ONLINE
+</span></span><span style="display:flex;"><span>  scan: none requested
+</span></span><span style="display:flex;"><span>config:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	NAME        STATE     READ WRITE CKSUM
+</span></span><span style="display:flex;"><span>	zroot       ONLINE       0     0     0
+</span></span><span style="display:flex;"><span>	  da0p2     ONLINE       0     0     0
+</span></span></code></pre></div><p>Ask it we want to autoexpand on zroot</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span># zpool set autoexpand=on zroot
+</span></span></code></pre></div><p>Apply it on da0p2 :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span># zpool online -e zroot /dev/da0p2
+</span></span></code></pre></div><p>Last check :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span># df -h
+</span></span><span style="display:flex;"><span>Filesystem            Size    Used   Avail Capacity  Mounted on
+</span></span><span style="display:flex;"><span>zroot/ROOT/default     44G    493M     43G     1%    /
+</span></span><span style="display:flex;"><span>devfs                 1.0K    1.0K      0B   100%    /dev
+</span></span><span style="display:flex;"><span>zroot                  43G     96K     43G     0%    /zroot
+</span></span></code></pre></div><p>This is it !</p>
 
 </content>
 <p>
   
-  <a href="https://lebaron.sh/tags/freebsd/">#freebsd</a>
+  <a href="https://lebaron.sh/tags/freebsd/">#Freebsd</a>
   
-  <a href="https://lebaron.sh/tags/ovh/">#ovh</a>
+  <a href="https://lebaron.sh/tags/ovh/">#Ovh</a>
   
-  <a href="https://lebaron.sh/tags/serveur/">#serveur</a>
+  <a href="https://lebaron.sh/tags/serveur/">#Serveur</a>
   
-  <a href="https://lebaron.sh/tags/publicloud/">#publicloud</a>
+  <a href="https://lebaron.sh/tags/publicloud/">#Publicloud</a>
   
 </p>
 

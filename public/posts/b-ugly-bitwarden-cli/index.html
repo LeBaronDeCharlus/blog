@@ -25,8 +25,7 @@ So, living in a terminal 90% of the time, I thought I&rsquo;d do a quick script 
 
 
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="B, an ugly Bitwarden CLI"/>
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="B, an ugly Bitwarden CLI"/>
 <meta name="twitter:description" content="Yes, yes, yes, I know… I don&rsquo;t like graphical interfaces so sometimes I like to make some TUI tools, and sometimes they can be ugly too…
 I was tired of wasting time clicking each time on the web extension or on the client, of having to systematically enter my login details, of not having a quick access directly accessible in shortcuts, etc.
 So, living in a terminal 90% of the time, I thought I&rsquo;d do a quick script to put me out of my misery."/>
@@ -246,11 +245,11 @@ So, living in a terminal 90% of the time, I thought I&rsquo;d do a quick script 
 <p>I was tired of wasting time clicking each time on the web extension or on the client, of having to systematically enter my login details, of not having a quick access directly accessible in shortcuts, etc.</p>
 <p>So, living in a terminal 90% of the time, I thought I&rsquo;d do a quick script to put me out of my misery.</p>
 <p>I know, judge me, please yourself :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># b</span>
-<span style="color:#998;font-style:italic"># […]</span>
-bw list items --search <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">1</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> --session <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">BW_SESSION</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> | jq -j <span style="color:#d14">&#39;.[] | [.name, .login.password]&#39;</span> | tr -d <span style="color:#d14">&#39;\n[&#34;&#39;</span>| tr <span style="color:#d14">&#39;]&#39;</span> <span style="color:#d14">&#39;\n&#39;</span>| tr <span style="color:#d14">&#39;,&#39;</span> <span style="color:#d14">&#39;:&#39;</span> | sed <span style="color:#d14">&#39;s/^\ \ //g&#39;</span> | <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">FZF</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> --layout<span style="color:#000;font-weight:bold">=</span>reverse | tail -1 | tr -d <span style="color:#d14">&#39;&#34;&#39;</span> | cut -d <span style="color:#d14">&#39;:&#39;</span> -f <span style="color:#099">2</span> | sed <span style="color:#d14">&#39;s/^\ \ //g&#39;</span>| cat | xclip -se c &gt; /dev/null 2&gt; /dev/null
-<span style="color:#998;font-style:italic"># […]</span>
-</code></pre></div><p>I needed Bitwarden CLI tool <code>bw</code>, a way to copy in clipboard password <code>xclip</code>, some json parsing with <code>jq</code> and <code>fzf</code> (and <code>fzf-tmux</code>).</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># b</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># […]</span>
+</span></span><span style="display:flex;"><span>bw list items --search <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">1</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> --session <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">BW_SESSION</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> | jq -j <span style="color:#d14">&#39;.[] | [.name, .login.password]&#39;</span> | tr -d <span style="color:#d14">&#39;\n[&#34;&#39;</span>| tr <span style="color:#d14">&#39;]&#39;</span> <span style="color:#d14">&#39;\n&#39;</span>| tr <span style="color:#d14">&#39;,&#39;</span> <span style="color:#d14">&#39;:&#39;</span> | sed <span style="color:#d14">&#39;s/^\ \ //g&#39;</span> | <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">FZF</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> --layout<span style="color:#000;font-weight:bold">=</span>reverse | tail -1 | tr -d <span style="color:#d14">&#39;&#34;&#39;</span> | cut -d <span style="color:#d14">&#39;:&#39;</span> -f <span style="color:#099">2</span> | sed <span style="color:#d14">&#39;s/^\ \ //g&#39;</span>| cat | xclip -se c &gt; /dev/null 2&gt; /dev/null
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># […]</span>
+</span></span></code></pre></div><p>I needed Bitwarden CLI tool <code>bw</code>, a way to copy in clipboard password <code>xclip</code>, some json parsing with <code>jq</code> and <code>fzf</code> (and <code>fzf-tmux</code>).</p>
 <p>So dependencies are :</p>
 <ul>
 <li><code>bw</code> (Bitwarden cli)</li>
@@ -261,62 +260,62 @@ bw list items --search <span style="color:#d14">&#34;</span><span style="color:#
 </ul>
 <p>To install this quick and dirty script, you need to create a Bitwarden token, <a href="https://bitwarden.com/help/personal-api-key/">check documentation here</a>.
 Then set variables in b script.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># Fill these vars</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">BW_CLIENTID</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;&#39;</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">BW_CLIENTSECRET</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;&#39;</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">BW_PASSWORD</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;&#39;</span>
-</code></pre></div><p>Finally move <code>b</code> file to <code>/usr/local/bin</code>.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo mv b /usr/local/bin 
-</code></pre></div><p>You can then :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Fill these vars</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">BW_CLIENTID</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">BW_CLIENTSECRET</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">BW_PASSWORD</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;&#39;</span>
+</span></span></code></pre></div><p>Finally move <code>b</code> file to <code>/usr/local/bin</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo mv b /usr/local/bin 
+</span></span></code></pre></div><p>You can then :</p>
 <ul>
 <li>Search for a password</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># ex, search github password</span>
-b github
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># ex, search github password</span>
+</span></span><span style="display:flex;"><span>b github
+</span></span></code></pre></div><ul>
 <li>Sync vault (download new password from Bitwarden/Vaultwarden server):</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">b --sync
-</code></pre></div><p>And probably a lot more to come as I could be a lazy man.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>b --sync
+</span></span></code></pre></div><p>And probably a lot more to come as I could be a lazy man.</p>
 <p>Full script :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/bash
-</span><span style="color:#999;font-weight:bold;font-style:italic"></span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">BW_CLIENTID</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;&#39;</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">BW_CLIENTSECRET</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;&#39;</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">BW_PASSWORD</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;&#39;</span>
-
-<span style="color:#0086b3">export</span> <span style="color:#008080">LOCK</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;</span><span style="color:#008080">$HOME</span><span style="color:#d14">/.bw.lock&#34;</span>
-
-<span style="color:#998;font-style:italic"># is unlock ?</span>
-<span style="color:#000;font-weight:bold">if</span> <span style="color:#0086b3">test</span> -f <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">LOCK</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>; <span style="color:#000;font-weight:bold">then</span>
-  <span style="color:#008080">BW_SESSION</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>bw unlock --passwordenv BW_PASSWORD | grep <span style="color:#0086b3">export</span> | cut -d <span style="color:#d14">&#39;&#34;&#39;</span> -f <span style="color:#099">2</span> | tr -d <span style="color:#d14">&#39;&#34;&#39;</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> bw sync<span style="color:#000;font-weight:bold">)</span>
-<span style="color:#000;font-weight:bold">else</span>
-  bw login --apikey <span style="color:#000;font-weight:bold">&amp;&amp;</span> touch <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">LOCK</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
-<span style="color:#000;font-weight:bold">fi</span>
-
-<span style="color:#998;font-style:italic"># is inside tmux ?</span>
-<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> -z <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">TMUX</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">]</span> ;  <span style="color:#000;font-weight:bold">then</span>
-  <span style="color:#008080">FZF</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;fzf&#34;</span>
-<span style="color:#000;font-weight:bold">else</span> 
-  <span style="color:#008080">FZF</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;fzf-tmux&#34;</span>
-<span style="color:#000;font-weight:bold">fi</span>
-
-<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">1</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;--sync&#34;</span> <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
-  bw sync
-  <span style="color:#0086b3">exit</span>
-<span style="color:#000;font-weight:bold">fi</span>
-
-bw list items --search <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">1</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> --session <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">BW_SESSION</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> | jq -j <span style="color:#d14">&#39;.[] | [.name, .login.password]&#39;</span> | tr -d <span style="color:#d14">&#39;\n[&#34;&#39;</span>| tr <span style="color:#d14">&#39;]&#39;</span> <span style="color:#d14">&#39;\n&#39;</span>| tr <span style="color:#d14">&#39;,&#39;</span> <span style="color:#d14">&#39;:&#39;</span> | sed <span style="color:#d14">&#39;s/^\ \ //g&#39;</span> | <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">FZF</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> --layout<span style="color:#000;font-weight:bold">=</span>reverse | tail -1 | tr -d <span style="color:#d14">&#39;&#34;&#39;</span> | cut -d <span style="color:#d14">&#39;:&#39;</span> -f <span style="color:#099">2</span> | sed <span style="color:#d14">&#39;s/^\ \ //g&#39;</span>| cat | xclip -se c &gt; /dev/null 2&gt; /dev/null
-</code></pre></div><p><a href="https://github.com/lebarondecharlus/b" target="_blank">Sources are here.</a></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">BW_CLIENTID</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">BW_CLIENTSECRET</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">BW_PASSWORD</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">LOCK</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;</span><span style="color:#008080">$HOME</span><span style="color:#d14">/.bw.lock&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># is unlock ?</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> <span style="color:#0086b3">test</span> -f <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">LOCK</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">BW_SESSION</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>bw unlock --passwordenv BW_PASSWORD | grep <span style="color:#0086b3">export</span> | cut -d <span style="color:#d14">&#39;&#34;&#39;</span> -f <span style="color:#099">2</span> | tr -d <span style="color:#d14">&#39;&#34;&#39;</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> bw sync<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>  bw login --apikey <span style="color:#000;font-weight:bold">&amp;&amp;</span> touch <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">LOCK</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># is inside tmux ?</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> -z <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">TMUX</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">]</span> ;  <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">FZF</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;fzf&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">else</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">FZF</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;fzf-tmux&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">1</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;--sync&#34;</span> <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>  bw sync
+</span></span><span style="display:flex;"><span>  <span style="color:#0086b3">exit</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>bw list items --search <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">1</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> --session <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">BW_SESSION</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> | jq -j <span style="color:#d14">&#39;.[] | [.name, .login.password]&#39;</span> | tr -d <span style="color:#d14">&#39;\n[&#34;&#39;</span>| tr <span style="color:#d14">&#39;]&#39;</span> <span style="color:#d14">&#39;\n&#39;</span>| tr <span style="color:#d14">&#39;,&#39;</span> <span style="color:#d14">&#39;:&#39;</span> | sed <span style="color:#d14">&#39;s/^\ \ //g&#39;</span> | <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">FZF</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> --layout<span style="color:#000;font-weight:bold">=</span>reverse | tail -1 | tr -d <span style="color:#d14">&#39;&#34;&#39;</span> | cut -d <span style="color:#d14">&#39;:&#39;</span> -f <span style="color:#099">2</span> | sed <span style="color:#d14">&#39;s/^\ \ //g&#39;</span>| cat | xclip -se c &gt; /dev/null 2&gt; /dev/null
+</span></span></code></pre></div><p><a href="https://github.com/lebarondecharlus/b" target="_blank">Sources are here.</a></p>
 
 </content>
 <p>
   
-  <a href="https://lebaron.sh/tags/bitwarden/">#bitwarden</a>
+  <a href="https://lebaron.sh/tags/bitwarden/">#Bitwarden</a>
   
-  <a href="https://lebaron.sh/tags/cli/">#cli</a>
+  <a href="https://lebaron.sh/tags/cli/">#Cli</a>
   
-  <a href="https://lebaron.sh/tags/shell/">#shell</a>
+  <a href="https://lebaron.sh/tags/shell/">#Shell</a>
   
 </p>
 

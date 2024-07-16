@@ -25,8 +25,7 @@ Application deployment missions pushed by developers must fit with the technolog
 
 
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Setup Rancher cluster on OVH Public Cloud"/>
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Setup Rancher cluster on OVH Public Cloud"/>
 <meta name="twitter:description" content="The world of hosting is changing, and so is the world of application development. Today we are turning less and less to dedicated hosting for a single application, but more to build the infrastructure that will support it.
 In this sense, we prefer to use an Iaas solution on dedicated &ldquo;bare metal&rdquo; for our application overlay than pure &ldquo;bare metal&rdquo; per service.
 Application deployment missions pushed by developers must fit with the technology and logic of production."/>
@@ -254,75 +253,75 @@ Application deployment missions pushed by developers must fit with the technolog
 #### LoadBalancer Nginx :
 <p>For Nginx installation, nothing very complex, a €2.99 instance will be more than enough since the only job of the server will be to forward the request to our rancher cluster.</p>
 <p>The conf file will be :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">upstream rancher {
-    server rancher-server1:8080;
-    server rancher-server2:8080;
-    server rancher-server3:8080;
-}
-
-map $http_upgrade $connection_upgrade {
-    default Upgrade;
-    &#39;&#39;      close;
-}
-
-server {
-    listen 443 ssl spdy;
-    server_name &lt;server&gt;;
-    ssl_certificate &lt;cert_file&gt;;
-    ssl_certificate_key &lt;key_file&gt;;
-
-    location / {
-        proxy_set_header Host $host;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header X-Forwarded-Port $server_port;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_pass http://rancher;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection $connection_upgrade;
-        proxy_read_timeout 900s;
-    }
-}
-
-server {
-    listen 80;
-    server_name &lt;server&gt;;
-    return 301 https://$server_name$request_uri;
-}
-</code></pre></div><p>Replace the <code>upstream</code> by the ips of your servers.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>upstream rancher {
+</span></span><span style="display:flex;"><span>    server rancher-server1:8080;
+</span></span><span style="display:flex;"><span>    server rancher-server2:8080;
+</span></span><span style="display:flex;"><span>    server rancher-server3:8080;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>map $http_upgrade $connection_upgrade {
+</span></span><span style="display:flex;"><span>    default Upgrade;
+</span></span><span style="display:flex;"><span>    &#39;&#39;      close;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>server {
+</span></span><span style="display:flex;"><span>    listen 443 ssl spdy;
+</span></span><span style="display:flex;"><span>    server_name &lt;server&gt;;
+</span></span><span style="display:flex;"><span>    ssl_certificate &lt;cert_file&gt;;
+</span></span><span style="display:flex;"><span>    ssl_certificate_key &lt;key_file&gt;;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    location / {
+</span></span><span style="display:flex;"><span>        proxy_set_header Host $host;
+</span></span><span style="display:flex;"><span>        proxy_set_header X-Forwarded-Proto $scheme;
+</span></span><span style="display:flex;"><span>        proxy_set_header X-Forwarded-Port $server_port;
+</span></span><span style="display:flex;"><span>        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+</span></span><span style="display:flex;"><span>        proxy_pass http://rancher;
+</span></span><span style="display:flex;"><span>        proxy_http_version 1.1;
+</span></span><span style="display:flex;"><span>        proxy_set_header Upgrade $http_upgrade;
+</span></span><span style="display:flex;"><span>        proxy_set_header Connection $connection_upgrade;
+</span></span><span style="display:flex;"><span>        proxy_read_timeout 900s;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>server {
+</span></span><span style="display:flex;"><span>    listen 80;
+</span></span><span style="display:flex;"><span>    server_name &lt;server&gt;;
+</span></span><span style="display:flex;"><span>    return 301 https://$server_name$request_uri;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Replace the <code>upstream</code> by the ips of your servers.</p>
 <p>Note that it is also possible to dockerize this service. This way, the day you put a second LB on the front end, there will only be one container to place on your instance.</p>
 <h4 id="rancher-installation-">Rancher installation :</h4>
 <p>For Rancher part, there are no great difficulties either. 5€99 instances will be more than enough for the needs.</p>
 <p>I recommend the <a href="http://rancher.com/docs/rancher/v1.0/en/installing-rancher/installing-server/multi-nodes/">official Rancher documentation</a> on this subject.</p>
 <p>We will start by deploying on each Rancher server:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">sudo docker run -d --restart=unless-stopped -p 8080:8080 rancher/server
-</code></pre></div><p>Then we will add the servers to each other via the UI. (Infrastructure &gt; Hosts &gt; Add Host)</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>sudo docker run -d --restart=unless-stopped -p 8080:8080 rancher/server
+</span></span></code></pre></div><p>Then we will add the servers to each other via the UI. (Infrastructure &gt; Hosts &gt; Add Host)</p>
 <p>You should get the following code to run on each node :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">sudo docker run -e CATTLE_AGENT_IP=&#34;1.2.3.4&#34;  -e CATTLE_HOST_LABELS=&#39;galera=true&#39;  --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/rancher:/var/lib/rancher rancher/agent:v1.2.5 http://1.2.3.4:8080/v1/scripts/4956918455D4D9BE3AF1:1483142400000:Fscj9CvRSrx0mS05E4kdWDkb0E
-</code></pre></div><p>Once this step is done, it will then be possible to use the <code>Galera</code> image proposed by Rancher (in the catalog) on our 3 servers.
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>sudo docker run <span style="color:#000;font-weight:bold">-</span>e CATTLE_AGENT_IP<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;1.2.3.4&#34;</span>  <span style="color:#000;font-weight:bold">-</span>e CATTLE_HOST_LABELS<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;galera=true&#39;</span>  <span style="color:#000;font-weight:bold">--</span>rm <span style="color:#000;font-weight:bold">--</span>privileged <span style="color:#000;font-weight:bold">-</span>v <span style="color:#000;font-weight:bold">/</span><span style="color:#000;font-weight:bold">var</span><span style="color:#000;font-weight:bold">/</span>run<span style="color:#000;font-weight:bold">/</span>docker<span style="color:#000;font-weight:bold">.</span>sock:<span style="color:#000;font-weight:bold">/</span><span style="color:#000;font-weight:bold">var</span><span style="color:#000;font-weight:bold">/</span>run<span style="color:#000;font-weight:bold">/</span>docker<span style="color:#000;font-weight:bold">.</span>sock <span style="color:#000;font-weight:bold">-</span>v <span style="color:#000;font-weight:bold">/</span><span style="color:#000;font-weight:bold">var</span><span style="color:#000;font-weight:bold">/</span>lib<span style="color:#000;font-weight:bold">/</span>rancher:<span style="color:#000;font-weight:bold">/</span><span style="color:#000;font-weight:bold">var</span><span style="color:#000;font-weight:bold">/</span>lib<span style="color:#000;font-weight:bold">/</span>rancher rancher<span style="color:#000;font-weight:bold">/</span>agent:v1<span style="color:#000;font-weight:bold">.</span><span style="color:#099">2.5</span> http:<span style="color:#000;font-weight:bold">//</span><span style="color:#099">1.2</span><span style="color:#000;font-weight:bold">.</span><span style="color:#099">3.4</span>:<span style="color:#099">8080</span><span style="color:#000;font-weight:bold">/</span>v1<span style="color:#000;font-weight:bold">/</span>scripts<span style="color:#000;font-weight:bold">/</span><span style="color:#099">4956918455</span>D4D9BE3AF1:<span style="color:#099">1483142400000</span>:Fscj9CvRSrx0mS05E4kdWDkb0E
+</span></span></code></pre></div><p>Once this step is done, it will then be possible to use the <code>Galera</code> image proposed by Rancher (in the catalog) on our 3 servers.
 A node will then be present on each server.</p>
 <p>We will be able to initialize the cluster on a Galera node:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&gt; CREATE DATABASE IF NOT EXISTS cattle COLLATE = &#39;utf8_general_ci&#39; CHARACTER SET = &#39;utf8&#39;;
-&gt; GRANT ALL ON cattle.* TO &#39;cattle&#39;@&#39;%&#39; IDENTIFIED BY &#39;cattle&#39;;
-&gt; GRANT ALL ON cattle.* TO &#39;cattle&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;cattle&#39;;
-</code></pre></div><p>Then check on the other two servers that the basic entries are also present.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>&gt; CREATE DATABASE IF NOT EXISTS cattle COLLATE = &#39;utf8_general_ci&#39; CHARACTER SET = &#39;utf8&#39;;
+</span></span><span style="display:flex;"><span>&gt; GRANT ALL ON cattle.* TO &#39;cattle&#39;@&#39;%&#39; IDENTIFIED BY &#39;cattle&#39;;
+</span></span><span style="display:flex;"><span>&gt; GRANT ALL ON cattle.* TO &#39;cattle&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;cattle&#39;;
+</span></span></code></pre></div><p>Then check on the other two servers that the basic entries are also present.</p>
 <p>Then let&rsquo;s stop one Rancher server and start it using Galera for persistence of its data :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">sudo docker run -d --restart=unless-stopped -p 8080:8080 rancher/server \
-    --db-host myhost.example.com --db-port 3306 --db-user username --db-pass password --db-name cattle
-</code></pre></div><p>Where :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">--db-host               IP du serveur MySQL
---db-port               port du serveur MySQL (default: 3306)
---db-user               username MySQL login (default: cattle)
---db-pass               password MySQL login (default: cattle)
---db-name               nom de la base MySQL (default: cattle)
-</code></pre></div><p>Do the same for the other two servers so each Rancher launches using the Galera database.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>sudo docker run -d --restart=unless-stopped -p 8080:8080 rancher/server \
+</span></span><span style="display:flex;"><span>    --db-host myhost.example.com --db-port 3306 --db-user username --db-pass password --db-name cattle
+</span></span></code></pre></div><p>Where :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>--db-host               IP du serveur MySQL
+</span></span><span style="display:flex;"><span>--db-port               port du serveur MySQL (default: 3306)
+</span></span><span style="display:flex;"><span>--db-user               username MySQL login (default: cattle)
+</span></span><span style="display:flex;"><span>--db-pass               password MySQL login (default: cattle)
+</span></span><span style="display:flex;"><span>--db-name               nom de la base MySQL (default: cattle)
+</span></span></code></pre></div><p>Do the same for the other two servers so each Rancher launches using the Galera database.</p>
 <p>Expected result:
 <img src="/Images/RancherGalera.png" alt="Galera Rancher"></p>
 <p>It is possible to check if Rancher is <code>clustered</code> via the UI in: Admin &gt; High Availability.</p>
 <h4 id="addition-of-worker-nodes">Addition of Worker Nodes.</h4>
 <p>You now have your <code>Rancher</code> cluster with a front-end LB, it is now possible to add <code>Worker</code> nodes to your cluster.
 It&rsquo;s very easy to add them directly with the Rancher utility. Now it&rsquo;s up to you to see which type of instance best suits your resource needs.</p>
-<p>Rancher&rsquo;s default environment uses the <code>Cattle' orchestrator, so once your Workers nodes are configured, you can deploy your </code>Docker' containers directly from your cluster.</p>
+<p>Rancher&rsquo;s default environment uses the <code>Cattle' orchestrator, so once your Workers nodes are configured, you can deploy your </code>Docker&rsquo; containers directly from your cluster.</p>
 <h3 id="conclusion">Conclusion</h3>
 <p>The installation of a Rancher environment is fast, the Public Cloud OVH allows to quickly deploy the necessary instances of Rancher.
 The ease of use offered by the Rancher/Cattle duo allows an efficient and fluid commissioning.</p>
@@ -331,17 +330,17 @@ The ease of use offered by the Rancher/Cattle duo allows an efficient and fluid 
 </content>
 <p>
   
-  <a href="https://lebaron.sh/tags/rancher/">#rancher</a>
+  <a href="https://lebaron.sh/tags/rancher/">#Rancher</a>
   
-  <a href="https://lebaron.sh/tags/cattle/">#cattle</a>
+  <a href="https://lebaron.sh/tags/cattle/">#Cattle</a>
   
-  <a href="https://lebaron.sh/tags/ovh/">#ovh</a>
+  <a href="https://lebaron.sh/tags/ovh/">#Ovh</a>
   
-  <a href="https://lebaron.sh/tags/pci/">#pci</a>
+  <a href="https://lebaron.sh/tags/pci/">#Pci</a>
   
-  <a href="https://lebaron.sh/tags/linux/">#linux</a>
+  <a href="https://lebaron.sh/tags/linux/">#Linux</a>
   
-  <a href="https://lebaron.sh/tags/docker/">#docker</a>
+  <a href="https://lebaron.sh/tags/docker/">#Docker</a>
   
 </p>
 

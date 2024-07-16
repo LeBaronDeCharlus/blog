@@ -1,25 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>vrack on Le Baron de Charlus</title>
+    <title>Vrack on Le Baron de Charlus</title>
     <link>https://lebaron.sh/tags/vrack/</link>
-    <description>Recent content in vrack on Le Baron de Charlus</description>
+    <description>Recent content in Vrack on Le Baron de Charlus</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© Le Baron de Charlus</copyright>
-    <lastBuildDate>Sun, 04 Mar 2018 14:41:25 +0000</lastBuildDate><atom:link href="https://lebaron.sh/tags/vrack/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Mar 2018 14:41:25 +0000</lastBuildDate>
+    <atom:link href="https://lebaron.sh/tags/vrack/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ubuntu Vrack Ovh Fix</title>
       <link>https://lebaron.sh/posts/ubuntu-vrack-ovh-fix/</link>
       <pubDate>Sun, 04 Mar 2018 14:41:25 +0000</pubDate>
-      
       <guid>https://lebaron.sh/posts/ubuntu-vrack-ovh-fix/</guid>
-      <description>You may have noticed it, but when you populate a PCI OVH instance under Ubuntu by activating Vrack, your Vm does not have its private IP at boot time. So, yes, I don&amp;rsquo;t like Ubuntu, but sometimes you don&amp;rsquo;t have a choice.
-Anyway, all this to say that we don&amp;rsquo;t have our private IP and it&amp;rsquo;s too sad. (RT)
-The fix trick is stupid. Very stupid.
-Add:
-allow-hotplug ens4 iface ens4 inet dhcp In /etc/network/interface file.</description>
+      <description>You may have noticed it, but when you populate a PCI OVH instance under Ubuntu by activating Vrack, your Vm does not have its private IP at boot time. So, yes, I don&amp;rsquo;t like Ubuntu, but sometimes you don&amp;rsquo;t have a choice.&#xA;Anyway, all this to say that we don&amp;rsquo;t have our private IP and it&amp;rsquo;s too sad. (RT)&#xA;The fix trick is stupid. Very stupid.&#xA;Add:&#xA;allow-hotplug ens4 iface ens4 inet dhcp In /etc/network/interface file.</description>
     </item>
-    
   </channel>
 </rss>

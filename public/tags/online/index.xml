@@ -1,26 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>online on Le Baron de Charlus</title>
+    <title>Online on Le Baron de Charlus</title>
     <link>https://lebaron.sh/tags/online/</link>
-    <description>Recent content in online on Le Baron de Charlus</description>
+    <description>Recent content in Online on Le Baron de Charlus</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© Le Baron de Charlus</copyright>
-    <lastBuildDate>Tue, 01 Aug 2017 09:40:07 +0000</lastBuildDate><atom:link href="https://lebaron.sh/tags/online/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Aug 2017 09:40:07 +0000</lastBuildDate>
+    <atom:link href="https://lebaron.sh/tags/online/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Online servers availability</title>
       <link>https://lebaron.sh/posts/online-servers/</link>
       <pubDate>Tue, 01 Aug 2017 09:40:07 +0000</pubDate>
-      
       <guid>https://lebaron.sh/posts/online-servers/</guid>
-      <description>We need servers at Online, but there is no availability! So they came to ask me if I didn&amp;rsquo;t have a magic solution&amp;hellip;
-A little bash&amp;hellip; a notify in this case Slack and here we go!
-As usual sources are available.
-Dirty way *To be alerted via slack you have to create an incoming-webhook which will generate a link.
-For an XC 2016 series server:
-text=&amp;quot;DISPO : https://www.online.net/fr/serveur-dedie/dedibox-xc&amp;quot;; json=&amp;quot;{\&amp;quot;channel\&amp;quot;: \&amp;quot;#infra\&amp;quot;, \&amp;quot;text\&amp;quot;: \&amp;quot;$text\&amp;quot;}&amp;quot; ; while true ; do curl --silent https://www.</description>
+      <description>We need servers at Online, but there is no availability! So they came to ask me if I didn&amp;rsquo;t have a magic solution&amp;hellip;&#xA;A little bash&amp;hellip; a notify in this case Slack and here we go!&#xA;As usual sources are available.&#xA;Dirty way *To be alerted via slack you have to create an incoming-webhook which will generate a link.&#xA;For an XC 2016 series server:&#xA;text=&amp;quot;DISPO : https://www.online.net/fr/serveur-dedie/dedibox-xc&amp;quot;; json=&amp;quot;{\&amp;quot;channel\&amp;quot;: \&amp;quot;#infra\&amp;quot;, \&amp;quot;text\&amp;quot;: \&amp;quot;$text\&amp;quot;}&amp;quot; ; while true ; do curl --silent https://www.</description>
     </item>
-    
   </channel>
 </rss>

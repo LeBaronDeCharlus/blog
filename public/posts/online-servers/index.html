@@ -31,8 +31,7 @@ text=&quot;DISPO : https://www.online.net/fr/serveur-dedie/dedibox-xc&quot;; jso
 
 
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Online servers availability"/>
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Online servers availability"/>
 <meta name="twitter:description" content="We need servers at Online, but there is no availability! So they came to ask me if I didn&rsquo;t have a magic solution&hellip;
 A little bash&hellip; a notify in this case Slack and here we go!
 As usual sources are available.
@@ -262,38 +261,38 @@ As usual <a href="https://github.com/lebarondecharlus/OnlineSrvDispo">sources ar
 <p>Curl will be done only if one server is available.</p>
 <h4 id="clean-way">Clean way</h4>
 <p>Just code formating :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/bash
-</span><span style="color:#999;font-weight:bold;font-style:italic"></span>
-<span style="color:#008080">webhook</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;https://hooks.slack.com/services/XXX/XXXX/XXXX/XXXX&#34;</span>
-<span style="color:#008080">url</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;https://www.online.net/fr/serveur-dedie/XXXXX&#34;</span>
-<span style="color:#008080">text</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;DISPO : </span><span style="color:#008080">$url</span><span style="color:#d14">&#34;</span>
-<span style="color:#008080">channel</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;test&#34;</span>
-<span style="color:#008080">json</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;{\&#34;channel\&#34;: \&#34;#</span><span style="color:#008080">$channel</span><span style="color:#d14">\&#34;, \&#34;text\&#34;: \&#34;</span><span style="color:#008080">$text</span><span style="color:#d14">\&#34;}&#34;</span>
-<span style="color:#008080">server</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;XC 2016&#34;</span>
-
-<span style="color:#000;font-weight:bold">while</span> <span style="color:#0086b3">true</span>
-    <span style="color:#000;font-weight:bold">do</span> curl --silent https://www.online.net/fr/serveur-dedie | <span style="color:#d14">\
-</span><span style="color:#d14"></span>    grep <span style="color:#d14">&#39;&lt;button class=&#34;btn btn--primary js-order-dedibox&#34;&#39;</span> | <span style="color:#d14">\
-</span><span style="color:#d14"></span>    grep -i <span style="color:#d14">&#34;</span><span style="color:#008080">$server</span><span style="color:#d14">&#34;</span> | grep -i <span style="color:#d14">&#39;victime&#39;</span> <span style="color:#000;font-weight:bold">||</span> <span style="color:#d14">\
-</span><span style="color:#d14"></span>    curl -s -d <span style="color:#d14">&#34;payload=</span><span style="color:#008080">$json</span><span style="color:#d14">&#34;</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$webhook</span><span style="color:#d14">&#34;</span> ; <span style="color:#d14">\
-</span><span style="color:#d14"></span>    sleep <span style="color:#099">5</span> ; <span style="color:#d14">\
-</span><span style="color:#d14"></span><span style="color:#000;font-weight:bold">done</span>
-</code></pre></div><p>You can also push the vice further by filtering on the <strong>region</strong> and the <strong>disc types</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">webhook</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;https://hooks.slack.com/services/XXX/XXXX/XXXX/XXXX&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">url</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;https://www.online.net/fr/serveur-dedie/XXXXX&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">text</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;DISPO : </span><span style="color:#008080">$url</span><span style="color:#d14">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">channel</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;test&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">json</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;{\&#34;channel\&#34;: \&#34;#</span><span style="color:#008080">$channel</span><span style="color:#d14">\&#34;, \&#34;text\&#34;: \&#34;</span><span style="color:#008080">$text</span><span style="color:#d14">\&#34;}&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">server</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;XC 2016&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">while</span> <span style="color:#0086b3">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">do</span> curl --silent https://www.online.net/fr/serveur-dedie | <span style="color:#d14">\
+</span></span></span><span style="display:flex;"><span><span style="color:#d14"></span>    grep <span style="color:#d14">&#39;&lt;button class=&#34;btn btn--primary js-order-dedibox&#34;&#39;</span> | <span style="color:#d14">\
+</span></span></span><span style="display:flex;"><span><span style="color:#d14"></span>    grep -i <span style="color:#d14">&#34;</span><span style="color:#008080">$server</span><span style="color:#d14">&#34;</span> | grep -i <span style="color:#d14">&#39;victime&#39;</span> <span style="color:#000;font-weight:bold">||</span> <span style="color:#d14">\
+</span></span></span><span style="display:flex;"><span><span style="color:#d14"></span>    curl -s -d <span style="color:#d14">&#34;payload=</span><span style="color:#008080">$json</span><span style="color:#d14">&#34;</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$webhook</span><span style="color:#d14">&#34;</span> ; <span style="color:#d14">\
+</span></span></span><span style="display:flex;"><span><span style="color:#d14"></span>    sleep <span style="color:#099">5</span> ; <span style="color:#d14">\
+</span></span></span><span style="display:flex;"><span><span style="color:#d14"></span><span style="color:#000;font-weight:bold">done</span>
+</span></span></code></pre></div><p>You can also push the vice further by filtering on the <strong>region</strong> and the <strong>disc types</strong>.</p>
 <h4 id="pig-mode">Pig mode</h4>
 <p>Because&hellip; why not ?</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">text=&#34;DISPO https://www.online.net/fr/serveur-dedie/dedibox-xc&#34;; json=&#34;{\&#34;channel\&#34;: \&#34;#test\&#34;, \&#34;text\&#34;: \&#34;$text\&#34;}&#34; ; while true ; do curl --silent https://www.online.net/fr/serveur-dedie/dedibox-xc | egrep -io &#39;&lt;option value=&#34;\w+&#34;&gt;ssd / france / dc2&lt;/option&gt;&#39; &amp;&amp; curl -s -d &#34;payload=$json&#34; &#34;https://hooks.slack.com/services/XXX/XXXX/XXXX&#34; ; sleep 5 ; done
-</code></pre></div><p>Next step, simulate an order ?</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>text<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;DISPO https://www.online.net/fr/serveur-dedie/dedibox-xc&#34;</span>; json<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;{</span><span style="color:#d14">\&#34;</span><span style="color:#d14">channel</span><span style="color:#d14">\&#34;</span><span style="color:#d14">: </span><span style="color:#d14">\&#34;</span><span style="color:#d14">#test</span><span style="color:#d14">\&#34;</span><span style="color:#d14">, </span><span style="color:#d14">\&#34;</span><span style="color:#d14">text</span><span style="color:#d14">\&#34;</span><span style="color:#d14">: </span><span style="color:#d14">\&#34;</span><span style="color:#d14">$text</span><span style="color:#d14">\&#34;</span><span style="color:#d14">}&#34;</span> ; <span style="color:#000;font-weight:bold">while</span> <span style="color:#999">true</span> ; <span style="color:#000;font-weight:bold">do</span> curl <span style="color:#000;font-weight:bold">--</span>silent https:<span style="color:#000;font-weight:bold">//</span>www<span style="color:#000;font-weight:bold">.</span>online<span style="color:#000;font-weight:bold">.</span>net<span style="color:#000;font-weight:bold">/</span>fr<span style="color:#000;font-weight:bold">/</span>serveur<span style="color:#000;font-weight:bold">-</span>dedie<span style="color:#000;font-weight:bold">/</span>dedibox<span style="color:#000;font-weight:bold">-</span>xc <span style="color:#000;font-weight:bold">|</span> egrep <span style="color:#000;font-weight:bold">-</span>io <span style="color:#d14">&#39;&lt;option value=&#34;\w+&#34;&gt;ssd / france / dc2&lt;/option&gt;&#39;</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> curl <span style="color:#000;font-weight:bold">-</span>s <span style="color:#000;font-weight:bold">-</span>d <span style="color:#d14">&#34;payload=$json&#34;</span> <span style="color:#d14">&#34;https://hooks.slack.com/services/XXX/XXXX/XXXX&#34;</span> ; sleep <span style="color:#099">5</span> ; done
+</span></span></code></pre></div><p>Next step, simulate an order ?</p>
 
 </content>
 <p>
   
-  <a href="https://lebaron.sh/tags/bash/">#bash</a>
+  <a href="https://lebaron.sh/tags/bash/">#Bash</a>
   
-  <a href="https://lebaron.sh/tags/online/">#online</a>
+  <a href="https://lebaron.sh/tags/online/">#Online</a>
   
-  <a href="https://lebaron.sh/tags/serveur/">#serveur</a>
+  <a href="https://lebaron.sh/tags/serveur/">#Serveur</a>
   
-  <a href="https://lebaron.sh/tags/linux/">#linux</a>
+  <a href="https://lebaron.sh/tags/linux/">#Linux</a>
   
 </p>
 

@@ -1,148 +1,90 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>linux on Le Baron de Charlus</title>
+    <title>Linux on Le Baron de Charlus</title>
     <link>https://lebaron.sh/tags/linux/</link>
-    <description>Recent content in linux on Le Baron de Charlus</description>
+    <description>Recent content in Linux on Le Baron de Charlus</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© Le Baron de Charlus</copyright>
-    <lastBuildDate>Mon, 20 Jul 2020 12:00:00 +0000</lastBuildDate><atom:link href="https://lebaron.sh/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Jul 2020 12:00:00 +0000</lastBuildDate>
+    <atom:link href="https://lebaron.sh/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bring Your Own Image</title>
       <link>https://lebaron.sh/posts/bring-your-own-image/</link>
       <pubDate>Mon, 20 Jul 2020 12:00:00 +0000</pubDate>
-      
       <guid>https://lebaron.sh/posts/bring-your-own-image/</guid>
-      <description>When I was working at OVHCloud company, I&amp;rsquo;ve developed a feature called BYOI (Bring Your Own Image).
-Bring Your Own Image technology allows you to boot any cloud (or not) images on a baremetal.
-Even if today not all editors are ready to provide completely agnostic images (and I mean UEFI ready and/or legacy boot), by triturating (packer) a bit the whole, we can have something functional.
-This mark the first step towards the Hybrid IAC.</description>
+      <description>When I was working at OVHCloud company, I&amp;rsquo;ve developed a feature called BYOI (Bring Your Own Image).&#xA;Bring Your Own Image technology allows you to boot any cloud (or not) images on a baremetal.&#xA;Even if today not all editors are ready to provide completely agnostic images (and I mean UEFI ready and/or legacy boot), by triturating (packer) a bit the whole, we can have something functional.&#xA;This mark the first step towards the Hybrid IAC.</description>
     </item>
-    
     <item>
       <title>Random wallpaper with AwesomeWM !</title>
       <link>https://lebaron.sh/posts/randomwallpaper-on-awesomewm/</link>
       <pubDate>Fri, 10 Jan 2020 11:10:33 +0000</pubDate>
-      
       <guid>https://lebaron.sh/posts/randomwallpaper-on-awesomewm/</guid>
-      <description>I&amp;rsquo;ve been looking for a way to break my routine a bit when I&amp;rsquo;m working on my laptop. I figured that changing the wallpaper randomly and automatically was a good way to break the monotony.
-I use awesomeWM (version 4)
-[f00b@void ~]$ awesome --version awesome v4.3 (Too long) • Compiled against Lua 5.3.5 (running with Lua 5.3) • D-Bus support: ✔ • execinfo support: ✘ • xcb-randr version: 1.6 • LGI version: 0.</description>
+      <description>I&amp;rsquo;ve been looking for a way to break my routine a bit when I&amp;rsquo;m working on my laptop. I figured that changing the wallpaper randomly and automatically was a good way to break the monotony.&#xA;I use awesomeWM (version 4)&#xA;[f00b@void ~]$ awesome --version awesome v4.3 (Too long) • Compiled against Lua 5.3.5 (running with Lua 5.3) • D-Bus support: ✔ • execinfo support: ✘ • xcb-randr version: 1.6 • LGI version: 0.</description>
     </item>
-    
     <item>
       <title>Ubuntu Vrack Ovh Fix</title>
       <link>https://lebaron.sh/posts/ubuntu-vrack-ovh-fix/</link>
       <pubDate>Sun, 04 Mar 2018 14:41:25 +0000</pubDate>
-      
       <guid>https://lebaron.sh/posts/ubuntu-vrack-ovh-fix/</guid>
-      <description>You may have noticed it, but when you populate a PCI OVH instance under Ubuntu by activating Vrack, your Vm does not have its private IP at boot time. So, yes, I don&amp;rsquo;t like Ubuntu, but sometimes you don&amp;rsquo;t have a choice.
-Anyway, all this to say that we don&amp;rsquo;t have our private IP and it&amp;rsquo;s too sad. (RT)
-The fix trick is stupid. Very stupid.
-Add:
-allow-hotplug ens4 iface ens4 inet dhcp In /etc/network/interface file.</description>
+      <description>You may have noticed it, but when you populate a PCI OVH instance under Ubuntu by activating Vrack, your Vm does not have its private IP at boot time. So, yes, I don&amp;rsquo;t like Ubuntu, but sometimes you don&amp;rsquo;t have a choice.&#xA;Anyway, all this to say that we don&amp;rsquo;t have our private IP and it&amp;rsquo;s too sad. (RT)&#xA;The fix trick is stupid. Very stupid.&#xA;Add:&#xA;allow-hotplug ens4 iface ens4 inet dhcp In /etc/network/interface file.</description>
     </item>
-    
     <item>
       <title>Script restart services</title>
       <link>https://lebaron.sh/posts/script-restart-services/</link>
       <pubDate>Fri, 18 Aug 2017 22:29:53 +0200</pubDate>
-      
       <guid>https://lebaron.sh/posts/script-restart-services/</guid>
       <description>Sometimes, we find ourselves having to pilote infrastructures services supported by panels managements and &amp;hellip; between us, I have a holy horror of Plesk, Cpanel, Ispconfig, Webmin &amp;hellip; Especially when under certain circumstances some components are falling down. It&amp;rsquo;s often badly done and messy that it&amp;rsquo;s difficult to find your way around. Between abobinable logs management (yes, I already found php logs in syslog), a non-existent server optimization&amp;hellip; well I stop here because it is not the purpose of this post.</description>
     </item>
-    
     <item>
       <title>Setup Rancher cluster on OVH Public Cloud</title>
       <link>https://lebaron.sh/posts/cluster-rancher-public-cloud-ovh/</link>
       <pubDate>Fri, 04 Aug 2017 19:04:11 +0000</pubDate>
-      
       <guid>https://lebaron.sh/posts/cluster-rancher-public-cloud-ovh/</guid>
-      <description>The world of hosting is changing, and so is the world of application development. Today we are turning less and less to dedicated hosting for a single application, but more to build the infrastructure that will support it.
-In this sense, we prefer to use an Iaas solution on dedicated &amp;ldquo;bare metal&amp;rdquo; for our application overlay than pure &amp;ldquo;bare metal&amp;rdquo; per service.
-Application deployment missions pushed by developers must fit with the technology and logic of production.</description>
+      <description>The world of hosting is changing, and so is the world of application development. Today we are turning less and less to dedicated hosting for a single application, but more to build the infrastructure that will support it.&#xA;In this sense, we prefer to use an Iaas solution on dedicated &amp;ldquo;bare metal&amp;rdquo; for our application overlay than pure &amp;ldquo;bare metal&amp;rdquo; per service.&#xA;Application deployment missions pushed by developers must fit with the technology and logic of production.</description>
     </item>
-    
     <item>
       <title>Online servers availability</title>
       <link>https://lebaron.sh/posts/online-servers/</link>
       <pubDate>Tue, 01 Aug 2017 09:40:07 +0000</pubDate>
-      
       <guid>https://lebaron.sh/posts/online-servers/</guid>
-      <description>We need servers at Online, but there is no availability! So they came to ask me if I didn&amp;rsquo;t have a magic solution&amp;hellip;
-A little bash&amp;hellip; a notify in this case Slack and here we go!
-As usual sources are available.
-Dirty way *To be alerted via slack you have to create an incoming-webhook which will generate a link.
-For an XC 2016 series server:
-text=&amp;quot;DISPO : https://www.online.net/fr/serveur-dedie/dedibox-xc&amp;quot;; json=&amp;quot;{\&amp;quot;channel\&amp;quot;: \&amp;quot;#infra\&amp;quot;, \&amp;quot;text\&amp;quot;: \&amp;quot;$text\&amp;quot;}&amp;quot; ; while true ; do curl --silent https://www.</description>
+      <description>We need servers at Online, but there is no availability! So they came to ask me if I didn&amp;rsquo;t have a magic solution&amp;hellip;&#xA;A little bash&amp;hellip; a notify in this case Slack and here we go!&#xA;As usual sources are available.&#xA;Dirty way *To be alerted via slack you have to create an incoming-webhook which will generate a link.&#xA;For an XC 2016 series server:&#xA;text=&amp;quot;DISPO : https://www.online.net/fr/serveur-dedie/dedibox-xc&amp;quot;; json=&amp;quot;{\&amp;quot;channel\&amp;quot;: \&amp;quot;#infra\&amp;quot;, \&amp;quot;text\&amp;quot;: \&amp;quot;$text\&amp;quot;}&amp;quot; ; while true ; do curl --silent https://www.</description>
     </item>
-    
     <item>
       <title>Migrate Openvz To Lxc</title>
       <link>https://lebaron.sh/posts/migrate-openvz-to-lxc/</link>
       <pubDate>Mon, 31 Jul 2017 18:15:50 +0000</pubDate>
-      
       <guid>https://lebaron.sh/posts/migrate-openvz-to-lxc/</guid>
-      <description>I recently had to migrate containers from a proxmox3 (under OpenVZ) to a proxmox4 (under LXC).
-Problem, there are a lot of containers to migrate/&amp;ldquo;convert&amp;rdquo; to run under LXC. So I needed a way to automate the procedure as much as possible.
-Luckily, the migration documentation is very well detailed. So I used it to &amp;ldquo;bash&amp;rdquo; the operation.
-You can find all the sources on my github
-I cut the operation under two scripts, an export script and an import script.</description>
+      <description>I recently had to migrate containers from a proxmox3 (under OpenVZ) to a proxmox4 (under LXC).&#xA;Problem, there are a lot of containers to migrate/&amp;ldquo;convert&amp;rdquo; to run under LXC. So I needed a way to automate the procedure as much as possible.&#xA;Luckily, the migration documentation is very well detailed. So I used it to &amp;ldquo;bash&amp;rdquo; the operation.&#xA;You can find all the sources on my github&#xA;I cut the operation under two scripts, an export script and an import script.</description>
     </item>
-    
     <item>
       <title>Additional Volume Public Cloud Ovh</title>
       <link>https://lebaron.sh/posts/additional-volume-pci/</link>
       <pubDate>Mon, 31 Jul 2017 11:38:18 +0000</pubDate>
-      
       <guid>https://lebaron.sh/posts/additional-volume-pci/</guid>
-      <description>To add an additional disk/volume on your OVH public cloud, you need to follow some steps.
-First, identify your new disk :
-fdisk -l  You can have different output depending of your system (sd{x}, vd{x}).
-Then create a new partition :
-# parted /dev/{{disk}} mktable gpt mkpart primary ext4 512 100% quit Format it :
-mkfs -t ext4 -L rootfs /dev/{{disk}}1  Mount :
-mount /dev/{{disk}}1 /mnt  Let’s make it peristent, we need UUID.</description>
+      <description>To add an additional disk/volume on your OVH public cloud, you need to follow some steps.&#xA;First, identify your new disk :&#xA;fdisk -l You can have different output depending of your system (sd{x}, vd{x}).&#xA;Then create a new partition :&#xA;# parted /dev/{{disk}} mktable gpt mkpart primary ext4 512 100% quit Format it :&#xA;mkfs -t ext4 -L rootfs /dev/{{disk}}1 Mount :&#xA;mount /dev/{{disk}}1 /mnt Let’s make it peristent, we need UUID.</description>
     </item>
-    
     <item>
       <title>Additional Volume Public Cloud Ovh</title>
       <link>https://lebaron.sh/projects/hello/</link>
       <pubDate>Mon, 31 Jul 2017 11:38:18 +0000</pubDate>
-      
       <guid>https://lebaron.sh/projects/hello/</guid>
-      <description>To add an additional disk/volume on your OVH public cloud, you need to follow some steps.
-First, identify your new disk :
-fdisk -l  You can have different output depending of your system (sd{x}, vd{x}).
-Then create a new partition :
-# parted /dev/{{disk}} mktable gpt mkpart primary ext4 512 100% quit Format it :
-mkfs -t ext4 -L rootfs /dev/{{disk}}1  Mount :
-mount /dev/{{disk}}1 /mnt  Let’s make it peristent, we need UUID.</description>
+      <description>To add an additional disk/volume on your OVH public cloud, you need to follow some steps.&#xA;First, identify your new disk :&#xA;fdisk -l You can have different output depending of your system (sd{x}, vd{x}).&#xA;Then create a new partition :&#xA;# parted /dev/{{disk}} mktable gpt mkpart primary ext4 512 100% quit Format it :&#xA;mkfs -t ext4 -L rootfs /dev/{{disk}}1 Mount :&#xA;mount /dev/{{disk}}1 /mnt Let’s make it peristent, we need UUID.</description>
     </item>
-    
     <item>
       <title>Update Proxmox templates</title>
       <link>https://lebaron.sh/posts/update-templates-proxmox/</link>
       <pubDate>Sun, 30 Jul 2017 14:53:16 +0000</pubDate>
-      
       <guid>https://lebaron.sh/posts/update-templates-proxmox/</guid>
-      <description>To automatically update the list of templates available via prox in your local space just use the following command:
-pveam update  I found it good to put it in cron once a week so as not to have too much space for minor versions.</description>
+      <description>To automatically update the list of templates available via prox in your local space just use the following command:&#xA;pveam update I found it good to put it in cron once a week so as not to have too much space for minor versions.</description>
     </item>
-    
     <item>
       <title>Event Watcher Manager Python3</title>
       <link>https://lebaron.sh/posts/event-watcher-manager-python3/</link>
       <pubDate>Sun, 30 Jul 2017 12:53:16 +0000</pubDate>
-      
       <guid>https://lebaron.sh/posts/event-watcher-manager-python3/</guid>
-      <description>On one specific request, I had to work on the elaboration of an automating program reacting on SFTP users updates.
-The main technical issue of this request is that the SFTP protocol does not have a logging system.
-I had heard about the pyinotify library so I started working on it.
-The project is presented in its primary mechanism, for more details, I invite you to read the sources.
-Technical requests concerning the project Details of the context of realization : Details of the context of realization :.</description>
+      <description>On one specific request, I had to work on the elaboration of an automating program reacting on SFTP users updates.&#xA;The main technical issue of this request is that the SFTP protocol does not have a logging system.&#xA;I had heard about the pyinotify library so I started working on it.&#xA;The project is presented in its primary mechanism, for more details, I invite you to read the sources.&#xA;Technical requests concerning the project Details of the context of realization : Details of the context of realization :.</description>
     </item>
-    
   </channel>
 </rss>

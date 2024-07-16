@@ -7,12 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Ultimate Python development environment configuration | Le Baron de Charlus</title>
 <meta name="title" content="Ultimate Python development environment configuration" />
-<meta name="description" content="The Old Way Direnv  What is direnv and how it works direnv installation Shell configuration How Python works with direnv   Pyenv  Installation and Configuration Use pyenv with direnv   Poetry  What is Poetry Poetry installation Shell configuration New project Existing project Poetry usage Link Poetry with direnv   GPG  Generate a key Get key ID   Pass  Pass installation Pass usage   Tomb  Tomb installation Tomb usage   Secrets with Direnv and Pass Direnv advanced configurations  Check for commands dependencies Third-party binaries Third-party configs   Final template Conclusion  Disclaimer: I&rsquo;m not saying virtualenv methods are bad." />
+<meta name="description" content="The Old Way Direnv What is direnv and how it works direnv installation Shell configuration How Python works with direnv Pyenv Installation and Configuration Use pyenv with direnv Poetry What is Poetry Poetry installation Shell configuration New project Existing project Poetry usage Link Poetry with direnv GPG Generate a key Get key ID Pass Pass installation Pass usage Tomb Tomb installation Tomb usage Secrets with Direnv and Pass Direnv advanced configurations Check for commands dependencies Third-party binaries Third-party configs Final template Conclusion Disclaimer: I&rsquo;m not saying virtualenv methods are bad." />
 <meta name="keywords" content="direnv,pyenv,poetry,pass,tomb,gpg,secrets,python,programming," />
 
 
 <meta property="og:title" content="Ultimate Python development environment configuration" />
-<meta property="og:description" content="The Old Way Direnv  What is direnv and how it works direnv installation Shell configuration How Python works with direnv   Pyenv  Installation and Configuration Use pyenv with direnv   Poetry  What is Poetry Poetry installation Shell configuration New project Existing project Poetry usage Link Poetry with direnv   GPG  Generate a key Get key ID   Pass  Pass installation Pass usage   Tomb  Tomb installation Tomb usage   Secrets with Direnv and Pass Direnv advanced configurations  Check for commands dependencies Third-party binaries Third-party configs   Final template Conclusion  Disclaimer: I&rsquo;m not saying virtualenv methods are bad." />
+<meta property="og:description" content="The Old Way Direnv What is direnv and how it works direnv installation Shell configuration How Python works with direnv Pyenv Installation and Configuration Use pyenv with direnv Poetry What is Poetry Poetry installation Shell configuration New project Existing project Poetry usage Link Poetry with direnv GPG Generate a key Get key ID Pass Pass installation Pass usage Tomb Tomb installation Tomb usage Secrets with Direnv and Pass Direnv advanced configurations Check for commands dependencies Third-party binaries Third-party configs Final template Conclusion Disclaimer: I&rsquo;m not saying virtualenv methods are bad." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lebaron.sh/posts/ultimate-python-development-environment-configuration/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-06-10T08:12:12+02:00" />
@@ -21,16 +21,15 @@
 
 
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Ultimate Python development environment configuration"/>
-<meta name="twitter:description" content="The Old Way Direnv  What is direnv and how it works direnv installation Shell configuration How Python works with direnv   Pyenv  Installation and Configuration Use pyenv with direnv   Poetry  What is Poetry Poetry installation Shell configuration New project Existing project Poetry usage Link Poetry with direnv   GPG  Generate a key Get key ID   Pass  Pass installation Pass usage   Tomb  Tomb installation Tomb usage   Secrets with Direnv and Pass Direnv advanced configurations  Check for commands dependencies Third-party binaries Third-party configs   Final template Conclusion  Disclaimer: I&rsquo;m not saying virtualenv methods are bad."/>
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Ultimate Python development environment configuration"/>
+<meta name="twitter:description" content="The Old Way Direnv What is direnv and how it works direnv installation Shell configuration How Python works with direnv Pyenv Installation and Configuration Use pyenv with direnv Poetry What is Poetry Poetry installation Shell configuration New project Existing project Poetry usage Link Poetry with direnv GPG Generate a key Get key ID Pass Pass installation Pass usage Tomb Tomb installation Tomb usage Secrets with Direnv and Pass Direnv advanced configurations Check for commands dependencies Third-party binaries Third-party configs Final template Conclusion Disclaimer: I&rsquo;m not saying virtualenv methods are bad."/>
 
 
 
 <meta itemprop="name" content="Ultimate Python development environment configuration">
-<meta itemprop="description" content="The Old Way Direnv  What is direnv and how it works direnv installation Shell configuration How Python works with direnv   Pyenv  Installation and Configuration Use pyenv with direnv   Poetry  What is Poetry Poetry installation Shell configuration New project Existing project Poetry usage Link Poetry with direnv   GPG  Generate a key Get key ID   Pass  Pass installation Pass usage   Tomb  Tomb installation Tomb usage   Secrets with Direnv and Pass Direnv advanced configurations  Check for commands dependencies Third-party binaries Third-party configs   Final template Conclusion  Disclaimer: I&rsquo;m not saying virtualenv methods are bad."><meta itemprop="datePublished" content="2022-06-10T08:12:12+02:00" />
+<meta itemprop="description" content="The Old Way Direnv What is direnv and how it works direnv installation Shell configuration How Python works with direnv Pyenv Installation and Configuration Use pyenv with direnv Poetry What is Poetry Poetry installation Shell configuration New project Existing project Poetry usage Link Poetry with direnv GPG Generate a key Get key ID Pass Pass installation Pass usage Tomb Tomb installation Tomb usage Secrets with Direnv and Pass Direnv advanced configurations Check for commands dependencies Third-party binaries Third-party configs Final template Conclusion Disclaimer: I&rsquo;m not saying virtualenv methods are bad."><meta itemprop="datePublished" content="2022-06-10T08:12:12+02:00" />
 <meta itemprop="dateModified" content="2022-06-10T08:12:12+02:00" />
-<meta itemprop="wordCount" content="3752">
+<meta itemprop="wordCount" content="3754">
 <meta itemprop="keywords" content="direnv,pyenv,poetry,pass,tomb,gpg,secrets,python,programming," />
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
@@ -293,12 +292,12 @@
 <p>But I&rsquo;ve faced few pain points by doing so. I was often forgetting to <code>source venv/bin/activate</code>, meaning I <code>pip install my-package</code> on my global system.</p>
 <p>I also had bad secrets management by setting them not encrypted in a Shell script loaded at my program start.</p>
 <p>As bad as:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#0086b3">export</span> <span style="color:#008080">DB_NAME</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;db_name&#34;</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">DB_USER</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;user&#34;</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">DB_PASS</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;pass&#34;</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">DB_HOST</span><span style="color:#000;font-weight:bold">=</span>172.17.0.2
-<span style="color:#0086b3">export</span> <span style="color:#008080">DB_PORT</span><span style="color:#000;font-weight:bold">=</span><span style="color:#099">3306</span>
-</code></pre></div><p>Even if some great code editors can handle <code>python interpreters</code> in virtual environment, such as Vscode, I felt like my workflow automation was not as complete as it could be.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">DB_NAME</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;db_name&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">DB_USER</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;user&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">DB_PASS</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;pass&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">DB_HOST</span><span style="color:#000;font-weight:bold">=</span>172.17.0.2
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">DB_PORT</span><span style="color:#000;font-weight:bold">=</span><span style="color:#099">3306</span>
+</span></span></code></pre></div><p>Even if some great code editors can handle <code>python interpreters</code> in virtual environment, such as Vscode, I felt like my workflow automation was not as complete as it could be.</p>
 <h1 id="direnv">Direnv</h1>
 <p>How to ensure not forgetting to load a virtual environment and install package globally while working on our project ?</p>
 <h2 id="what-is-direnv-and-how-it-works">What is direnv and how it works</h2>
@@ -313,69 +312,69 @@ Before each prompt, direnv checks for the existence of a .envrc file (and option
 <p><code>direnv</code> is accessible through packages in almost all distributions.</p>
 <h3 id="package-installation">Package installation</h3>
 <p>If you want a global system installation :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/ sudo apt-get install direnv
-</code></pre></div><h3 id="manual-installation">Manual installation</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/ sudo apt-get install direnv
+</span></span></code></pre></div><h3 id="manual-installation">Manual installation</h3>
 <p>If you want custom installation, take a look on this <a href="https://direnv.net/install.sh">script</a> hosted by direnv official documentation.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/ curl -sfL https://direnv.net/install.sh | bash
-</code></pre></div><h3 id="shell-configuration">Shell configuration</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/ curl -sfL https://direnv.net/install.sh | bash
+</span></span></code></pre></div><h3 id="shell-configuration">Shell configuration</h3>
 <p>Once <code>direnv</code> is installed you need to configure your <code>$SHELL</code> in order to hook it with your default shell.
 It supports <code>bash</code>, <code>zsh</code>, <code>fish</code>, <code>tcsh</code> and <code>elvish</code>.</p>
 <p><em>e.g with zsh</em></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/ <span style="color:#0086b3">echo</span> <span style="color:#d14">&#39;eval &#34;$(direnv hook zsh)&#34;&#39;</span> &gt;&gt; ~/.zshrc
-λ ~/ <span style="color:#0086b3">source</span> ~/.zshrc
-</code></pre></div><h2 id="how-python-works-with-direnv">How python works with direnv</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/ <span style="color:#0086b3">echo</span> <span style="color:#d14">&#39;eval &#34;$(direnv hook zsh)&#34;&#39;</span> &gt;&gt; ~/.zshrc
+</span></span><span style="display:flex;"><span>λ ~/ <span style="color:#0086b3">source</span> ~/.zshrc
+</span></span></code></pre></div><h2 id="how-python-works-with-direnv">How python works with direnv</h2>
 <p>We can load a Python virtual environment thanks to <code>direnv</code>, to do so we need to specify <code>layout</code> command in a <code>.envrc</code> file located at our root project.</p>
 <p>Let&rsquo;s create our project directory first.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/ mkdir project <span style="color:#000;font-weight:bold">&amp;&amp;</span> <span style="color:#0086b3">cd</span> project
-</code></pre></div><p>Creat our <code>.envrc</code> file.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/project/ <span style="color:#0086b3">echo</span> <span style="color:#d14">&#39;layout python3&#39;</span> &gt; .envrc
-</code></pre></div><p>You will notice an error message like :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">direnv: error project/.envrc is blocked. Run `direnv allow` to approve its content
-</code></pre></div><p>This is a security way to block default content in your file. You can allow it thanks to :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/project/ direnv allow
-direnv: loading ~/project/.envrc                                                                                                                                                                                     
-direnv: <span style="color:#0086b3">export</span> +VIRTUAL_ENV ~PATH
-</code></pre></div><p>Output inform us that virtual environment was automatically created for us. You won&rsquo;t see any prompt modification (as <code>virtualenv</code> does while <code>source venv/bin/activate</code>) it&rsquo;s normal.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/ mkdir project <span style="color:#000;font-weight:bold">&amp;&amp;</span> <span style="color:#0086b3">cd</span> project
+</span></span></code></pre></div><p>Creat our <code>.envrc</code> file.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/project/ <span style="color:#0086b3">echo</span> <span style="color:#d14">&#39;layout python3&#39;</span> &gt; .envrc
+</span></span></code></pre></div><p>You will notice an error message like :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>direnv: error project/.envrc is blocked. Run `direnv allow` to approve its content
+</span></span></code></pre></div><p>This is a security way to block default content in your file. You can allow it thanks to :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/project/ direnv allow
+</span></span><span style="display:flex;"><span>direnv: loading ~/project/.envrc                                                                                                                                                                                     
+</span></span><span style="display:flex;"><span>direnv: <span style="color:#0086b3">export</span> +VIRTUAL_ENV ~PATH
+</span></span></code></pre></div><p>Output inform us that virtual environment was automatically created for us. You won&rsquo;t see any prompt modification (as <code>virtualenv</code> does while <code>source venv/bin/activate</code>) it&rsquo;s normal.</p>
 <p>Quick check of our Python binary with :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/project/ which python
-project/.direnv/python-3.10.4/bin/python
-</code></pre></div><p>You can then work as you normally do through <code>venv</code> by installing your python dependencies.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># install a single package</span>
-λ ~/project/ pip install django
-
-<span style="color:#998;font-style:italic"># or install your project dependencies</span>
-λ ~/project/ pip install -r requirements.txt
-</code></pre></div><p><em>Note: we will no longer use <code>pip</code> but <code>poetry</code>, see Poetry section on this post for more information.</em></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/project/ which python
+</span></span><span style="display:flex;"><span>project/.direnv/python-3.10.4/bin/python
+</span></span></code></pre></div><p>You can then work as you normally do through <code>venv</code> by installing your python dependencies.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># install a single package</span>
+</span></span><span style="display:flex;"><span>λ ~/project/ pip install django
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># or install your project dependencies</span>
+</span></span><span style="display:flex;"><span>λ ~/project/ pip install -r requirements.txt
+</span></span></code></pre></div><p><em>Note: we will no longer use <code>pip</code> but <code>poetry</code>, see Poetry section on this post for more information.</em></p>
 <p>Just to be clear, <code>direnv</code> will automatically load your virtual environement when you move in your project directory. As soon as you will move out, environment will also be automatically deactivated.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/project/ <span style="color:#0086b3">cd</span> 
-direnv: unloading
-</code></pre></div><p>That&rsquo;s could be enough for common use if you don&rsquo;t need a specific Python version other than one installed on your system, in some cases you will want to work with specific versions, that&rsquo;s why we need <code>pyenv</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/project/ <span style="color:#0086b3">cd</span> 
+</span></span><span style="display:flex;"><span>direnv: unloading
+</span></span></code></pre></div><p>That&rsquo;s could be enough for common use if you don&rsquo;t need a specific Python version other than one installed on your system, in some cases you will want to work with specific versions, that&rsquo;s why we need <code>pyenv</code>.</p>
 <h1 id="pyenv">Pyenv</h1>
 <p><code>pyenv</code> lets you easily switch between multiple versions of Python. It&rsquo;s simple, unobtrusive, and follows the UNIX tradition of single-purpose tools that do one thing well.
 It allows you to change Python version for each project and it supported by <code>direnv</code> since <code>2.21.0</code>.</p>
 <h2 id="installation-and-configuration">Installation and Configuration</h2>
 <p>Get <code>pyenv</code> :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/ curl -L https://pyenv.run | bash
-</code></pre></div><p>Configure your $SHELL.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/ curl -L https://pyenv.run | bash
+</span></span></code></pre></div><p>Configure your $SHELL.</p>
 <p><em>e.g with zsh</em></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/ <span style="color:#0086b3">echo</span> <span style="color:#d14">&#39;export PYENV_ROOT=&#34;$HOME/.pyenv&#34;&#39;</span> &gt;&gt; ~/.zshrc
-λ ~/ <span style="color:#0086b3">echo</span> <span style="color:#d14">&#39;command -v pyenv &gt;/dev/null || export PATH=&#34;$PYENV_ROOT/bin:$PATH&#34;&#39;</span> &gt;&gt; ~/.zshrc
-λ ~/ <span style="color:#0086b3">echo</span> <span style="color:#d14">&#39;eval &#34;$(pyenv init -)&#34;&#39;</span> &gt;&gt; ~/.zshrc 
-</code></pre></div><p>Check installation:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/ pyenv --version
-pyenv 2.3.1
-</code></pre></div><p>And install latest Python version at this date <code>3.10.5</code>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/ pyenv install 3.10.5
-</code></pre></div><h2 id="use-pyenv-with-direnv">Use pyenv with direnv</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/ <span style="color:#0086b3">echo</span> <span style="color:#d14">&#39;export PYENV_ROOT=&#34;$HOME/.pyenv&#34;&#39;</span> &gt;&gt; ~/.zshrc
+</span></span><span style="display:flex;"><span>λ ~/ <span style="color:#0086b3">echo</span> <span style="color:#d14">&#39;command -v pyenv &gt;/dev/null || export PATH=&#34;$PYENV_ROOT/bin:$PATH&#34;&#39;</span> &gt;&gt; ~/.zshrc
+</span></span><span style="display:flex;"><span>λ ~/ <span style="color:#0086b3">echo</span> <span style="color:#d14">&#39;eval &#34;$(pyenv init -)&#34;&#39;</span> &gt;&gt; ~/.zshrc 
+</span></span></code></pre></div><p>Check installation:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/ pyenv --version
+</span></span><span style="display:flex;"><span>pyenv 2.3.1
+</span></span></code></pre></div><p>And install latest Python version at this date <code>3.10.5</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/ pyenv install 3.10.5
+</span></span></code></pre></div><h2 id="use-pyenv-with-direnv">Use pyenv with direnv</h2>
 <p>Now <code>pyenv</code> is installed, let&rsquo;s interface it with our project and <code>direnv</code>.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/ <span style="color:#0086b3">cd</span> project/
-λ ~/ <span style="color:#0086b3">echo</span> <span style="color:#d14">&#39;layout pyenv 3.10.5&#39;</span> &gt; .envrc
-λ ~/ direnv allow
-</code></pre></div><p>Check our Python version and interpreter :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/project/ python --version <span style="color:#000;font-weight:bold">&amp;&amp;</span> which python
-Python 3.10.5
-~/project/.direnv/python-3.10.5/bin/python
-</code></pre></div><p>That&rsquo;s it.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/ <span style="color:#0086b3">cd</span> project/
+</span></span><span style="display:flex;"><span>λ ~/ <span style="color:#0086b3">echo</span> <span style="color:#d14">&#39;layout pyenv 3.10.5&#39;</span> &gt; .envrc
+</span></span><span style="display:flex;"><span>λ ~/ direnv allow
+</span></span></code></pre></div><p>Check our Python version and interpreter :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/project/ python --version <span style="color:#000;font-weight:bold">&amp;&amp;</span> which python
+</span></span><span style="display:flex;"><span>Python 3.10.5
+</span></span><span style="display:flex;"><span>~/project/.direnv/python-3.10.5/bin/python
+</span></span></code></pre></div><p>That&rsquo;s it.</p>
 <h1 id="poetry">Poetry</h1>
 <h2 id="what-is-poetry">What is Poetry</h2>
 <p>Poetry is a tool for dependency management and packaging in Python. It allows you to declare the libraries your project depends on and it will manage (install/update) them for you.</p>
@@ -387,574 +386,574 @@ Python 3.10.5
 </ul>
 <h2 id="poetry-installation">Poetry installation</h2>
 <p>Poetry documentation provides installation guidelines and has a part for <strong>osx/linux/bashonwindows</strong> distributions :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/ curl -sSL https://install.python-poetry.org | python3 -
-Retrieving Poetry metadata
-
-<span style="color:#998;font-style:italic"># Welcome to Poetry!</span>
-
-This will download and install the latest version of Poetry,
-a dependency and package manager <span style="color:#000;font-weight:bold">for</span> Python.
-
-It will add the <span style="color:#d14">`</span>poetry<span style="color:#d14">`</span> <span style="color:#0086b3">command</span> to Poetry<span style="color:#a61717;background-color:#e3d2d2">&#39;</span>s bin directory, located at:
-
-<span style="color:#008080">$HOME</span>/.local/bin
-
-You can uninstall at any <span style="color:#0086b3">time</span> by executing this script with the --uninstall option,
-and these changes will be reverted.
-
-Installing Poetry <span style="color:#000;font-weight:bold">(</span>1.1.13<span style="color:#000;font-weight:bold">)</span>: Done
-
-Poetry <span style="color:#000;font-weight:bold">(</span>1.1.13<span style="color:#000;font-weight:bold">)</span> is installed now. Great!
-
-You can <span style="color:#0086b3">test</span> that everything is <span style="color:#0086b3">set</span> up by executing:
-
-<span style="color:#d14">`</span>poetry --version<span style="color:#d14">`</span>
-</code></pre></div><p>You can check your installation and <code>poetry</code> version :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/ poetry --version 
-Poetry version 1.1.13
-</code></pre></div><h3 id="poetry-shell-configuration">Poetry shell Configuration</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/ curl -sSL https://install.python-poetry.org | python3 -
+</span></span><span style="display:flex;"><span>Retrieving Poetry metadata
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Welcome to Poetry!</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>This will download and install the latest version of Poetry,
+</span></span><span style="display:flex;"><span>a dependency and package manager <span style="color:#000;font-weight:bold">for</span> Python.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>It will add the <span style="color:#d14">`</span>poetry<span style="color:#d14">`</span> <span style="color:#0086b3">command</span> to Poetry<span style="color:#a61717;background-color:#e3d2d2">&#39;</span>s bin directory, located at:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">$HOME</span>/.local/bin
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>You can uninstall at any <span style="color:#0086b3">time</span> by executing this script with the --uninstall option,
+</span></span><span style="display:flex;"><span>and these changes will be reverted.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Installing Poetry <span style="color:#000;font-weight:bold">(</span>1.1.13<span style="color:#000;font-weight:bold">)</span>: Done
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Poetry <span style="color:#000;font-weight:bold">(</span>1.1.13<span style="color:#000;font-weight:bold">)</span> is installed now. Great!
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>You can <span style="color:#0086b3">test</span> that everything is <span style="color:#0086b3">set</span> up by executing:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#d14">`</span>poetry --version<span style="color:#d14">`</span>
+</span></span></code></pre></div><p>You can check your installation and <code>poetry</code> version :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/ poetry --version 
+</span></span><span style="display:flex;"><span>Poetry version 1.1.13
+</span></span></code></pre></div><h3 id="poetry-shell-configuration">Poetry shell Configuration</h3>
 <p>You can enable tab completion for your shell. <a href="https://python-poetry.org/docs/master/#enable-tab-completion-for-bash-fish-or-zsh">This documentation</a> has guide for each shell.</p>
 <p><em>e.g with ZSH and Oh-my-zsh</em></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/ mkdir <span style="color:#008080">$ZSH_CUSTOM</span>/plugins/poetry
-poetry completions zsh &gt; <span style="color:#008080">$ZSH_CUSTOM</span>/plugins/poetry/_poetry
-</code></pre></div><p>For oh-my-zsh, you must then enable poetry in your ~/.zshrc plugins</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">plugins<span style="color:#000;font-weight:bold">(</span>
-	poetry
-	...
-	<span style="color:#000;font-weight:bold">)</span>
-</code></pre></div><h2 id="poetry-usage">Poetry usage</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/ mkdir <span style="color:#008080">$ZSH_CUSTOM</span>/plugins/poetry
+</span></span><span style="display:flex;"><span>poetry completions zsh &gt; <span style="color:#008080">$ZSH_CUSTOM</span>/plugins/poetry/_poetry
+</span></span></code></pre></div><p>For oh-my-zsh, you must then enable poetry in your ~/.zshrc plugins</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>plugins<span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>	poetry
+</span></span><span style="display:flex;"><span>	...
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><h2 id="poetry-usage">Poetry usage</h2>
 <p>From <code>poetry</code> documentation, you can use it for new project and|or existing one.</p>
 <h3 id="new-project">New project</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/ poetry new poetry-demo
-</code></pre></div><p>This will create the poetry-demo directory with the following content:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">poetry-demo
-├── pyproject.toml
-├── README.md
-├── poetry_demo
-│   └── __init__.py
-└── tests
-    └── __init__.py
-</code></pre></div><h3 id="existing-project">Existing project</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/ poetry new poetry-demo
+</span></span></code></pre></div><p>This will create the poetry-demo directory with the following content:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>poetry-demo
+</span></span><span style="display:flex;"><span>├── pyproject.toml
+</span></span><span style="display:flex;"><span>├── README.md
+</span></span><span style="display:flex;"><span>├── poetry_demo
+</span></span><span style="display:flex;"><span>│   └── __init__.py
+</span></span><span style="display:flex;"><span>└── tests
+</span></span><span style="display:flex;"><span>    └── __init__.py
+</span></span></code></pre></div><h3 id="existing-project">Existing project</h3>
 <p>Instead of creating a new project, Poetry can be used to ‘initialise’ a pre-populated directory. To interactively create a <code>pyproject.toml</code> file in directory pre-existing-project :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/ <span style="color:#0086b3">cd</span> project
-λ ~/project/ poetry init
-</code></pre></div><h3 id="add-dependecies">Add dependecies</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/ <span style="color:#0086b3">cd</span> project
+</span></span><span style="display:flex;"><span>λ ~/project/ poetry init
+</span></span></code></pre></div><h3 id="add-dependecies">Add dependecies</h3>
 <p>As simple as :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/project/ poetry add django
-Using version ^4.0.5 <span style="color:#000;font-weight:bold">for</span> Django
-
-Updating dependencies
-Resolving dependencies... <span style="color:#000;font-weight:bold">(</span>0.9s<span style="color:#000;font-weight:bold">)</span>
-
-Writing lock file
-
-Package operations: <span style="color:#099">3</span> installs, <span style="color:#099">0</span> updates, <span style="color:#099">0</span> removals
-
-  • Installing asgiref <span style="color:#000;font-weight:bold">(</span>3.5.2<span style="color:#000;font-weight:bold">)</span>
-  • Installing sqlparse <span style="color:#000;font-weight:bold">(</span>0.4.2<span style="color:#000;font-weight:bold">)</span>
-  • Installing django <span style="color:#000;font-weight:bold">(</span>4.0.5<span style="color:#000;font-weight:bold">)</span>
-</code></pre></div><p>It will automatically find a suitable version constraint and install the package and sub-dependencies.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/project/ poetry add django
+</span></span><span style="display:flex;"><span>Using version ^4.0.5 <span style="color:#000;font-weight:bold">for</span> Django
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Updating dependencies
+</span></span><span style="display:flex;"><span>Resolving dependencies... <span style="color:#000;font-weight:bold">(</span>0.9s<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Writing lock file
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Package operations: <span style="color:#099">3</span> installs, <span style="color:#099">0</span> updates, <span style="color:#099">0</span> removals
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  • Installing asgiref <span style="color:#000;font-weight:bold">(</span>3.5.2<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  • Installing sqlparse <span style="color:#000;font-weight:bold">(</span>0.4.2<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  • Installing django <span style="color:#000;font-weight:bold">(</span>4.0.5<span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><p>It will automatically find a suitable version constraint and install the package and sub-dependencies.</p>
 <p>Find details on your <code>toml</code> config file :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/project/ cat pyproject.toml 
-<span style="color:#000;font-weight:bold">[</span>tool.poetry<span style="color:#000;font-weight:bold">]</span>
-<span style="color:#008080">name</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;project&#34;</span>
-<span style="color:#008080">version</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;0.1.0&#34;</span>
-<span style="color:#008080">description</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;&#34;</span>
-<span style="color:#008080">authors</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#d14">&#34;Corentin Deret &lt;corentin.deret@payfit.com&gt;&#34;</span><span style="color:#000;font-weight:bold">]</span>
-
-<span style="color:#000;font-weight:bold">[</span>tool.poetry.dependencies<span style="color:#000;font-weight:bold">]</span>
-<span style="color:#008080">python</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;^3.10&#34;</span>
-<span style="color:#008080">Django</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;^4.0.5&#34;</span>
-
-<span style="color:#000;font-weight:bold">[</span>tool.poetry.dev-dependencies<span style="color:#000;font-weight:bold">]</span>
-
-<span style="color:#000;font-weight:bold">[</span>build-system<span style="color:#000;font-weight:bold">]</span>
-<span style="color:#008080">requires</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#d14">&#34;poetry-core&gt;=1.0.0&#34;</span><span style="color:#000;font-weight:bold">]</span>
-build-backend <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;poetry.core.masonry.api&#34;</span>
-</code></pre></div><h2 id="link-poetry-with-direnv">Link Poetry with direnv</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/project/ cat pyproject.toml 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">[</span>tool.poetry<span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">name</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;project&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">version</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;0.1.0&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">description</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">authors</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#d14">&#34;Corentin Deret &lt;corentin.deret@payfit.com&gt;&#34;</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">[</span>tool.poetry.dependencies<span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">python</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;^3.10&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">Django</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;^4.0.5&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">[</span>tool.poetry.dev-dependencies<span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">[</span>build-system<span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">requires</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#d14">&#34;poetry-core&gt;=1.0.0&#34;</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>build-backend <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;poetry.core.masonry.api&#34;</span>
+</span></span></code></pre></div><h2 id="link-poetry-with-direnv">Link Poetry with direnv</h2>
 <p>From <code>poetry</code> documentation :</p>
 <blockquote>
 <p>By default, poetry creates a virtual environment in {cache-dir}/virtualenvs ({cache-dir}\virtualenvs on Windows). You can change the cache-dir value by editing the poetry config. Additionally, you can use the virtualenvs.in-project configuration variable to create virtual environment within your project directory.</p>
 </blockquote>
 <p>What we want here, is to tell <code>poetry</code> not to configure its own environment but to use our previous <code>direnv</code> configuration.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># .envrc</span>
-
-layout pyenv 3.10.5
-
-<span style="color:#998;font-style:italic"># POETRY</span>
-<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[[</span> ! -f pyproject.toml <span style="color:#000;font-weight:bold">]]</span>; <span style="color:#000;font-weight:bold">then</span>
-  log_status <span style="color:#d14">&#39;No pyproject.toml found. Will initialize poetry in no-interactive mode&#39;</span>
-  poetry init -n -q
-  poetry run pip install -U pip wheel setuptools
-<span style="color:#000;font-weight:bold">fi</span>  
-
-poetry run <span style="color:#0086b3">echo</span> &gt;&gt; /dev/null
-<span style="color:#0086b3">local</span> <span style="color:#008080">VENV</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>dirname <span style="color:#000;font-weight:bold">$(</span>poetry run which python<span style="color:#000;font-weight:bold">))</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">VIRTUAL_ENV</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span><span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$VENV</span><span style="color:#d14">&#34;</span> | rev | cut -d<span style="color:#d14">&#39;/&#39;</span> -f2- | rev<span style="color:#000;font-weight:bold">)</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">POETRY_ACTIVE</span><span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>
-PATH_add <span style="color:#d14">&#34;</span><span style="color:#008080">$VENV</span><span style="color:#d14">&#34;</span>
-
-<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> ! -L .venv <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
-  ln -ns <span style="color:#008080">$VIRTUAL_ENV</span> .venv
-<span style="color:#000;font-weight:bold">fi</span>
-</code></pre></div><p>Let&rsquo;s allow our <code>direnv</code> and check that we are using our correct environment.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># .envrc</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>layout pyenv 3.10.5
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># POETRY</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[[</span> ! -f pyproject.toml <span style="color:#000;font-weight:bold">]]</span>; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>  log_status <span style="color:#d14">&#39;No pyproject.toml found. Will initialize poetry in no-interactive mode&#39;</span>
+</span></span><span style="display:flex;"><span>  poetry init -n -q
+</span></span><span style="display:flex;"><span>  poetry run pip install -U pip wheel setuptools
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">fi</span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>poetry run <span style="color:#0086b3">echo</span> &gt;&gt; /dev/null
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">local</span> <span style="color:#008080">VENV</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>dirname <span style="color:#000;font-weight:bold">$(</span>poetry run which python<span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">VIRTUAL_ENV</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span><span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$VENV</span><span style="color:#d14">&#34;</span> | rev | cut -d<span style="color:#d14">&#39;/&#39;</span> -f2- | rev<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">POETRY_ACTIVE</span><span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span>PATH_add <span style="color:#d14">&#34;</span><span style="color:#008080">$VENV</span><span style="color:#d14">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> ! -L .venv <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>  ln -ns <span style="color:#008080">$VIRTUAL_ENV</span> .venv
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">fi</span>
+</span></span></code></pre></div><p>Let&rsquo;s allow our <code>direnv</code> and check that we are using our correct environment.</p>
 <p>For our example with django, we should be able to retrieve our dependencie in <code>.direnv</code> folder.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/project/ find .direnv -name <span style="color:#d14">&#39;django&#39;</span>  
-.direnv/python-3.10.5/lib/python3.10/site-packages/django
-.direnv/python-3.10.5/lib/python3.10/site-packages/django/forms/jinja2/django
-.direnv/python-3.10.5/lib/python3.10/site-packages/django/forms/templates/django
-</code></pre></div><h1 id="gpg">GPG</h1>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/project/ find .direnv -name <span style="color:#d14">&#39;django&#39;</span>  
+</span></span><span style="display:flex;"><span>.direnv/python-3.10.5/lib/python3.10/site-packages/django
+</span></span><span style="display:flex;"><span>.direnv/python-3.10.5/lib/python3.10/site-packages/django/forms/jinja2/django
+</span></span><span style="display:flex;"><span>.direnv/python-3.10.5/lib/python3.10/site-packages/django/forms/templates/django
+</span></span></code></pre></div><h1 id="gpg">GPG</h1>
 <p>Remember about managing secrets ? Now that we have our virtual environements set, how can we manage to work with secrets without write them directly in our project/repository ?</p>
 <p>Before we can use a password manager such as <code>pass</code> we need a <code>gpg key id</code>.</p>
 <h2 id="generate-a-key">Generate a key</h2>
 <p>Let&rsquo;s first generete one.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/ gpg --full-generate-key
-
-Please <span style="color:#000;font-weight:bold">select</span> what kind of key you want:
-   <span style="color:#000;font-weight:bold">(</span>1<span style="color:#000;font-weight:bold">)</span> RSA and RSA <span style="color:#000;font-weight:bold">(</span>default<span style="color:#000;font-weight:bold">)</span>
-   <span style="color:#000;font-weight:bold">(</span>2<span style="color:#000;font-weight:bold">)</span> DSA and Elgamal
-   <span style="color:#000;font-weight:bold">(</span>3<span style="color:#000;font-weight:bold">)</span> DSA <span style="color:#000;font-weight:bold">(</span>sign only<span style="color:#000;font-weight:bold">)</span>
-   <span style="color:#000;font-weight:bold">(</span>4<span style="color:#000;font-weight:bold">)</span> RSA <span style="color:#000;font-weight:bold">(</span>sign only<span style="color:#000;font-weight:bold">)</span>
-  <span style="color:#000;font-weight:bold">(</span>14<span style="color:#000;font-weight:bold">)</span> Existing key from card
-Your selection? <span style="color:#099">1</span>
-
-RSA keys may be between <span style="color:#099">1024</span> and <span style="color:#099">4096</span> bits long.
-What keysize <span style="color:#000;font-weight:bold">do</span> you want? <span style="color:#000;font-weight:bold">(</span>3072<span style="color:#000;font-weight:bold">)</span> 
-Requested keysize is <span style="color:#099">3072</span> bits
-Please specify how long the key should be valid.
-         <span style="color:#008080">0</span> <span style="color:#000;font-weight:bold">=</span> key does not expire
-      &lt;n&gt;  <span style="color:#000;font-weight:bold">=</span> key expires in n days
-      &lt;n&gt;w <span style="color:#000;font-weight:bold">=</span> key expires in n weeks
-      &lt;n&gt;m <span style="color:#000;font-weight:bold">=</span> key expires in n months
-      &lt;n&gt;y <span style="color:#000;font-weight:bold">=</span> key expires in n years
-
-Key is valid <span style="color:#000;font-weight:bold">for</span>? <span style="color:#000;font-weight:bold">(</span>0<span style="color:#000;font-weight:bold">)</span> 
-Key does not expire at all
-Is this correct? <span style="color:#000;font-weight:bold">(</span>y/N<span style="color:#000;font-weight:bold">)</span> y
-
-Real name: Kader Ovski
-Email address: me@lebaron.sh
-Comment: 
-You selected this USER-ID:
-    <span style="color:#d14">&#34;Kader Ovski &lt;me@lebaron.sh&gt;&#34;</span>
-
-Change <span style="color:#000;font-weight:bold">(</span>N<span style="color:#000;font-weight:bold">)</span>ame, <span style="color:#000;font-weight:bold">(</span>C<span style="color:#000;font-weight:bold">)</span>omment, <span style="color:#000;font-weight:bold">(</span>E<span style="color:#000;font-weight:bold">)</span>mail or <span style="color:#000;font-weight:bold">(</span>O<span style="color:#000;font-weight:bold">)</span>kay/<span style="color:#000;font-weight:bold">(</span>Q<span style="color:#000;font-weight:bold">)</span>uit? O
-
-We need to generate a lot of random bytes. It is a good idea to perform
-some other action <span style="color:#000;font-weight:bold">(</span><span style="color:#0086b3">type</span> on the keyboard, move the mouse, utilize the
-disks<span style="color:#000;font-weight:bold">)</span> during the prime generation; this gives the random number
-generator a better chance to gain enough entropy.
-
-gpg: key 0854057891EFB8F0 marked as ultimately trusted
-
-pub   rsa3072 2022-06-10 <span style="color:#000;font-weight:bold">[</span>SC<span style="color:#000;font-weight:bold">]</span>
-      DC3EC748A8D97169F47C16690854057891EFB8F0
-uid                      Kader Ovski &lt;me@lebaron.sh&gt;
-sub   rsa3072 2022-06-10 <span style="color:#000;font-weight:bold">[</span>E<span style="color:#000;font-weight:bold">]</span>
-</code></pre></div><h2 id="get-key-id">Get key ID</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/ gpg --full-generate-key
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Please <span style="color:#000;font-weight:bold">select</span> what kind of key you want:
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">(</span>1<span style="color:#000;font-weight:bold">)</span> RSA and RSA <span style="color:#000;font-weight:bold">(</span>default<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">(</span>2<span style="color:#000;font-weight:bold">)</span> DSA and Elgamal
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">(</span>3<span style="color:#000;font-weight:bold">)</span> DSA <span style="color:#000;font-weight:bold">(</span>sign only<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">(</span>4<span style="color:#000;font-weight:bold">)</span> RSA <span style="color:#000;font-weight:bold">(</span>sign only<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span>14<span style="color:#000;font-weight:bold">)</span> Existing key from card
+</span></span><span style="display:flex;"><span>Your selection? <span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>RSA keys may be between <span style="color:#099">1024</span> and <span style="color:#099">4096</span> bits long.
+</span></span><span style="display:flex;"><span>What keysize <span style="color:#000;font-weight:bold">do</span> you want? <span style="color:#000;font-weight:bold">(</span>3072<span style="color:#000;font-weight:bold">)</span> 
+</span></span><span style="display:flex;"><span>Requested keysize is <span style="color:#099">3072</span> bits
+</span></span><span style="display:flex;"><span>Please specify how long the key should be valid.
+</span></span><span style="display:flex;"><span>         <span style="color:#008080">0</span> <span style="color:#000;font-weight:bold">=</span> key does not expire
+</span></span><span style="display:flex;"><span>      &lt;n&gt;  <span style="color:#000;font-weight:bold">=</span> key expires in n days
+</span></span><span style="display:flex;"><span>      &lt;n&gt;w <span style="color:#000;font-weight:bold">=</span> key expires in n weeks
+</span></span><span style="display:flex;"><span>      &lt;n&gt;m <span style="color:#000;font-weight:bold">=</span> key expires in n months
+</span></span><span style="display:flex;"><span>      &lt;n&gt;y <span style="color:#000;font-weight:bold">=</span> key expires in n years
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Key is valid <span style="color:#000;font-weight:bold">for</span>? <span style="color:#000;font-weight:bold">(</span>0<span style="color:#000;font-weight:bold">)</span> 
+</span></span><span style="display:flex;"><span>Key does not expire at all
+</span></span><span style="display:flex;"><span>Is this correct? <span style="color:#000;font-weight:bold">(</span>y/N<span style="color:#000;font-weight:bold">)</span> y
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Real name: Kader Ovski
+</span></span><span style="display:flex;"><span>Email address: me@lebaron.sh
+</span></span><span style="display:flex;"><span>Comment: 
+</span></span><span style="display:flex;"><span>You selected this USER-ID:
+</span></span><span style="display:flex;"><span>    <span style="color:#d14">&#34;Kader Ovski &lt;me@lebaron.sh&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Change <span style="color:#000;font-weight:bold">(</span>N<span style="color:#000;font-weight:bold">)</span>ame, <span style="color:#000;font-weight:bold">(</span>C<span style="color:#000;font-weight:bold">)</span>omment, <span style="color:#000;font-weight:bold">(</span>E<span style="color:#000;font-weight:bold">)</span>mail or <span style="color:#000;font-weight:bold">(</span>O<span style="color:#000;font-weight:bold">)</span>kay/<span style="color:#000;font-weight:bold">(</span>Q<span style="color:#000;font-weight:bold">)</span>uit? O
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>We need to generate a lot of random bytes. It is a good idea to perform
+</span></span><span style="display:flex;"><span>some other action <span style="color:#000;font-weight:bold">(</span><span style="color:#0086b3">type</span> on the keyboard, move the mouse, utilize the
+</span></span><span style="display:flex;"><span>disks<span style="color:#000;font-weight:bold">)</span> during the prime generation; this gives the random number
+</span></span><span style="display:flex;"><span>generator a better chance to gain enough entropy.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>gpg: key 0854057891EFB8F0 marked as ultimately trusted
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pub   rsa3072 2022-06-10 <span style="color:#000;font-weight:bold">[</span>SC<span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>      DC3EC748A8D97169F47C16690854057891EFB8F0
+</span></span><span style="display:flex;"><span>uid                      Kader Ovski &lt;me@lebaron.sh&gt;
+</span></span><span style="display:flex;"><span>sub   rsa3072 2022-06-10 <span style="color:#000;font-weight:bold">[</span>E<span style="color:#000;font-weight:bold">]</span>
+</span></span></code></pre></div><h2 id="get-key-id">Get key ID</h2>
 <p>We can then list our new key :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/ gpg --list-keys
-gpg: checking the trustdb
-gpg: marginals needed: <span style="color:#099">3</span>  completes needed: <span style="color:#099">1</span>  trust model: pgp
-gpg: depth: <span style="color:#099">0</span>  valid:   <span style="color:#099">1</span>  signed:   <span style="color:#099">0</span>  trust: 0-, 0q, 0n, 0m, 0f, 1u
-<span style="color:#008080">$HOME</span>/.gnupg/pubring.kbx
-------------------------
-pub   rsa3072 2022-06-10 <span style="color:#000;font-weight:bold">[</span>SC<span style="color:#000;font-weight:bold">]</span>
-      DC3EC748A8D97169F47C16690854057891EFB8F0
-uid           <span style="color:#000;font-weight:bold">[</span>ultimate<span style="color:#000;font-weight:bold">]</span> Kader Ovski &lt;me@lebaron.sh&gt;
-sub   rsa3072 2022-06-10 <span style="color:#000;font-weight:bold">[</span>E<span style="color:#000;font-weight:bold">]</span>
-</code></pre></div><h1 id="pass">Pass</h1>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/ gpg --list-keys
+</span></span><span style="display:flex;"><span>gpg: checking the trustdb
+</span></span><span style="display:flex;"><span>gpg: marginals needed: <span style="color:#099">3</span>  completes needed: <span style="color:#099">1</span>  trust model: pgp
+</span></span><span style="display:flex;"><span>gpg: depth: <span style="color:#099">0</span>  valid:   <span style="color:#099">1</span>  signed:   <span style="color:#099">0</span>  trust: 0-, 0q, 0n, 0m, 0f, 1u
+</span></span><span style="display:flex;"><span><span style="color:#008080">$HOME</span>/.gnupg/pubring.kbx
+</span></span><span style="display:flex;"><span>------------------------
+</span></span><span style="display:flex;"><span>pub   rsa3072 2022-06-10 <span style="color:#000;font-weight:bold">[</span>SC<span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>      DC3EC748A8D97169F47C16690854057891EFB8F0
+</span></span><span style="display:flex;"><span>uid           <span style="color:#000;font-weight:bold">[</span>ultimate<span style="color:#000;font-weight:bold">]</span> Kader Ovski &lt;me@lebaron.sh&gt;
+</span></span><span style="display:flex;"><span>sub   rsa3072 2022-06-10 <span style="color:#000;font-weight:bold">[</span>E<span style="color:#000;font-weight:bold">]</span>
+</span></span></code></pre></div><h1 id="pass">Pass</h1>
 <p><code>pass</code> is the standard unix password manager.</p>
 <blockquote>
 <p>With pass, each password lives inside of a gpg encrypted file whose filename is the title of the website or resource that requires the password. These encrypted files may be organized into meaningful folder hierarchies, copied from computer to computer, and, in general, manipulated using standard command line file management utilities.</p>
 </blockquote>
 <h2 id="pass-installation">Pass installation</h2>
 <p><code>pass</code> is available in almost all distribution and can be installed as follow:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/ sudo apt-get install pass
-</code></pre></div><h2 id="pass-usage">Pass usage</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/ sudo apt-get install pass
+</span></span></code></pre></div><h2 id="pass-usage">Pass usage</h2>
 <p>Now that we have <code>pass</code> installed on our system <strong>and</strong> a valid <code>gpg_key_id</code> we can init our password manager with :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/ pass init DC3EC748A8D97169F47C16690854057891EFB8F0
-mkdir: created directory <span style="color:#d14">&#39;$HOME/.password-store/&#39;</span>
-Password store initialized <span style="color:#000;font-weight:bold">for</span> DC3EC748A8D97169F47C16690854057891EFB8F0
-</code></pre></div><p>Let&rsquo;s insert our first password :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/ pass insert lebaron.sh/blog/some_secret
-mkdir: created directory <span style="color:#d14">&#39;$HOME/.password-store/lebaron.sh&#39;</span>
-mkdir: created directory <span style="color:#d14">&#39;$HOME/.password-store/lebaron.sh/blog&#39;</span>
-Enter password <span style="color:#000;font-weight:bold">for</span> lebaron.sh/blog/some_secret: 
-Retype password <span style="color:#000;font-weight:bold">for</span> lebaron.sh/blog/some_secret: 
-</code></pre></div><p>Our password is now store in our <code>pass</code> :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/ pass
-Password Store
-<span style="color:#d14">`</span>-- lebaron.sh
-    <span style="color:#d14">`</span>-- blog
-        <span style="color:#d14">`</span>-- some_secret
-</code></pre></div><p>You can get your secret by typing and entering your gpg secret passphrase :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/ pass show lebaron.sh/blog/some_secret
-my_secret
-</code></pre></div><h1 id="tomb">Tomb</h1>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/ pass init DC3EC748A8D97169F47C16690854057891EFB8F0
+</span></span><span style="display:flex;"><span>mkdir: created directory <span style="color:#d14">&#39;$HOME/.password-store/&#39;</span>
+</span></span><span style="display:flex;"><span>Password store initialized <span style="color:#000;font-weight:bold">for</span> DC3EC748A8D97169F47C16690854057891EFB8F0
+</span></span></code></pre></div><p>Let&rsquo;s insert our first password :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/ pass insert lebaron.sh/blog/some_secret
+</span></span><span style="display:flex;"><span>mkdir: created directory <span style="color:#d14">&#39;$HOME/.password-store/lebaron.sh&#39;</span>
+</span></span><span style="display:flex;"><span>mkdir: created directory <span style="color:#d14">&#39;$HOME/.password-store/lebaron.sh/blog&#39;</span>
+</span></span><span style="display:flex;"><span>Enter password <span style="color:#000;font-weight:bold">for</span> lebaron.sh/blog/some_secret: 
+</span></span><span style="display:flex;"><span>Retype password <span style="color:#000;font-weight:bold">for</span> lebaron.sh/blog/some_secret: 
+</span></span></code></pre></div><p>Our password is now store in our <code>pass</code> :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/ pass
+</span></span><span style="display:flex;"><span>Password Store
+</span></span><span style="display:flex;"><span><span style="color:#d14">`</span>-- lebaron.sh
+</span></span><span style="display:flex;"><span>    <span style="color:#d14">`</span>-- blog
+</span></span><span style="display:flex;"><span>        <span style="color:#d14">`</span>-- some_secret
+</span></span></code></pre></div><p>You can get your secret by typing and entering your gpg secret passphrase :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/ pass show lebaron.sh/blog/some_secret
+</span></span><span style="display:flex;"><span>my_secret
+</span></span></code></pre></div><h1 id="tomb">Tomb</h1>
 <p>Due to the structure of pass, file and directory names are not encrypted in the password store. <code>pass-tomb</code> provides a convenient solution to put your password store in a Tomb and then keep your password tree encrypted when you are not using it.</p>
 <p>It uses the same GPG key to encrypt passwords and tomb, therefore you don&rsquo;t need to manage more key or secret. Moreover, you can ask pass-tomb to automatically close your store after a given time.</p>
 <h2 id="tomb-installation">Tomb installation</h2>
 <p>You can use package installation on your distribution :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/ sudo apt install pass-extension-tomb
-</code></pre></div><h2 id="tomb-usage">Tomb usage</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/ sudo apt install pass-extension-tomb
+</span></span></code></pre></div><h2 id="tomb-usage">Tomb usage</h2>
 <p>Create a new password tomb:</p>
 <p><em>e.g</em></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">&gt; pass tomb DC3EC748A8D97169F47C16690854057891EFB8F0
- <span style="color:#000;font-weight:bold">(</span>*<span style="color:#000;font-weight:bold">)</span> Your password tomb has been created and opened in ~/.password-store.
- <span style="color:#000;font-weight:bold">(</span>*<span style="color:#000;font-weight:bold">)</span> Password store initialized <span style="color:#000;font-weight:bold">for</span> DC3EC748A8D97169F47C16690854057891EFB8F0
-  .  Your tomb is: ~/.password.tomb
-  .  Your tomb key is: ~/.password.key.tomb
-  .  You can now use pass as usual.
-  .  When finished, close the password tomb using <span style="color:#d14">&#39;pass close&#39;</span>.
-</code></pre></div><p>You can now use the best part of <code>pass-tomb</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; pass tomb DC3EC748A8D97169F47C16690854057891EFB8F0
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">(</span>*<span style="color:#000;font-weight:bold">)</span> Your password tomb has been created and opened in ~/.password-store.
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">(</span>*<span style="color:#000;font-weight:bold">)</span> Password store initialized <span style="color:#000;font-weight:bold">for</span> DC3EC748A8D97169F47C16690854057891EFB8F0
+</span></span><span style="display:flex;"><span>  .  Your tomb is: ~/.password.tomb
+</span></span><span style="display:flex;"><span>  .  Your tomb key is: ~/.password.key.tomb
+</span></span><span style="display:flex;"><span>  .  You can now use pass as usual.
+</span></span><span style="display:flex;"><span>  .  When finished, close the password tomb using <span style="color:#d14">&#39;pass close&#39;</span>.
+</span></span></code></pre></div><p>You can now use the best part of <code>pass-tomb</code>:</p>
 <ul>
 <li>open your tomb</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/ pass open
- <span style="color:#000;font-weight:bold">(</span>*<span style="color:#000;font-weight:bold">)</span> Your password tomb has been opened in <span style="color:#008080">$HOME</span>/.password-store/.
-  .  You can now use pass as usual.
-  .  When finished, close the password tomb using <span style="color:#d14">&#39;pass close&#39;</span>.
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/ pass open
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">(</span>*<span style="color:#000;font-weight:bold">)</span> Your password tomb has been opened in <span style="color:#008080">$HOME</span>/.password-store/.
+</span></span><span style="display:flex;"><span>  .  You can now use pass as usual.
+</span></span><span style="display:flex;"><span>  .  When finished, close the password tomb using <span style="color:#d14">&#39;pass close&#39;</span>.
+</span></span></code></pre></div><ul>
 <li>close your tomb</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/ pass close
- <span style="color:#000;font-weight:bold">(</span>*<span style="color:#000;font-weight:bold">)</span> Your password tomb has been closed.
-  .  Your passwords remain present in <span style="color:#008080">$HOME</span>/.password.tomb.
-</code></pre></div><p>Let&rsquo;s check what is happening with <code>open</code> and <code>close</code> options.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/ pass close
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">(</span>*<span style="color:#000;font-weight:bold">)</span> Your password tomb has been closed.
+</span></span><span style="display:flex;"><span>  .  Your passwords remain present in <span style="color:#008080">$HOME</span>/.password.tomb.
+</span></span></code></pre></div><p>Let&rsquo;s check what is happening with <code>open</code> and <code>close</code> options.</p>
 <p>When our <code>tomb</code> is closed, <code>pass</code> command and our passwords path looks like this:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/ pass
-Password Store
-└── <span style="color:#099">2</span>
-
-λ ~/ tree .password-store/            
-.password-store/
-└── <span style="color:#099">2</span>
-
-<span style="color:#099">1</span> directory, <span style="color:#099">0</span> files
-</code></pre></div><p>We can not see our key:value (path/password-name) elements on output and filesystem.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/ pass
+</span></span><span style="display:flex;"><span>Password Store
+</span></span><span style="display:flex;"><span>└── <span style="color:#099">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>λ ~/ tree .password-store/            
+</span></span><span style="display:flex;"><span>.password-store/
+</span></span><span style="display:flex;"><span>└── <span style="color:#099">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#099">1</span> directory, <span style="color:#099">0</span> files
+</span></span></code></pre></div><p>We can not see our key:value (path/password-name) elements on output and filesystem.</p>
 <p>When opening our <code>tomb</code> we are decrypting our password database :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/ pass ; tree .password-store/
-Password Store
-├── lebaron.sh
-│   └── blog
-│       └── some_secret.gpg
-
-λ ~/ tree .password-store/            
-.password-store/
-├── lebaron.sh
-│   └── blog
-│       └── some_secret.gpg
-</code></pre></div><h1 id="secrets-with-direnv-and-pass">Secrets with direnv and pass</h1>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/ pass ; tree .password-store/
+</span></span><span style="display:flex;"><span>Password Store
+</span></span><span style="display:flex;"><span>├── lebaron.sh
+</span></span><span style="display:flex;"><span>│   └── blog
+</span></span><span style="display:flex;"><span>│       └── some_secret.gpg
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>λ ~/ tree .password-store/            
+</span></span><span style="display:flex;"><span>.password-store/
+</span></span><span style="display:flex;"><span>├── lebaron.sh
+</span></span><span style="display:flex;"><span>│   └── blog
+</span></span><span style="display:flex;"><span>│       └── some_secret.gpg
+</span></span></code></pre></div><h1 id="secrets-with-direnv-and-pass">Secrets with direnv and pass</h1>
 <p>We can now manage to use our <code>secrets</code> in our Python code thanks to <code>direnv</code> and <code>pass</code>.</p>
 <p>We need to modify a bit our <code>.envrc</code> in our project directory by checking if the <code>tomb</code> is open or not.
 I&rsquo;m doing it by checking if I can <code>stat</code> my <code>$HOME/.password-store/.gpg-id</code> which is possible when the <code>tomb</code> is open. If not it means <code>tomb</code> is close and need to be open.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># .envrc</span>
-
-layout pyenv 3.10.5
-
-<span style="color:#998;font-style:italic"># POETRY</span>
-<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[[</span> ! -f pyproject.toml <span style="color:#000;font-weight:bold">]]</span>; <span style="color:#000;font-weight:bold">then</span>
-  log_status <span style="color:#d14">&#39;No pyproject.toml found. Will initialize poetry in no-interactive mode&#39;</span>
-  poetry init -n -q
-  poetry run pip install -U pip wheel setuptools
-<span style="color:#000;font-weight:bold">fi</span>  
-
-poetry run <span style="color:#0086b3">echo</span> &gt;&gt; /dev/null
-<span style="color:#0086b3">local</span> <span style="color:#008080">VENV</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>dirname <span style="color:#000;font-weight:bold">$(</span>poetry run which python<span style="color:#000;font-weight:bold">))</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">VIRTUAL_ENV</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span><span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$VENV</span><span style="color:#d14">&#34;</span> | rev | cut -d<span style="color:#d14">&#39;/&#39;</span> -f2- | rev<span style="color:#000;font-weight:bold">)</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">POETRY_ACTIVE</span><span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>
-PATH_add <span style="color:#d14">&#34;</span><span style="color:#008080">$VENV</span><span style="color:#d14">&#34;</span>
-
-<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> ! -L .venv <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
-  ln -ns <span style="color:#008080">$VIRTUAL_ENV</span> .venv
-<span style="color:#000;font-weight:bold">fi</span>
-
-<span style="color:#998;font-style:italic"># CHEKING IF TOMB IS OPEN</span>
-<span style="color:#000;font-weight:bold">if</span> ! stat <span style="color:#008080">$HOME</span>/.password-store/.gpg-id &gt; /dev/null 2&gt;&amp;<span style="color:#099">1</span> ; <span style="color:#000;font-weight:bold">then</span>
-    <span style="color:#998;font-style:italic"># IF NOT OPEN IT</span>
-    pass open
-<span style="color:#000;font-weight:bold">fi</span>
-
-<span style="color:#998;font-style:italic"># THEN PUT SECRET IN ENV</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">MY_SECRET</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>pass show lebaron.sh/blog/some_secret<span style="color:#000;font-weight:bold">)</span>
-</code></pre></div><p>We can now reload our <code>direnv</code>.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/project/ direnv reload
-direnv: loading ~/project/.envrc
- <span style="color:#000;font-weight:bold">(</span>*<span style="color:#000;font-weight:bold">)</span> Your password tomb has been opened in /home/<span style="color:#008080">$USER</span>/.password-store/.
-  .  You can now use pass as usual.
-  .  When finished, close the password tomb using <span style="color:#d14">&#39;pass close&#39;</span>.
-direnv: <span style="color:#0086b3">export</span> +MY_SECRET +VIRTUAL_ENV ~PATH
-</code></pre></div><p>Notice here <code>+MY_SECRET</code> in the output, telling us it is accessible through our environment.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># .envrc</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>layout pyenv 3.10.5
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># POETRY</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[[</span> ! -f pyproject.toml <span style="color:#000;font-weight:bold">]]</span>; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>  log_status <span style="color:#d14">&#39;No pyproject.toml found. Will initialize poetry in no-interactive mode&#39;</span>
+</span></span><span style="display:flex;"><span>  poetry init -n -q
+</span></span><span style="display:flex;"><span>  poetry run pip install -U pip wheel setuptools
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">fi</span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>poetry run <span style="color:#0086b3">echo</span> &gt;&gt; /dev/null
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">local</span> <span style="color:#008080">VENV</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>dirname <span style="color:#000;font-weight:bold">$(</span>poetry run which python<span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">VIRTUAL_ENV</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span><span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$VENV</span><span style="color:#d14">&#34;</span> | rev | cut -d<span style="color:#d14">&#39;/&#39;</span> -f2- | rev<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">POETRY_ACTIVE</span><span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span>PATH_add <span style="color:#d14">&#34;</span><span style="color:#008080">$VENV</span><span style="color:#d14">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> ! -L .venv <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>  ln -ns <span style="color:#008080">$VIRTUAL_ENV</span> .venv
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># CHEKING IF TOMB IS OPEN</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> ! stat <span style="color:#008080">$HOME</span>/.password-store/.gpg-id &gt; /dev/null 2&gt;&amp;<span style="color:#099">1</span> ; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># IF NOT OPEN IT</span>
+</span></span><span style="display:flex;"><span>    pass open
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># THEN PUT SECRET IN ENV</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">MY_SECRET</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>pass show lebaron.sh/blog/some_secret<span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><p>We can now reload our <code>direnv</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/project/ direnv reload
+</span></span><span style="display:flex;"><span>direnv: loading ~/project/.envrc
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">(</span>*<span style="color:#000;font-weight:bold">)</span> Your password tomb has been opened in /home/<span style="color:#008080">$USER</span>/.password-store/.
+</span></span><span style="display:flex;"><span>  .  You can now use pass as usual.
+</span></span><span style="display:flex;"><span>  .  When finished, close the password tomb using <span style="color:#d14">&#39;pass close&#39;</span>.
+</span></span><span style="display:flex;"><span>direnv: <span style="color:#0086b3">export</span> +MY_SECRET +VIRTUAL_ENV ~PATH
+</span></span></code></pre></div><p>Notice here <code>+MY_SECRET</code> in the output, telling us it is accessible through our environment.</p>
 <p>We can try to reach our secret :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/project/ <span style="color:#0086b3">echo</span> <span style="color:#008080">$MY_SECRET</span>
-my_secret
-</code></pre></div><p>What is really important here is that <strong>we are not storing clear secrets</strong> in our code, project or repo.
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/project/ <span style="color:#0086b3">echo</span> <span style="color:#008080">$MY_SECRET</span>
+</span></span><span style="display:flex;"><span>my_secret
+</span></span></code></pre></div><p>What is really important here is that <strong>we are not storing clear secrets</strong> in our code, project or repo.
 All our secrets will be reachable through our virtual environment and can be used in you Python code like this :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#000;font-weight:bold">import</span> <span style="color:#555">os</span>
-<span style="color:#000;font-weight:bold">&gt;&gt;&gt;</span> secret<span style="color:#000;font-weight:bold">=</span>os<span style="color:#000;font-weight:bold">.</span>environ<span style="color:#000;font-weight:bold">.</span>get(<span style="color:#d14">&#39;MY_SECRET&#39;</span>)
-<span style="color:#000;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#0086b3">print</span>(secret)
-my_secret
-</code></pre></div><h1 id="direnv-advanced-configurations">Direnv advanced configurations</h1>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#000;font-weight:bold">import</span> <span style="color:#555">os</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&gt;&gt;&gt;</span> secret<span style="color:#000;font-weight:bold">=</span>os<span style="color:#000;font-weight:bold">.</span>environ<span style="color:#000;font-weight:bold">.</span>get(<span style="color:#d14">&#39;MY_SECRET&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#0086b3">print</span>(secret)
+</span></span><span style="display:flex;"><span>my_secret
+</span></span></code></pre></div><h1 id="direnv-advanced-configurations">Direnv advanced configurations</h1>
 <p>In more complex projects you may need <code>commands</code>, <code>external dependencies</code>, <code>third-party</code>, or <code>third-party configuration</code>. Let&rsquo;s see how we can manage them with <code>direnv</code>.</p>
 <h2 id="check-for-commands-dependencies">Check for commands dependencies</h2>
 <p>In your <code>.envrc</code> file, you can ensure you can use and reach some commands needed in your project.</p>
 <p>You can do as follow:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># .envrc</span>
-
-layout pyenv 3.10.5
-
-<span style="color:#998;font-style:italic"># POETRY</span>
-<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[[</span> ! -f pyproject.toml <span style="color:#000;font-weight:bold">]]</span>; <span style="color:#000;font-weight:bold">then</span>
-  log_status <span style="color:#d14">&#39;No pyproject.toml found. Will initialize poetry in no-interactive mode&#39;</span>
-  poetry init -n -q
-  poetry run pip install -U pip wheel setuptools
-<span style="color:#000;font-weight:bold">fi</span>
-
-poetry run <span style="color:#0086b3">echo</span> &gt;&gt; /dev/null
-<span style="color:#0086b3">local</span> <span style="color:#008080">VENV</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>dirname <span style="color:#000;font-weight:bold">$(</span>poetry run which python<span style="color:#000;font-weight:bold">))</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">VIRTUAL_ENV</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span><span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$VENV</span><span style="color:#d14">&#34;</span> | rev | cut -d<span style="color:#d14">&#39;/&#39;</span> -f2- | rev<span style="color:#000;font-weight:bold">)</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">POETRY_ACTIVE</span><span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>
-PATH_add <span style="color:#d14">&#34;</span><span style="color:#008080">$VENV</span><span style="color:#d14">&#34;</span>
-
-<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> ! -L .venv <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
-  ln -ns <span style="color:#008080">$VIRTUAL_ENV</span> .venv
-<span style="color:#000;font-weight:bold">fi</span>
-
-<span style="color:#998;font-style:italic"># CHEKING IF TOMB IS OPEN</span>
-<span style="color:#000;font-weight:bold">if</span> ! stat <span style="color:#008080">$HOME</span>/.password-store/.gpg-id &gt; /dev/null 2&gt;&amp;<span style="color:#099">1</span> ; <span style="color:#000;font-weight:bold">then</span>
-    <span style="color:#998;font-style:italic"># IF NOT OPEN IT</span>
-    pass open
-<span style="color:#000;font-weight:bold">fi</span>
-
-<span style="color:#998;font-style:italic"># THEN PUT SECRET IN ENV</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">MY_SECRET</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>pass show lebaron.sh/blog/some_secret<span style="color:#000;font-weight:bold">)</span>
-
-<span style="color:#998;font-style:italic"># CHECKING COMMANDS DEPENDENCIES</span>
-<span style="color:#008080">DIRENV_CMD_DEPENDENCIES</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;unzip tar mkdir curl chmod rm&#34;</span>
-<span style="color:#000;font-weight:bold">for</span> mandatory_cmd in <span style="color:#d14">${</span><span style="color:#008080">DIRENV_CMD_DEPENDENCIES</span><span style="color:#d14">}</span>; <span style="color:#000;font-weight:bold">do</span>
-   <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> -z <span style="color:#d14">&#34;</span><span style="color:#000;font-weight:bold">$(</span>which <span style="color:#d14">${</span><span style="color:#008080">mandatory_cmd</span><span style="color:#d14">}</span><span style="color:#000;font-weight:bold">)</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
-        <span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;===&gt; Mandatory command not found: </span><span style="color:#d14">${</span><span style="color:#008080">mandatory_cmd</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
-        <span style="color:#0086b3">exit</span> <span style="color:#099">1</span>
-   <span style="color:#000;font-weight:bold">fi</span>
-<span style="color:#000;font-weight:bold">done</span>
-</code></pre></div><h2 id="third-party-binaries">Third-party binaries</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># .envrc</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>layout pyenv 3.10.5
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># POETRY</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[[</span> ! -f pyproject.toml <span style="color:#000;font-weight:bold">]]</span>; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>  log_status <span style="color:#d14">&#39;No pyproject.toml found. Will initialize poetry in no-interactive mode&#39;</span>
+</span></span><span style="display:flex;"><span>  poetry init -n -q
+</span></span><span style="display:flex;"><span>  poetry run pip install -U pip wheel setuptools
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>poetry run <span style="color:#0086b3">echo</span> &gt;&gt; /dev/null
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">local</span> <span style="color:#008080">VENV</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>dirname <span style="color:#000;font-weight:bold">$(</span>poetry run which python<span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">VIRTUAL_ENV</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span><span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$VENV</span><span style="color:#d14">&#34;</span> | rev | cut -d<span style="color:#d14">&#39;/&#39;</span> -f2- | rev<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">POETRY_ACTIVE</span><span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span>PATH_add <span style="color:#d14">&#34;</span><span style="color:#008080">$VENV</span><span style="color:#d14">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> ! -L .venv <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>  ln -ns <span style="color:#008080">$VIRTUAL_ENV</span> .venv
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># CHEKING IF TOMB IS OPEN</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> ! stat <span style="color:#008080">$HOME</span>/.password-store/.gpg-id &gt; /dev/null 2&gt;&amp;<span style="color:#099">1</span> ; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># IF NOT OPEN IT</span>
+</span></span><span style="display:flex;"><span>    pass open
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># THEN PUT SECRET IN ENV</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">MY_SECRET</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>pass show lebaron.sh/blog/some_secret<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># CHECKING COMMANDS DEPENDENCIES</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">DIRENV_CMD_DEPENDENCIES</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;unzip tar mkdir curl chmod rm&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">for</span> mandatory_cmd in <span style="color:#d14">${</span><span style="color:#008080">DIRENV_CMD_DEPENDENCIES</span><span style="color:#d14">}</span>; <span style="color:#000;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> -z <span style="color:#d14">&#34;</span><span style="color:#000;font-weight:bold">$(</span>which <span style="color:#d14">${</span><span style="color:#008080">mandatory_cmd</span><span style="color:#d14">}</span><span style="color:#000;font-weight:bold">)</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;===&gt; Mandatory command not found: </span><span style="color:#d14">${</span><span style="color:#008080">mandatory_cmd</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0086b3">exit</span> <span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">done</span>
+</span></span></code></pre></div><h2 id="third-party-binaries">Third-party binaries</h2>
 <p>We can arrange to use specific third-party binaries such as <code>packer</code>, <code>terraform</code>, <code>vault</code> etc…</p>
 <p>We will tell <code>.direnv</code> to use <code>PATH</code> in order to place our third-party binaries in <code>.direnv/bin</code> path.</p>
 <p>Let&rsquo;s grab our <code>.envrc</code> file again:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># .envrc</span>
-
-layout pyenv 3.10.5
-
-<span style="color:#998;font-style:italic"># POETRY</span>
-<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[[</span> ! -f pyproject.toml <span style="color:#000;font-weight:bold">]]</span>; <span style="color:#000;font-weight:bold">then</span>
-  log_status <span style="color:#d14">&#39;No pyproject.toml found. Will initialize poetry in no-interactive mode&#39;</span>
-  poetry init -n -q
-  poetry run pip install -U pip wheel setuptools
-<span style="color:#000;font-weight:bold">fi</span>
-
-poetry run <span style="color:#0086b3">echo</span> &gt;&gt; /dev/null
-<span style="color:#0086b3">local</span> <span style="color:#008080">VENV</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>dirname <span style="color:#000;font-weight:bold">$(</span>poetry run which python<span style="color:#000;font-weight:bold">))</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">VIRTUAL_ENV</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span><span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$VENV</span><span style="color:#d14">&#34;</span> | rev | cut -d<span style="color:#d14">&#39;/&#39;</span> -f2- | rev<span style="color:#000;font-weight:bold">)</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">POETRY_ACTIVE</span><span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>
-PATH_add <span style="color:#d14">&#34;</span><span style="color:#008080">$VENV</span><span style="color:#d14">&#34;</span>
-
-<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> ! -L .venv <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
-  ln -ns <span style="color:#008080">$VIRTUAL_ENV</span> .venv
-<span style="color:#000;font-weight:bold">fi</span>
-
-<span style="color:#998;font-style:italic"># CHEKING IF TOMB IS OPEN</span>
-<span style="color:#000;font-weight:bold">if</span> ! stat <span style="color:#008080">$HOME</span>/.password-store/.gpg-id &gt; /dev/null 2&gt;&amp;<span style="color:#099">1</span> ; <span style="color:#000;font-weight:bold">then</span>
-    <span style="color:#998;font-style:italic"># IF NOT OPEN IT</span>
-    pass open
-<span style="color:#000;font-weight:bold">fi</span>
-
-<span style="color:#998;font-style:italic"># THEN PUT SECRET IN ENV</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">MY_SECRET</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>pass show lebaron.sh/blog/some_secret<span style="color:#000;font-weight:bold">)</span>
-
-<span style="color:#998;font-style:italic"># CHECKING COMMANDS DEPENDENCIES</span>
-<span style="color:#008080">DIRENV_CMD_DEPENDENCIES</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;unzip tar mkdir curl chmod rm&#34;</span>
-<span style="color:#000;font-weight:bold">for</span> mandatory_cmd in <span style="color:#d14">${</span><span style="color:#008080">DIRENV_CMD_DEPENDENCIES</span><span style="color:#d14">}</span>; <span style="color:#000;font-weight:bold">do</span>
-   <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> -z <span style="color:#d14">&#34;</span><span style="color:#000;font-weight:bold">$(</span>which <span style="color:#d14">${</span><span style="color:#008080">mandatory_cmd</span><span style="color:#d14">}</span><span style="color:#000;font-weight:bold">)</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
-        <span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;===&gt; Mandatory command not found: </span><span style="color:#d14">${</span><span style="color:#008080">mandatory_cmd</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
-        <span style="color:#0086b3">exit</span> <span style="color:#099">1</span>
-   <span style="color:#000;font-weight:bold">fi</span>
-<span style="color:#000;font-weight:bold">done</span>
-
-<span style="color:#0086b3">export</span> <span style="color:#008080">DIRENV_TMP_DIR</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">PWD</span><span style="color:#d14">}</span><span style="color:#d14">/.direnv&#34;</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">DIRENV_TMP_DIR</span><span style="color:#d14">}</span><span style="color:#d14">/bin&#34;</span>
-<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> ! -e <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
-   mkdir -p <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
-<span style="color:#000;font-weight:bold">fi</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">PATH</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#d14">}</span><span style="color:#d14">:</span><span style="color:#d14">${</span><span style="color:#008080">PATH</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
-</code></pre></div><p>Now install our binary, let&rsquo;s try it with <code>packer</code> Hashicorp binary :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># .envrc</span>
-
-layout pyenv 3.10.5
-
-<span style="color:#998;font-style:italic"># POETRY</span>
-<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[[</span> ! -f pyproject.toml <span style="color:#000;font-weight:bold">]]</span>; <span style="color:#000;font-weight:bold">then</span>
-  log_status <span style="color:#d14">&#39;No pyproject.toml found. Will initialize poetry in no-interactive mode&#39;</span>
-  poetry init -n -q
-  poetry run pip install -U pip wheel setuptools
-<span style="color:#000;font-weight:bold">fi</span>
-
-poetry run <span style="color:#0086b3">echo</span> &gt;&gt; /dev/null
-<span style="color:#0086b3">local</span> <span style="color:#008080">VENV</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>dirname <span style="color:#000;font-weight:bold">$(</span>poetry run which python<span style="color:#000;font-weight:bold">))</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">VIRTUAL_ENV</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span><span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$VENV</span><span style="color:#d14">&#34;</span> | rev | cut -d<span style="color:#d14">&#39;/&#39;</span> -f2- | rev<span style="color:#000;font-weight:bold">)</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">POETRY_ACTIVE</span><span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>
-PATH_add <span style="color:#d14">&#34;</span><span style="color:#008080">$VENV</span><span style="color:#d14">&#34;</span>
-
-<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> ! -L .venv <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
-  ln -ns <span style="color:#008080">$VIRTUAL_ENV</span> .venv
-<span style="color:#000;font-weight:bold">fi</span>
-
-<span style="color:#998;font-style:italic"># CHEKING IF TOMB IS OPEN</span>
-<span style="color:#000;font-weight:bold">if</span> ! stat <span style="color:#008080">$HOME</span>/.password-store/.gpg-id &gt; /dev/null 2&gt;&amp;<span style="color:#099">1</span> ; <span style="color:#000;font-weight:bold">then</span>
-    <span style="color:#998;font-style:italic"># IF NOT OPEN IT</span>
-    pass open
-<span style="color:#000;font-weight:bold">fi</span>
-
-<span style="color:#998;font-style:italic"># THEN PUT SECRET IN ENV</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">MY_SECRET</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>pass show lebaron.sh/blog/some_secret<span style="color:#000;font-weight:bold">)</span>
-
-<span style="color:#998;font-style:italic"># CHECKING COMMANDS DEPENDENCIES</span>
-<span style="color:#008080">DIRENV_CMD_DEPENDENCIES</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;unzip tar mkdir curl chmod rm&#34;</span>
-<span style="color:#000;font-weight:bold">for</span> mandatory_cmd in <span style="color:#d14">${</span><span style="color:#008080">DIRENV_CMD_DEPENDENCIES</span><span style="color:#d14">}</span>; <span style="color:#000;font-weight:bold">do</span>
-   <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> -z <span style="color:#d14">&#34;</span><span style="color:#000;font-weight:bold">$(</span>which <span style="color:#d14">${</span><span style="color:#008080">mandatory_cmd</span><span style="color:#d14">}</span><span style="color:#000;font-weight:bold">)</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
-        <span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;===&gt; Mandatory command not found: </span><span style="color:#d14">${</span><span style="color:#008080">mandatory_cmd</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
-        <span style="color:#0086b3">exit</span> <span style="color:#099">1</span>
-   <span style="color:#000;font-weight:bold">fi</span>
-<span style="color:#000;font-weight:bold">done</span>
-
-<span style="color:#0086b3">export</span> <span style="color:#008080">DIRENV_TMP_DIR</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">PWD</span><span style="color:#d14">}</span><span style="color:#d14">/.direnv&#34;</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">DIRENV_TMP_DIR</span><span style="color:#d14">}</span><span style="color:#d14">/bin&#34;</span>
-<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> ! -e <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
-   mkdir -p <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
-<span style="color:#000;font-weight:bold">fi</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">PATH</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#d14">}</span><span style="color:#d14">:</span><span style="color:#d14">${</span><span style="color:#008080">PATH</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
-
-<span style="color:#998;font-style:italic"># PACKER INSTALLATION</span>
-
-<span style="color:#008080">PACKER_VERSION</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;1.8.1&#34;</span>
-<span style="color:#008080">PACKER_ARCH</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;linux_amd64&#34;</span>
-<span style="color:#008080">PACKER_PKG_NAME</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;packer_</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_VERSION</span><span style="color:#d14">}</span><span style="color:#d14">_</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_ARCH</span><span style="color:#d14">}</span><span style="color:#d14">.zip&#34;</span>
-<span style="color:#008080">PACKER_PKG_URL</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;https://releases.hashicorp.com/packer/</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_VERSION</span><span style="color:#d14">}</span><span style="color:#d14">/</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_PKG_NAME</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
-<span style="color:#008080">PACKER_PKG_PATH</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">DIRENV_TMP_DIR</span><span style="color:#d14">}</span><span style="color:#d14">/</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_PKG_NAME</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
-<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> ! -e <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#d14">}</span><span style="color:#d14">/packer&#34;</span> <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
-   <span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;===&gt; Getting packer:</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_VERSION</span><span style="color:#d14">}</span><span style="color:#d14">:</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_ARCH</span><span style="color:#d14">}</span><span style="color:#d14"> (can take a while to execute)&#34;</span>
-   curl -s -L <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_PKG_URL</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> -o <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_PKG_PATH</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
-   unzip <span style="color:#d14">${</span><span style="color:#008080">PACKER_PKG_PATH</span><span style="color:#d14">}</span> -d <span style="color:#d14">${</span><span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#d14">}</span>
-   chmod <span style="color:#099">700</span> <span style="color:#d14">${</span><span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#d14">}</span>/packer
-   rm -f <span style="color:#d14">${</span><span style="color:#008080">PACKER_PKG_PATH</span><span style="color:#d14">}</span>
-<span style="color:#000;font-weight:bold">fi</span>
-</code></pre></div><p>Let&rsquo;s try out our new configuration :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/project direnv allow
-direnv: loading ~/project/.envrc                                                                    
-<span style="color:#000;font-weight:bold">===</span>&gt; Getting packer:1.8.1:linux_amd64 <span style="color:#000;font-weight:bold">(</span>can take a <span style="color:#000;font-weight:bold">while</span> to execute<span style="color:#000;font-weight:bold">)</span>
-Archive:  ~/project/.direnv/packer_1.8.1_linux_amd64.zip
-  inflating: ~/project/.direnv/bin/packer  
-direnv: <span style="color:#0086b3">export</span> +MY_SECRET +VIRTUAL_ENV ~PATH
-</code></pre></div><p>Now <code>packer</code> is installed in our <code>PATH</code> let&rsquo;s locate it and run it :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/project/ which packer
-~/project/.direnv/bin/packer
-λ ~/ packer --version
-1.8.1
-</code></pre></div><p>If in the futur you need to change <code>packer</code> version you just have to remove your current <code>packer</code> binary and modify <code>PACKER_VERSION</code> variable to rebuild your <code>direnv</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># .envrc</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>layout pyenv 3.10.5
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># POETRY</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[[</span> ! -f pyproject.toml <span style="color:#000;font-weight:bold">]]</span>; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>  log_status <span style="color:#d14">&#39;No pyproject.toml found. Will initialize poetry in no-interactive mode&#39;</span>
+</span></span><span style="display:flex;"><span>  poetry init -n -q
+</span></span><span style="display:flex;"><span>  poetry run pip install -U pip wheel setuptools
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>poetry run <span style="color:#0086b3">echo</span> &gt;&gt; /dev/null
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">local</span> <span style="color:#008080">VENV</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>dirname <span style="color:#000;font-weight:bold">$(</span>poetry run which python<span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">VIRTUAL_ENV</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span><span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$VENV</span><span style="color:#d14">&#34;</span> | rev | cut -d<span style="color:#d14">&#39;/&#39;</span> -f2- | rev<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">POETRY_ACTIVE</span><span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span>PATH_add <span style="color:#d14">&#34;</span><span style="color:#008080">$VENV</span><span style="color:#d14">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> ! -L .venv <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>  ln -ns <span style="color:#008080">$VIRTUAL_ENV</span> .venv
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># CHEKING IF TOMB IS OPEN</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> ! stat <span style="color:#008080">$HOME</span>/.password-store/.gpg-id &gt; /dev/null 2&gt;&amp;<span style="color:#099">1</span> ; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># IF NOT OPEN IT</span>
+</span></span><span style="display:flex;"><span>    pass open
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># THEN PUT SECRET IN ENV</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">MY_SECRET</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>pass show lebaron.sh/blog/some_secret<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># CHECKING COMMANDS DEPENDENCIES</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">DIRENV_CMD_DEPENDENCIES</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;unzip tar mkdir curl chmod rm&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">for</span> mandatory_cmd in <span style="color:#d14">${</span><span style="color:#008080">DIRENV_CMD_DEPENDENCIES</span><span style="color:#d14">}</span>; <span style="color:#000;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> -z <span style="color:#d14">&#34;</span><span style="color:#000;font-weight:bold">$(</span>which <span style="color:#d14">${</span><span style="color:#008080">mandatory_cmd</span><span style="color:#d14">}</span><span style="color:#000;font-weight:bold">)</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;===&gt; Mandatory command not found: </span><span style="color:#d14">${</span><span style="color:#008080">mandatory_cmd</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0086b3">exit</span> <span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">DIRENV_TMP_DIR</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">PWD</span><span style="color:#d14">}</span><span style="color:#d14">/.direnv&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">DIRENV_TMP_DIR</span><span style="color:#d14">}</span><span style="color:#d14">/bin&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> ! -e <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>   mkdir -p <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">PATH</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#d14">}</span><span style="color:#d14">:</span><span style="color:#d14">${</span><span style="color:#008080">PATH</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
+</span></span></code></pre></div><p>Now install our binary, let&rsquo;s try it with <code>packer</code> Hashicorp binary :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># .envrc</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>layout pyenv 3.10.5
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># POETRY</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[[</span> ! -f pyproject.toml <span style="color:#000;font-weight:bold">]]</span>; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>  log_status <span style="color:#d14">&#39;No pyproject.toml found. Will initialize poetry in no-interactive mode&#39;</span>
+</span></span><span style="display:flex;"><span>  poetry init -n -q
+</span></span><span style="display:flex;"><span>  poetry run pip install -U pip wheel setuptools
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>poetry run <span style="color:#0086b3">echo</span> &gt;&gt; /dev/null
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">local</span> <span style="color:#008080">VENV</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>dirname <span style="color:#000;font-weight:bold">$(</span>poetry run which python<span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">VIRTUAL_ENV</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span><span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$VENV</span><span style="color:#d14">&#34;</span> | rev | cut -d<span style="color:#d14">&#39;/&#39;</span> -f2- | rev<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">POETRY_ACTIVE</span><span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span>PATH_add <span style="color:#d14">&#34;</span><span style="color:#008080">$VENV</span><span style="color:#d14">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> ! -L .venv <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>  ln -ns <span style="color:#008080">$VIRTUAL_ENV</span> .venv
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># CHEKING IF TOMB IS OPEN</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> ! stat <span style="color:#008080">$HOME</span>/.password-store/.gpg-id &gt; /dev/null 2&gt;&amp;<span style="color:#099">1</span> ; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># IF NOT OPEN IT</span>
+</span></span><span style="display:flex;"><span>    pass open
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># THEN PUT SECRET IN ENV</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">MY_SECRET</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>pass show lebaron.sh/blog/some_secret<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># CHECKING COMMANDS DEPENDENCIES</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">DIRENV_CMD_DEPENDENCIES</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;unzip tar mkdir curl chmod rm&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">for</span> mandatory_cmd in <span style="color:#d14">${</span><span style="color:#008080">DIRENV_CMD_DEPENDENCIES</span><span style="color:#d14">}</span>; <span style="color:#000;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> -z <span style="color:#d14">&#34;</span><span style="color:#000;font-weight:bold">$(</span>which <span style="color:#d14">${</span><span style="color:#008080">mandatory_cmd</span><span style="color:#d14">}</span><span style="color:#000;font-weight:bold">)</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;===&gt; Mandatory command not found: </span><span style="color:#d14">${</span><span style="color:#008080">mandatory_cmd</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0086b3">exit</span> <span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">DIRENV_TMP_DIR</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">PWD</span><span style="color:#d14">}</span><span style="color:#d14">/.direnv&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">DIRENV_TMP_DIR</span><span style="color:#d14">}</span><span style="color:#d14">/bin&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> ! -e <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>   mkdir -p <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">PATH</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#d14">}</span><span style="color:#d14">:</span><span style="color:#d14">${</span><span style="color:#008080">PATH</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># PACKER INSTALLATION</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">PACKER_VERSION</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;1.8.1&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">PACKER_ARCH</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;linux_amd64&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">PACKER_PKG_NAME</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;packer_</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_VERSION</span><span style="color:#d14">}</span><span style="color:#d14">_</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_ARCH</span><span style="color:#d14">}</span><span style="color:#d14">.zip&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">PACKER_PKG_URL</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;https://releases.hashicorp.com/packer/</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_VERSION</span><span style="color:#d14">}</span><span style="color:#d14">/</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_PKG_NAME</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">PACKER_PKG_PATH</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">DIRENV_TMP_DIR</span><span style="color:#d14">}</span><span style="color:#d14">/</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_PKG_NAME</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> ! -e <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#d14">}</span><span style="color:#d14">/packer&#34;</span> <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;===&gt; Getting packer:</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_VERSION</span><span style="color:#d14">}</span><span style="color:#d14">:</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_ARCH</span><span style="color:#d14">}</span><span style="color:#d14"> (can take a while to execute)&#34;</span>
+</span></span><span style="display:flex;"><span>   curl -s -L <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_PKG_URL</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> -o <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_PKG_PATH</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
+</span></span><span style="display:flex;"><span>   unzip <span style="color:#d14">${</span><span style="color:#008080">PACKER_PKG_PATH</span><span style="color:#d14">}</span> -d <span style="color:#d14">${</span><span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#d14">}</span>
+</span></span><span style="display:flex;"><span>   chmod <span style="color:#099">700</span> <span style="color:#d14">${</span><span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#d14">}</span>/packer
+</span></span><span style="display:flex;"><span>   rm -f <span style="color:#d14">${</span><span style="color:#008080">PACKER_PKG_PATH</span><span style="color:#d14">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">fi</span>
+</span></span></code></pre></div><p>Let&rsquo;s try out our new configuration :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/project direnv allow
+</span></span><span style="display:flex;"><span>direnv: loading ~/project/.envrc                                                                    
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">===</span>&gt; Getting packer:1.8.1:linux_amd64 <span style="color:#000;font-weight:bold">(</span>can take a <span style="color:#000;font-weight:bold">while</span> to execute<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>Archive:  ~/project/.direnv/packer_1.8.1_linux_amd64.zip
+</span></span><span style="display:flex;"><span>  inflating: ~/project/.direnv/bin/packer  
+</span></span><span style="display:flex;"><span>direnv: <span style="color:#0086b3">export</span> +MY_SECRET +VIRTUAL_ENV ~PATH
+</span></span></code></pre></div><p>Now <code>packer</code> is installed in our <code>PATH</code> let&rsquo;s locate it and run it :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/project/ which packer
+</span></span><span style="display:flex;"><span>~/project/.direnv/bin/packer
+</span></span><span style="display:flex;"><span>λ ~/ packer --version
+</span></span><span style="display:flex;"><span>1.8.1
+</span></span></code></pre></div><p>If in the futur you need to change <code>packer</code> version you just have to remove your current <code>packer</code> binary and modify <code>PACKER_VERSION</code> variable to rebuild your <code>direnv</code>.</p>
 <h2 id="third-party-configs">Third-party configs</h2>
 <p>Of course, if our third-party need custom (or not) configurations we can specify them in our <code>.envrc</code> but to keep pour code clear and organized we also can split our configs into subfiles.</p>
 <p>By adding this block at the end of our <code>.envrc</code> file :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># .envrc </span>
-
-<span style="color:#998;font-style:italic"># […]</span>
-
-<span style="color:#998;font-style:italic"># ADDONS</span>
-<span style="color:#008080">ENV_ADDONS</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;.env.packer .env.custom_config&#34;</span>
-<span style="color:#000;font-weight:bold">for</span> addon in <span style="color:#d14">${</span><span style="color:#008080">ENV_ADDONS</span><span style="color:#d14">}</span>; <span style="color:#000;font-weight:bold">do</span>
-   <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> -e <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">PWD</span><span style="color:#d14">}</span><span style="color:#d14">/</span><span style="color:#d14">${</span><span style="color:#008080">addon</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
-       <span style="color:#0086b3">source</span> <span style="color:#d14">${</span><span style="color:#008080">PWD</span><span style="color:#d14">}</span>/<span style="color:#d14">${</span><span style="color:#008080">addon</span><span style="color:#d14">}</span>
-   <span style="color:#000;font-weight:bold">fi</span>
-<span style="color:#000;font-weight:bold">done</span>
-</code></pre></div><p>And then create your addons custom config file :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># .env.packer</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">PACKER_VAR1</span><span style="color:#000;font-weight:bold">=</span>VAR1_VALUE
-<span style="color:#0086b3">export</span> <span style="color:#008080">PACKER_VAR2</span><span style="color:#000;font-weight:bold">=</span>VAR2_VALUE
-</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># .env.custom_config</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">CUSTOM_VAR1</span><span style="color:#000;font-weight:bold">=</span>CUSTOM1_VALUE
-<span style="color:#0086b3">export</span> <span style="color:#008080">CUSTOM_VAR2</span><span style="color:#000;font-weight:bold">=</span>CUSTOM2_VALUE
-</code></pre></div><p>Don&rsquo;t forget to reload:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">λ ~/project/ direnv reload
-</code></pre></div><h1 id="final-template">Final template</h1>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># .envrc </span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># […]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># ADDONS</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">ENV_ADDONS</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;.env.packer .env.custom_config&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">for</span> addon in <span style="color:#d14">${</span><span style="color:#008080">ENV_ADDONS</span><span style="color:#d14">}</span>; <span style="color:#000;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> -e <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">PWD</span><span style="color:#d14">}</span><span style="color:#d14">/</span><span style="color:#d14">${</span><span style="color:#008080">addon</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#0086b3">source</span> <span style="color:#d14">${</span><span style="color:#008080">PWD</span><span style="color:#d14">}</span>/<span style="color:#d14">${</span><span style="color:#008080">addon</span><span style="color:#d14">}</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">done</span>
+</span></span></code></pre></div><p>And then create your addons custom config file :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># .env.packer</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">PACKER_VAR1</span><span style="color:#000;font-weight:bold">=</span>VAR1_VALUE
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">PACKER_VAR2</span><span style="color:#000;font-weight:bold">=</span>VAR2_VALUE
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># .env.custom_config</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">CUSTOM_VAR1</span><span style="color:#000;font-weight:bold">=</span>CUSTOM1_VALUE
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">CUSTOM_VAR2</span><span style="color:#000;font-weight:bold">=</span>CUSTOM2_VALUE
+</span></span></code></pre></div><p>Don&rsquo;t forget to reload:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>λ ~/project/ direnv reload
+</span></span></code></pre></div><h1 id="final-template">Final template</h1>
 <p>Here is a final <code>.envrc</code> template you can grab and edit for your needs :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># .envrc</span>
-
-layout pyenv 3.10.5
-
-<span style="color:#998;font-style:italic"># POETRY</span>
-<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[[</span> ! -f pyproject.toml <span style="color:#000;font-weight:bold">]]</span>; <span style="color:#000;font-weight:bold">then</span>
-  log_status <span style="color:#d14">&#39;No pyproject.toml found. Will initialize poetry in no-interactive mode&#39;</span>
-  poetry init -n -q
-  poetry run pip install -U pip wheel setuptools
-<span style="color:#000;font-weight:bold">fi</span>
-
-poetry run <span style="color:#0086b3">echo</span> &gt;&gt; /dev/null
-<span style="color:#0086b3">local</span> <span style="color:#008080">VENV</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>dirname <span style="color:#000;font-weight:bold">$(</span>poetry run which python<span style="color:#000;font-weight:bold">))</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">VIRTUAL_ENV</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span><span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$VENV</span><span style="color:#d14">&#34;</span> | rev | cut -d<span style="color:#d14">&#39;/&#39;</span> -f2- | rev<span style="color:#000;font-weight:bold">)</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">POETRY_ACTIVE</span><span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>
-PATH_add <span style="color:#d14">&#34;</span><span style="color:#008080">$VENV</span><span style="color:#d14">&#34;</span>
-
-<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> ! -L .venv <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
-  ln -ns <span style="color:#008080">$VIRTUAL_ENV</span> .venv
-<span style="color:#000;font-weight:bold">fi</span>
-
-<span style="color:#998;font-style:italic"># CHEKING IF TOMB IS OPEN</span>
-<span style="color:#000;font-weight:bold">if</span> ! stat <span style="color:#008080">$HOME</span>/.password-store/.gpg-id &gt; /dev/null 2&gt;&amp;<span style="color:#099">1</span> ; <span style="color:#000;font-weight:bold">then</span>
-    <span style="color:#998;font-style:italic"># IF NOT OPEN IT</span>
-    pass open
-<span style="color:#000;font-weight:bold">fi</span>
-
-<span style="color:#998;font-style:italic"># THEN PUT SECRET IN ENV</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">MY_SECRET</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>pass show lebaron.sh/blog/some_secret<span style="color:#000;font-weight:bold">)</span>
-
-<span style="color:#998;font-style:italic"># CHECKING COMMANDS DEPENDENCIES</span>
-<span style="color:#008080">DIRENV_CMD_DEPENDENCIES</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;unzip tar mkdir curl chmod rm&#34;</span>
-<span style="color:#000;font-weight:bold">for</span> mandatory_cmd in <span style="color:#d14">${</span><span style="color:#008080">DIRENV_CMD_DEPENDENCIES</span><span style="color:#d14">}</span>; <span style="color:#000;font-weight:bold">do</span>
-   <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> -z <span style="color:#d14">&#34;</span><span style="color:#000;font-weight:bold">$(</span>which <span style="color:#d14">${</span><span style="color:#008080">mandatory_cmd</span><span style="color:#d14">}</span><span style="color:#000;font-weight:bold">)</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
-        <span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;===&gt; Mandatory command not found: </span><span style="color:#d14">${</span><span style="color:#008080">mandatory_cmd</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
-        <span style="color:#0086b3">exit</span> <span style="color:#099">1</span>
-   <span style="color:#000;font-weight:bold">fi</span>
-<span style="color:#000;font-weight:bold">done</span>
-
-<span style="color:#0086b3">export</span> <span style="color:#008080">DIRENV_TMP_DIR</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">PWD</span><span style="color:#d14">}</span><span style="color:#d14">/.direnv&#34;</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">DIRENV_TMP_DIR</span><span style="color:#d14">}</span><span style="color:#d14">/bin&#34;</span>
-<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> ! -e <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
-   mkdir -p <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
-<span style="color:#000;font-weight:bold">fi</span>
-<span style="color:#0086b3">export</span> <span style="color:#008080">PATH</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#d14">}</span><span style="color:#d14">:</span><span style="color:#d14">${</span><span style="color:#008080">PATH</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
-
-<span style="color:#998;font-style:italic"># PACKER INSTALLATION</span>
-
-<span style="color:#008080">PACKER_VERSION</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;1.8.1&#34;</span>
-<span style="color:#008080">PACKER_ARCH</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;linux_amd64&#34;</span>
-<span style="color:#008080">PACKER_PKG_NAME</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;packer_</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_VERSION</span><span style="color:#d14">}</span><span style="color:#d14">_</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_ARCH</span><span style="color:#d14">}</span><span style="color:#d14">.zip&#34;</span>
-<span style="color:#008080">PACKER_PKG_URL</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;https://releases.hashicorp.com/packer/</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_VERSION</span><span style="color:#d14">}</span><span style="color:#d14">/</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_PKG_NAME</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
-<span style="color:#008080">PACKER_PKG_PATH</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">DIRENV_TMP_DIR</span><span style="color:#d14">}</span><span style="color:#d14">/</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_PKG_NAME</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
-<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> ! -e <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#d14">}</span><span style="color:#d14">/packer&#34;</span> <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
-   <span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;===&gt; Getting packer:</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_VERSION</span><span style="color:#d14">}</span><span style="color:#d14">:</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_ARCH</span><span style="color:#d14">}</span><span style="color:#d14"> (can take a while to execute)&#34;</span>
-   curl -s -L <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_PKG_URL</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> -o <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_PKG_PATH</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
-   unzip <span style="color:#d14">${</span><span style="color:#008080">PACKER_PKG_PATH</span><span style="color:#d14">}</span> -d <span style="color:#d14">${</span><span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#d14">}</span>
-   chmod <span style="color:#099">700</span> <span style="color:#d14">${</span><span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#d14">}</span>/packer
-   rm -f <span style="color:#d14">${</span><span style="color:#008080">PACKER_PKG_PATH</span><span style="color:#d14">}</span>
-<span style="color:#000;font-weight:bold">fi</span>
-
-<span style="color:#998;font-style:italic"># ADDONS</span>
-<span style="color:#008080">ENV_ADDONS</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;.env.packer .env.custom_config&#34;</span>
-<span style="color:#000;font-weight:bold">for</span> addon in <span style="color:#d14">${</span><span style="color:#008080">ENV_ADDONS</span><span style="color:#d14">}</span>; <span style="color:#000;font-weight:bold">do</span>
-   <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> -e <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">PWD</span><span style="color:#d14">}</span><span style="color:#d14">/</span><span style="color:#d14">${</span><span style="color:#008080">addon</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
-       <span style="color:#0086b3">source</span> <span style="color:#d14">${</span><span style="color:#008080">PWD</span><span style="color:#d14">}</span>/<span style="color:#d14">${</span><span style="color:#008080">addon</span><span style="color:#d14">}</span>
-   <span style="color:#000;font-weight:bold">fi</span>
-<span style="color:#000;font-weight:bold">done</span>
-</code></pre></div><h1 id="conclusion">Conclusion</h1>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># .envrc</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>layout pyenv 3.10.5
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># POETRY</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[[</span> ! -f pyproject.toml <span style="color:#000;font-weight:bold">]]</span>; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>  log_status <span style="color:#d14">&#39;No pyproject.toml found. Will initialize poetry in no-interactive mode&#39;</span>
+</span></span><span style="display:flex;"><span>  poetry init -n -q
+</span></span><span style="display:flex;"><span>  poetry run pip install -U pip wheel setuptools
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>poetry run <span style="color:#0086b3">echo</span> &gt;&gt; /dev/null
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">local</span> <span style="color:#008080">VENV</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>dirname <span style="color:#000;font-weight:bold">$(</span>poetry run which python<span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">VIRTUAL_ENV</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span><span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$VENV</span><span style="color:#d14">&#34;</span> | rev | cut -d<span style="color:#d14">&#39;/&#39;</span> -f2- | rev<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">POETRY_ACTIVE</span><span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span>PATH_add <span style="color:#d14">&#34;</span><span style="color:#008080">$VENV</span><span style="color:#d14">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> ! -L .venv <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>  ln -ns <span style="color:#008080">$VIRTUAL_ENV</span> .venv
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># CHEKING IF TOMB IS OPEN</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> ! stat <span style="color:#008080">$HOME</span>/.password-store/.gpg-id &gt; /dev/null 2&gt;&amp;<span style="color:#099">1</span> ; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># IF NOT OPEN IT</span>
+</span></span><span style="display:flex;"><span>    pass open
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># THEN PUT SECRET IN ENV</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">MY_SECRET</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>pass show lebaron.sh/blog/some_secret<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># CHECKING COMMANDS DEPENDENCIES</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">DIRENV_CMD_DEPENDENCIES</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;unzip tar mkdir curl chmod rm&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">for</span> mandatory_cmd in <span style="color:#d14">${</span><span style="color:#008080">DIRENV_CMD_DEPENDENCIES</span><span style="color:#d14">}</span>; <span style="color:#000;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> -z <span style="color:#d14">&#34;</span><span style="color:#000;font-weight:bold">$(</span>which <span style="color:#d14">${</span><span style="color:#008080">mandatory_cmd</span><span style="color:#d14">}</span><span style="color:#000;font-weight:bold">)</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;===&gt; Mandatory command not found: </span><span style="color:#d14">${</span><span style="color:#008080">mandatory_cmd</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0086b3">exit</span> <span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">DIRENV_TMP_DIR</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">PWD</span><span style="color:#d14">}</span><span style="color:#d14">/.direnv&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">DIRENV_TMP_DIR</span><span style="color:#d14">}</span><span style="color:#d14">/bin&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> ! -e <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>   mkdir -p <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">export</span> <span style="color:#008080">PATH</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#d14">}</span><span style="color:#d14">:</span><span style="color:#d14">${</span><span style="color:#008080">PATH</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># PACKER INSTALLATION</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">PACKER_VERSION</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;1.8.1&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">PACKER_ARCH</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;linux_amd64&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">PACKER_PKG_NAME</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;packer_</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_VERSION</span><span style="color:#d14">}</span><span style="color:#d14">_</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_ARCH</span><span style="color:#d14">}</span><span style="color:#d14">.zip&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">PACKER_PKG_URL</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;https://releases.hashicorp.com/packer/</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_VERSION</span><span style="color:#d14">}</span><span style="color:#d14">/</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_PKG_NAME</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">PACKER_PKG_PATH</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">DIRENV_TMP_DIR</span><span style="color:#d14">}</span><span style="color:#d14">/</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_PKG_NAME</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> ! -e <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#d14">}</span><span style="color:#d14">/packer&#34;</span> <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;===&gt; Getting packer:</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_VERSION</span><span style="color:#d14">}</span><span style="color:#d14">:</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_ARCH</span><span style="color:#d14">}</span><span style="color:#d14"> (can take a while to execute)&#34;</span>
+</span></span><span style="display:flex;"><span>   curl -s -L <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_PKG_URL</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> -o <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">PACKER_PKG_PATH</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
+</span></span><span style="display:flex;"><span>   unzip <span style="color:#d14">${</span><span style="color:#008080">PACKER_PKG_PATH</span><span style="color:#d14">}</span> -d <span style="color:#d14">${</span><span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#d14">}</span>
+</span></span><span style="display:flex;"><span>   chmod <span style="color:#099">700</span> <span style="color:#d14">${</span><span style="color:#008080">DIRENV_BIN_DIR</span><span style="color:#d14">}</span>/packer
+</span></span><span style="display:flex;"><span>   rm -f <span style="color:#d14">${</span><span style="color:#008080">PACKER_PKG_PATH</span><span style="color:#d14">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># ADDONS</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">ENV_ADDONS</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;.env.packer .env.custom_config&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">for</span> addon in <span style="color:#d14">${</span><span style="color:#008080">ENV_ADDONS</span><span style="color:#d14">}</span>; <span style="color:#000;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> -e <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">PWD</span><span style="color:#d14">}</span><span style="color:#d14">/</span><span style="color:#d14">${</span><span style="color:#008080">addon</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#0086b3">source</span> <span style="color:#d14">${</span><span style="color:#008080">PWD</span><span style="color:#d14">}</span>/<span style="color:#d14">${</span><span style="color:#008080">addon</span><span style="color:#d14">}</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">done</span>
+</span></span></code></pre></div><h1 id="conclusion">Conclusion</h1>
 <p>Yes this require a bit of knowledge and a some configurations to be efficient in this workflow, but keep in mind that all will be configured automatically and will be more easier version controlled.</p>
 <p>You can arrange in order to put your application in production area to share your GPG key or to manage multiple GPG key in a same <code>pass</code> (<em>eg one GPG ID for each team member</em>), version your pass and make it a git version accessible.</p>
 <p>All dependencies, with the same packages will be deployed exactly as your developpment area.</p>
@@ -964,23 +963,23 @@ PATH_add <span style="color:#d14">&#34;</span><span style="color:#008080">$VENV<
 </content>
 <p>
   
-  <a href="https://lebaron.sh/tags/direnv/">#direnv</a>
+  <a href="https://lebaron.sh/tags/direnv/">#Direnv</a>
   
-  <a href="https://lebaron.sh/tags/pyenv/">#pyenv</a>
+  <a href="https://lebaron.sh/tags/pyenv/">#Pyenv</a>
   
-  <a href="https://lebaron.sh/tags/poetry/">#poetry</a>
+  <a href="https://lebaron.sh/tags/poetry/">#Poetry</a>
   
-  <a href="https://lebaron.sh/tags/pass/">#pass</a>
+  <a href="https://lebaron.sh/tags/pass/">#Pass</a>
   
-  <a href="https://lebaron.sh/tags/tomb/">#tomb</a>
+  <a href="https://lebaron.sh/tags/tomb/">#Tomb</a>
   
-  <a href="https://lebaron.sh/tags/gpg/">#gpg</a>
+  <a href="https://lebaron.sh/tags/gpg/">#Gpg</a>
   
-  <a href="https://lebaron.sh/tags/secrets/">#secrets</a>
+  <a href="https://lebaron.sh/tags/secrets/">#Secrets</a>
   
-  <a href="https://lebaron.sh/tags/python/">#python</a>
+  <a href="https://lebaron.sh/tags/python/">#Python</a>
   
-  <a href="https://lebaron.sh/tags/programming/">#programming</a>
+  <a href="https://lebaron.sh/tags/programming/">#Programming</a>
   
 </p>
 

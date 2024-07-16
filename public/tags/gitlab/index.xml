@@ -1,24 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>gitlab on Le Baron de Charlus</title>
+    <title>Gitlab on Le Baron de Charlus</title>
     <link>https://lebaron.sh/tags/gitlab/</link>
-    <description>Recent content in gitlab on Le Baron de Charlus</description>
+    <description>Recent content in Gitlab on Le Baron de Charlus</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© Le Baron de Charlus</copyright>
-    <lastBuildDate>Thu, 10 Aug 2017 12:06:05 +0000</lastBuildDate><atom:link href="https://lebaron.sh/tags/gitlab/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Aug 2017 12:06:05 +0000</lastBuildDate>
+    <atom:link href="https://lebaron.sh/tags/gitlab/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Add Gitlab Registry in Kubernetes</title>
       <link>https://lebaron.sh/posts/gitlab-registry-kubernetes/</link>
       <pubDate>Thu, 10 Aug 2017 12:06:05 +0000</pubDate>
-      
       <guid>https://lebaron.sh/posts/gitlab-registry-kubernetes/</guid>
-      <description>Now that Gitlab offers its own image registry, it is possible to use it directly in our K8s environment! If you missed the info (which is starting to date now), I refer you to this article.
-To add the Gitlab private registry in Kubernetes you have to create a secret :
-&amp;gt; kubectl create secret docker-registry regsecret --docker-server=registry.gitlab.xyz --docker-username=&#39;&#39; --docker-password=&#39;&#39; --docker-email=&amp;quot;&amp;quot;  Where :
---docker-server regitry gitlab --docker-username user gitlab autorisé à acceder au registry --docker-password son mot de passe --docker-email son email We will check secret creation :</description>
+      <description>Now that Gitlab offers its own image registry, it is possible to use it directly in our K8s environment! If you missed the info (which is starting to date now), I refer you to this article.&#xA;To add the Gitlab private registry in Kubernetes you have to create a secret :&#xA;&amp;gt; kubectl create secret docker-registry regsecret --docker-server=registry.gitlab.xyz --docker-username=&#39;&#39; --docker-password=&#39;&#39; --docker-email=&amp;quot;&amp;quot; Where :&#xA;--docker-server regitry gitlab --docker-username user gitlab autorisé à acceder au registry --docker-password son mot de passe --docker-email son email We will check secret creation :</description>
     </item>
-    
   </channel>
 </rss>

@@ -27,8 +27,7 @@ Demo Installation Add this block at the end of your $SHELLrc file (tested with B
 
 
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Manage your Zellij sessions"/>
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Manage your Zellij sessions"/>
 <meta name="twitter:description" content="Quick post on great Zellij tool I&rsquo;ve been using for some weeks now in Tmux replacement.
 I&rsquo;ve been missing to manage my sessions on multiplexer init while starting a new shell or terminal so I&rsquo;ve ended creating a quick feature to manage it on startup.
 Dependencies You need sk binary installed and in your $PATH and of course zellij.
@@ -251,37 +250,37 @@ Demo Installation Add this block at the end of your $SHELLrc file (tested with B
 <p><img src="/images/sessions.gif" alt="Zellij Sessions"></p>
 <h3 id="installation">Installation</h3>
 <p>Add this block at the end of your <code>$SHELLrc</code> file <i>(tested with BASH and ZSH)</i> :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#008080">ZJ_SESSIONS</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>zellij list-sessions<span style="color:#000;font-weight:bold">)</span>
-<span style="color:#008080">NO_SESSIONS</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span><span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">ZJ_SESSIONS</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> | wc -l<span style="color:#000;font-weight:bold">)</span>
-
-<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#d14">&#34;{</span><span style="color:#008080">$ZELLIJ</span><span style="color:#d14">}&#34;</span> <span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> <span style="color:#000;font-weight:bold">[</span> -z <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">ZELLIJ_SESSION_NAME</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
-  <span style="color:#0086b3">echo</span> -ne <span style="color:#d14">&#34;Active Zellij sessions :\n&#34;</span>
-  <span style="color:#000;font-weight:bold">for</span> i in <span style="color:#000;font-weight:bold">$(</span><span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">ZJ_SESSIONS</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span><span style="color:#000;font-weight:bold">)</span>; <span style="color:#000;font-weight:bold">do</span> <span style="color:#0086b3">echo</span> -ne <span style="color:#d14">&#34;*</span><span style="color:#d14">${</span><span style="color:#008080">i</span><span style="color:#d14">}</span><span style="color:#d14">\n&#34;</span>; <span style="color:#000;font-weight:bold">done</span>
-  <span style="color:#0086b3">echo</span> -ne <span style="color:#d14">&#39;\n&#39;</span>
-  <span style="color:#0086b3">read</span> REPLY<span style="color:#d14">\?</span><span style="color:#d14">&#34;New zellij session [y/n] ? &#34;</span>
-  <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">REPLY</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;y&#34;</span> <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
-    <span style="color:#0086b3">read</span> SESS<span style="color:#d14">\?</span><span style="color:#d14">&#34;Session name : &#34;</span>
-    zellij --layout compact attach -c <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">SESS</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
-  <span style="color:#000;font-weight:bold">else</span>
-    <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">NO_SESSIONS</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> -ge <span style="color:#099">1</span> <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
-      zellij --layout compact attach <span style="color:#d14">\
-</span><span style="color:#d14"></span>      <span style="color:#d14">&#34;</span><span style="color:#000;font-weight:bold">$(</span><span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">ZJ_SESSIONS</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> | sk<span style="color:#000;font-weight:bold">)</span><span style="color:#d14">&#34;</span>
-    <span style="color:#000;font-weight:bold">else</span>
-    <span style="color:#000;font-weight:bold">fi</span>
-  <span style="color:#000;font-weight:bold">fi</span>
-<span style="color:#000;font-weight:bold">fi</span>
-</code></pre></div><h3 id="contributing">Contributing</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#008080">ZJ_SESSIONS</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>zellij list-sessions<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">NO_SESSIONS</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span><span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">ZJ_SESSIONS</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> | wc -l<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#d14">&#34;{</span><span style="color:#008080">$ZELLIJ</span><span style="color:#d14">}&#34;</span> <span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> <span style="color:#000;font-weight:bold">[</span> -z <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">ZELLIJ_SESSION_NAME</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0086b3">echo</span> -ne <span style="color:#d14">&#34;Active Zellij sessions :\n&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">for</span> i in <span style="color:#000;font-weight:bold">$(</span><span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">ZJ_SESSIONS</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span><span style="color:#000;font-weight:bold">)</span>; <span style="color:#000;font-weight:bold">do</span> <span style="color:#0086b3">echo</span> -ne <span style="color:#d14">&#34;*</span><span style="color:#d14">${</span><span style="color:#008080">i</span><span style="color:#d14">}</span><span style="color:#d14">\n&#34;</span>; <span style="color:#000;font-weight:bold">done</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0086b3">echo</span> -ne <span style="color:#d14">&#39;\n&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0086b3">read</span> REPLY<span style="color:#d14">\?</span><span style="color:#d14">&#34;New zellij session [y/n] ? &#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">REPLY</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;y&#34;</span> <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0086b3">read</span> SESS<span style="color:#d14">\?</span><span style="color:#d14">&#34;Session name : &#34;</span>
+</span></span><span style="display:flex;"><span>    zellij --layout compact attach -c <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">SESS</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">NO_SESSIONS</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> -ge <span style="color:#099">1</span> <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>      zellij --layout compact attach <span style="color:#d14">\
+</span></span></span><span style="display:flex;"><span><span style="color:#d14"></span>      <span style="color:#d14">&#34;</span><span style="color:#000;font-weight:bold">$(</span><span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">ZJ_SESSIONS</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> | sk<span style="color:#000;font-weight:bold">)</span><span style="color:#d14">&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">fi</span>
+</span></span></code></pre></div><h3 id="contributing">Contributing</h3>
 <p>Feel free to fork and contribute.</p>
 <p><a href="https://github.com/lebarondecharlus/zellij-sessions" target="_blank">Sources are here.</a></p>
 
 </content>
 <p>
   
-  <a href="https://lebaron.sh/tags/zellij/">#zellij</a>
+  <a href="https://lebaron.sh/tags/zellij/">#Zellij</a>
   
-  <a href="https://lebaron.sh/tags/sessions/">#sessions</a>
+  <a href="https://lebaron.sh/tags/sessions/">#Sessions</a>
   
-  <a href="https://lebaron.sh/tags/shell/">#shell</a>
+  <a href="https://lebaron.sh/tags/shell/">#Shell</a>
   
 </p>
 

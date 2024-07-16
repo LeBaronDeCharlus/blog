@@ -1,34 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>monitoring on Le Baron de Charlus</title>
+    <title>Monitoring on Le Baron de Charlus</title>
     <link>https://lebaron.sh/tags/monitoring/</link>
-    <description>Recent content in monitoring on Le Baron de Charlus</description>
+    <description>Recent content in Monitoring on Le Baron de Charlus</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© Le Baron de Charlus</copyright>
-    <lastBuildDate>Wed, 02 Aug 2017 08:22:16 +0000</lastBuildDate><atom:link href="https://lebaron.sh/tags/monitoring/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Aug 2017 08:22:16 +0000</lastBuildDate>
+    <atom:link href="https://lebaron.sh/tags/monitoring/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Little Web Monitoring</title>
       <link>https://lebaron.sh/posts/little-web-monitoring/</link>
       <pubDate>Wed, 02 Aug 2017 08:22:16 +0000</pubDate>
-      
       <guid>https://lebaron.sh/posts/little-web-monitoring/</guid>
-      <description>Sometimes making small OneJob services is efficient in terms of time, organization, functionality. In the example of this article, I will try to show how it can be relevant to write `microscripts&#39; under this model.
-Let&amp;rsquo;s say we want to make sure, for a given list of sites, that they all return 200 codes in less than 2s, in which case we&amp;rsquo;ll get a notification on Slack. The sources for these posts are available here.</description>
+      <description>Sometimes making small OneJob services is efficient in terms of time, organization, functionality. In the example of this article, I will try to show how it can be relevant to write `microscripts&amp;rsquo; under this model.&#xA;Let&amp;rsquo;s say we want to make sure, for a given list of sites, that they all return 200 codes in less than 2s, in which case we&amp;rsquo;ll get a notification on Slack. The sources for these posts are available here.</description>
     </item>
-    
     <item>
       <title>Galera Monitoring</title>
       <link>https://lebaron.sh/posts/galera-monitoring/</link>
       <pubDate>Sun, 30 Jul 2017 15:08:41 +0000</pubDate>
-      
       <guid>https://lebaron.sh/posts/galera-monitoring/</guid>
-      <description>Monitoring a database in standalone mode is one thing, but when it comes to clustering, it&amp;rsquo;s a little more complex.
-This is the case with Galera clustering (mariaDB/mysql). Zabbix (&amp;amp;co) offered me simple solutions for single database servers, but I didn&amp;rsquo;t find a really interesting template for monitoring a Galera cluster for production.
-So several questions, what to monitor, how to alert, what&amp;rsquo;s the best method?
-I based myself on the official Galera documentation to have all the important elements to monitor.</description>
+      <description>Monitoring a database in standalone mode is one thing, but when it comes to clustering, it&amp;rsquo;s a little more complex.&#xA;This is the case with Galera clustering (mariaDB/mysql). Zabbix (&amp;amp;co) offered me simple solutions for single database servers, but I didn&amp;rsquo;t find a really interesting template for monitoring a Galera cluster for production.&#xA;So several questions, what to monitor, how to alert, what&amp;rsquo;s the best method?&#xA;I based myself on the official Galera documentation to have all the important elements to monitor.</description>
     </item>
-    
   </channel>
 </rss>
