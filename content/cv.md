@@ -99,18 +99,6 @@ pre {
       - Technologies used : [Golang, Python, Shell, Terraform, GCP]
 }
 
-> Ecov()
-    Senior SRE {
-      When : 2023
-      Description : Ecov is a car-pooling company that provide easy solutions to help French drivers and passenger.
-      Missions :
-          - Team Lead
-          - Migrate Kubernetes clusters
-          - Build GITOPS strategy
-          - Terraform all software & infrastructure
-
-      - Technologies used : [Rust, Golang, Python, Shell, Terraform, Redis, OVH, Aws, GCP]
-}
 
 > Tarmakk()
     Founder {
