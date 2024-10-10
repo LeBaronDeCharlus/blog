@@ -84,7 +84,7 @@ pre {
 ###############
 > Teacher {
     When : 2024 & now
-    Description : Teach students how to become a System Engineer (1st, 2nd grade) @Caen
+    Description : Teach students how to become a Super System Engineer (1st, 2nd grade) @Caen
 }
 
 > Altirnao()
