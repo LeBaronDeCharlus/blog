@@ -1,47 +1,8 @@
 baseURL = "https://lebaron.sh/"
 title = "Le Baron de Charlus"
-theme = "hugo-bearblog"
-copyright = "© Le Baron de Charlus"
+theme = "hugo-theme-stack"
+copyright = "Le Baron de Charlus"
 enableEmoji = true
 enableRobotsTXT = true
 languageCode = "en"
 defaultContentLanguage = "en"
-
-# Code Highlight
-pygmentsstyle = "github"
-pygmentscodefences = true
-pygmentscodefencesguesssyntax = true
-hideMadeWithLine = true
-#paginate=3 # articles per page
-
-[markup]
-[markup.goldmark]
-[markup.goldmark.renderer]
-unsafe = true
-
-[markup.tableOfContents]
-startLevel = 1
-endLevel = 3
-ordered = false
-
-
-[[menu.main]]
-name = "Posts"
-url = "/posts/"
-weight = 2
-
-[[menu.main]]
-name = "Photography"
-url = "https://instagram.com/le_baron_photography"
-weight = 5
-
-[[menu.main]]
-name = "CV"
-url = "/cv"
-weight = 6
-
-[[menu.main]]
-identifier = "rss"
-pre = "<span data-feather='rss'></span>"
-url = "/index.xml"
-weight = 9

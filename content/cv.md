@@ -1,26 +1,16 @@
 ---
-title: "CV"
+title: "cv"
 date: 2021-12-31T11:38:18Z
 type: "page"
 draft: false
 ---
-<style>
-pre {
-    white-space: pre-wrap;       /* Since CSS 2.1 */
-    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-    white-space: -pre-wrap;      /* Opera 4-6 */
-    white-space: -o-pre-wrap;    /* Opera 7 */
-    word-wrap: break-word;       /* Internet Explorer 5.5+ */
-}
-</style>
-
 ```
 ###########
 # Hello ! #
 ###########
 > whoami && uptime
     Corentin Deret
-    Software && System && SRE && Teacher 
+    SRE Dev+Ops - UNIX Teacher 
     Uptime : 30 years
     Professional Experience : +10 years
 
@@ -29,7 +19,7 @@ pre {
     Nationality : French
     Languages : [French, English, Japanese, Spanish, Greek, Chti]
     Countries where I lived : [France, Bulgaria, Cyprus, Congo, Kuwait]
-    Countries I visited : [England, Jordan, Belgium, Egypt, Poland, Greece, Germany, Holland, Italy, Vatican, Irland, Scotland, Portugal]
+    Countries I visited : [England, Croatia, Jordan, Belgium, Egypt, Poland, Greece, Germany, Holland, Italy, Vatican, Irland, Scotland, Portugal]
     I love : [my wife, my cat, Devoxx, Weboob.org, Thinkpads, english boxing, climbing, crossfit, bike touring, l\'echo des gnous, music, photography, coffee, (and chocolate)]
 
 > donation()
@@ -64,13 +54,13 @@ pre {
 # Skills section #
 ##################
 > skills.unix()
-    [Freebsd, RedHat(+forks), VoidLinux, Arch, Gentoo, Debian(+forks)]
+    [Freebsd, RedHat(+forks), VoidLinux, Arch, Gentoo, Debian(+forks), Nix]
 
 > skills.programming()
-    [REGEX, Python(2/3), Django, DRF, Perl, Golang, PHP(5.*,7), Shell, Lua, Yaml, Toml, Json, Html5/Css3, Jinja2]
+    [Rust, REGEX, Python(2/3), Django, DRF, Perl, Golang, PHP(5.*,7), Shell, Lua, Yaml, Toml, Javascript, Json, Html/Css, Jinja2]
 
 > skills.technologies()
-    [Git, Ansible, Docker, Django, LXC, Vmware, ZFS, KVM, Proxmox, OpenVZ, OpenStack, Nutanix, Zabbix, Munin, Nagios, Shinken, SQL, Mariadb, PostgreSQL, Varnish, Nginx, Apache, HA-Proxy, Pfsense, Juniper, Openfire, Logstash, Elastisearch, Kibana, Filebeat, Swarm, Kubernetes, Rancher, Traefik, Terraform, RabbitMQ, Redis, GlusterFS, OpsGenie, Cloud-Init, Okta, ArgoCD, CircleCI, Sops, Slack]
+    [Backstage, Sonarcloud, Git, Ansible, Docker, Django, LXC, Vmware, ZFS, KVM, Proxmox, OpenVZ, OpenStack, Nutanix, Zabbix, Munin, Nagios, Shinken, SQL, Mariadb, PostgreSQL, Varnish, Nginx, Apache, HA-Proxy, Pfsense, Juniper, Openfire, Logstash, Elastisearch, Kibana, Filebeat, Swarm, Kubernetes, Rancher, Traefik, Terraform, RabbitMQ, Redis, GlusterFS, OpsGenie, Cloud-Init, Okta, ArgoCD, CircleCI, Sops, Slack]
 
 > skills.spirit_organization()
     [Agility, Scrum, Jira, Confluence, OTRS, GLPI, ITIL]
@@ -88,29 +78,15 @@ pre {
 }
 
 > Altirnao()
-    Senior SRE {
+    Lead SRE {
       When : 2024 & now
       Description : Build on top Google Drive app
       Missions :
+          - Lead DevX engineering
           - Cloud Platform engineering
-          - DevX engineering
           - Developer
 
       - Technologies used : [Golang, Python, Shell, Terraform, GCP]
-}
-
-
-> Tarmakk()
-    Founder {
-        When : 2022
-        Description : Tarmakk is a SaaS software that allows you to get rid of monolithic tasks to properly onboard your employees. 
-}
-
-> Inleaf()
-  Founder {
-      When : 2022
-      Description : Inleaf is a great, Jamf compatible (but not only), SaaS assets management tool. Get your assets in one place, follow their lifecycle, your stock, and get your KPIs in time !
-
 }
 
 > Payfit()

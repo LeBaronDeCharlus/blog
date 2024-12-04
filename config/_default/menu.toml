@@ -1,0 +1,46 @@
+# Configure main menu and social menu
+[[main]]
+identifier = "home"
+name = "Home"
+url = "/"
+weight = 1
+[main.params]
+icon = "home"
+newtab = false
+
+[[main]]
+indentifier = "cv"
+name = "CV"
+url = "/cv"
+weight = 2
+[main.params]
+icon = "file-info"
+
+[[social]]
+identifier = "github"
+name = "GitHub"
+url = "https://github.com/lebarondecharlus"
+
+[social.params]
+icon = "brand-github"
+
+[[social]]
+identifier = "linkedin"
+name = "LinkedIn"
+url = "https://www.linkedin.com/in/barondecharlus/"
+
+[social.params]
+icon = "brand-linkedin"
+
+[[social]]
+identifier = "Instagram"
+name = "Instagram"
+url = "https://instagram.com/le_baron_photography"
+
+[social.params]
+icon = "brand-instagram"
+
+[[social]]
+identifier = "CV"
+name = "CV"
+url = "/cv"
