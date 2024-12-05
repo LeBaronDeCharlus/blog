@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dev on Le Baron de Charlus</title><link>https://lebaron.sh/tags/dev/</link><description>Recent content in Dev on Le Baron de Charlus</description><generator>Hugo</generator><language>en-us</language><copyright>Le Baron de Charlus</copyright><lastBuildDate>Sun, 30 Jul 2017 15:08:41 +0000</lastBuildDate><atom:link href="https://lebaron.sh/tags/dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Galera Monitoring</title><link>https://lebaron.sh/p/galera-monitoring/</link><pubDate>Sun, 30 Jul 2017 15:08:41 +0000</pubDate><guid>https://lebaron.sh/p/galera-monitoring/</guid><description>&lt;p>Monitoring a database in standalone mode is one thing, but when it comes to clustering, it&amp;rsquo;s a little more complex.&lt;/p>
+&lt;p>This is the case with Galera clustering (mariaDB/mysql). Zabbix (&amp;amp;co) offered me simple solutions for single database servers, but I didn&amp;rsquo;t find a really interesting template for monitoring a Galera cluster for production.&lt;/p>
+&lt;p>So several questions, what to monitor, how to alert, what&amp;rsquo;s the best method?&lt;/p>
+&lt;p>I based myself on &lt;a href="http://galeracluster.com/documentation-webpages/monitoringthecluster.html">the official Galera documentation&lt;/a> to have all the important elements to monitor.
+For the choice of the Golang language, it seemed to me that it provided me with the necessary functionalities.
+As for the choice of alerting, I decided to use a Slack App.&lt;/p></description></item><item><title>Event Watcher Manager Python3</title><link>https://lebaron.sh/p/event-watcher-manager-python3/</link><pubDate>Sun, 30 Jul 2017 12:53:16 +0000</pubDate><guid>https://lebaron.sh/p/event-watcher-manager-python3/</guid><description>&lt;p>On one specific request, I had to work on the elaboration of an automating program reacting on SFTP users updates.&lt;br>
+The main technical issue of this request is that the SFTP protocol does not have a logging system.&lt;/p>
+&lt;p>I had heard about &lt;a href="https://github.com/seb-m/pyinotify/blob/master/python3/pyinotify.py">the pyinotify library&lt;/a> so I started working on it.&lt;br>
+&lt;strong>The project is presented in its primary mechanism&lt;/strong>, for more details, I invite you to read the sources.&lt;/p>
+&lt;h4 id="technical-requests-concerning-the-project">Technical requests concerning the project&lt;/h4>
+&lt;p>Details of the context of realization :
+&lt;/u>Details of the context of realization :&lt;/u>.&lt;br>
+The program must monitor SFTP user actions. These users have their HomeDir which are NFS mounts.&lt;br>
+The user can upload anything to his account, but the program must detect video uploads (in some formats) and then perform a series of successive actions.&lt;/p></description></item></channel></rss>

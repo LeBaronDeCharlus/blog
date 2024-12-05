@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cli on Le Baron de Charlus</title><link>https://lebaron.sh/tags/cli/</link><description>Recent content in Cli on Le Baron de Charlus</description><generator>Hugo</generator><language>en-us</language><copyright>Le Baron de Charlus</copyright><lastBuildDate>Wed, 09 Aug 2023 13:10:42 +0200</lastBuildDate><atom:link href="https://lebaron.sh/tags/cli/index.xml" rel="self" type="application/rss+xml"/><item><title>B, an ugly Bitwarden CLI</title><link>https://lebaron.sh/p/b-an-ugly-bitwarden-cli/</link><pubDate>Wed, 09 Aug 2023 13:10:42 +0200</pubDate><guid>https://lebaron.sh/p/b-an-ugly-bitwarden-cli/</guid><description>&lt;br>
+&lt;p align="center">
+ &lt;img src="https://lebaron.sh/images/b.png" width="30%">
+&lt;/p>
+&lt;p>Yes, yes, yes, I know… I don&amp;rsquo;t like graphical interfaces so sometimes I like to make some TUI tools, and sometimes they can be ugly too…&lt;/p>
+&lt;p>I was tired of wasting time clicking each time on the web extension or on the client, of having to systematically enter my login details, of not having a quick access directly accessible in shortcuts, etc.&lt;/p>
+&lt;p>So, living in a terminal 90% of the time, I thought I&amp;rsquo;d do a quick script to put me out of my misery.&lt;/p></description></item></channel></rss>

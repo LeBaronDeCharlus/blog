@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ovh on Le Baron de Charlus</title><link>https://lebaron.sh/tags/ovh/</link><description>Recent content in Ovh on Le Baron de Charlus</description><generator>Hugo</generator><language>en-us</language><copyright>Le Baron de Charlus</copyright><lastBuildDate>Mon, 20 Jul 2020 12:00:00 +0000</lastBuildDate><atom:link href="https://lebaron.sh/tags/ovh/index.xml" rel="self" type="application/rss+xml"/><item><title>Bring Your Own Image</title><link>https://lebaron.sh/p/bring-your-own-image/</link><pubDate>Mon, 20 Jul 2020 12:00:00 +0000</pubDate><guid>https://lebaron.sh/p/bring-your-own-image/</guid><description>&lt;p>When I was working at &lt;strong>OVHCloud&lt;/strong> company, I&amp;rsquo;ve developed a feature called &lt;strong>BYOI&lt;/strong> (Bring Your Own Image).&lt;/p>
+&lt;p>&lt;strong>Bring Your Own Image&lt;/strong> technology allows you to boot any cloud (or not) images on a baremetal.&lt;/p>
+&lt;p>Even if today not all editors are ready to provide completely agnostic images (and I mean &lt;strong>UEFI&lt;/strong> ready and/or &lt;strong>legacy boot&lt;/strong>), by triturating (&lt;strong>packer&lt;/strong>) a bit the whole, we can have something functional.&lt;/p>
+&lt;p>This mark the first step towards the &lt;strong>Hybrid IAC&lt;/strong>.&lt;/p></description></item><item><title>Freebsd Pci Disk Space</title><link>https://lebaron.sh/p/freebsd-pci-disk-space/</link><pubDate>Sun, 04 Mar 2018 14:56:33 +0000</pubDate><guid>https://lebaron.sh/p/freebsd-pci-disk-space/</guid><description>&lt;p>When you create an OVH Public Cloud instance under Freebsd with a certain amount of disk space, let’s say 50G, you will find that it is not applied on your partition.&lt;/p>
+&lt;p>First let&amp;rsquo;s look at what we have:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># gpart show
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">=&amp;gt; 40 10239920 da0 GPT (50G) [CORRUPT]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 40 1024 1 freebsd-boot (512K)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 1064 984 - free - (492K)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 2048 10235904 2 freebsd-zfs (4.9G)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 10237952 2008 - free - (1.0M)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>We note that our volume da0 is tagged as CORRUPT. Don&amp;rsquo;t panic, everyone knows that the Freebsd handbook is great. I quote:&lt;/p></description></item><item><title>Ubuntu Vrack Ovh Fix</title><link>https://lebaron.sh/p/ubuntu-vrack-ovh-fix/</link><pubDate>Sun, 04 Mar 2018 14:41:25 +0000</pubDate><guid>https://lebaron.sh/p/ubuntu-vrack-ovh-fix/</guid><description>&lt;p>You may have noticed it, but when you populate a PCI OVH instance under Ubuntu by activating Vrack, your Vm does not have its private IP at boot time.
+So, yes, I don&amp;rsquo;t like Ubuntu, but sometimes you don&amp;rsquo;t have a choice.&lt;/p>
+&lt;p>Anyway, all this to say that we don&amp;rsquo;t have our private IP and it&amp;rsquo;s too sad. (RT)&lt;/p>
+&lt;p>The fix trick is stupid.
+Very stupid.&lt;/p>
+&lt;p>Add:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">allow-hotplug ens4
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">iface ens4 inet dhcp
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>In &lt;code>/etc/network/interface&lt;/code> file.&lt;/p></description></item><item><title>Dockerize Nova client</title><link>https://lebaron.sh/p/dockerize-nova-client/</link><pubDate>Tue, 08 Aug 2017 13:52:07 +0000</pubDate><guid>https://lebaron.sh/p/dockerize-nova-client/</guid><description>&lt;p>With OVH Public Cloud, it is possible for you to control your OpenStack instances directly from the Nova client.&lt;/p>
+&lt;p>It is rather practical to go through the command line rather than having to access the manager which is often, let us say it, slow.&lt;/p>
+&lt;p>But to avoid having to prepare each time a working environment compatible with Nova, I find more interesting to directly create a Docker image for this purpose.
+In this way, no more need to install anything except the Docker daemon on its workstation.&lt;/p></description></item><item><title>Setup Rancher cluster on OVH Public Cloud</title><link>https://lebaron.sh/p/setup-rancher-cluster-on-ovh-public-cloud/</link><pubDate>Fri, 04 Aug 2017 19:04:11 +0000</pubDate><guid>https://lebaron.sh/p/setup-rancher-cluster-on-ovh-public-cloud/</guid><description>&lt;p>&lt;img src="https://lebaron.sh/Images/rancher_logo.jpeg" alt="Rancher logo">&lt;/p>
+&lt;p>The world of hosting is changing, and so is the world of application development. Today we are turning less and less to dedicated hosting for a single application, but more to build the infrastructure that will support it.&lt;/p>
+&lt;p>In this sense, we prefer to use an Iaas solution on dedicated &amp;ldquo;bare metal&amp;rdquo; for our application overlay than pure &amp;ldquo;bare metal&amp;rdquo; per service.&lt;/p>
+&lt;p>Application deployment missions pushed by developers must fit with the technology and logic of production. Which &lt;code>pipelines&lt;/code> should we use for our &lt;code>CI&lt;/code>, &lt;code>CD&lt;/code> ?&lt;/p></description></item><item><title>Additional Volume Public Cloud Ovh</title><link>https://lebaron.sh/p/additional-volume-public-cloud-ovh/</link><pubDate>Mon, 31 Jul 2017 11:38:18 +0000</pubDate><guid>https://lebaron.sh/p/additional-volume-public-cloud-ovh/</guid><description>&lt;p>123 To add an additional disk/volume on your OVH public cloud, you need to follow some steps.&lt;/p>
+&lt;p>First, identify your new disk :&lt;/p>
+&lt;pre>&lt;code>fdisk -l
+&lt;/code>&lt;/pre>
+&lt;p>You can have different output depending of your system (&lt;code>sd{x}&lt;/code>, &lt;code>vd{x}&lt;/code>).&lt;/p>
+&lt;p>Then create a new partition :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># parted /dev/{{disk}}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mktable gpt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mkpart primary ext4 512 100%
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">quit
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Format it :&lt;/p>
+&lt;pre>&lt;code>mkfs -t ext4 -L rootfs /dev/{{disk}}1
+&lt;/code>&lt;/pre>
+&lt;p>Mount :&lt;/p>
+&lt;pre>&lt;code>mount /dev/{{disk}}1 /mnt
+&lt;/code>&lt;/pre>
+&lt;p>Let’s make it peristent, we need &lt;strong>UUID&lt;/strong>.
+To get block ID.&lt;/p></description></item><item><title>Additional Volume Public Cloud Ovh</title><link>https://lebaron.sh/projects/hello/</link><pubDate>Mon, 31 Jul 2017 11:38:18 +0000</pubDate><guid>https://lebaron.sh/projects/hello/</guid><description>&lt;p>To add an additional disk/volume on your OVH public cloud, you need to follow some steps.&lt;/p>
+&lt;p>First, identify your new disk :&lt;/p>
+&lt;pre>&lt;code>fdisk -l
+&lt;/code>&lt;/pre>
+&lt;p>You can have different output depending of your system (&lt;code>sd{x}&lt;/code>, &lt;code>vd{x}&lt;/code>).&lt;/p>
+&lt;p>Then create a new partition :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># parted /dev/{{disk}}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mktable gpt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mkpart primary ext4 512 100%
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">quit
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Format it :&lt;/p>
+&lt;pre>&lt;code>mkfs -t ext4 -L rootfs /dev/{{disk}}1
+&lt;/code>&lt;/pre>
+&lt;p>Mount :&lt;/p>
+&lt;pre>&lt;code>mount /dev/{{disk}}1 /mnt
+&lt;/code>&lt;/pre>
+&lt;p>Let’s make it peristent, we need &lt;strong>UUID&lt;/strong>.
+To get block ID.&lt;/p></description></item></channel></rss>

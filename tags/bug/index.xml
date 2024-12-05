@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Bug on Le Baron de Charlus</title><link>https://lebaron.sh/tags/bug/</link><description>Recent content in Bug on Le Baron de Charlus</description><generator>Hugo</generator><language>en-us</language><copyright>Le Baron de Charlus</copyright><lastBuildDate>Sun, 04 Mar 2018 14:41:25 +0000</lastBuildDate><atom:link href="https://lebaron.sh/tags/bug/index.xml" rel="self" type="application/rss+xml"/><item><title>Ubuntu Vrack Ovh Fix</title><link>https://lebaron.sh/p/ubuntu-vrack-ovh-fix/</link><pubDate>Sun, 04 Mar 2018 14:41:25 +0000</pubDate><guid>https://lebaron.sh/p/ubuntu-vrack-ovh-fix/</guid><description>&lt;p>You may have noticed it, but when you populate a PCI OVH instance under Ubuntu by activating Vrack, your Vm does not have its private IP at boot time.
+So, yes, I don&amp;rsquo;t like Ubuntu, but sometimes you don&amp;rsquo;t have a choice.&lt;/p>
+&lt;p>Anyway, all this to say that we don&amp;rsquo;t have our private IP and it&amp;rsquo;s too sad. (RT)&lt;/p>
+&lt;p>The fix trick is stupid.
+Very stupid.&lt;/p>
+&lt;p>Add:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">allow-hotplug ens4
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">iface ens4 inet dhcp
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>In &lt;code>/etc/network/interface&lt;/code> file.&lt;/p></description></item></channel></rss>

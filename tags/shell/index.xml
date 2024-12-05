@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Shell on Le Baron de Charlus</title><link>https://lebaron.sh/tags/shell/</link><description>Recent content in Shell on Le Baron de Charlus</description><generator>Hugo</generator><language>en-us</language><copyright>Le Baron de Charlus</copyright><lastBuildDate>Wed, 09 Aug 2023 13:10:42 +0200</lastBuildDate><atom:link href="https://lebaron.sh/tags/shell/index.xml" rel="self" type="application/rss+xml"/><item><title>B, an ugly Bitwarden CLI</title><link>https://lebaron.sh/p/b-an-ugly-bitwarden-cli/</link><pubDate>Wed, 09 Aug 2023 13:10:42 +0200</pubDate><guid>https://lebaron.sh/p/b-an-ugly-bitwarden-cli/</guid><description>&lt;br>
+&lt;p align="center">
+ &lt;img src="https://lebaron.sh/images/b.png" width="30%">
+&lt;/p>
+&lt;p>Yes, yes, yes, I know… I don&amp;rsquo;t like graphical interfaces so sometimes I like to make some TUI tools, and sometimes they can be ugly too…&lt;/p>
+&lt;p>I was tired of wasting time clicking each time on the web extension or on the client, of having to systematically enter my login details, of not having a quick access directly accessible in shortcuts, etc.&lt;/p>
+&lt;p>So, living in a terminal 90% of the time, I thought I&amp;rsquo;d do a quick script to put me out of my misery.&lt;/p></description></item><item><title>Manage your Zellij sessions</title><link>https://lebaron.sh/p/manage-your-zellij-sessions/</link><pubDate>Tue, 12 Jul 2022 12:22:42 +0200</pubDate><guid>https://lebaron.sh/p/manage-your-zellij-sessions/</guid><description>&lt;img src="https://lebaron.sh/images/zellij.png" width="50%">
+&lt;p>Quick post on great &lt;code>Zellij&lt;/code> tool I&amp;rsquo;ve been using for some weeks now in &lt;code>Tmux&lt;/code> replacement.&lt;/p>
+&lt;p>I&amp;rsquo;ve been missing to manage my &lt;code>sessions&lt;/code> on multiplexer init while starting a new &lt;code>shell&lt;/code> or &lt;code>terminal&lt;/code> so I&amp;rsquo;ve ended creating a quick feature to manage it on startup.&lt;/p>
+&lt;h3 id="dependencies">Dependencies&lt;/h3>
+&lt;p>You need &lt;a href="https://github.com/lotabout/skim" target="_blank">sk&lt;/a> binary installed and in your &lt;code>$PATH&lt;/code> and of course &lt;a href="https://github.com/zellij-org/zellij/" target="_blank">zellij&lt;/a>.&lt;/p>
+&lt;h3 id="demo">Demo&lt;/h3>
+&lt;p>&lt;img src="https://lebaron.sh/images/sessions.gif" alt="Zellij Sessions">&lt;/p>
+&lt;h3 id="installation">Installation&lt;/h3>
+&lt;p>Add this block at the end of your &lt;code>$SHELLrc&lt;/code> file &lt;i>(tested with BASH and ZSH)&lt;/i> :&lt;/p></description></item><item><title>Shloader - A Modern Shell Loader</title><link>https://lebaron.sh/p/shloader-a-modern-shell-loader/</link><pubDate>Sat, 25 Jun 2022 18:03:17 +0200</pubDate><guid>https://lebaron.sh/p/shloader-a-modern-shell-loader/</guid><description>&lt;p>&lt;img src="https://lebaron.sh/images/shloader.png" alt="Shloader">&lt;/p>
+&lt;ol>
+&lt;li>&lt;a href="#why">Why&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#features">Features&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#preview">Preview&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#templating">Templating&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#usage">Usage&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#parsing-arguments">Parsing Arguments&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#shell-configurations">Shell Configurations&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#trap-error-and-exit">Trap Error and Exit&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#display-loader">Display Loader&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#call-loader">Call Loader&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#script-library-integration">Scrip Library Integration&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#conclusion">Conclusion&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;h1 id="why">Why&lt;/h1>
+&lt;p>I&amp;rsquo;ve been recently doing some old shell scripts to quickly automatize and distribute actions that were made manually, I&amp;rsquo;ll write a post on it later. For now I&amp;rsquo;d like to share with you how I&amp;rsquo;ve been coding a 100% shell loader library to use it in my scripts.&lt;/p></description></item></channel></rss>

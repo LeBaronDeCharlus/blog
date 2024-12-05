@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Zellij on Le Baron de Charlus</title><link>https://lebaron.sh/tags/zellij/</link><description>Recent content in Zellij on Le Baron de Charlus</description><generator>Hugo</generator><language>en-us</language><copyright>Le Baron de Charlus</copyright><lastBuildDate>Tue, 12 Jul 2022 12:22:42 +0200</lastBuildDate><atom:link href="https://lebaron.sh/tags/zellij/index.xml" rel="self" type="application/rss+xml"/><item><title>Manage your Zellij sessions</title><link>https://lebaron.sh/p/manage-your-zellij-sessions/</link><pubDate>Tue, 12 Jul 2022 12:22:42 +0200</pubDate><guid>https://lebaron.sh/p/manage-your-zellij-sessions/</guid><description>&lt;img src="https://lebaron.sh/images/zellij.png" width="50%">
+&lt;p>Quick post on great &lt;code>Zellij&lt;/code> tool I&amp;rsquo;ve been using for some weeks now in &lt;code>Tmux&lt;/code> replacement.&lt;/p>
+&lt;p>I&amp;rsquo;ve been missing to manage my &lt;code>sessions&lt;/code> on multiplexer init while starting a new &lt;code>shell&lt;/code> or &lt;code>terminal&lt;/code> so I&amp;rsquo;ve ended creating a quick feature to manage it on startup.&lt;/p>
+&lt;h3 id="dependencies">Dependencies&lt;/h3>
+&lt;p>You need &lt;a href="https://github.com/lotabout/skim" target="_blank">sk&lt;/a> binary installed and in your &lt;code>$PATH&lt;/code> and of course &lt;a href="https://github.com/zellij-org/zellij/" target="_blank">zellij&lt;/a>.&lt;/p>
+&lt;h3 id="demo">Demo&lt;/h3>
+&lt;p>&lt;img src="https://lebaron.sh/images/sessions.gif" alt="Zellij Sessions">&lt;/p>
+&lt;h3 id="installation">Installation&lt;/h3>
+&lt;p>Add this block at the end of your &lt;code>$SHELLrc&lt;/code> file &lt;i>(tested with BASH and ZSH)&lt;/i> :&lt;/p></description></item></channel></rss>

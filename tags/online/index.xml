@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Online on Le Baron de Charlus</title><link>https://lebaron.sh/tags/online/</link><description>Recent content in Online on Le Baron de Charlus</description><generator>Hugo</generator><language>en-us</language><copyright>Le Baron de Charlus</copyright><lastBuildDate>Tue, 01 Aug 2017 09:40:07 +0000</lastBuildDate><atom:link href="https://lebaron.sh/tags/online/index.xml" rel="self" type="application/rss+xml"/><item><title>Online servers availability</title><link>https://lebaron.sh/p/online-servers-availability/</link><pubDate>Tue, 01 Aug 2017 09:40:07 +0000</pubDate><guid>https://lebaron.sh/p/online-servers-availability/</guid><description>&lt;p>We need servers at Online, but there is no availability!
+So they came to ask me if I didn&amp;rsquo;t have a magic solution&amp;hellip;&lt;/p>
+&lt;p>A little &lt;code>bash&lt;/code>&amp;hellip; a &lt;code>notify&lt;/code> in this case &lt;code>Slack&lt;/code> and here we go!&lt;br>
+As usual &lt;a href="https://github.com/lebarondecharlus/OnlineSrvDispo">sources are available&lt;/a>.&lt;/p>
+&lt;h4 id="dirty-way">Dirty way&lt;/h4>
+&lt;p>*To be alerted via slack you have to create an &lt;a href="https://my.slack.com/services/new/incoming-webhook/">incoming-webhook&lt;/a> which will generate a link.&lt;/p>
+&lt;p>For an XC 2016 series server:&lt;/p>
+&lt;pre>&lt;code>text=&amp;quot;DISPO : https://www.online.net/fr/serveur-dedie/dedibox-xc&amp;quot;; json=&amp;quot;{\&amp;quot;channel\&amp;quot;: \&amp;quot;#infra\&amp;quot;, \&amp;quot;text\&amp;quot;: \&amp;quot;$text\&amp;quot;}&amp;quot; ; while true ; do curl --silent https://www.online.net/fr/serveur-dedie | grep '&amp;lt;button class=&amp;quot;btn btn--primary js-order-dedibox&amp;quot;' | grep -i 'xc 2016' | grep -i 'victime' || curl -s -d &amp;quot;payload=$json&amp;quot; &amp;quot;https://hooks.slack.com/services/XXX/XXXX/XXXX/XXXX&amp;quot; ; sleep 5 ; done 
+&lt;/code>&lt;/pre>
+&lt;p>Curl will be done only if one server is available.&lt;/p></description></item></channel></rss>

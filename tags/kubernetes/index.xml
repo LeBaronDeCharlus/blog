@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kubernetes on Le Baron de Charlus</title><link>https://lebaron.sh/tags/kubernetes/</link><description>Recent content in Kubernetes on Le Baron de Charlus</description><generator>Hugo</generator><language>en-us</language><copyright>Le Baron de Charlus</copyright><lastBuildDate>Thu, 10 Aug 2017 12:06:05 +0000</lastBuildDate><atom:link href="https://lebaron.sh/tags/kubernetes/index.xml" rel="self" type="application/rss+xml"/><item><title>Add Gitlab Registry in Kubernetes</title><link>https://lebaron.sh/p/add-gitlab-registry-in-kubernetes/</link><pubDate>Thu, 10 Aug 2017 12:06:05 +0000</pubDate><guid>https://lebaron.sh/p/add-gitlab-registry-in-kubernetes/</guid><description>&lt;p>Now that Gitlab offers its own image registry, it is possible to use it directly in our K8s environment!
+If you missed the info (which is starting to date now), I refer you to &lt;a href="https://about.gitlab.com/2016/05/23/gitlab-container-registry/">this article&lt;/a>.&lt;/p>
+&lt;p>To add the Gitlab private registry in Kubernetes you have to create a secret :&lt;/p>
+&lt;pre>&lt;code>&amp;gt; kubectl create secret docker-registry regsecret --docker-server=registry.gitlab.xyz --docker-username='' --docker-password='' --docker-email=&amp;quot;&amp;quot;
+&lt;/code>&lt;/pre>
+&lt;p>Where :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">--docker-server regitry gitlab
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--docker-username user gitlab autorisé à acceder au registry
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--docker-password son mot de passe
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--docker-email son email
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>We will check secret creation :&lt;/p></description></item></channel></rss>

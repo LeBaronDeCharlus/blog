@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gpg on Le Baron de Charlus</title><link>https://lebaron.sh/tags/gpg/</link><description>Recent content in Gpg on Le Baron de Charlus</description><generator>Hugo</generator><language>en-us</language><copyright>Le Baron de Charlus</copyright><lastBuildDate>Fri, 10 Jun 2022 08:12:12 +0200</lastBuildDate><atom:link href="https://lebaron.sh/tags/gpg/index.xml" rel="self" type="application/rss+xml"/><item><title>Ultimate Python development environment configuration</title><link>https://lebaron.sh/p/ultimate-python-development-environment-configuration/</link><pubDate>Fri, 10 Jun 2022 08:12:12 +0200</pubDate><guid>https://lebaron.sh/p/ultimate-python-development-environment-configuration/</guid><description>&lt;p>&lt;img src="https://lebaron.sh/images/ultimate-python.png" alt="Ultimate Python">&lt;/p>
+&lt;ol>
+&lt;li>&lt;a href="#the-old-way">The Old Way&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#direnv">Direnv&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#what-is-direnv-and-how-it-works">What is direnv and how it works&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#direnv-installation">direnv installation&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#shell-configuration">Shell configuration&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#how-python-works-with-direnv">How Python works with direnv&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="#pyenv">Pyenv&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#installation-and-configuration">Installation and Configuration&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#use-pyenv-with-direnv">Use pyenv with direnv&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="#poetry">Poetry&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#what-is-poetry">What is Poetry&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#poetry-installation">Poetry installation&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#poetry-shell-configuration">Shell configuration&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#new-project">New project&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#existing-project">Existing project&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#poetry-usage">Poetry usage&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#link-poetry-with-direnv">Link Poetry with direnv&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="#gpg">GPG&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#generate-a-key">Generate a key&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#get-key-id">Get key ID&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="#pass">Pass&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#pass-installation">Pass installation&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#pass-usage">Pass usage&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="#tomb">Tomb&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#tomb-installation">Tomb installation&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#tomb-usage">Tomb usage&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="#secrets-with-direnv-and-pass">Secrets with Direnv and Pass&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#direnv-advanced-configurations">Direnv advanced configurations&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#check-for-commands-dependencies">Check for commands dependencies&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#third-party-binaries">Third-party binaries&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#third-party-configs">Third-party configs&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="#final-template">Final template&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#conclusion">Conclusion&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;p>Disclaimer: I&amp;rsquo;m not saying &lt;code>virtualenv&lt;/code> methods are bad.&lt;/p></description></item></channel></rss>

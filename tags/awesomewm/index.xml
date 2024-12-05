@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Awesomewm on Le Baron de Charlus</title><link>https://lebaron.sh/tags/awesomewm/</link><description>Recent content in Awesomewm on Le Baron de Charlus</description><generator>Hugo</generator><language>en-us</language><copyright>Le Baron de Charlus</copyright><lastBuildDate>Fri, 10 Jan 2020 11:10:33 +0000</lastBuildDate><atom:link href="https://lebaron.sh/tags/awesomewm/index.xml" rel="self" type="application/rss+xml"/><item><title>Random wallpaper with AwesomeWM !</title><link>https://lebaron.sh/p/random-wallpaper-with-awesomewm/</link><pubDate>Fri, 10 Jan 2020 11:10:33 +0000</pubDate><guid>https://lebaron.sh/p/random-wallpaper-with-awesomewm/</guid><description>&lt;p>I&amp;rsquo;ve been looking for a way to break my routine a bit when I&amp;rsquo;m working on my laptop. I figured that changing the wallpaper randomly and automatically was a good way to break the monotony.&lt;/p>
+&lt;p>I use awesomeWM (version 4)&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">[f00b@void ~]$ awesome --version
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">awesome v4.3 (Too long)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> • Compiled against Lua 5.3.5 (running with Lua 5.3)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> • D-Bus support: ✔
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> • execinfo support: ✘
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> • xcb-randr version: 1.6
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> • LGI version: 0.9.2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>So I needed three things:&lt;/p></description></item></channel></rss>

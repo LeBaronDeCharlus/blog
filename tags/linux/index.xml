@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on Le Baron de Charlus</title><link>https://lebaron.sh/tags/linux/</link><description>Recent content in Linux on Le Baron de Charlus</description><generator>Hugo</generator><language>en-us</language><copyright>Le Baron de Charlus</copyright><lastBuildDate>Mon, 20 Jul 2020 12:00:00 +0000</lastBuildDate><atom:link href="https://lebaron.sh/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Bring Your Own Image</title><link>https://lebaron.sh/p/bring-your-own-image/</link><pubDate>Mon, 20 Jul 2020 12:00:00 +0000</pubDate><guid>https://lebaron.sh/p/bring-your-own-image/</guid><description>&lt;p>When I was working at &lt;strong>OVHCloud&lt;/strong> company, I&amp;rsquo;ve developed a feature called &lt;strong>BYOI&lt;/strong> (Bring Your Own Image).&lt;/p>
+&lt;p>&lt;strong>Bring Your Own Image&lt;/strong> technology allows you to boot any cloud (or not) images on a baremetal.&lt;/p>
+&lt;p>Even if today not all editors are ready to provide completely agnostic images (and I mean &lt;strong>UEFI&lt;/strong> ready and/or &lt;strong>legacy boot&lt;/strong>), by triturating (&lt;strong>packer&lt;/strong>) a bit the whole, we can have something functional.&lt;/p>
+&lt;p>This mark the first step towards the &lt;strong>Hybrid IAC&lt;/strong>.&lt;/p></description></item><item><title>Random wallpaper with AwesomeWM !</title><link>https://lebaron.sh/p/random-wallpaper-with-awesomewm/</link><pubDate>Fri, 10 Jan 2020 11:10:33 +0000</pubDate><guid>https://lebaron.sh/p/random-wallpaper-with-awesomewm/</guid><description>&lt;p>I&amp;rsquo;ve been looking for a way to break my routine a bit when I&amp;rsquo;m working on my laptop. I figured that changing the wallpaper randomly and automatically was a good way to break the monotony.&lt;/p>
+&lt;p>I use awesomeWM (version 4)&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">[f00b@void ~]$ awesome --version
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">awesome v4.3 (Too long)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> • Compiled against Lua 5.3.5 (running with Lua 5.3)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> • D-Bus support: ✔
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> • execinfo support: ✘
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> • xcb-randr version: 1.6
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> • LGI version: 0.9.2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>So I needed three things:&lt;/p></description></item><item><title>Ubuntu Vrack Ovh Fix</title><link>https://lebaron.sh/p/ubuntu-vrack-ovh-fix/</link><pubDate>Sun, 04 Mar 2018 14:41:25 +0000</pubDate><guid>https://lebaron.sh/p/ubuntu-vrack-ovh-fix/</guid><description>&lt;p>You may have noticed it, but when you populate a PCI OVH instance under Ubuntu by activating Vrack, your Vm does not have its private IP at boot time.
+So, yes, I don&amp;rsquo;t like Ubuntu, but sometimes you don&amp;rsquo;t have a choice.&lt;/p>
+&lt;p>Anyway, all this to say that we don&amp;rsquo;t have our private IP and it&amp;rsquo;s too sad. (RT)&lt;/p>
+&lt;p>The fix trick is stupid.
+Very stupid.&lt;/p>
+&lt;p>Add:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">allow-hotplug ens4
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">iface ens4 inet dhcp
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>In &lt;code>/etc/network/interface&lt;/code> file.&lt;/p></description></item><item><title>Setup Rancher cluster on OVH Public Cloud</title><link>https://lebaron.sh/p/setup-rancher-cluster-on-ovh-public-cloud/</link><pubDate>Fri, 04 Aug 2017 19:04:11 +0000</pubDate><guid>https://lebaron.sh/p/setup-rancher-cluster-on-ovh-public-cloud/</guid><description>&lt;p>&lt;img src="https://lebaron.sh/Images/rancher_logo.jpeg" alt="Rancher logo">&lt;/p>
+&lt;p>The world of hosting is changing, and so is the world of application development. Today we are turning less and less to dedicated hosting for a single application, but more to build the infrastructure that will support it.&lt;/p>
+&lt;p>In this sense, we prefer to use an Iaas solution on dedicated &amp;ldquo;bare metal&amp;rdquo; for our application overlay than pure &amp;ldquo;bare metal&amp;rdquo; per service.&lt;/p>
+&lt;p>Application deployment missions pushed by developers must fit with the technology and logic of production. Which &lt;code>pipelines&lt;/code> should we use for our &lt;code>CI&lt;/code>, &lt;code>CD&lt;/code> ?&lt;/p></description></item><item><title>Online servers availability</title><link>https://lebaron.sh/p/online-servers-availability/</link><pubDate>Tue, 01 Aug 2017 09:40:07 +0000</pubDate><guid>https://lebaron.sh/p/online-servers-availability/</guid><description>&lt;p>We need servers at Online, but there is no availability!
+So they came to ask me if I didn&amp;rsquo;t have a magic solution&amp;hellip;&lt;/p>
+&lt;p>A little &lt;code>bash&lt;/code>&amp;hellip; a &lt;code>notify&lt;/code> in this case &lt;code>Slack&lt;/code> and here we go!&lt;br>
+As usual &lt;a href="https://github.com/lebarondecharlus/OnlineSrvDispo">sources are available&lt;/a>.&lt;/p>
+&lt;h4 id="dirty-way">Dirty way&lt;/h4>
+&lt;p>*To be alerted via slack you have to create an &lt;a href="https://my.slack.com/services/new/incoming-webhook/">incoming-webhook&lt;/a> which will generate a link.&lt;/p>
+&lt;p>For an XC 2016 series server:&lt;/p>
+&lt;pre>&lt;code>text=&amp;quot;DISPO : https://www.online.net/fr/serveur-dedie/dedibox-xc&amp;quot;; json=&amp;quot;{\&amp;quot;channel\&amp;quot;: \&amp;quot;#infra\&amp;quot;, \&amp;quot;text\&amp;quot;: \&amp;quot;$text\&amp;quot;}&amp;quot; ; while true ; do curl --silent https://www.online.net/fr/serveur-dedie | grep '&amp;lt;button class=&amp;quot;btn btn--primary js-order-dedibox&amp;quot;' | grep -i 'xc 2016' | grep -i 'victime' || curl -s -d &amp;quot;payload=$json&amp;quot; &amp;quot;https://hooks.slack.com/services/XXX/XXXX/XXXX/XXXX&amp;quot; ; sleep 5 ; done 
+&lt;/code>&lt;/pre>
+&lt;p>Curl will be done only if one server is available.&lt;/p></description></item><item><title>Migrate Openvz To Lxc</title><link>https://lebaron.sh/p/migrate-openvz-to-lxc/</link><pubDate>Mon, 31 Jul 2017 18:15:50 +0000</pubDate><guid>https://lebaron.sh/p/migrate-openvz-to-lxc/</guid><description>&lt;p>I recently had to migrate containers from a proxmox3 (under OpenVZ) to a proxmox4 (under LXC).&lt;/p>
+&lt;p>Problem, there are a lot of containers to migrate/&amp;ldquo;convert&amp;rdquo; to run under LXC. So I needed a way to automate the procedure as much as possible.&lt;/p>
+&lt;p>Luckily, the &lt;a href="https://pve.proxmox.com/wiki/Convert_OpenVZ_to_LXC">migration documentation&lt;/a> is very well detailed. So I used it to &amp;ldquo;bash&amp;rdquo; the operation.&lt;/p>
+&lt;p>You can find all the sources on my &lt;a href="https://github.com/lebarondecharlus/vz2lxc">github&lt;/a>&lt;/p>
+&lt;p>I cut the operation under two scripts, an export script and an import script.&lt;/p></description></item><item><title>Additional Volume Public Cloud Ovh</title><link>https://lebaron.sh/p/additional-volume-public-cloud-ovh/</link><pubDate>Mon, 31 Jul 2017 11:38:18 +0000</pubDate><guid>https://lebaron.sh/p/additional-volume-public-cloud-ovh/</guid><description>&lt;p>123 To add an additional disk/volume on your OVH public cloud, you need to follow some steps.&lt;/p>
+&lt;p>First, identify your new disk :&lt;/p>
+&lt;pre>&lt;code>fdisk -l
+&lt;/code>&lt;/pre>
+&lt;p>You can have different output depending of your system (&lt;code>sd{x}&lt;/code>, &lt;code>vd{x}&lt;/code>).&lt;/p>
+&lt;p>Then create a new partition :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># parted /dev/{{disk}}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mktable gpt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mkpart primary ext4 512 100%
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">quit
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Format it :&lt;/p>
+&lt;pre>&lt;code>mkfs -t ext4 -L rootfs /dev/{{disk}}1
+&lt;/code>&lt;/pre>
+&lt;p>Mount :&lt;/p>
+&lt;pre>&lt;code>mount /dev/{{disk}}1 /mnt
+&lt;/code>&lt;/pre>
+&lt;p>Let’s make it peristent, we need &lt;strong>UUID&lt;/strong>.
+To get block ID.&lt;/p></description></item><item><title>Additional Volume Public Cloud Ovh</title><link>https://lebaron.sh/projects/hello/</link><pubDate>Mon, 31 Jul 2017 11:38:18 +0000</pubDate><guid>https://lebaron.sh/projects/hello/</guid><description>&lt;p>To add an additional disk/volume on your OVH public cloud, you need to follow some steps.&lt;/p>
+&lt;p>First, identify your new disk :&lt;/p>
+&lt;pre>&lt;code>fdisk -l
+&lt;/code>&lt;/pre>
+&lt;p>You can have different output depending of your system (&lt;code>sd{x}&lt;/code>, &lt;code>vd{x}&lt;/code>).&lt;/p>
+&lt;p>Then create a new partition :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># parted /dev/{{disk}}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mktable gpt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mkpart primary ext4 512 100%
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">quit
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Format it :&lt;/p>
+&lt;pre>&lt;code>mkfs -t ext4 -L rootfs /dev/{{disk}}1
+&lt;/code>&lt;/pre>
+&lt;p>Mount :&lt;/p>
+&lt;pre>&lt;code>mount /dev/{{disk}}1 /mnt
+&lt;/code>&lt;/pre>
+&lt;p>Let’s make it peristent, we need &lt;strong>UUID&lt;/strong>.
+To get block ID.&lt;/p></description></item><item><title>Update Proxmox templates</title><link>https://lebaron.sh/p/update-proxmox-templates/</link><pubDate>Sun, 30 Jul 2017 14:53:16 +0000</pubDate><guid>https://lebaron.sh/p/update-proxmox-templates/</guid><description>&lt;p>To automatically update the list of templates available via prox in your local space just use the following command:&lt;/p>
+&lt;pre>&lt;code>pveam update
+&lt;/code>&lt;/pre>
+&lt;p>I found it good to put it in cron once a week so as not to have too much space for minor versions.&lt;/p></description></item><item><title>Event Watcher Manager Python3</title><link>https://lebaron.sh/p/event-watcher-manager-python3/</link><pubDate>Sun, 30 Jul 2017 12:53:16 +0000</pubDate><guid>https://lebaron.sh/p/event-watcher-manager-python3/</guid><description>&lt;p>On one specific request, I had to work on the elaboration of an automating program reacting on SFTP users updates.&lt;br>
+The main technical issue of this request is that the SFTP protocol does not have a logging system.&lt;/p>
+&lt;p>I had heard about &lt;a href="https://github.com/seb-m/pyinotify/blob/master/python3/pyinotify.py">the pyinotify library&lt;/a> so I started working on it.&lt;br>
+&lt;strong>The project is presented in its primary mechanism&lt;/strong>, for more details, I invite you to read the sources.&lt;/p>
+&lt;h4 id="technical-requests-concerning-the-project">Technical requests concerning the project&lt;/h4>
+&lt;p>Details of the context of realization :
+&lt;/u>Details of the context of realization :&lt;/u>.&lt;br>
+The program must monitor SFTP user actions. These users have their HomeDir which are NFS mounts.&lt;br>
+The user can upload anything to his account, but the program must detect video uploads (in some formats) and then perform a series of successive actions.&lt;/p></description></item></channel></rss>
