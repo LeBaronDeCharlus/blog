@@ -1,20 +1,97 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>LXC on Le Baron de Charlus</title>
-    <link>https://lebaron.sh/tags/lxc/</link>
-    <description>Recent content in LXC on Le Baron de Charlus</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>© Le Baron de Charlus</copyright>
-    <lastBuildDate>Mon, 31 Jul 2017 18:15:50 +0000</lastBuildDate>
-    <atom:link href="https://lebaron.sh/tags/lxc/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Migrate Openvz To Lxc</title>
-      <link>https://lebaron.sh/posts/migrate-openvz-to-lxc/</link>
-      <pubDate>Mon, 31 Jul 2017 18:15:50 +0000</pubDate>
-      <guid>https://lebaron.sh/posts/migrate-openvz-to-lxc/</guid>
-      <description>I recently had to migrate containers from a proxmox3 (under OpenVZ) to a proxmox4 (under LXC).&#xA;Problem, there are a lot of containers to migrate/&amp;ldquo;convert&amp;rdquo; to run under LXC. So I needed a way to automate the procedure as much as possible.&#xA;Luckily, the migration documentation is very well detailed. So I used it to &amp;ldquo;bash&amp;rdquo; the operation.&#xA;You can find all the sources on my github&#xA;I cut the operation under two scripts, an export script and an import script.</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LXC on Le Baron de Charlus</title><link>https://lebaron.sh/tags/lxc/</link><description>Recent content in LXC on Le Baron de Charlus</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Le Baron de Charlus</copyright><lastBuildDate>Mon, 31 Jul 2017 18:15:50 +0000</lastBuildDate><atom:link href="https://lebaron.sh/tags/lxc/index.xml" rel="self" type="application/rss+xml"/><item><title>Migrate Openvz To Lxc</title><link>https://lebaron.sh/p/migrate-openvz-to-lxc/</link><pubDate>Mon, 31 Jul 2017 18:15:50 +0000</pubDate><guid>https://lebaron.sh/p/migrate-openvz-to-lxc/</guid><description>&lt;p>I recently had to migrate containers from a proxmox3 (under OpenVZ) to a proxmox4 (under LXC).&lt;/p>
+&lt;p>Problem, there are a lot of containers to migrate/&amp;ldquo;convert&amp;rdquo; to run under LXC. So I needed a way to automate the procedure as much as possible.&lt;/p>
+&lt;p>Luckily, the &lt;a class="link" href="https://pve.proxmox.com/wiki/Convert_OpenVZ_to_LXC" target="_blank" rel="noopener"
+>migration documentation&lt;/a> is very well detailed. So I used it to &amp;ldquo;bash&amp;rdquo; the operation.&lt;/p>
+&lt;p>You can find all the sources on my &lt;a class="link" href="https://github.com/lebarondecharlus/vz2lxc" target="_blank" rel="noopener"
+>github&lt;/a>&lt;/p>
+&lt;p>I cut the operation under two scripts, an export script and an import script.&lt;/p>
+&lt;h4 id="the-export-">The export :
+&lt;/h4>&lt;p>The export script takes two parameters as input: &lt;code>the container ID&lt;/code> and &lt;code>the IP&lt;/code> of the destination server.&lt;/p>
+&lt;p>It is also necessary to define some variables that will be used to send data via &lt;code>scp&lt;/code>.&lt;/p>
+&lt;p>The &lt;em>export&lt;/em> procedure is done as follows:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># Stop &amp;amp; Dump
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo vzctl stop $ID &amp;amp;&amp;amp; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> echo &amp;#34;$ID stopped [OK]&amp;#34; &amp;amp;&amp;amp; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sudo vzdump $ID -dumpdir /home/$USER/vzdump &amp;amp;&amp;amp; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> echo &amp;#34;$ID : dump [OK]&amp;#34; &amp;amp;&amp;amp; \
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>We check dump is present :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># DumpName
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">vzDumpName=$(ls /home/$USER/vzdump/)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">if [ -z $vzDumpName ] ; then
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> echo &amp;#34;No dump found in /home/$USER/vzdump/&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> exit
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">fi
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Then we send it to &lt;code>Proxmox 4&lt;/code> :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sudo scp -i /home/$USER/.ssh/id_rsa &amp;#34;-P $rPort&amp;#34; $vzDumpName $rUSER@$rIP:$rPath &amp;amp;&amp;amp; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> echo &amp;#34;Sending Dump [OK]&amp;#34; &amp;amp;&amp;amp; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sudo scp -i /home/$USER/.ssh/id_rsa &amp;#34;-P $rPort&amp;#34; vz.log $rUSER@$rIP:$rPath &amp;amp;&amp;amp; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> echo &amp;#34;Sending Log [OK]&amp;#34; &amp;amp;&amp;amp; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sudo rm $vzDumpName &amp;amp;&amp;amp; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sudo rm vz.log &amp;amp;&amp;amp; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> echo &amp;#34;SCP $vzDumpName on $rIP [OK]&amp;#34;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="import-">Import :
+&lt;/h4>&lt;p>As for the import, only one argument is passed as input, which is the container&amp;rsquo;s &amp;ldquo;ID&amp;rdquo;.&lt;/p>
+&lt;p>Then we start the &lt;strong>conversion&lt;/strong> and &lt;strong>restoration&lt;/strong> part.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sudo pct restore $ID $dumpPath/$dumpName &amp;amp;&amp;amp; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> echo &amp;#34;pct $ID restoring [OK]&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># At this poin, you can set network configuration
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># exemple : pct set 101 -net0 name=eth0,bridge=vmbr0,ip=192.168.15.144/24,gw=192.168.15.1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># I prefer doing it manually
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo pct start $ID
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo pct enter $ID
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>I omitted to tell you that there is a small logging system for the operations in order to be able to trace the process a bit.&lt;/p></description></item></channel></rss>

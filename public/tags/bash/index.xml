@@ -1,34 +1,621 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Bash on Le Baron de Charlus</title>
-    <link>https://lebaron.sh/tags/bash/</link>
-    <description>Recent content in Bash on Le Baron de Charlus</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>© Le Baron de Charlus</copyright>
-    <lastBuildDate>Sat, 25 Jun 2022 18:03:17 +0200</lastBuildDate>
-    <atom:link href="https://lebaron.sh/tags/bash/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Shloader - A Modern Shell Loader</title>
-      <link>https://lebaron.sh/posts/shloader-modern-shell-loader/</link>
-      <pubDate>Sat, 25 Jun 2022 18:03:17 +0200</pubDate>
-      <guid>https://lebaron.sh/posts/shloader-modern-shell-loader/</guid>
-      <description>Why Features Preview Templating Usage Parsing Arguments Shell Configurations Trap Error and Exit Display Loader Call Loader Scrip Library Integration Conclusion Why I&amp;rsquo;ve been recently doing some old shell scripts to quickly automatize and distribute actions that were made manually, I&amp;rsquo;ll write a post on it later. For now I&amp;rsquo;d like to share with you how I&amp;rsquo;ve been coding a 100% shell loader library to use it in my scripts.</description>
-    </item>
-    <item>
-      <title>Script restart services</title>
-      <link>https://lebaron.sh/posts/script-restart-services/</link>
-      <pubDate>Fri, 18 Aug 2017 22:29:53 +0200</pubDate>
-      <guid>https://lebaron.sh/posts/script-restart-services/</guid>
-      <description>Sometimes, we find ourselves having to pilote infrastructures services supported by panels managements and &amp;hellip; between us, I have a holy horror of Plesk, Cpanel, Ispconfig, Webmin &amp;hellip; Especially when under certain circumstances some components are falling down. It&amp;rsquo;s often badly done and messy that it&amp;rsquo;s difficult to find your way around. Between abobinable logs management (yes, I already found php logs in syslog), a non-existent server optimization&amp;hellip; well I stop here because it is not the purpose of this post.</description>
-    </item>
-    <item>
-      <title>Online servers availability</title>
-      <link>https://lebaron.sh/posts/online-servers/</link>
-      <pubDate>Tue, 01 Aug 2017 09:40:07 +0000</pubDate>
-      <guid>https://lebaron.sh/posts/online-servers/</guid>
-      <description>We need servers at Online, but there is no availability! So they came to ask me if I didn&amp;rsquo;t have a magic solution&amp;hellip;&#xA;A little bash&amp;hellip; a notify in this case Slack and here we go!&#xA;As usual sources are available.&#xA;Dirty way *To be alerted via slack you have to create an incoming-webhook which will generate a link.&#xA;For an XC 2016 series server:&#xA;text=&amp;quot;DISPO : https://www.online.net/fr/serveur-dedie/dedibox-xc&amp;quot;; json=&amp;quot;{\&amp;quot;channel\&amp;quot;: \&amp;quot;#infra\&amp;quot;, \&amp;quot;text\&amp;quot;: \&amp;quot;$text\&amp;quot;}&amp;quot; ; while true ; do curl --silent https://www.</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Bash on Le Baron de Charlus</title><link>https://lebaron.sh/tags/bash/</link><description>Recent content in Bash on Le Baron de Charlus</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Le Baron de Charlus</copyright><lastBuildDate>Sat, 25 Jun 2022 18:03:17 +0200</lastBuildDate><atom:link href="https://lebaron.sh/tags/bash/index.xml" rel="self" type="application/rss+xml"/><item><title>Shloader - A Modern Shell Loader</title><link>https://lebaron.sh/p/shloader-a-modern-shell-loader/</link><pubDate>Sat, 25 Jun 2022 18:03:17 +0200</pubDate><guid>https://lebaron.sh/p/shloader-a-modern-shell-loader/</guid><description>&lt;p>&lt;img src="https://lebaron.sh/images/shloader.png"
+loading="lazy"
+alt="Shloader"
+>&lt;/p>
+&lt;ol>
+&lt;li>&lt;a class="link" href="#why" >Why&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#features" >Features&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#preview" >Preview&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#templating" >Templating&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#usage" >Usage&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#parsing-arguments" >Parsing Arguments&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#shell-configurations" >Shell Configurations&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#trap-error-and-exit" >Trap Error and Exit&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#display-loader" >Display Loader&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#call-loader" >Call Loader&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#script-library-integration" >Scrip Library Integration&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#conclusion" >Conclusion&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;h1 id="why">Why
+&lt;/h1>&lt;p>I&amp;rsquo;ve been recently doing some old shell scripts to quickly automatize and distribute actions that were made manually, I&amp;rsquo;ll write a post on it later. For now I&amp;rsquo;d like to share with you how I&amp;rsquo;ve been coding a 100% shell loader library to use it in my scripts.&lt;/p>
+&lt;p>I&amp;rsquo;ve been looking on the net for existing library, I&amp;rsquo;ve found some interesting Github projects but it doesn&amp;rsquo;t appear to be &amp;ldquo;library&amp;rdquo; ready. Furthermore, it was mostly old basic ASCII templates and I wanted to give a try to modern loaders and spinners on shell.&lt;/p>
+&lt;p>So I ended create &lt;a class="link" href="https://github.com/lebaronlebaron.shloader" target="_blank" rel="noopener"
+>&lt;code>shloader&lt;/code>&lt;/a>.&lt;/p>
+&lt;h1 id="features">Features
+&lt;/h1>&lt;p>shloader has nice features such as :&lt;/p>
+&lt;p>😍 emoji support&lt;/p>
+&lt;p>💪 loader support&lt;/p>
+&lt;p>😎 dynamic message on load step&lt;/p>
+&lt;p>ℹ️ message on step ending&lt;/p>
+&lt;p>🎨 multiple loading templates&lt;/p>
+&lt;p>👌 light and easy to use on existing scripts&lt;/p>
+&lt;h1 id="preview">Preview
+&lt;/h1>&lt;p>&lt;img src="https://lebaron.sh/images/shloader.gif"
+loading="lazy"
+alt="Shloader"
+>&lt;/p>
+&lt;h1 id="templating">Templating
+&lt;/h1>&lt;p>First of all, we need to create templates, one for each loaders that will be displayed. I&amp;rsquo;ve decided to use shell &lt;code>array&lt;/code> so we can work on iteration later on customs functions.&lt;/p>
+&lt;p>So I ended with something like :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># EMOJIS&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">emoji_hour&lt;/span>&lt;span class="o">=(&lt;/span> 0.08 &lt;span class="s1">&amp;#39;🕛&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;🕐&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;🕑&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;🕒&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;🕓&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;🕔&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;🕕&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;🕖&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;🕗&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;🕘&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;🕙&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;🕚&amp;#39;&lt;/span>&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">emoji_face&lt;/span>&lt;span class="o">=(&lt;/span> 0.08 &lt;span class="s1">&amp;#39;😐&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;😀&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;😍&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;🙄&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;😒&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;😨&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;😡&amp;#39;&lt;/span>&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">emoji_earth&lt;/span>&lt;span class="o">=(&lt;/span> 0.1 🌍 🌎 🌏 &lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">emoji_moon&lt;/span>&lt;span class="o">=(&lt;/span> 0.08 🌑 🌒 🌓 🌔 🌕 🌖 🌗 🌘 &lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">emoji_orange_pulse&lt;/span>&lt;span class="o">=(&lt;/span> 0.1 🔸 🔶 🟠 🟠 🔶 &lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">emoji_blue_pulse&lt;/span>&lt;span class="o">=(&lt;/span> 0.1 🔹 🔷 🔵 🔵 🔷 &lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">emoji_blink&lt;/span>&lt;span class="o">=(&lt;/span> 0.06 😐 😐 😐 😐 😐 😐 😐 😐 😐 😑 &lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">emoji_camera&lt;/span>&lt;span class="o">=(&lt;/span> 0.05 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📸 📷 📸 &lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">emoji_sick&lt;/span>&lt;span class="o">=(&lt;/span> 0.2 🤢 🤢 🤮 &lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">emoji_monkey&lt;/span>&lt;span class="o">=(&lt;/span> 0.2 🙉 🙈 🙊 🙈 &lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">emoji_bomb&lt;/span>&lt;span class="o">=(&lt;/span> 0.2 &lt;span class="s1">&amp;#39;💣 &amp;#39;&lt;/span> &lt;span class="s1">&amp;#39; 💣 &amp;#39;&lt;/span> &lt;span class="s1">&amp;#39; 💣 &amp;#39;&lt;/span> &lt;span class="s1">&amp;#39; 💣&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39; 💣&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39; 💣&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39; 💣&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39; 💣&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39; 💥&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39; &amp;#39;&lt;/span> &lt;span class="s1">&amp;#39; &amp;#39;&lt;/span> &lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># ASCII&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">ball&lt;/span>&lt;span class="o">=(&lt;/span> 0.2 &lt;span class="s1">&amp;#39;(●)&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;(⚬)&amp;#39;&lt;/span>&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">arrow&lt;/span>&lt;span class="o">=(&lt;/span> 0.06 &lt;span class="s1">&amp;#39;↑&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;↗&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;→&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;↘&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;↓&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;↙&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;←&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;↖&amp;#39;&lt;/span>&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">cym&lt;/span>&lt;span class="o">=(&lt;/span> 0.1 &lt;span class="s1">&amp;#39;⊏&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⊓&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⊐&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⊔&amp;#39;&lt;/span>&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">x_plus&lt;/span>&lt;span class="o">=(&lt;/span> 0.08 &lt;span class="s1">&amp;#39;×&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;+&amp;#39;&lt;/span>&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">line&lt;/span>&lt;span class="o">=(&lt;/span> 0.08 &lt;span class="s1">&amp;#39;☰&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;☱&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;☳&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;☷&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;☶&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;☴&amp;#39;&lt;/span>&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">ball_wave&lt;/span>&lt;span class="o">=(&lt;/span> 0.1 &lt;span class="s1">&amp;#39;𓃉𓃉𓃉&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;𓃉𓃉∘&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;𓃉∘°&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;∘°∘&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;°∘𓃉&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;∘𓃉𓃉&amp;#39;&lt;/span>&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">old&lt;/span>&lt;span class="o">=(&lt;/span> 0.07 &lt;span class="s1">&amp;#39;—&amp;#39;&lt;/span> &lt;span class="s2">&amp;#34;\\&amp;#34;&lt;/span> &lt;span class="s1">&amp;#39;|&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;/&amp;#39;&lt;/span> &lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">dots&lt;/span>&lt;span class="o">=(&lt;/span> 0.04 &lt;span class="s1">&amp;#39;⣾&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⣽&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⣻&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⢿&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⡿&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⣟&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⣯&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⣷&amp;#39;&lt;/span> &lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">dots2&lt;/span>&lt;span class="o">=(&lt;/span> 0.04 &lt;span class="s1">&amp;#39;⠋&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠙&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠹&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠸&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠼&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠴&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠦&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠧&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠇&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠏&amp;#39;&lt;/span> &lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">dots3&lt;/span>&lt;span class="o">=(&lt;/span> 0.04 &lt;span class="s1">&amp;#39;⠋&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠙&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠚&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠞&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠖&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠦&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠴&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠲&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠳&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠓&amp;#39;&lt;/span> &lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">dots4&lt;/span>&lt;span class="o">=(&lt;/span> 0.04 &lt;span class="s1">&amp;#39;⠄&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠆&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠇&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠋&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠙&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠸&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠰&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠠&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠰&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠸&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠙&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠋&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠇&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠆&amp;#39;&lt;/span> &lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">dots5&lt;/span>&lt;span class="o">=(&lt;/span> 0.04 &lt;span class="s1">&amp;#39;⠋&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠙&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠚&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠒&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠂&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠂&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠒&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠲&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠴&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠦&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠖&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠒&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠐&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠐&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠒&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠓&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠋&amp;#39;&lt;/span> &lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">dots6&lt;/span>&lt;span class="o">=(&lt;/span> 0.04 &lt;span class="s1">&amp;#39;⠁&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠉&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠙&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠚&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠒&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠂&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠂&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠒&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠲&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠴&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠤&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠄&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠄&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠤&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠴&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠲&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠒&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠂&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠂&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠒&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠚&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠙&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠉&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠁&amp;#39;&lt;/span> &lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">dots7&lt;/span>&lt;span class="o">=(&lt;/span> 0.04 &lt;span class="s1">&amp;#39;⠈&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠉&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠋&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠓&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠒&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠐&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠐&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠒&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠖&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠦&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠤&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠠&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠠&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠤&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠦&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠖&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠒&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠐&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠐&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠒&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠓&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠋&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠉&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠈&amp;#39;&lt;/span> &lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">dots8&lt;/span>&lt;span class="o">=(&lt;/span> 0.04 &lt;span class="s1">&amp;#39;⠁&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠁&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠉&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠙&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠚&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠒&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠂&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠂&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠒&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠲&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠴&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠤&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠄&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠄&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠤&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠠&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠠&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠤&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠦&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠖&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠒&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠐&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠐&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠒&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠓&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠋&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠉&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠈&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠈&amp;#39;&lt;/span> &lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">dots9&lt;/span>&lt;span class="o">=(&lt;/span> 0.04 &lt;span class="s1">&amp;#39;⢹&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⢺&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⢼&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⣸&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⣇&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⡧&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⡗&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⡏&amp;#39;&lt;/span> &lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">dots10&lt;/span>&lt;span class="o">=(&lt;/span> 0.04 &lt;span class="s1">&amp;#39;⢄&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⢂&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⢁&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⡁&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⡈&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⡐&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⡠&amp;#39;&lt;/span> &lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">dots11&lt;/span>&lt;span class="o">=(&lt;/span> 0.04 &lt;span class="s1">&amp;#39;⠁&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠂&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠄&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⡀&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⢀&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠠&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠐&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;⠈&amp;#39;&lt;/span> &lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Array composition is divided in two parts, the first one is a &lt;code>time&lt;/code> interval in seconds and the second one is the loader frame transition.&lt;/p>
+&lt;h1 id="usage">Usage
+&lt;/h1>&lt;p>I wanted library to be used as commands can be, by passing argument through options.&lt;/p>
+&lt;p>First, let&amp;rsquo;s work on default &lt;code>usage&lt;/code> function to display to user.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">usage&lt;span class="o">()&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> cat &lt;span class="s">&amp;lt;&amp;lt;EOF
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">Available options:
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">-h, --help &amp;lt;OPTIONAL&amp;gt; Print this help and exit
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">-l, --loader &amp;lt;OPTIONAL&amp;gt; Chose loader to display
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">-m, --message &amp;lt;OPTIONAL&amp;gt; Text to display while loading
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">-e, --ending &amp;lt;OPTIONAL&amp;gt; Text to display when finishing
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">EOF&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">exit&lt;/span> &lt;span class="m">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>I wanted to define argument options as bellow :&lt;/p>
+&lt;h4 id="display-help">Display help
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># e.g&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">shloader -h
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align: left">Parameter&lt;/th>
+&lt;th style="text-align: left">Type&lt;/th>
+&lt;th style="text-align: left">Description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>-h --help&lt;/code>&lt;/td>
+&lt;td style="text-align: left">&lt;code>none&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Optional. Show help usage&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="chose-loader">Chose loader
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># e.g&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">shloader -l arrow
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align: left">Parameter&lt;/th>
+&lt;th style="text-align: left">Type&lt;/th>
+&lt;th style="text-align: left">Description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>-l --loader&lt;/code>&lt;/td>
+&lt;td style="text-align: left">&lt;code>string&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Optional. Chose loader template&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="display-info-on-loading">Display info on loading
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># e.g&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">shloader -m &lt;span class="s2">&amp;#34;my loading message&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align: left">Parameter&lt;/th>
+&lt;th style="text-align: left">Type&lt;/th>
+&lt;th style="text-align: left">Description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>-m --message&lt;/code>&lt;/td>
+&lt;td style="text-align: left">&lt;code>string&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Optional. Show a text message while displaying loader&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="display-info-on-ending">Display info on ending
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># e.g&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">shloader -e &lt;span class="s2">&amp;#34;\u2728 all done&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align: left">Parameter&lt;/th>
+&lt;th style="text-align: left">Type&lt;/th>
+&lt;th style="text-align: left">Description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>-e --end&lt;/code>&lt;/td>
+&lt;td style="text-align: left">&lt;code>string&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Optional. Show an end text message when loader ends&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h1 id="parsing-arguments">Parsing Arguments
+&lt;/h1>&lt;p>In order to work on user input, it is necessary to read option content so we can modular library execution.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">shloader&lt;span class="o">()&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">loader&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">message&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">ending&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">while&lt;/span> :&lt;span class="p">;&lt;/span> &lt;span class="k">do&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">case&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">1&lt;/span>&lt;span class="p">-&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> in
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -h &lt;span class="p">|&lt;/span> --help&lt;span class="o">)&lt;/span> usage&lt;span class="p">;;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -l &lt;span class="p">|&lt;/span> --loader&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">loader&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">2&lt;/span>&lt;span class="p">-&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">shift&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">;;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -m &lt;span class="p">|&lt;/span> --message&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">message&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">2&lt;/span>&lt;span class="p">-&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">shift&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">;;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -e &lt;span class="p">|&lt;/span> --ending&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">ending&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">2&lt;/span>&lt;span class="p">-&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">shift&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">;;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -?*&lt;span class="o">)&lt;/span> die &lt;span class="s2">&amp;#34;Unknown option: &lt;/span>&lt;span class="nv">$1&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="p">;;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> *&lt;span class="o">)&lt;/span> &lt;span class="nb">break&lt;/span> &lt;span class="p">;;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">esac&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">shift&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">done&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">[&lt;/span>…&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>You might notice I&amp;rsquo;ve placed it directly in the main &lt;code>function&lt;/code> so it will be the first element to be run.&lt;/p>
+&lt;p>If user don&amp;rsquo;t specify loader, we should display one as default, let&amp;rsquo;s say &lt;code>dots&lt;/code> one.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># shloader func&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">[&lt;/span>…&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="o">[[&lt;/span> -z &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">loader&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">]]&lt;/span> &lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">loader&lt;/span>&lt;span class="o">=&lt;/span>dots&lt;span class="o">[&lt;/span>@&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">loader&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="nv">$loader&lt;/span>&lt;span class="o">[&lt;/span>@&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">[&lt;/span>…&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>One last thing here, I use a little custom &lt;code>die&lt;/code> function to exit properly if option is unknown.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">die&lt;span class="o">()&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">local&lt;/span> &lt;span class="nv">code&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">2&lt;/span>&lt;span class="p">-1&lt;/span>&lt;span class="si">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">exit&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$code&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h1 id="shell-configurations">Shell Configurations
+&lt;/h1>&lt;p>We will make some quick configuration on the top header script under &lt;code>shebang&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#!/bin/bash
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>&lt;span class="c1"># https://github.com/lebaronlebaron.shloader&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># me@lebaron.sh&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">set&lt;/span> -Eeuo pipefail
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">trap&lt;/span> end_shloader SIGINT SIGTERM ERR EXIT RETURN
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">tput civis
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>First, &lt;code>set -Eeuo pipefail&lt;/code> so we can exit execution if one of the commands in the pipe fails.&lt;/p>
+&lt;p>Then, &lt;code>trap end_shloader SIGINT SIGTERM ERR EXIT RETURN&lt;/code> so we can call a custom function to clean our execution on exiting, stopping, errors…&lt;/p>
+&lt;p>Finaly, &lt;code>tput civis&lt;/code> is used to hide cursor.&lt;/p>
+&lt;h1 id="trap-error-and-exit">Trap Error and Exit
+&lt;/h1>&lt;p>Trap will call a custom function, but how does it work ?&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">end_shloader&lt;span class="o">()&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">kill&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">shloader_pid&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="p">&amp;amp;&lt;/span>&amp;gt;/dev/null
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> tput cnorm
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="o">[[&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">ending&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">]]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">printf&lt;/span> &lt;span class="s2">&amp;#34;\r&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">ending&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="nb">echo&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Right here I ensure first to kill loader&amp;rsquo;s &lt;code>PID&lt;/code> and restore cursor thanks to &lt;code>tput cnorm&lt;/code>.&lt;/p>
+&lt;h1 id="display-loader">Display Loader
+&lt;/h1>&lt;p>Now we can interact with shell output to generate loading animations.&lt;/p>
+&lt;p>Let&amp;rsquo;s create a new function &lt;code>play_shloader()&lt;/code> :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">play_shloader&lt;span class="o">()&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">while&lt;/span> &lt;span class="nb">true&lt;/span> &lt;span class="p">;&lt;/span> &lt;span class="k">do&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span> frame in &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">loader&lt;/span>&lt;span class="p">[@]&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="p">;&lt;/span> &lt;span class="k">do&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">printf&lt;/span> &lt;span class="s2">&amp;#34;\r%s&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">frame&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2"> &lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">message&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sleep &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">speed&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">done&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">done&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Here we assume we have &lt;code>loader&lt;/code> array we can display during time duration defined in &lt;code>speed&lt;/code> variable (we will see it after).&lt;/p>
+&lt;h1 id="call-loader">Call Loader
+&lt;/h1>&lt;p>What about now ? We have all bricks to make great loaders, let&amp;rsquo;s put them in work together !&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># shloader function&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">[&lt;/span>…&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">loader&lt;/span>&lt;span class="o">=(&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="p">!loader&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">speed&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">loader&lt;/span>&lt;span class="p">[0]&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">unset&lt;/span> &lt;span class="s2">&amp;#34;loader[0]&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> tput civis
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> play_shloader &lt;span class="p">&amp;amp;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">shloader_pid&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="p">!&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">[&lt;/span>…&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>What is done here ?&lt;/p>
+&lt;p>We first print &lt;code>loader&lt;/code> array content we save in &lt;code>loader&lt;/code> variable. We know first element in array is time duration, so we save it in &lt;code>speed&lt;/code> variable.&lt;/p>
+&lt;p>Now we have split array, we can remove time duration as it is now under &lt;code>speed&lt;/code> variable.
+We then hide cursor, call our &lt;code>play_shloader&lt;/code> function and save &lt;code>PID&lt;/code>.&lt;/p>
+&lt;p>You can find the &lt;a class="link" href="https://github.com/lebaronlebaron.shloader/blob/main/lib/shloader.sh" target="_blank" rel="noopener"
+>Full Library Code&lt;/a>&lt;/p>
+&lt;h1 id="script-library-integration">Script Library Integration
+&lt;/h1>&lt;p>Nothing hard here !&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">source&lt;/span> ./lib/shloader.sh
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">shloader -l emoji_hour -m &lt;span class="s2">&amp;#34;Testing&amp;#34;&lt;/span> -e &lt;span class="s2">&amp;#34;✨ All good !&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sleep &lt;span class="m">2&lt;/span> &lt;span class="c1"># remove it in your code&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># … your logic goes here&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">end_shloader
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>With more details :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">!/bin/bash
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># if you want to try just add this block code in your code &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">source&lt;/span> ./lib/shloader.sh
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># you can chose (see more in lib/loader.sh):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># ball, arrow, cym, x_plus, line, ball_wave, npm and old.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># you can specify message to display during loading&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># and message to display after your code finished&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># eg with npm style&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># notice end message -e use unicode emoji to display&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># this is for better terminal support&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># \u2728 == ✨ but you can use emoji if your settings support it !&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">shloader -l emoji_face -m &lt;span class="s2">&amp;#34;Testing&amp;#34;&lt;/span> -e &lt;span class="s2">&amp;#34;\u2728 All good !&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sleep &lt;span class="m">2&lt;/span> &lt;span class="c1"># remove it in your code&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># … your logic goes here&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># if you want to hide some output from loader&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># don&amp;#39;t forget to redirect your STD*&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># eg :&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># STDOUT&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># my_cmd 1&amp;gt; /dev/null&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># STDERR&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># my_cmd 2&amp;gt; /dev/null&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># BOTH&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># my_cmd &amp;amp;&amp;gt; /dev/null&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># stop loader&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">end_shloader
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h1 id="conclusion">Conclusion
+&lt;/h1>&lt;p>As all things useless… it may become mandatory 😂.&lt;/p></description></item><item><title>Online servers availability</title><link>https://lebaron.sh/p/online-servers-availability/</link><pubDate>Tue, 01 Aug 2017 09:40:07 +0000</pubDate><guid>https://lebaron.sh/p/online-servers-availability/</guid><description>&lt;p>We need servers at Online, but there is no availability!
+So they came to ask me if I didn&amp;rsquo;t have a magic solution&amp;hellip;&lt;/p>
+&lt;p>A little &lt;code>bash&lt;/code>&amp;hellip; a &lt;code>notify&lt;/code> in this case &lt;code>Slack&lt;/code> and here we go!&lt;br>
+As usual &lt;a class="link" href="https://github.com/lebarondecharlus/OnlineSrvDispo" target="_blank" rel="noopener"
+>sources are available&lt;/a>.&lt;/p>
+&lt;h4 id="dirty-way">Dirty way
+&lt;/h4>&lt;p>*To be alerted via slack you have to create an &lt;a class="link" href="https://my.slack.com/services/new/incoming-webhook/" target="_blank" rel="noopener"
+>incoming-webhook&lt;/a> which will generate a link.&lt;/p>
+&lt;p>For an XC 2016 series server:&lt;/p>
+&lt;pre>&lt;code>text=&amp;quot;DISPO : https://www.online.net/fr/serveur-dedie/dedibox-xc&amp;quot;; json=&amp;quot;{\&amp;quot;channel\&amp;quot;: \&amp;quot;#infra\&amp;quot;, \&amp;quot;text\&amp;quot;: \&amp;quot;$text\&amp;quot;}&amp;quot; ; while true ; do curl --silent https://www.online.net/fr/serveur-dedie | grep '&amp;lt;button class=&amp;quot;btn btn--primary js-order-dedibox&amp;quot;' | grep -i 'xc 2016' | grep -i 'victime' || curl -s -d &amp;quot;payload=$json&amp;quot; &amp;quot;https://hooks.slack.com/services/XXX/XXXX/XXXX/XXXX&amp;quot; ; sleep 5 ; done
+&lt;/code>&lt;/pre>
+&lt;p>Curl will be done only if one server is available.&lt;/p>
+&lt;h4 id="clean-way">Clean way
+&lt;/h4>&lt;p>Just code formating :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#!/bin/bash
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">webhook&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;https://hooks.slack.com/services/XXX/XXXX/XXXX/XXXX&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">url&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;https://www.online.net/fr/serveur-dedie/XXXXX&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">text&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;DISPO : &lt;/span>&lt;span class="nv">$url&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">channel&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;test&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">json&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;{\&amp;#34;channel\&amp;#34;: \&amp;#34;#&lt;/span>&lt;span class="nv">$channel&lt;/span>&lt;span class="s2">\&amp;#34;, \&amp;#34;text\&amp;#34;: \&amp;#34;&lt;/span>&lt;span class="nv">$text&lt;/span>&lt;span class="s2">\&amp;#34;}&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">server&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;XC 2016&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">while&lt;/span> &lt;span class="nb">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">do&lt;/span> curl --silent https://www.online.net/fr/serveur-dedie &lt;span class="p">|&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> grep &lt;span class="s1">&amp;#39;&amp;lt;button class=&amp;#34;btn btn--primary js-order-dedibox&amp;#34;&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> grep -i &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$server&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> grep -i &lt;span class="s1">&amp;#39;victime&amp;#39;&lt;/span> &lt;span class="o">||&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> curl -s -d &lt;span class="s2">&amp;#34;payload=&lt;/span>&lt;span class="nv">$json&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$webhook&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="p">;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> sleep &lt;span class="m">5&lt;/span> &lt;span class="p">;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span>&lt;span class="k">done&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>You can also push the vice further by filtering on the &lt;strong>region&lt;/strong> and the &lt;strong>disc types&lt;/strong>.&lt;/p>
+&lt;h4 id="pig-mode">Pig mode
+&lt;/h4>&lt;p>Because&amp;hellip; why not ?&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-gdscript3" data-lang="gdscript3">&lt;span class="line">&lt;span class="cl">&lt;span class="n">text&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;DISPO https://www.online.net/fr/serveur-dedie/dedibox-xc&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">json&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;{&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s2">channel&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s2">: &lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s2">#test&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s2">, &lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s2">text&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s2">: &lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s2">$text&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s2">}&amp;#34;&lt;/span> &lt;span class="p">;&lt;/span> &lt;span class="k">while&lt;/span> &lt;span class="bp">true&lt;/span> &lt;span class="p">;&lt;/span> &lt;span class="k">do&lt;/span> &lt;span class="n">curl&lt;/span> &lt;span class="o">--&lt;/span>&lt;span class="n">silent&lt;/span> &lt;span class="n">https&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="o">//&lt;/span>&lt;span class="n">www&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">online&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">net&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">fr&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">serveur&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">dedie&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">dedibox&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">xc&lt;/span> &lt;span class="o">|&lt;/span> &lt;span class="n">egrep&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">io&lt;/span> &lt;span class="s1">&amp;#39;&amp;lt;option value=&amp;#34;\w+&amp;#34;&amp;gt;ssd / france / dc2&amp;lt;/option&amp;gt;&amp;#39;&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="n">curl&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">s&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">d&lt;/span> &lt;span class="s2">&amp;#34;payload=$json&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;https://hooks.slack.com/services/XXX/XXXX/XXXX&amp;#34;&lt;/span> &lt;span class="p">;&lt;/span> &lt;span class="n">sleep&lt;/span> &lt;span class="mi">5&lt;/span> &lt;span class="p">;&lt;/span> &lt;span class="n">done&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Next step, simulate an order ?&lt;/p></description></item></channel></rss>

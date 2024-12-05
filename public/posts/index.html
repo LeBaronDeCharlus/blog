@@ -1,554 +1,475 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Lead SRE - Unix Professor">
+<title>Posts</title>
 
-<head>
-  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Posts | Le Baron de Charlus</title>
-<meta name="title" content="Posts" />
-<meta name="description" content="" />
-<meta name="keywords" content="awesomewm,baremetal,bash,bitwarden,bug,cattle,cli,cloud,dev,direnv,disk,docker,freebsd,galera,gitlab,golang,gpg,kubernetes,linux,loader,lxc,monitoring,nova,online,openstack,openvz,ovh,pass,pci,poetry,programming,proxmox,publicloud,pyenv,pyinotify,python,rancher,random,registry,script,secrets,serveur,sessions,shell,templates,tomb,vrack,wallpaper,zellij," />
+<link rel='canonical' href='http://localhost:1313/posts/'>
 
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Posts">
+<meta property='og:description' content="Lead SRE - Unix Professor">
+<meta property='og:url' content='http://localhost:1313/posts/'>
+<meta property='og:site_name' content='Le Baron de Charlus'>
+<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2023-08-09T13:10:42&#43;02:00 '/>
+<meta name="twitter:title" content="Posts">
+<meta name="twitter:description" content="Lead SRE - Unix Professor"><link rel="alternate" type="application/rss&#43;xml" href="http://localhost:1313/posts/index.xml">
+    <link rel="shortcut icon" href="/favicon.png" />
 
-<meta property="og:title" content="Posts" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://lebaron.sh/posts/" />
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
 
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
 
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
 
-
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Posts"/>
-<meta name="twitter:description" content=""/>
-
-
-
-<meta itemprop="name" content="Posts">
-<meta itemprop="description" content="">
-<meta name="referrer" content="no-referrer-when-downgrade" />
-
-  <link rel="alternate" type="application/rss+xml" href="https://lebaron.sh/posts/index.xml" title="Le Baron de Charlus" />
-  <style>
-  body {
-    font-family: Verdana, sans-serif;
-    margin: auto;
-    padding: 20px;
-    max-width: 720px;
-    text-align: left;
-    background-color: #fff;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    line-height: 1.5;
-    color: #444;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  strong,
-  b {
-    color: #222;
-  }
-
-  a {
-    color: #3273dc;
-     
-  }
-
-  .title {
-    text-decoration: none;
-    border: 0;
-  }
-
-  .title span {
-    font-weight: 400;
-  }
-
-  nav a {
-    margin-right: 10px;
-  }
-
-  textarea {
-    width: 100%;
-    font-size: 16px;
-  }
-
-  input {
-    font-size: 16px;
-  }
-
-  content {
-    line-height: 1.6;
-  }
-
-  table {
-    width: 100%;
-  }
-
-  img {
-    max-width: 100%;
-  }
-
-  code {
-    padding: 2px 5px;
-    background-color: #f2f2f2;
-  }
-
-  pre code {
-    color: #222;
-    display: block;
-    padding: 20px;
-    white-space: pre-wrap;
-    font-size: 14px;
-    overflow-x: auto;
-  }
-
-  div.highlight pre {
-    background-color: initial;
-    color: initial;
-  }
-
-  div.highlight code {
-    background-color: unset;
-    color: unset;
-  }
-
-  blockquote {
-    border-left: 1px solid #999;
-    color: #222;
-    padding-left: 20px;
-    font-style: italic;
-  }
-
-  footer {
-    padding: 25px;
-    text-align: center;
-  }
-
-  .helptext {
-    color: #777;
-    font-size: small;
-  }
-
-  .errorlist {
-    color: #eba613;
-    font-size: small;
-  }
-
-   
-  ul.blog-posts {
-    list-style-type: none;
-    padding: unset;
-  }
-
-  ul.blog-posts li {
-    display: flex;
-  }
-
-  ul.blog-posts li span {
-    flex: 0 0 130px;
-  }
-
-  ul.blog-posts li a:visited {
-    color: #8b6fcb;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    body {
-      background-color: #333;
-      color: #ddd;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    strong,
-    b {
-      color: #eee;
-    }
-
-    a {
-      color: #8cc2dd;
-    }
-
-    code {
-      background-color: #777;
-    }
-
-    pre code {
-      color: #ddd;
-    }
-
-    blockquote {
-      color: #ccc;
-    }
-
-    textarea,
-    input {
-      background-color: #252525;
-      color: #ddd;
-    }
-
-    .helptext {
-      color: #aaa;
-    }
-  }
-
-</style>
-
-</head>
-
-<body>
-  <header><a href="/" class="title">
-  <h2>Le Baron de Charlus</h2>
-</a>
-<nav><a href="/">Home</a>
-
-<a href="/posts/">Posts</a>
-
-<a href="https://instagram.com/le_baron_photography">Photography</a>
-
-<a href="/cv">CV</a>
-
-<a href="/index.xml"></a>
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu2313318429472854461.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🏠</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Le Baron de Charlus</a></h1>
+            <h2 class="site-description">Lead SRE - Unix Professor</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='/cv'
+                        target="_blank"
+                        title="CV"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
 
 
-</nav>
-</header>
-  <main>
-<content>
-  
-  <ul class="blog-posts">
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/lebarondecharlus'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://instagram.com/le_baron_photography'
+                        target="_blank"
+                        title="Instagram"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M16.5 7.5v.01" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.linkedin.com/in/barondecharlus/'
+                        target="_blank"
+                        title="LinkedIn"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li  class='current' >
+            <a href='/posts/' >
+                
+                
+                
+                <span>Posts</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='https://instagram.com/le_baron_photography' >
+                
+                
+                
+                <span>Photography</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/cv' >
+                
+                
+                
+                <span>CV</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/index.xml' >
+                
+                
+                
+                <span></span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                <section class="widget tagCloud">
+    <div class="widget-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+    </div>
+    <h2 class="widget-title section-title">Categories</h2>
+
+    <div class="tagCloud-tags">
+        
+    </div>
+</section>
+
+            
+        
+            
+                <section class="widget tagCloud">
+    <div class="widget-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11 3L20 12a1.5 1.5 0 0 1 0 2L14 20a1.5 1.5 0 0 1 -2 0L3 11v-4a4 4 0 0 1 4 -4h4" />
+  <circle cx="9" cy="9" r="2" />
+</svg>
+
+
+
+    </div>
+    <h2 class="widget-title section-title">Tags</h2>
+
+    <div class="tagCloud-tags">
+        
+            <a href="/tags/linux/" class="font_size_11">
+                Linux
+            </a>
+        
+            <a href="/tags/ovh/" class="font_size_7">
+                Ovh
+            </a>
+        
+            <a href="/tags/bash/" class="font_size_3">
+                Bash
+            </a>
+        
+            <a href="/tags/python/" class="font_size_3">
+                Python
+            </a>
+        
+            <a href="/tags/shell/" class="font_size_3">
+                Shell
+            </a>
+        
+            <a href="/tags/dev/" class="font_size_2">
+                Dev
+            </a>
+        
+            <a href="/tags/disk/" class="font_size_2">
+                Disk
+            </a>
+        
+            <a href="/tags/docker/" class="font_size_2">
+                Docker
+            </a>
+        
+            <a href="/tags/monitoring/" class="font_size_2">
+                Monitoring
+            </a>
+        
+            <a href="/tags/proxmox/" class="font_size_2">
+                Proxmox
+            </a>
+        
+    </div>
+</section>
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <header>
+        <h3 class="section-title">
+            
+                Section
+            
+        </h3>
+
+        <div class="section-card">
+            <div class="section-details">
+                <h3 class="section-count">19 pages</h3>
+                <h1 class="section-term">Posts</h1>
+                
+            </div>
+        </div>
+    </header>
     
-    <li>
-      <span>
-        <i>
-          <time datetime='2023-08-09' pubdate>
-            09 Aug, 2023
-          </time>
-        </i>
-      </span>
-      <a href="https://lebaron.sh/posts/b-ugly-bitwarden-cli/">B, an ugly Bitwarden CLI</a>
-    </li>
-    
-    <li>
-      <span>
-        <i>
-          <time datetime='2022-07-12' pubdate>
-            12 Jul, 2022
-          </time>
-        </i>
-      </span>
-      <a href="https://lebaron.sh/posts/zellij-manage-your-sessions/">Manage your Zellij sessions</a>
-    </li>
-    
-    <li>
-      <span>
-        <i>
-          <time datetime='2022-06-25' pubdate>
-            25 Jun, 2022
-          </time>
-        </i>
-      </span>
-      <a href="https://lebaron.sh/posts/shloader-modern-shell-loader/">Shloader - A Modern Shell Loader</a>
-    </li>
-    
-    <li>
-      <span>
-        <i>
-          <time datetime='2022-06-10' pubdate>
-            10 Jun, 2022
-          </time>
-        </i>
-      </span>
-      <a href="https://lebaron.sh/posts/ultimate-python-development-environment-configuration/">Ultimate Python development environment configuration</a>
-    </li>
-    
-    <li>
-      <span>
-        <i>
-          <time datetime='2020-07-20' pubdate>
-            20 Jul, 2020
-          </time>
-        </i>
-      </span>
-      <a href="https://lebaron.sh/posts/bring-your-own-image/">Bring Your Own Image</a>
-    </li>
-    
-    <li>
-      <span>
-        <i>
-          <time datetime='2020-01-10' pubdate>
-            10 Jan, 2020
-          </time>
-        </i>
-      </span>
-      <a href="https://lebaron.sh/posts/randomwallpaper-on-awesomewm/">Random wallpaper with AwesomeWM !</a>
-    </li>
-    
-    <li>
-      <span>
-        <i>
-          <time datetime='2018-03-04' pubdate>
-            04 Mar, 2018
-          </time>
-        </i>
-      </span>
-      <a href="https://lebaron.sh/posts/freebsd-pci-disk-space/">Freebsd Pci Disk Space</a>
-    </li>
-    
-    <li>
-      <span>
-        <i>
-          <time datetime='2018-03-04' pubdate>
-            04 Mar, 2018
-          </time>
-        </i>
-      </span>
-      <a href="https://lebaron.sh/posts/ubuntu-vrack-ovh-fix/">Ubuntu Vrack Ovh Fix</a>
-    </li>
-    
-    <li>
-      <span>
-        <i>
-          <time datetime='2017-08-18' pubdate>
-            18 Aug, 2017
-          </time>
-        </i>
-      </span>
-      <a href="https://lebaron.sh/posts/script-restart-services/">Script restart services</a>
-    </li>
-    
-    <li>
-      <span>
-        <i>
-          <time datetime='2017-08-10' pubdate>
-            10 Aug, 2017
-          </time>
-        </i>
-      </span>
-      <a href="https://lebaron.sh/posts/gitlab-registry-kubernetes/">Add Gitlab Registry in Kubernetes</a>
-    </li>
-    
-    <li>
-      <span>
-        <i>
-          <time datetime='2017-08-08' pubdate>
-            08 Aug, 2017
-          </time>
-        </i>
-      </span>
-      <a href="https://lebaron.sh/posts/dockerise-nova/">Dockerize Nova client</a>
-    </li>
-    
-    <li>
-      <span>
-        <i>
-          <time datetime='2017-08-04' pubdate>
-            04 Aug, 2017
-          </time>
-        </i>
-      </span>
-      <a href="https://lebaron.sh/posts/cluster-rancher-public-cloud-ovh/">Setup Rancher cluster on OVH Public Cloud</a>
-    </li>
-    
-    <li>
-      <span>
-        <i>
-          <time datetime='2017-08-02' pubdate>
-            02 Aug, 2017
-          </time>
-        </i>
-      </span>
-      <a href="https://lebaron.sh/posts/little-web-monitoring/">Little Web Monitoring</a>
-    </li>
-    
-    <li>
-      <span>
-        <i>
-          <time datetime='2017-08-01' pubdate>
-            01 Aug, 2017
-          </time>
-        </i>
-      </span>
-      <a href="https://lebaron.sh/posts/online-servers/">Online servers availability</a>
-    </li>
-    
-    <li>
-      <span>
-        <i>
-          <time datetime='2017-07-31' pubdate>
-            31 Jul, 2017
-          </time>
-        </i>
-      </span>
-      <a href="https://lebaron.sh/posts/migrate-openvz-to-lxc/">Migrate Openvz To Lxc</a>
-    </li>
-    
-    <li>
-      <span>
-        <i>
-          <time datetime='2017-07-31' pubdate>
-            31 Jul, 2017
-          </time>
-        </i>
-      </span>
-      <a href="https://lebaron.sh/posts/additional-volume-pci/">Additional Volume Public Cloud Ovh</a>
-    </li>
-    
-    <li>
-      <span>
-        <i>
-          <time datetime='2017-07-30' pubdate>
-            30 Jul, 2017
-          </time>
-        </i>
-      </span>
-      <a href="https://lebaron.sh/posts/galera-monitoring/">Galera Monitoring</a>
-    </li>
-    
-    <li>
-      <span>
-        <i>
-          <time datetime='2017-07-30' pubdate>
-            30 Jul, 2017
-          </time>
-        </i>
-      </span>
-      <a href="https://lebaron.sh/posts/update-templates-proxmox/">Update Proxmox templates</a>
-    </li>
-    
-    <li>
-      <span>
-        <i>
-          <time datetime='2017-07-30' pubdate>
-            30 Jul, 2017
-          </time>
-        </i>
-      </span>
-      <a href="https://lebaron.sh/posts/event-watcher-manager-python3/">Event Watcher Manager Python3</a>
-    </li>
-    
-  </ul>
-  
-    <small>
-      <div>
+    <section class="article-list--compact">
         
-        <a href="https://lebaron.sh/tags/awesomewm/">#Awesomewm</a>&nbsp;
+            <article>
+    <a href="/posts/b-ugly-bitwarden-cli/">
+        <div class="article-details">
+            <h2 class="article-title">B, an ugly Bitwarden CLI</h2>
+            <footer class="article-time">
+                <time datetime='2023-08-09T13:10:42&#43;02:00'>Aug 09, 2023</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                
+                    <img src="/images/b.png" loading="lazy" alt="Featured image of post B, an ugly Bitwarden CLI" />
+                
+            </div>
         
-        <a href="https://lebaron.sh/tags/baremetal/">#Baremetal</a>&nbsp;
+    </a>
+</article>
         
-        <a href="https://lebaron.sh/tags/bash/">#Bash</a>&nbsp;
+            <article>
+    <a href="/posts/zellij-manage-your-sessions/">
+        <div class="article-details">
+            <h2 class="article-title">Manage your Zellij sessions</h2>
+            <footer class="article-time">
+                <time datetime='2022-07-12T12:22:42&#43;02:00'>Jul 12, 2022</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                
+                    <img src="/images/zellij.png" loading="lazy" alt="Featured image of post Manage your Zellij sessions" />
+                
+            </div>
         
-        <a href="https://lebaron.sh/tags/bitwarden/">#Bitwarden</a>&nbsp;
+    </a>
+</article>
         
-        <a href="https://lebaron.sh/tags/bug/">#Bug</a>&nbsp;
+            <article>
+    <a href="/posts/shloader-modern-shell-loader/">
+        <div class="article-details">
+            <h2 class="article-title">Shloader - A Modern Shell Loader</h2>
+            <footer class="article-time">
+                <time datetime='2022-06-25T18:03:17&#43;02:00'>Jun 25, 2022</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                
+                    <img src="/images/shloader.png" loading="lazy" alt="Featured image of post Shloader - A Modern Shell Loader" />
+                
+            </div>
         
-        <a href="https://lebaron.sh/tags/cattle/">#Cattle</a>&nbsp;
+    </a>
+</article>
         
-        <a href="https://lebaron.sh/tags/cli/">#Cli</a>&nbsp;
+            <article>
+    <a href="/posts/ultimate-python-development-environment-configuration/">
+        <div class="article-details">
+            <h2 class="article-title">Ultimate Python development environment configuration</h2>
+            <footer class="article-time">
+                <time datetime='2022-06-10T08:12:12&#43;02:00'>Jun 10, 2022</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                
+                    <img src="/images/ultimate-python.png" loading="lazy" alt="Featured image of post Ultimate Python development environment configuration" />
+                
+            </div>
         
-        <a href="https://lebaron.sh/tags/cloud/">#Cloud</a>&nbsp;
+    </a>
+</article>
         
-        <a href="https://lebaron.sh/tags/dev/">#Dev</a>&nbsp;
+            <article>
+    <a href="/posts/bring-your-own-image/">
+        <div class="article-details">
+            <h2 class="article-title">Bring Your Own Image</h2>
+            <footer class="article-time">
+                <time datetime='2020-07-20T12:00:00Z'>Jul 20, 2020</time>
+            </footer>
+        </div>
+    </a>
+</article>
         
-        <a href="https://lebaron.sh/tags/direnv/">#Direnv</a>&nbsp;
+    </section>
+    <nav class='pagination'>
         
-        <a href="https://lebaron.sh/tags/disk/">#Disk</a>&nbsp;
         
-        <a href="https://lebaron.sh/tags/docker/">#Docker</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/freebsd/">#Freebsd</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/galera/">#Galera</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/gitlab/">#Gitlab</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/golang/">#Golang</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/gpg/">#Gpg</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/kubernetes/">#Kubernetes</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/linux/">#Linux</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/loader/">#Loader</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/lxc/">#LXC</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/monitoring/">#Monitoring</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/nova/">#Nova</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/online/">#Online</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/openstack/">#Openstack</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/openvz/">#OpenVZ</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/ovh/">#Ovh</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/pass/">#Pass</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/pci/">#Pci</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/poetry/">#Poetry</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/programming/">#Programming</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/proxmox/">#Proxmox</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/publicloud/">#Publicloud</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/pyenv/">#Pyenv</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/pyinotify/">#Pyinotify</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/python/">#Python</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/rancher/">#Rancher</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/random/">#Random</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/registry/">#Registry</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/script/">#Script</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/secrets/">#Secrets</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/serveur/">#Serveur</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/sessions/">#Sessions</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/shell/">#Shell</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/templates/">#Templates</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/tomb/">#Tomb</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/vrack/">#Vrack</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/wallpaper/">#Wallpaper</a>&nbsp;
-        
-        <a href="https://lebaron.sh/tags/zellij/">#Zellij</a>&nbsp;
-        
-      </div>
-    </small>
-    
-</content>
 
-  </main>
-  <footer><a href="https://lebaron.sh">© lebaron.sh</a>
+        
+            
+                <span class='page-link current'>1</span>
+                
+            
+            
+                    <a class='page-link' href='/posts/page/2/'>2</a>
+                
+            
+            
+                    
+                        
+                        <span class='page-link dots'>&hellip;</span>
+                    
+                
+            
+            
+                    <a class='page-link' href='/posts/page/4/'>4</a>
+                
+            
+    </nav>
+
+<footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2017 - 
+        
+        2024 Le Baron de Charlus
+    </section>
+    
+    <section class="powerby">
+         <br />
+        
+    </section>
 </footer>
 
-    
-</body>
 
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.85c5a97e7f8e9b98f6ecdcd1ed140958c47c1fed2f019dc256932afb4488b31f.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
 </html>

@@ -1,27 +1,76 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Monitoring on Le Baron de Charlus</title>
-    <link>https://lebaron.sh/tags/monitoring/</link>
-    <description>Recent content in Monitoring on Le Baron de Charlus</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>© Le Baron de Charlus</copyright>
-    <lastBuildDate>Wed, 02 Aug 2017 08:22:16 +0000</lastBuildDate>
-    <atom:link href="https://lebaron.sh/tags/monitoring/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Little Web Monitoring</title>
-      <link>https://lebaron.sh/posts/little-web-monitoring/</link>
-      <pubDate>Wed, 02 Aug 2017 08:22:16 +0000</pubDate>
-      <guid>https://lebaron.sh/posts/little-web-monitoring/</guid>
-      <description>Sometimes making small OneJob services is efficient in terms of time, organization, functionality. In the example of this article, I will try to show how it can be relevant to write `microscripts&amp;rsquo; under this model.&#xA;Let&amp;rsquo;s say we want to make sure, for a given list of sites, that they all return 200 codes in less than 2s, in which case we&amp;rsquo;ll get a notification on Slack. The sources for these posts are available here.</description>
-    </item>
-    <item>
-      <title>Galera Monitoring</title>
-      <link>https://lebaron.sh/posts/galera-monitoring/</link>
-      <pubDate>Sun, 30 Jul 2017 15:08:41 +0000</pubDate>
-      <guid>https://lebaron.sh/posts/galera-monitoring/</guid>
-      <description>Monitoring a database in standalone mode is one thing, but when it comes to clustering, it&amp;rsquo;s a little more complex.&#xA;This is the case with Galera clustering (mariaDB/mysql). Zabbix (&amp;amp;co) offered me simple solutions for single database servers, but I didn&amp;rsquo;t find a really interesting template for monitoring a Galera cluster for production.&#xA;So several questions, what to monitor, how to alert, what&amp;rsquo;s the best method?&#xA;I based myself on the official Galera documentation to have all the important elements to monitor.</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Monitoring on Le Baron de Charlus</title><link>https://lebaron.sh/tags/monitoring/</link><description>Recent content in Monitoring on Le Baron de Charlus</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Le Baron de Charlus</copyright><lastBuildDate>Sun, 30 Jul 2017 15:08:41 +0000</lastBuildDate><atom:link href="https://lebaron.sh/tags/monitoring/index.xml" rel="self" type="application/rss+xml"/><item><title>Galera Monitoring</title><link>https://lebaron.sh/p/galera-monitoring/</link><pubDate>Sun, 30 Jul 2017 15:08:41 +0000</pubDate><guid>https://lebaron.sh/p/galera-monitoring/</guid><description>&lt;p>Monitoring a database in standalone mode is one thing, but when it comes to clustering, it&amp;rsquo;s a little more complex.&lt;/p>
+&lt;p>This is the case with Galera clustering (mariaDB/mysql). Zabbix (&amp;amp;co) offered me simple solutions for single database servers, but I didn&amp;rsquo;t find a really interesting template for monitoring a Galera cluster for production.&lt;/p>
+&lt;p>So several questions, what to monitor, how to alert, what&amp;rsquo;s the best method?&lt;/p>
+&lt;p>I based myself on &lt;a class="link" href="http://galeracluster.com/documentation-webpages/monitoringthecluster.html" target="_blank" rel="noopener"
+>the official Galera documentation&lt;/a> to have all the important elements to monitor.
+For the choice of the Golang language, it seemed to me that it provided me with the necessary functionalities.
+As for the choice of alerting, I decided to use a Slack App.&lt;/p>
+&lt;p>You can find the &lt;a class="link" href="https://github.com/lebarondecharlus/GaleraMonitoring" target="_blank" rel="noopener"
+>sources of my project here&lt;/a>.&lt;/p>
+&lt;p>Example of a healthy output :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">&amp;gt; go run main.go
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">### Version ####
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2017/06/16 14:19:48 Serveur n1 - version 5.6.35-1xenial
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2017/06/16 14:19:48 Serveur n2 - version 5.6.35-1xenial
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2017/06/16 14:19:48 Serveur n3 - version 5.6.35-1xenial
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">### UUID ###
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2017/06/16 14:19:48 n1 a1c404a9-51b4-11e7-b057-237cc5970d38
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2017/06/16 14:19:48 n2 a1c404a9-51b4-11e7-b057-237cc5970d38
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2017/06/16 14:19:48 n3 a1c404a9-51b4-11e7-b057-237cc5970d38
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">### Nodes ###
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2017/06/16 14:19:48 Total Nodes : 3
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2017/06/16 14:19:48 Number of Nodes counts : 3
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2017/06/16 14:19:48 Number of Nodes counts : 3
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2017/06/16 14:19:48 Number of Nodes counts : 3
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">### STATUS ###
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2017/06/16 14:19:48 n1 status : Primary
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2017/06/16 14:19:48 n2 status : Primary
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2017/06/16 14:19:48 n3 status : Primary
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2017/06/16 14:19:48 n1 is ready : [ON]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2017/06/16 14:19:48 n2 is ready : [ON]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2017/06/16 14:19:48 n3 is ready : [ON]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2017/06/16 14:19:48 n1 is connected : [ON]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2017/06/16 14:19:48 n2 is connected : [ON]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2017/06/16 14:19:48 n3 is connected : [ON]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">### Average Replication ###
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2017/06/16 14:19:48 Average on n2 : 0.000000
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2017/06/16 14:19:48 Average on n3 : 0.000000
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2017/06/16 14:19:48 Average on n1 : 0.100000
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>You have to use the &lt;code>slackApp&lt;/code> package in which I placed an exposed function &lt;code>PayloadSlack()&lt;/code> to then customize your alerts.&lt;/p>
+&lt;p>The whole output is not displayed in the &lt;strong>STDOUT&lt;/strong> when it is healthy. Nevertheless you just have to uncomment the println in the &lt;code>main.go&lt;/code> to be able to perform your tests.&lt;/p></description></item></channel></rss>

@@ -1,20 +1,92 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Random on Le Baron de Charlus</title>
-    <link>https://lebaron.sh/tags/random/</link>
-    <description>Recent content in Random on Le Baron de Charlus</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>© Le Baron de Charlus</copyright>
-    <lastBuildDate>Fri, 10 Jan 2020 11:10:33 +0000</lastBuildDate>
-    <atom:link href="https://lebaron.sh/tags/random/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Random wallpaper with AwesomeWM !</title>
-      <link>https://lebaron.sh/posts/randomwallpaper-on-awesomewm/</link>
-      <pubDate>Fri, 10 Jan 2020 11:10:33 +0000</pubDate>
-      <guid>https://lebaron.sh/posts/randomwallpaper-on-awesomewm/</guid>
-      <description>I&amp;rsquo;ve been looking for a way to break my routine a bit when I&amp;rsquo;m working on my laptop. I figured that changing the wallpaper randomly and automatically was a good way to break the monotony.&#xA;I use awesomeWM (version 4)&#xA;[f00b@void ~]$ awesome --version awesome v4.3 (Too long) • Compiled against Lua 5.3.5 (running with Lua 5.3) • D-Bus support: ✔ • execinfo support: ✘ • xcb-randr version: 1.6 • LGI version: 0.</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Random on Le Baron de Charlus</title><link>https://lebaron.sh/tags/random/</link><description>Recent content in Random on Le Baron de Charlus</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Le Baron de Charlus</copyright><lastBuildDate>Fri, 10 Jan 2020 11:10:33 +0000</lastBuildDate><atom:link href="https://lebaron.sh/tags/random/index.xml" rel="self" type="application/rss+xml"/><item><title>Random wallpaper with AwesomeWM !</title><link>https://lebaron.sh/p/random-wallpaper-with-awesomewm/</link><pubDate>Fri, 10 Jan 2020 11:10:33 +0000</pubDate><guid>https://lebaron.sh/p/random-wallpaper-with-awesomewm/</guid><description>&lt;p>I&amp;rsquo;ve been looking for a way to break my routine a bit when I&amp;rsquo;m working on my laptop. I figured that changing the wallpaper randomly and automatically was a good way to break the monotony.&lt;/p>
+&lt;p>I use awesomeWM (version 4)&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">[f00b@void ~]$ awesome --version
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">awesome v4.3 (Too long)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> • Compiled against Lua 5.3.5 (running with Lua 5.3)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> • D-Bus support: ✔
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> • execinfo support: ✘
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> • xcb-randr version: 1.6
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> • LGI version: 0.9.2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>So I needed three things:&lt;/p>
+&lt;ul>
+&lt;li>A folder full of images&lt;/li>
+&lt;li>A little script that will choose one at random&lt;/li>
+&lt;li>A call to this script from awesome init&lt;/li>
+&lt;/ul>
+&lt;p>For the images, I use &lt;a class="link" href="https://github.com/LukeSmithxyz/wallpapers" target="_blank" rel="noopener"
+>the excellent repo&lt;/a> by &lt;strong>Luck Smith&lt;/strong>.&lt;/p>
+&lt;p>As far as the script is concerned, nothing too hard:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#!/bin/bash
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>&lt;span class="c1"># author : lebarondecharlus&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># descr : Make your wallpaper change on each start !&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># I&amp;#39;m using Luck Smith wallpaper git repo for all images&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># link : https://github.com/LukeSmithxyz/wallpapers&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># current awesome theme&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">THEME&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;powerarrow-dark&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Awesome conf path&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">AWPATH&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$HOME&lt;/span>&lt;span class="s2">/.config/awesome/themes/&lt;/span>&lt;span class="nv">$THEME&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># image should have absolute path to image folder&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">IMAGE&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">$(&lt;/span>find &lt;span class="nv">$HOME&lt;/span>/Pictures/wallpapers/ -type f -name &lt;span class="s2">&amp;#34;*.png&amp;#34;&lt;/span> -o -name &lt;span class="s2">&amp;#34;*.jpeg&amp;#34;&lt;/span> -o -name &lt;span class="s2">&amp;#34;*.jpg&amp;#34;&lt;/span>&lt;span class="p">|&lt;/span> shuf -n &lt;span class="m">1&lt;/span> &lt;span class="p">|&lt;/span> sed &lt;span class="s1">&amp;#39;s/\ /\\ /g&amp;#39;&lt;/span>&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cp -f &lt;span class="nv">$IMAGE&lt;/span> &lt;span class="nv">$AWPATH&lt;/span>/wall.png
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># don&amp;#39;t forget to add those lines at the end of your rc.lua (replace with your correct path and script name)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># -- Startup programs&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># awful.util.spawn_with_shell(&amp;#34;~/bin/wallpaper.sh&amp;#34;)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>As indicated in comment, just add these two lines (or just one without the comment) to call the script via awesomeWM init.&lt;/p>
+&lt;p>Put this at the end of &lt;code>~/.config/awesome/rc.lua&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">-- Startup programs
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">awful.util.spawn_with_shell(&amp;#34;~/bin/wallpaper.sh&amp;#34;)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>On each awesomewm restart, you will have a new pretty (or not) wallpaper.&lt;/p>
+&lt;p>&lt;a class="link" href="https://gist.github.com/lebarondecharlus/785796c5e4e37a4d759f0f8c89c41f0e" target="_blank" rel="noopener"
+>Script is on gist !&lt;/a>&lt;/p></description></item></channel></rss>

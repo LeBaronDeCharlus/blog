@@ -1,20 +1,179 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Rancher on Le Baron de Charlus</title>
-    <link>https://lebaron.sh/tags/rancher/</link>
-    <description>Recent content in Rancher on Le Baron de Charlus</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>© Le Baron de Charlus</copyright>
-    <lastBuildDate>Fri, 04 Aug 2017 19:04:11 +0000</lastBuildDate>
-    <atom:link href="https://lebaron.sh/tags/rancher/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Setup Rancher cluster on OVH Public Cloud</title>
-      <link>https://lebaron.sh/posts/cluster-rancher-public-cloud-ovh/</link>
-      <pubDate>Fri, 04 Aug 2017 19:04:11 +0000</pubDate>
-      <guid>https://lebaron.sh/posts/cluster-rancher-public-cloud-ovh/</guid>
-      <description>The world of hosting is changing, and so is the world of application development. Today we are turning less and less to dedicated hosting for a single application, but more to build the infrastructure that will support it.&#xA;In this sense, we prefer to use an Iaas solution on dedicated &amp;ldquo;bare metal&amp;rdquo; for our application overlay than pure &amp;ldquo;bare metal&amp;rdquo; per service.&#xA;Application deployment missions pushed by developers must fit with the technology and logic of production.</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Rancher on Le Baron de Charlus</title><link>https://lebaron.sh/tags/rancher/</link><description>Recent content in Rancher on Le Baron de Charlus</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Le Baron de Charlus</copyright><lastBuildDate>Fri, 04 Aug 2017 19:04:11 +0000</lastBuildDate><atom:link href="https://lebaron.sh/tags/rancher/index.xml" rel="self" type="application/rss+xml"/><item><title>Setup Rancher cluster on OVH Public Cloud</title><link>https://lebaron.sh/p/setup-rancher-cluster-on-ovh-public-cloud/</link><pubDate>Fri, 04 Aug 2017 19:04:11 +0000</pubDate><guid>https://lebaron.sh/p/setup-rancher-cluster-on-ovh-public-cloud/</guid><description>&lt;p>&lt;img src="https://lebaron.sh/Images/rancher_logo.jpeg"
+loading="lazy"
+alt="Rancher logo"
+>&lt;/p>
+&lt;p>The world of hosting is changing, and so is the world of application development. Today we are turning less and less to dedicated hosting for a single application, but more to build the infrastructure that will support it.&lt;/p>
+&lt;p>In this sense, we prefer to use an Iaas solution on dedicated &amp;ldquo;bare metal&amp;rdquo; for our application overlay than pure &amp;ldquo;bare metal&amp;rdquo; per service.&lt;/p>
+&lt;p>Application deployment missions pushed by developers must fit with the technology and logic of production. Which &lt;code>pipelines&lt;/code> should we use for our &lt;code>CI&lt;/code>, &lt;code>CD&lt;/code> ?&lt;/p>
+&lt;p>This post will not aim at answering the question of the pipelines to be implemented, it will be a question of &lt;code>Ranching&lt;/code>, coupled with its &lt;code>Cattle&lt;/code> orchestrator, on Public Cloud OVH &lt;code>Openstack&lt;/code>.&lt;/p>
+&lt;h3 id="installation-">Installation :
+&lt;/h3>&lt;p>The installation of &lt;code>PCI&lt;/code> (Public Cloud) instances is the fastest step. We need to start with 5 instances:&lt;/p>
+&lt;ul>
+&lt;li>1 LoadBalancer/ReverseProxy (&lt;code>HA-Proxy&lt;/code> or &lt;code>Nginx&lt;/code>) for €299&lt;/li>
+&lt;li>3 RancherServer in Cluster under &lt;code>Galera&lt;/code> at 5€99&lt;/li>
+&lt;li>1 Node Worker (for our applications) at the price you want to put for your performance&lt;/li>
+&lt;/ul>
+&lt;br>
+#### LoadBalancer Nginx :
+&lt;p>For Nginx installation, nothing very complex, a €2.99 instance will be more than enough since the only job of the server will be to forward the request to our rancher cluster.&lt;/p>
+&lt;p>The conf file will be :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">upstream rancher {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> server rancher-server1:8080;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> server rancher-server2:8080;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> server rancher-server3:8080;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">map $http_upgrade $connection_upgrade {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> default Upgrade;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#39;&amp;#39; close;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">server {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> listen 443 ssl spdy;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> server_name &amp;lt;server&amp;gt;;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ssl_certificate &amp;lt;cert_file&amp;gt;;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ssl_certificate_key &amp;lt;key_file&amp;gt;;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> location / {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> proxy_set_header Host $host;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> proxy_set_header X-Forwarded-Proto $scheme;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> proxy_set_header X-Forwarded-Port $server_port;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> proxy_pass http://rancher;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> proxy_http_version 1.1;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> proxy_set_header Upgrade $http_upgrade;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> proxy_set_header Connection $connection_upgrade;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> proxy_read_timeout 900s;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> }
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">server {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> listen 80;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> server_name &amp;lt;server&amp;gt;;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> return 301 https://$server_name$request_uri;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Replace the &lt;code>upstream&lt;/code> by the ips of your servers.&lt;/p>
+&lt;p>Note that it is also possible to dockerize this service. This way, the day you put a second LB on the front end, there will only be one container to place on your instance.&lt;/p>
+&lt;h4 id="rancher-installation-">Rancher installation :
+&lt;/h4>&lt;p>For Rancher part, there are no great difficulties either. 5€99 instances will be more than enough for the needs.&lt;/p>
+&lt;p>I recommend the &lt;a class="link" href="http://rancher.com/docs/rancher/v1.0/en/installing-rancher/installing-server/multi-nodes/" target="_blank" rel="noopener"
+>official Rancher documentation&lt;/a> on this subject.&lt;/p>
+&lt;p>We will start by deploying on each Rancher server:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sudo docker run -d --restart=unless-stopped -p 8080:8080 rancher/server
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Then we will add the servers to each other via the UI. (Infrastructure &amp;gt; Hosts &amp;gt; Add Host)&lt;/p>
+&lt;p>You should get the following code to run on each node :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-gdscript3" data-lang="gdscript3">&lt;span class="line">&lt;span class="cl">&lt;span class="n">sudo&lt;/span> &lt;span class="n">docker&lt;/span> &lt;span class="n">run&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">e&lt;/span> &lt;span class="n">CATTLE_AGENT_IP&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;1.2.3.4&amp;#34;&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">e&lt;/span> &lt;span class="n">CATTLE_HOST_LABELS&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;galera=true&amp;#39;&lt;/span> &lt;span class="o">--&lt;/span>&lt;span class="n">rm&lt;/span> &lt;span class="o">--&lt;/span>&lt;span class="n">privileged&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">v&lt;/span> &lt;span class="o">/&lt;/span>&lt;span class="k">var&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">run&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">docker&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">sock&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="k">var&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">run&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">docker&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">sock&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">v&lt;/span> &lt;span class="o">/&lt;/span>&lt;span class="k">var&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">lib&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">rancher&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="k">var&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">lib&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">rancher&lt;/span> &lt;span class="n">rancher&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">agent&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="n">v1&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="mf">2.5&lt;/span> &lt;span class="n">http&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="o">//&lt;/span>&lt;span class="mf">1.2&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="mf">3.4&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">8080&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">v1&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">scripts&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="mi">4956918455&lt;/span>&lt;span class="n">D4D9BE3AF1&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">1483142400000&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="n">Fscj9CvRSrx0mS05E4kdWDkb0E&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Once this step is done, it will then be possible to use the &lt;code>Galera&lt;/code> image proposed by Rancher (in the catalog) on our 3 servers.
+A node will then be present on each server.&lt;/p>
+&lt;p>We will be able to initialize the cluster on a Galera node:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">&amp;gt; CREATE DATABASE IF NOT EXISTS cattle COLLATE = &amp;#39;utf8_general_ci&amp;#39; CHARACTER SET = &amp;#39;utf8&amp;#39;;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; GRANT ALL ON cattle.* TO &amp;#39;cattle&amp;#39;@&amp;#39;%&amp;#39; IDENTIFIED BY &amp;#39;cattle&amp;#39;;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; GRANT ALL ON cattle.* TO &amp;#39;cattle&amp;#39;@&amp;#39;localhost&amp;#39; IDENTIFIED BY &amp;#39;cattle&amp;#39;;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Then check on the other two servers that the basic entries are also present.&lt;/p>
+&lt;p>Then let&amp;rsquo;s stop one Rancher server and start it using Galera for persistence of its data :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sudo docker run -d --restart=unless-stopped -p 8080:8080 rancher/server \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> --db-host myhost.example.com --db-port 3306 --db-user username --db-pass password --db-name cattle
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Where :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">--db-host IP du serveur MySQL
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--db-port port du serveur MySQL (default: 3306)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--db-user username MySQL login (default: cattle)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--db-pass password MySQL login (default: cattle)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--db-name nom de la base MySQL (default: cattle)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Do the same for the other two servers so each Rancher launches using the Galera database.&lt;/p>
+&lt;p>Expected result:
+&lt;img src="https://lebaron.sh/Images/RancherGalera.png"
+loading="lazy"
+alt="Galera Rancher"
+>&lt;/p>
+&lt;p>It is possible to check if Rancher is &lt;code>clustered&lt;/code> via the UI in: Admin &amp;gt; High Availability.&lt;/p>
+&lt;h4 id="addition-of-worker-nodes">Addition of Worker Nodes.
+&lt;/h4>&lt;p>You now have your &lt;code>Rancher&lt;/code> cluster with a front-end LB, it is now possible to add &lt;code>Worker&lt;/code> nodes to your cluster.
+It&amp;rsquo;s very easy to add them directly with the Rancher utility. Now it&amp;rsquo;s up to you to see which type of instance best suits your resource needs.&lt;/p>
+&lt;p>Rancher&amp;rsquo;s default environment uses the &lt;code>Cattle' orchestrator, so once your Workers nodes are configured, you can deploy your &lt;/code>Docker&amp;rsquo; containers directly from your cluster.&lt;/p>
+&lt;h3 id="conclusion">Conclusion
+&lt;/h3>&lt;p>The installation of a Rancher environment is fast, the Public Cloud OVH allows to quickly deploy the necessary instances of Rancher.
+The ease of use offered by the Rancher/Cattle duo allows an efficient and fluid commissioning.&lt;/p>
+&lt;p>We will see in a next article how to set up an HA environment with &lt;code>Kubernetes&lt;/code>, still under the OVH PCI and using the environment template proposed by Rancher.&lt;/p></description></item></channel></rss>

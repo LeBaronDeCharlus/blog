@@ -1,90 +1,823 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Linux on Le Baron de Charlus</title>
-    <link>https://lebaron.sh/tags/linux/</link>
-    <description>Recent content in Linux on Le Baron de Charlus</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>© Le Baron de Charlus</copyright>
-    <lastBuildDate>Mon, 20 Jul 2020 12:00:00 +0000</lastBuildDate>
-    <atom:link href="https://lebaron.sh/tags/linux/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Bring Your Own Image</title>
-      <link>https://lebaron.sh/posts/bring-your-own-image/</link>
-      <pubDate>Mon, 20 Jul 2020 12:00:00 +0000</pubDate>
-      <guid>https://lebaron.sh/posts/bring-your-own-image/</guid>
-      <description>When I was working at OVHCloud company, I&amp;rsquo;ve developed a feature called BYOI (Bring Your Own Image).&#xA;Bring Your Own Image technology allows you to boot any cloud (or not) images on a baremetal.&#xA;Even if today not all editors are ready to provide completely agnostic images (and I mean UEFI ready and/or legacy boot), by triturating (packer) a bit the whole, we can have something functional.&#xA;This mark the first step towards the Hybrid IAC.</description>
-    </item>
-    <item>
-      <title>Random wallpaper with AwesomeWM !</title>
-      <link>https://lebaron.sh/posts/randomwallpaper-on-awesomewm/</link>
-      <pubDate>Fri, 10 Jan 2020 11:10:33 +0000</pubDate>
-      <guid>https://lebaron.sh/posts/randomwallpaper-on-awesomewm/</guid>
-      <description>I&amp;rsquo;ve been looking for a way to break my routine a bit when I&amp;rsquo;m working on my laptop. I figured that changing the wallpaper randomly and automatically was a good way to break the monotony.&#xA;I use awesomeWM (version 4)&#xA;[f00b@void ~]$ awesome --version awesome v4.3 (Too long) • Compiled against Lua 5.3.5 (running with Lua 5.3) • D-Bus support: ✔ • execinfo support: ✘ • xcb-randr version: 1.6 • LGI version: 0.</description>
-    </item>
-    <item>
-      <title>Ubuntu Vrack Ovh Fix</title>
-      <link>https://lebaron.sh/posts/ubuntu-vrack-ovh-fix/</link>
-      <pubDate>Sun, 04 Mar 2018 14:41:25 +0000</pubDate>
-      <guid>https://lebaron.sh/posts/ubuntu-vrack-ovh-fix/</guid>
-      <description>You may have noticed it, but when you populate a PCI OVH instance under Ubuntu by activating Vrack, your Vm does not have its private IP at boot time. So, yes, I don&amp;rsquo;t like Ubuntu, but sometimes you don&amp;rsquo;t have a choice.&#xA;Anyway, all this to say that we don&amp;rsquo;t have our private IP and it&amp;rsquo;s too sad. (RT)&#xA;The fix trick is stupid. Very stupid.&#xA;Add:&#xA;allow-hotplug ens4 iface ens4 inet dhcp In /etc/network/interface file.</description>
-    </item>
-    <item>
-      <title>Script restart services</title>
-      <link>https://lebaron.sh/posts/script-restart-services/</link>
-      <pubDate>Fri, 18 Aug 2017 22:29:53 +0200</pubDate>
-      <guid>https://lebaron.sh/posts/script-restart-services/</guid>
-      <description>Sometimes, we find ourselves having to pilote infrastructures services supported by panels managements and &amp;hellip; between us, I have a holy horror of Plesk, Cpanel, Ispconfig, Webmin &amp;hellip; Especially when under certain circumstances some components are falling down. It&amp;rsquo;s often badly done and messy that it&amp;rsquo;s difficult to find your way around. Between abobinable logs management (yes, I already found php logs in syslog), a non-existent server optimization&amp;hellip; well I stop here because it is not the purpose of this post.</description>
-    </item>
-    <item>
-      <title>Setup Rancher cluster on OVH Public Cloud</title>
-      <link>https://lebaron.sh/posts/cluster-rancher-public-cloud-ovh/</link>
-      <pubDate>Fri, 04 Aug 2017 19:04:11 +0000</pubDate>
-      <guid>https://lebaron.sh/posts/cluster-rancher-public-cloud-ovh/</guid>
-      <description>The world of hosting is changing, and so is the world of application development. Today we are turning less and less to dedicated hosting for a single application, but more to build the infrastructure that will support it.&#xA;In this sense, we prefer to use an Iaas solution on dedicated &amp;ldquo;bare metal&amp;rdquo; for our application overlay than pure &amp;ldquo;bare metal&amp;rdquo; per service.&#xA;Application deployment missions pushed by developers must fit with the technology and logic of production.</description>
-    </item>
-    <item>
-      <title>Online servers availability</title>
-      <link>https://lebaron.sh/posts/online-servers/</link>
-      <pubDate>Tue, 01 Aug 2017 09:40:07 +0000</pubDate>
-      <guid>https://lebaron.sh/posts/online-servers/</guid>
-      <description>We need servers at Online, but there is no availability! So they came to ask me if I didn&amp;rsquo;t have a magic solution&amp;hellip;&#xA;A little bash&amp;hellip; a notify in this case Slack and here we go!&#xA;As usual sources are available.&#xA;Dirty way *To be alerted via slack you have to create an incoming-webhook which will generate a link.&#xA;For an XC 2016 series server:&#xA;text=&amp;quot;DISPO : https://www.online.net/fr/serveur-dedie/dedibox-xc&amp;quot;; json=&amp;quot;{\&amp;quot;channel\&amp;quot;: \&amp;quot;#infra\&amp;quot;, \&amp;quot;text\&amp;quot;: \&amp;quot;$text\&amp;quot;}&amp;quot; ; while true ; do curl --silent https://www.</description>
-    </item>
-    <item>
-      <title>Migrate Openvz To Lxc</title>
-      <link>https://lebaron.sh/posts/migrate-openvz-to-lxc/</link>
-      <pubDate>Mon, 31 Jul 2017 18:15:50 +0000</pubDate>
-      <guid>https://lebaron.sh/posts/migrate-openvz-to-lxc/</guid>
-      <description>I recently had to migrate containers from a proxmox3 (under OpenVZ) to a proxmox4 (under LXC).&#xA;Problem, there are a lot of containers to migrate/&amp;ldquo;convert&amp;rdquo; to run under LXC. So I needed a way to automate the procedure as much as possible.&#xA;Luckily, the migration documentation is very well detailed. So I used it to &amp;ldquo;bash&amp;rdquo; the operation.&#xA;You can find all the sources on my github&#xA;I cut the operation under two scripts, an export script and an import script.</description>
-    </item>
-    <item>
-      <title>Additional Volume Public Cloud Ovh</title>
-      <link>https://lebaron.sh/posts/additional-volume-pci/</link>
-      <pubDate>Mon, 31 Jul 2017 11:38:18 +0000</pubDate>
-      <guid>https://lebaron.sh/posts/additional-volume-pci/</guid>
-      <description>To add an additional disk/volume on your OVH public cloud, you need to follow some steps.&#xA;First, identify your new disk :&#xA;fdisk -l You can have different output depending of your system (sd{x}, vd{x}).&#xA;Then create a new partition :&#xA;# parted /dev/{{disk}} mktable gpt mkpart primary ext4 512 100% quit Format it :&#xA;mkfs -t ext4 -L rootfs /dev/{{disk}}1 Mount :&#xA;mount /dev/{{disk}}1 /mnt Let’s make it peristent, we need UUID.</description>
-    </item>
-    <item>
-      <title>Additional Volume Public Cloud Ovh</title>
-      <link>https://lebaron.sh/projects/hello/</link>
-      <pubDate>Mon, 31 Jul 2017 11:38:18 +0000</pubDate>
-      <guid>https://lebaron.sh/projects/hello/</guid>
-      <description>To add an additional disk/volume on your OVH public cloud, you need to follow some steps.&#xA;First, identify your new disk :&#xA;fdisk -l You can have different output depending of your system (sd{x}, vd{x}).&#xA;Then create a new partition :&#xA;# parted /dev/{{disk}} mktable gpt mkpart primary ext4 512 100% quit Format it :&#xA;mkfs -t ext4 -L rootfs /dev/{{disk}}1 Mount :&#xA;mount /dev/{{disk}}1 /mnt Let’s make it peristent, we need UUID.</description>
-    </item>
-    <item>
-      <title>Update Proxmox templates</title>
-      <link>https://lebaron.sh/posts/update-templates-proxmox/</link>
-      <pubDate>Sun, 30 Jul 2017 14:53:16 +0000</pubDate>
-      <guid>https://lebaron.sh/posts/update-templates-proxmox/</guid>
-      <description>To automatically update the list of templates available via prox in your local space just use the following command:&#xA;pveam update I found it good to put it in cron once a week so as not to have too much space for minor versions.</description>
-    </item>
-    <item>
-      <title>Event Watcher Manager Python3</title>
-      <link>https://lebaron.sh/posts/event-watcher-manager-python3/</link>
-      <pubDate>Sun, 30 Jul 2017 12:53:16 +0000</pubDate>
-      <guid>https://lebaron.sh/posts/event-watcher-manager-python3/</guid>
-      <description>On one specific request, I had to work on the elaboration of an automating program reacting on SFTP users updates.&#xA;The main technical issue of this request is that the SFTP protocol does not have a logging system.&#xA;I had heard about the pyinotify library so I started working on it.&#xA;The project is presented in its primary mechanism, for more details, I invite you to read the sources.&#xA;Technical requests concerning the project Details of the context of realization : Details of the context of realization :.</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on Le Baron de Charlus</title><link>https://lebaron.sh/tags/linux/</link><description>Recent content in Linux on Le Baron de Charlus</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Le Baron de Charlus</copyright><lastBuildDate>Mon, 20 Jul 2020 12:00:00 +0000</lastBuildDate><atom:link href="https://lebaron.sh/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Bring Your Own Image</title><link>https://lebaron.sh/p/bring-your-own-image/</link><pubDate>Mon, 20 Jul 2020 12:00:00 +0000</pubDate><guid>https://lebaron.sh/p/bring-your-own-image/</guid><description>&lt;p>When I was working at &lt;strong>OVHCloud&lt;/strong> company, I&amp;rsquo;ve developed a feature called &lt;strong>BYOI&lt;/strong> (Bring Your Own Image).&lt;/p>
+&lt;p>&lt;strong>Bring Your Own Image&lt;/strong> technology allows you to boot any cloud (or not) images on a baremetal.&lt;/p>
+&lt;p>Even if today not all editors are ready to provide completely agnostic images (and I mean &lt;strong>UEFI&lt;/strong> ready and/or &lt;strong>legacy boot&lt;/strong>), by triturating (&lt;strong>packer&lt;/strong>) a bit the whole, we can have something functional.&lt;/p>
+&lt;p>This mark the first step towards the &lt;strong>Hybrid IAC&lt;/strong>.&lt;/p>
+&lt;p>&lt;a class="link" href="https://docs.ovh.com/gb/en/dedicated/bringyourownimage/" target="_blank" rel="noopener"
+>The documentation is here&lt;/a>&lt;/p>
+&lt;p>&lt;strong>What does it really do?&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>API deployment (+automation)&lt;/li>
+&lt;li>post-install scripting (+automation)&lt;/li>
+&lt;li>transparent installation and system (+security)&lt;/li>
+&lt;li>template customization (+security)&lt;/li>
+&lt;li>nova boot custom (+tech)&lt;/li>
+&lt;/ul>
+&lt;p>A little warning, as I said above, not all images are ready to boot automatically yet, there are many bug-tracks opened on different editors because of unwanted behaviors at &lt;strong>boot time&lt;/strong>, &lt;strong>grub config&lt;/strong>, &lt;strong>init phase&lt;/strong> etc&lt;/p>
+&lt;p>If you see these errors via a &lt;strong>KVM/IPMI&lt;/strong>, it means that the installation went well, but the sticking point is not the deployment technology itself, but the image installed on the disks.&lt;/p></description></item><item><title>Random wallpaper with AwesomeWM !</title><link>https://lebaron.sh/p/random-wallpaper-with-awesomewm/</link><pubDate>Fri, 10 Jan 2020 11:10:33 +0000</pubDate><guid>https://lebaron.sh/p/random-wallpaper-with-awesomewm/</guid><description>&lt;p>I&amp;rsquo;ve been looking for a way to break my routine a bit when I&amp;rsquo;m working on my laptop. I figured that changing the wallpaper randomly and automatically was a good way to break the monotony.&lt;/p>
+&lt;p>I use awesomeWM (version 4)&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">[f00b@void ~]$ awesome --version
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">awesome v4.3 (Too long)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> • Compiled against Lua 5.3.5 (running with Lua 5.3)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> • D-Bus support: ✔
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> • execinfo support: ✘
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> • xcb-randr version: 1.6
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> • LGI version: 0.9.2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>So I needed three things:&lt;/p>
+&lt;ul>
+&lt;li>A folder full of images&lt;/li>
+&lt;li>A little script that will choose one at random&lt;/li>
+&lt;li>A call to this script from awesome init&lt;/li>
+&lt;/ul>
+&lt;p>For the images, I use &lt;a class="link" href="https://github.com/LukeSmithxyz/wallpapers" target="_blank" rel="noopener"
+>the excellent repo&lt;/a> by &lt;strong>Luck Smith&lt;/strong>.&lt;/p>
+&lt;p>As far as the script is concerned, nothing too hard:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#!/bin/bash
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>&lt;span class="c1"># author : lebarondecharlus&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># descr : Make your wallpaper change on each start !&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># I&amp;#39;m using Luck Smith wallpaper git repo for all images&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># link : https://github.com/LukeSmithxyz/wallpapers&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># current awesome theme&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">THEME&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;powerarrow-dark&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Awesome conf path&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">AWPATH&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$HOME&lt;/span>&lt;span class="s2">/.config/awesome/themes/&lt;/span>&lt;span class="nv">$THEME&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># image should have absolute path to image folder&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">IMAGE&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">$(&lt;/span>find &lt;span class="nv">$HOME&lt;/span>/Pictures/wallpapers/ -type f -name &lt;span class="s2">&amp;#34;*.png&amp;#34;&lt;/span> -o -name &lt;span class="s2">&amp;#34;*.jpeg&amp;#34;&lt;/span> -o -name &lt;span class="s2">&amp;#34;*.jpg&amp;#34;&lt;/span>&lt;span class="p">|&lt;/span> shuf -n &lt;span class="m">1&lt;/span> &lt;span class="p">|&lt;/span> sed &lt;span class="s1">&amp;#39;s/\ /\\ /g&amp;#39;&lt;/span>&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cp -f &lt;span class="nv">$IMAGE&lt;/span> &lt;span class="nv">$AWPATH&lt;/span>/wall.png
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># don&amp;#39;t forget to add those lines at the end of your rc.lua (replace with your correct path and script name)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># -- Startup programs&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># awful.util.spawn_with_shell(&amp;#34;~/bin/wallpaper.sh&amp;#34;)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>As indicated in comment, just add these two lines (or just one without the comment) to call the script via awesomeWM init.&lt;/p>
+&lt;p>Put this at the end of &lt;code>~/.config/awesome/rc.lua&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">-- Startup programs
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">awful.util.spawn_with_shell(&amp;#34;~/bin/wallpaper.sh&amp;#34;)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>On each awesomewm restart, you will have a new pretty (or not) wallpaper.&lt;/p>
+&lt;p>&lt;a class="link" href="https://gist.github.com/lebarondecharlus/785796c5e4e37a4d759f0f8c89c41f0e" target="_blank" rel="noopener"
+>Script is on gist !&lt;/a>&lt;/p></description></item><item><title>Ubuntu Vrack Ovh Fix</title><link>https://lebaron.sh/p/ubuntu-vrack-ovh-fix/</link><pubDate>Sun, 04 Mar 2018 14:41:25 +0000</pubDate><guid>https://lebaron.sh/p/ubuntu-vrack-ovh-fix/</guid><description>&lt;p>You may have noticed it, but when you populate a PCI OVH instance under Ubuntu by activating Vrack, your Vm does not have its private IP at boot time.
+So, yes, I don&amp;rsquo;t like Ubuntu, but sometimes you don&amp;rsquo;t have a choice.&lt;/p>
+&lt;p>Anyway, all this to say that we don&amp;rsquo;t have our private IP and it&amp;rsquo;s too sad. (RT)&lt;/p>
+&lt;p>The fix trick is stupid.
+Very stupid.&lt;/p>
+&lt;p>Add:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">allow-hotplug ens4
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">iface ens4 inet dhcp
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>In &lt;code>/etc/network/interface&lt;/code> file.&lt;/p>
+&lt;p>Then :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">systemctl restart network
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>and&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">ifup ens4
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>That’s it&lt;/p>
+&lt;p>I’ve sent an email on OVH&amp;rsquo;s ML [cloud], because I still found it strange that this bug still exists.&lt;/p>
+&lt;p>It was on 21 November 2017.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Hello la team,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Juste une petite remarque sur l&amp;#39;installation d&amp;#39;un Ubuntu PCI avec Vrack.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">En fait je suis obligé d&amp;#39;ajouter :
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">allow-hotplug ens4
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">iface ens4 inet dhcp
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Dans /etc/network/interface puis
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl restart network
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">et
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ifup ens4
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Il me semble que sur les autres distrib&amp;#39; les confs network s&amp;#39;ajoutent automatiquement à l&amp;#39;install non ?
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Je passe peut-être à côté d&amp;#39;un truc... en même temps je ne connais pas bien les systèmes en .deb...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Bises à tout le monde
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">F00b4rch
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Answer :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">21/11/2017
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">À cloud
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Hello,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Exact, sur debian 9 (voir 8), les interfaces sont montée automatiquement...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Je crois qu&amp;#39;il a un bug d&amp;#39;ouvert cote ubuntu pour ça, si je le retrouve je te l&amp;#39;envoi.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Setup Rancher cluster on OVH Public Cloud</title><link>https://lebaron.sh/p/setup-rancher-cluster-on-ovh-public-cloud/</link><pubDate>Fri, 04 Aug 2017 19:04:11 +0000</pubDate><guid>https://lebaron.sh/p/setup-rancher-cluster-on-ovh-public-cloud/</guid><description>&lt;p>&lt;img src="https://lebaron.sh/Images/rancher_logo.jpeg"
+loading="lazy"
+alt="Rancher logo"
+>&lt;/p>
+&lt;p>The world of hosting is changing, and so is the world of application development. Today we are turning less and less to dedicated hosting for a single application, but more to build the infrastructure that will support it.&lt;/p>
+&lt;p>In this sense, we prefer to use an Iaas solution on dedicated &amp;ldquo;bare metal&amp;rdquo; for our application overlay than pure &amp;ldquo;bare metal&amp;rdquo; per service.&lt;/p>
+&lt;p>Application deployment missions pushed by developers must fit with the technology and logic of production. Which &lt;code>pipelines&lt;/code> should we use for our &lt;code>CI&lt;/code>, &lt;code>CD&lt;/code> ?&lt;/p>
+&lt;p>This post will not aim at answering the question of the pipelines to be implemented, it will be a question of &lt;code>Ranching&lt;/code>, coupled with its &lt;code>Cattle&lt;/code> orchestrator, on Public Cloud OVH &lt;code>Openstack&lt;/code>.&lt;/p>
+&lt;h3 id="installation-">Installation :
+&lt;/h3>&lt;p>The installation of &lt;code>PCI&lt;/code> (Public Cloud) instances is the fastest step. We need to start with 5 instances:&lt;/p>
+&lt;ul>
+&lt;li>1 LoadBalancer/ReverseProxy (&lt;code>HA-Proxy&lt;/code> or &lt;code>Nginx&lt;/code>) for €299&lt;/li>
+&lt;li>3 RancherServer in Cluster under &lt;code>Galera&lt;/code> at 5€99&lt;/li>
+&lt;li>1 Node Worker (for our applications) at the price you want to put for your performance&lt;/li>
+&lt;/ul>
+&lt;br>
+#### LoadBalancer Nginx :
+&lt;p>For Nginx installation, nothing very complex, a €2.99 instance will be more than enough since the only job of the server will be to forward the request to our rancher cluster.&lt;/p>
+&lt;p>The conf file will be :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">upstream rancher {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> server rancher-server1:8080;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> server rancher-server2:8080;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> server rancher-server3:8080;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">map $http_upgrade $connection_upgrade {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> default Upgrade;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#39;&amp;#39; close;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">server {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> listen 443 ssl spdy;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> server_name &amp;lt;server&amp;gt;;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ssl_certificate &amp;lt;cert_file&amp;gt;;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ssl_certificate_key &amp;lt;key_file&amp;gt;;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> location / {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> proxy_set_header Host $host;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> proxy_set_header X-Forwarded-Proto $scheme;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> proxy_set_header X-Forwarded-Port $server_port;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> proxy_pass http://rancher;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> proxy_http_version 1.1;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> proxy_set_header Upgrade $http_upgrade;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> proxy_set_header Connection $connection_upgrade;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> proxy_read_timeout 900s;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> }
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">server {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> listen 80;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> server_name &amp;lt;server&amp;gt;;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> return 301 https://$server_name$request_uri;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Replace the &lt;code>upstream&lt;/code> by the ips of your servers.&lt;/p>
+&lt;p>Note that it is also possible to dockerize this service. This way, the day you put a second LB on the front end, there will only be one container to place on your instance.&lt;/p>
+&lt;h4 id="rancher-installation-">Rancher installation :
+&lt;/h4>&lt;p>For Rancher part, there are no great difficulties either. 5€99 instances will be more than enough for the needs.&lt;/p>
+&lt;p>I recommend the &lt;a class="link" href="http://rancher.com/docs/rancher/v1.0/en/installing-rancher/installing-server/multi-nodes/" target="_blank" rel="noopener"
+>official Rancher documentation&lt;/a> on this subject.&lt;/p>
+&lt;p>We will start by deploying on each Rancher server:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sudo docker run -d --restart=unless-stopped -p 8080:8080 rancher/server
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Then we will add the servers to each other via the UI. (Infrastructure &amp;gt; Hosts &amp;gt; Add Host)&lt;/p>
+&lt;p>You should get the following code to run on each node :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-gdscript3" data-lang="gdscript3">&lt;span class="line">&lt;span class="cl">&lt;span class="n">sudo&lt;/span> &lt;span class="n">docker&lt;/span> &lt;span class="n">run&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">e&lt;/span> &lt;span class="n">CATTLE_AGENT_IP&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;1.2.3.4&amp;#34;&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">e&lt;/span> &lt;span class="n">CATTLE_HOST_LABELS&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;galera=true&amp;#39;&lt;/span> &lt;span class="o">--&lt;/span>&lt;span class="n">rm&lt;/span> &lt;span class="o">--&lt;/span>&lt;span class="n">privileged&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">v&lt;/span> &lt;span class="o">/&lt;/span>&lt;span class="k">var&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">run&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">docker&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">sock&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="k">var&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">run&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">docker&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">sock&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">v&lt;/span> &lt;span class="o">/&lt;/span>&lt;span class="k">var&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">lib&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">rancher&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="k">var&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">lib&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">rancher&lt;/span> &lt;span class="n">rancher&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">agent&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="n">v1&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="mf">2.5&lt;/span> &lt;span class="n">http&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="o">//&lt;/span>&lt;span class="mf">1.2&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="mf">3.4&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">8080&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">v1&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">scripts&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="mi">4956918455&lt;/span>&lt;span class="n">D4D9BE3AF1&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">1483142400000&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="n">Fscj9CvRSrx0mS05E4kdWDkb0E&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Once this step is done, it will then be possible to use the &lt;code>Galera&lt;/code> image proposed by Rancher (in the catalog) on our 3 servers.
+A node will then be present on each server.&lt;/p>
+&lt;p>We will be able to initialize the cluster on a Galera node:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">&amp;gt; CREATE DATABASE IF NOT EXISTS cattle COLLATE = &amp;#39;utf8_general_ci&amp;#39; CHARACTER SET = &amp;#39;utf8&amp;#39;;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; GRANT ALL ON cattle.* TO &amp;#39;cattle&amp;#39;@&amp;#39;%&amp;#39; IDENTIFIED BY &amp;#39;cattle&amp;#39;;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; GRANT ALL ON cattle.* TO &amp;#39;cattle&amp;#39;@&amp;#39;localhost&amp;#39; IDENTIFIED BY &amp;#39;cattle&amp;#39;;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Then check on the other two servers that the basic entries are also present.&lt;/p>
+&lt;p>Then let&amp;rsquo;s stop one Rancher server and start it using Galera for persistence of its data :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sudo docker run -d --restart=unless-stopped -p 8080:8080 rancher/server \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> --db-host myhost.example.com --db-port 3306 --db-user username --db-pass password --db-name cattle
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Where :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">--db-host IP du serveur MySQL
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--db-port port du serveur MySQL (default: 3306)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--db-user username MySQL login (default: cattle)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--db-pass password MySQL login (default: cattle)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--db-name nom de la base MySQL (default: cattle)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Do the same for the other two servers so each Rancher launches using the Galera database.&lt;/p>
+&lt;p>Expected result:
+&lt;img src="https://lebaron.sh/Images/RancherGalera.png"
+loading="lazy"
+alt="Galera Rancher"
+>&lt;/p>
+&lt;p>It is possible to check if Rancher is &lt;code>clustered&lt;/code> via the UI in: Admin &amp;gt; High Availability.&lt;/p>
+&lt;h4 id="addition-of-worker-nodes">Addition of Worker Nodes.
+&lt;/h4>&lt;p>You now have your &lt;code>Rancher&lt;/code> cluster with a front-end LB, it is now possible to add &lt;code>Worker&lt;/code> nodes to your cluster.
+It&amp;rsquo;s very easy to add them directly with the Rancher utility. Now it&amp;rsquo;s up to you to see which type of instance best suits your resource needs.&lt;/p>
+&lt;p>Rancher&amp;rsquo;s default environment uses the &lt;code>Cattle' orchestrator, so once your Workers nodes are configured, you can deploy your &lt;/code>Docker&amp;rsquo; containers directly from your cluster.&lt;/p>
+&lt;h3 id="conclusion">Conclusion
+&lt;/h3>&lt;p>The installation of a Rancher environment is fast, the Public Cloud OVH allows to quickly deploy the necessary instances of Rancher.
+The ease of use offered by the Rancher/Cattle duo allows an efficient and fluid commissioning.&lt;/p>
+&lt;p>We will see in a next article how to set up an HA environment with &lt;code>Kubernetes&lt;/code>, still under the OVH PCI and using the environment template proposed by Rancher.&lt;/p></description></item><item><title>Online servers availability</title><link>https://lebaron.sh/p/online-servers-availability/</link><pubDate>Tue, 01 Aug 2017 09:40:07 +0000</pubDate><guid>https://lebaron.sh/p/online-servers-availability/</guid><description>&lt;p>We need servers at Online, but there is no availability!
+So they came to ask me if I didn&amp;rsquo;t have a magic solution&amp;hellip;&lt;/p>
+&lt;p>A little &lt;code>bash&lt;/code>&amp;hellip; a &lt;code>notify&lt;/code> in this case &lt;code>Slack&lt;/code> and here we go!&lt;br>
+As usual &lt;a class="link" href="https://github.com/lebarondecharlus/OnlineSrvDispo" target="_blank" rel="noopener"
+>sources are available&lt;/a>.&lt;/p>
+&lt;h4 id="dirty-way">Dirty way
+&lt;/h4>&lt;p>*To be alerted via slack you have to create an &lt;a class="link" href="https://my.slack.com/services/new/incoming-webhook/" target="_blank" rel="noopener"
+>incoming-webhook&lt;/a> which will generate a link.&lt;/p>
+&lt;p>For an XC 2016 series server:&lt;/p>
+&lt;pre>&lt;code>text=&amp;quot;DISPO : https://www.online.net/fr/serveur-dedie/dedibox-xc&amp;quot;; json=&amp;quot;{\&amp;quot;channel\&amp;quot;: \&amp;quot;#infra\&amp;quot;, \&amp;quot;text\&amp;quot;: \&amp;quot;$text\&amp;quot;}&amp;quot; ; while true ; do curl --silent https://www.online.net/fr/serveur-dedie | grep '&amp;lt;button class=&amp;quot;btn btn--primary js-order-dedibox&amp;quot;' | grep -i 'xc 2016' | grep -i 'victime' || curl -s -d &amp;quot;payload=$json&amp;quot; &amp;quot;https://hooks.slack.com/services/XXX/XXXX/XXXX/XXXX&amp;quot; ; sleep 5 ; done
+&lt;/code>&lt;/pre>
+&lt;p>Curl will be done only if one server is available.&lt;/p>
+&lt;h4 id="clean-way">Clean way
+&lt;/h4>&lt;p>Just code formating :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#!/bin/bash
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">webhook&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;https://hooks.slack.com/services/XXX/XXXX/XXXX/XXXX&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">url&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;https://www.online.net/fr/serveur-dedie/XXXXX&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">text&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;DISPO : &lt;/span>&lt;span class="nv">$url&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">channel&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;test&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">json&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;{\&amp;#34;channel\&amp;#34;: \&amp;#34;#&lt;/span>&lt;span class="nv">$channel&lt;/span>&lt;span class="s2">\&amp;#34;, \&amp;#34;text\&amp;#34;: \&amp;#34;&lt;/span>&lt;span class="nv">$text&lt;/span>&lt;span class="s2">\&amp;#34;}&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">server&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;XC 2016&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">while&lt;/span> &lt;span class="nb">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">do&lt;/span> curl --silent https://www.online.net/fr/serveur-dedie &lt;span class="p">|&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> grep &lt;span class="s1">&amp;#39;&amp;lt;button class=&amp;#34;btn btn--primary js-order-dedibox&amp;#34;&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> grep -i &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$server&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> grep -i &lt;span class="s1">&amp;#39;victime&amp;#39;&lt;/span> &lt;span class="o">||&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> curl -s -d &lt;span class="s2">&amp;#34;payload=&lt;/span>&lt;span class="nv">$json&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$webhook&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="p">;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> sleep &lt;span class="m">5&lt;/span> &lt;span class="p">;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span>&lt;span class="k">done&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>You can also push the vice further by filtering on the &lt;strong>region&lt;/strong> and the &lt;strong>disc types&lt;/strong>.&lt;/p>
+&lt;h4 id="pig-mode">Pig mode
+&lt;/h4>&lt;p>Because&amp;hellip; why not ?&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-gdscript3" data-lang="gdscript3">&lt;span class="line">&lt;span class="cl">&lt;span class="n">text&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;DISPO https://www.online.net/fr/serveur-dedie/dedibox-xc&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">json&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;{&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s2">channel&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s2">: &lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s2">#test&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s2">, &lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s2">text&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s2">: &lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s2">$text&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s2">}&amp;#34;&lt;/span> &lt;span class="p">;&lt;/span> &lt;span class="k">while&lt;/span> &lt;span class="bp">true&lt;/span> &lt;span class="p">;&lt;/span> &lt;span class="k">do&lt;/span> &lt;span class="n">curl&lt;/span> &lt;span class="o">--&lt;/span>&lt;span class="n">silent&lt;/span> &lt;span class="n">https&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="o">//&lt;/span>&lt;span class="n">www&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">online&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">net&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">fr&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">serveur&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">dedie&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">dedibox&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">xc&lt;/span> &lt;span class="o">|&lt;/span> &lt;span class="n">egrep&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">io&lt;/span> &lt;span class="s1">&amp;#39;&amp;lt;option value=&amp;#34;\w+&amp;#34;&amp;gt;ssd / france / dc2&amp;lt;/option&amp;gt;&amp;#39;&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="n">curl&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">s&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">d&lt;/span> &lt;span class="s2">&amp;#34;payload=$json&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;https://hooks.slack.com/services/XXX/XXXX/XXXX&amp;#34;&lt;/span> &lt;span class="p">;&lt;/span> &lt;span class="n">sleep&lt;/span> &lt;span class="mi">5&lt;/span> &lt;span class="p">;&lt;/span> &lt;span class="n">done&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Next step, simulate an order ?&lt;/p></description></item><item><title>Migrate Openvz To Lxc</title><link>https://lebaron.sh/p/migrate-openvz-to-lxc/</link><pubDate>Mon, 31 Jul 2017 18:15:50 +0000</pubDate><guid>https://lebaron.sh/p/migrate-openvz-to-lxc/</guid><description>&lt;p>I recently had to migrate containers from a proxmox3 (under OpenVZ) to a proxmox4 (under LXC).&lt;/p>
+&lt;p>Problem, there are a lot of containers to migrate/&amp;ldquo;convert&amp;rdquo; to run under LXC. So I needed a way to automate the procedure as much as possible.&lt;/p>
+&lt;p>Luckily, the &lt;a class="link" href="https://pve.proxmox.com/wiki/Convert_OpenVZ_to_LXC" target="_blank" rel="noopener"
+>migration documentation&lt;/a> is very well detailed. So I used it to &amp;ldquo;bash&amp;rdquo; the operation.&lt;/p>
+&lt;p>You can find all the sources on my &lt;a class="link" href="https://github.com/lebarondecharlus/vz2lxc" target="_blank" rel="noopener"
+>github&lt;/a>&lt;/p>
+&lt;p>I cut the operation under two scripts, an export script and an import script.&lt;/p>
+&lt;h4 id="the-export-">The export :
+&lt;/h4>&lt;p>The export script takes two parameters as input: &lt;code>the container ID&lt;/code> and &lt;code>the IP&lt;/code> of the destination server.&lt;/p>
+&lt;p>It is also necessary to define some variables that will be used to send data via &lt;code>scp&lt;/code>.&lt;/p>
+&lt;p>The &lt;em>export&lt;/em> procedure is done as follows:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># Stop &amp;amp; Dump
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo vzctl stop $ID &amp;amp;&amp;amp; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> echo &amp;#34;$ID stopped [OK]&amp;#34; &amp;amp;&amp;amp; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sudo vzdump $ID -dumpdir /home/$USER/vzdump &amp;amp;&amp;amp; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> echo &amp;#34;$ID : dump [OK]&amp;#34; &amp;amp;&amp;amp; \
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>We check dump is present :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># DumpName
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">vzDumpName=$(ls /home/$USER/vzdump/)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">if [ -z $vzDumpName ] ; then
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> echo &amp;#34;No dump found in /home/$USER/vzdump/&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> exit
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">fi
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Then we send it to &lt;code>Proxmox 4&lt;/code> :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sudo scp -i /home/$USER/.ssh/id_rsa &amp;#34;-P $rPort&amp;#34; $vzDumpName $rUSER@$rIP:$rPath &amp;amp;&amp;amp; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> echo &amp;#34;Sending Dump [OK]&amp;#34; &amp;amp;&amp;amp; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sudo scp -i /home/$USER/.ssh/id_rsa &amp;#34;-P $rPort&amp;#34; vz.log $rUSER@$rIP:$rPath &amp;amp;&amp;amp; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> echo &amp;#34;Sending Log [OK]&amp;#34; &amp;amp;&amp;amp; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sudo rm $vzDumpName &amp;amp;&amp;amp; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sudo rm vz.log &amp;amp;&amp;amp; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> echo &amp;#34;SCP $vzDumpName on $rIP [OK]&amp;#34;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="import-">Import :
+&lt;/h4>&lt;p>As for the import, only one argument is passed as input, which is the container&amp;rsquo;s &amp;ldquo;ID&amp;rdquo;.&lt;/p>
+&lt;p>Then we start the &lt;strong>conversion&lt;/strong> and &lt;strong>restoration&lt;/strong> part.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sudo pct restore $ID $dumpPath/$dumpName &amp;amp;&amp;amp; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> echo &amp;#34;pct $ID restoring [OK]&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># At this poin, you can set network configuration
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># exemple : pct set 101 -net0 name=eth0,bridge=vmbr0,ip=192.168.15.144/24,gw=192.168.15.1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># I prefer doing it manually
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo pct start $ID
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo pct enter $ID
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>I omitted to tell you that there is a small logging system for the operations in order to be able to trace the process a bit.&lt;/p></description></item><item><title>Additional Volume Public Cloud Ovh</title><link>https://lebaron.sh/p/additional-volume-public-cloud-ovh/</link><pubDate>Mon, 31 Jul 2017 11:38:18 +0000</pubDate><guid>https://lebaron.sh/p/additional-volume-public-cloud-ovh/</guid><description>&lt;p>123 To add an additional disk/volume on your OVH public cloud, you need to follow some steps.&lt;/p>
+&lt;p>First, identify your new disk :&lt;/p>
+&lt;pre>&lt;code>fdisk -l
+&lt;/code>&lt;/pre>
+&lt;p>You can have different output depending of your system (&lt;code>sd{x}&lt;/code>, &lt;code>vd{x}&lt;/code>).&lt;/p>
+&lt;p>Then create a new partition :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># parted /dev/{{disk}}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mktable gpt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mkpart primary ext4 512 100%
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">quit
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Format it :&lt;/p>
+&lt;pre>&lt;code>mkfs -t ext4 -L rootfs /dev/{{disk}}1
+&lt;/code>&lt;/pre>
+&lt;p>Mount :&lt;/p>
+&lt;pre>&lt;code>mount /dev/{{disk}}1 /mnt
+&lt;/code>&lt;/pre>
+&lt;p>Let’s make it peristent, we need &lt;strong>UUID&lt;/strong>.
+To get block ID.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># blkid
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/dev/sdb1: LABEL=&amp;#34;rootfs&amp;#34; UUID=&amp;#34;6b75bbb4-b311-4b9d-a8fd-6e6ff23c401f&amp;#34; TYPE=&amp;#34;ext4&amp;#34; PARTLABEL=&amp;#34;primary&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">PARTUUID=&amp;#34;e20dc227-9d10-41c4-a714-2fb53d190c11&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/dev/sda1: UUID=&amp;#34;9abb590f-8a5e-496f-ad2a-2c877415bdc5&amp;#34; TYPE=&amp;#34;ext4&amp;#34; PARTUUID=&amp;#34;71036eb1-01&amp;#34;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Add it on &lt;code>/etc/fstab&lt;/code> file with mount information.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># vim /etc/fstab
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[...]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">UUID=6b75bbb4-b311-4b9d-a8fd-6e6ff23c401f /mnt ext4 errors=remount-ro,discard 0 1
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Confirm good configuration with one reboot.&lt;/p></description></item><item><title>Additional Volume Public Cloud Ovh</title><link>https://lebaron.sh/projects/hello/</link><pubDate>Mon, 31 Jul 2017 11:38:18 +0000</pubDate><guid>https://lebaron.sh/projects/hello/</guid><description>&lt;p>To add an additional disk/volume on your OVH public cloud, you need to follow some steps.&lt;/p>
+&lt;p>First, identify your new disk :&lt;/p>
+&lt;pre>&lt;code>fdisk -l
+&lt;/code>&lt;/pre>
+&lt;p>You can have different output depending of your system (&lt;code>sd{x}&lt;/code>, &lt;code>vd{x}&lt;/code>).&lt;/p>
+&lt;p>Then create a new partition :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># parted /dev/{{disk}}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mktable gpt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mkpart primary ext4 512 100%
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">quit
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Format it :&lt;/p>
+&lt;pre>&lt;code>mkfs -t ext4 -L rootfs /dev/{{disk}}1
+&lt;/code>&lt;/pre>
+&lt;p>Mount :&lt;/p>
+&lt;pre>&lt;code>mount /dev/{{disk}}1 /mnt
+&lt;/code>&lt;/pre>
+&lt;p>Let’s make it peristent, we need &lt;strong>UUID&lt;/strong>.
+To get block ID.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># blkid
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/dev/sdb1: LABEL=&amp;#34;rootfs&amp;#34; UUID=&amp;#34;6b75bbb4-b311-4b9d-a8fd-6e6ff23c401f&amp;#34; TYPE=&amp;#34;ext4&amp;#34; PARTLABEL=&amp;#34;primary&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">PARTUUID=&amp;#34;e20dc227-9d10-41c4-a714-2fb53d190c11&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/dev/sda1: UUID=&amp;#34;9abb590f-8a5e-496f-ad2a-2c877415bdc5&amp;#34; TYPE=&amp;#34;ext4&amp;#34; PARTUUID=&amp;#34;71036eb1-01&amp;#34;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Add it on &lt;code>/etc/fstab&lt;/code> file with mount information.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># vim /etc/fstab
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[...]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">UUID=6b75bbb4-b311-4b9d-a8fd-6e6ff23c401f /mnt ext4 errors=remount-ro,discard 0 1
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Confirm good configuration with one reboot.&lt;/p></description></item><item><title>Update Proxmox templates</title><link>https://lebaron.sh/p/update-proxmox-templates/</link><pubDate>Sun, 30 Jul 2017 14:53:16 +0000</pubDate><guid>https://lebaron.sh/p/update-proxmox-templates/</guid><description>&lt;p>To automatically update the list of templates available via prox in your local space just use the following command:&lt;/p>
+&lt;pre>&lt;code>pveam update
+&lt;/code>&lt;/pre>
+&lt;p>I found it good to put it in cron once a week so as not to have too much space for minor versions.&lt;/p></description></item><item><title>Event Watcher Manager Python3</title><link>https://lebaron.sh/p/event-watcher-manager-python3/</link><pubDate>Sun, 30 Jul 2017 12:53:16 +0000</pubDate><guid>https://lebaron.sh/p/event-watcher-manager-python3/</guid><description>&lt;p>On one specific request, I had to work on the elaboration of an automating program reacting on SFTP users updates.&lt;br>
+The main technical issue of this request is that the SFTP protocol does not have a logging system.&lt;/p>
+&lt;p>I had heard about &lt;a class="link" href="https://github.com/seb-m/pyinotify/blob/master/python3/pyinotify.py" target="_blank" rel="noopener"
+>the pyinotify library&lt;/a> so I started working on it.&lt;br>
+&lt;strong>The project is presented in its primary mechanism&lt;/strong>, for more details, I invite you to read the sources.&lt;/p>
+&lt;h4 id="technical-requests-concerning-the-project">Technical requests concerning the project
+&lt;/h4>&lt;p>Details of the context of realization :
+&lt;/u>Details of the context of realization :&lt;/u>.&lt;br>
+The program must monitor SFTP user actions. These users have their HomeDir which are NFS mounts.&lt;br>
+The user can upload anything to his account, but the program must detect video uploads (in some formats) and then perform a series of successive actions.&lt;/p>
+&lt;p>&amp;lt;The operation should be as follows:&lt;/u>&lt;br>
+For each detected video repository, the video must check the allowed format, then it must be converted to .flv, have metadata, have a scree nshot (video thumbnail) and an email must be sent to the SFTP user&amp;rsquo;s email address.&lt;/p>
+&lt;h4 id="preparation">Preparation
+&lt;/h4>&lt;p>Several specific details are binding to begin with. The main one being the association of the account user&amp;rsquo;s mail to his own mail with the detection of the video repository.&lt;br>
+That&amp;rsquo;s why I chose to start on a static file, knowing in advance the list of users.&lt;/p>
+&lt;pre>&lt;code># Création de la classe
+class Person:
+def __init__(self, name, surname, login, homedir, email, realpath):
+self.name = name
+self.surname = surname
+self.login = login
+self.homedir = homedir
+self.email = email
+self.realpath = realpath
+#
+# Et instanciation des utilisateurs
+#
+user_test = Person(
+'Test',
+'test',
+'test',
+'/test/test/test.fr',
+'test@test.fr',
+'/test.fr/')
+&lt;/code>&lt;/pre>
+&lt;p>Then I worked on the &lt;em>core&lt;/em> of the program. First of all to get the information from my user file and to make a grouping by list.&lt;/p>
+&lt;pre>&lt;code># Définition des listes
+user_list = []
+user_path = []
+user_mail = []
+user_realpath = []
+# On appelle le fichier utilisateur pour implémenter les listes
+### LOGIN ###
+for users.obj in gc.get_objects():
+if isinstance(users.obj, users.Person):
+user_list.append(users.obj.login)
+### DOCUMENT_ROOT ###
+for users.obj in gc.get_objects():
+if isinstance(users.obj, users.Person):
+user_path.append(users.obj.homedir
+### EMAIL ###
+for users.obj in gc.get_objects():
+if isinstance(users.obj, users.Person):
+user_mail.append(users.obj.email)
+### REALPATH ###
+for users.obj in gc.get_objects():
+if isinstance(users.obj, users.Person):
+user_realpath.append(users.obj.realpath)
+&lt;/code>&lt;/pre>
+&lt;p>The definition of a first function whose purpose will be the associative call with an ID position system.&lt;/p>
+&lt;pre>&lt;code>def owner_func():
+for filename in multiple_file_types('*.avi', '*.mov', '*.mp4', '*.mpg', '*.wmv'):
+# On affiche l'utilisateur
+owner = pwd.getpwuid(os.stat(filename).st_uid).pw_name
+# On vérifie que ce dernier est bien présent dans notr liste
+if owner in user_list:
+print('The owner of file is : ' + owner)
+position = user_list.index(owner)
+print('Owner_login_path :' + user_path[position])
+mail = user_mail[position]
+mailp = print(mail)
+realpath = user_realpath[position]
+return(realpath)
+else:
+print('The owner was not found.')
+&lt;/code>&lt;/pre>
+&lt;h4 id="pyinotifier-introduction">Pyinotifier Introduction
+&lt;/h4>&lt;p>Pyinotifier has functions related to the creation and deletion of data (IN_CREATE and IN_DELETE).&lt;br>
+Once the basic setup was done, I used the basic definition to implement with the &lt;strong>owner_func()&lt;/strong> function.&lt;/p>
+&lt;pre>&lt;code>class EventHandler(pyinotify.ProcessEvent):
+def process_IN_CREATE(self, event):
+print('\n\n===========================')
+print(time.strftime(&amp;quot;%d/%m/%Y %H:%M:%S&amp;quot;))
+evp = print('Path complet :' + '\'' + event.pathname + '\'')
+evn = print('Objet crée : ' + '\'' + event.name + '\'')
+Ouser = event.pathname.split('/')[2]
+print('Utilisateur : ' + Ouser)
+Oplace = [i for i,x in enumerate(user_list) if x == Ouser][0]
+Orelatif = user_realpath[Oplace]
+Omail = user_mail[Oplace]
+print('Chroot Sftp : ' + Orelatif)
+print('Mail : ' + Omail)
+command = 'convert.bash '+str(event.pathname)
+previous_size=0
+upload_finished = False
+try:
+while True:
+time.sleep(1)
+size=os.stat(event.pathname).st_size
+print(previous_size)
+print(size)
+if size == previous_size:
+break
+else:
+previous_size = size
+except:
+return False
+print(command)
+os.rename(event.pathname, event.pathname.replace(&amp;quot; &amp;quot;, &amp;quot;_&amp;quot;))
+neventpathname = event.pathname.replace(' ', '_')
+neventname = event.name.replace(' ', '_')
+print(neventpathname + neventname)
+p1 = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+print('convert.bash', neventpathname)
+print(p1.stdout.read())
+p1.wait()
+p2 = subprocess.Popen(['generatemetadata.bash', neventpathname])
+p2.wait()
+p3 = subprocess.Popen(['extractpng.sh', neventpathname])
+p3.wait()
+if neventname.endswith('.html') :
+p5 = subprocess.Popen(['mail.bash', Omail, Orelatif, neventpathname])
+print('MAIL SENT')
+print('===========================')
+def process_IN_DELETE(self, event):
+print('\n\n===========================')
+print(time.strftime(&amp;quot;%d/%m/%Y %H:%M:%S&amp;quot;) + &amp;quot; Deleting:&amp;quot;, event.pathname)
+print('===========================')
+&lt;/code>&lt;/pre>
+&lt;p>&lt;strong>Explanations :&lt;/strong>&lt;br>
+The principle of Pyinotify is to create an automatic action at a given event. Let&amp;rsquo;s take the deposit of a video corresponding to the right format as the event.&lt;br>
+The &lt;strong>IN_CREATE&lt;/strong> function is then triggered and will send us first information including: the creation date, the full path of the event, the relative path (HomeDir of the SFTP user), the user, his email&amp;hellip;&lt;/p>
+&lt;p>In a second step we apply the conversion to the right format (with &lt;strong>ffmpeg&lt;/strong>). However, we have to make sure that the video is complete and submitted. This corresponds to the block :&lt;/p>
+&lt;pre>&lt;code> command = 'convert.bash '+str(event.pathname)
+previous_size=0
+upload_finished = False
+try:
+while True:
+time.sleep(1)
+size=os.stat(event.pathname).st_size
+print(previous_size)
+print(size)
+if size == previous_size:
+break
+else:
+previous_size = size
+except:
+return False
+print(command)
+&lt;/code>&lt;/pre>
+&lt;p>Then we will be able to run the bash scripts in subprocess.&lt;/p>
+&lt;h4 id="interests">Interests
+&lt;/h4>&lt;p>The interests are multiple!&lt;br>
+The first one is obvious since it is now possible to perform a logging on a service that was not natively available. The second one is that it is possible to set up a logging and PID system very simply.&lt;/p>
+&lt;pre>&lt;code>notifier.loop(daemonize=True, callback=on_loop_func, pid_file='logs/pyinotify.pid', stdout='logs/%s.log' % timestr)
+&lt;/code>&lt;/pre>
+&lt;p>This opens a very interesting new door on event automation by a Python subroutine that would take the work done by the kernel out of the box.&lt;/p>
+&lt;p>I was just thinking of making a kind of API calling this type of operation scalable on different environments.&lt;br>
+This project being in my famous &lt;strong>ToDoList&lt;/strong> would be very close to a Master-Slaving system with certainly an imitation of what already exists with Puppet &amp;hellip; but in Python.&lt;/p>
+&lt;p>Wait and see what will be done !&lt;/p></description></item></channel></rss>

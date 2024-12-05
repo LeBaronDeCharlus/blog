@@ -1,20 +1,59 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Sessions on Le Baron de Charlus</title>
-    <link>https://lebaron.sh/tags/sessions/</link>
-    <description>Recent content in Sessions on Le Baron de Charlus</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>© Le Baron de Charlus</copyright>
-    <lastBuildDate>Tue, 12 Jul 2022 12:22:42 +0200</lastBuildDate>
-    <atom:link href="https://lebaron.sh/tags/sessions/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Manage your Zellij sessions</title>
-      <link>https://lebaron.sh/posts/zellij-manage-your-sessions/</link>
-      <pubDate>Tue, 12 Jul 2022 12:22:42 +0200</pubDate>
-      <guid>https://lebaron.sh/posts/zellij-manage-your-sessions/</guid>
-      <description>Quick post on great Zellij tool I&amp;rsquo;ve been using for some weeks now in Tmux replacement.&#xA;I&amp;rsquo;ve been missing to manage my sessions on multiplexer init while starting a new shell or terminal so I&amp;rsquo;ve ended creating a quick feature to manage it on startup.&#xA;Dependencies You need sk binary installed and in your $PATH and of course zellij.&#xA;Demo Installation Add this block at the end of your $SHELLrc file (tested with BASH and ZSH) :</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sessions on Le Baron de Charlus</title><link>https://lebaron.sh/tags/sessions/</link><description>Recent content in Sessions on Le Baron de Charlus</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Le Baron de Charlus</copyright><lastBuildDate>Tue, 12 Jul 2022 12:22:42 +0200</lastBuildDate><atom:link href="https://lebaron.sh/tags/sessions/index.xml" rel="self" type="application/rss+xml"/><item><title>Manage your Zellij sessions</title><link>https://lebaron.sh/p/manage-your-zellij-sessions/</link><pubDate>Tue, 12 Jul 2022 12:22:42 +0200</pubDate><guid>https://lebaron.sh/p/manage-your-zellij-sessions/</guid><description>&lt;img src="https://lebaron.sh/images/zellij.png" width="50%">
+&lt;p>Quick post on great &lt;code>Zellij&lt;/code> tool I&amp;rsquo;ve been using for some weeks now in &lt;code>Tmux&lt;/code> replacement.&lt;/p>
+&lt;p>I&amp;rsquo;ve been missing to manage my &lt;code>sessions&lt;/code> on multiplexer init while starting a new &lt;code>shell&lt;/code> or &lt;code>terminal&lt;/code> so I&amp;rsquo;ve ended creating a quick feature to manage it on startup.&lt;/p>
+&lt;h3 id="dependencies">Dependencies
+&lt;/h3>&lt;p>You need &lt;a href="https://github.com/lotabout/skim" target="_blank">sk&lt;/a> binary installed and in your &lt;code>$PATH&lt;/code> and of course &lt;a href="https://github.com/zellij-org/zellij/" target="_blank">zellij&lt;/a>.&lt;/p>
+&lt;h3 id="demo">Demo
+&lt;/h3>&lt;p>&lt;img src="https://lebaron.sh/images/sessions.gif"
+loading="lazy"
+alt="Zellij Sessions"
+>&lt;/p>
+&lt;h3 id="installation">Installation
+&lt;/h3>&lt;p>Add this block at the end of your &lt;code>$SHELLrc&lt;/code> file &lt;i>(tested with BASH and ZSH)&lt;/i> :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">ZJ_SESSIONS&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">$(&lt;/span>zellij list-sessions&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">NO_SESSIONS&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">$(&lt;/span>&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">ZJ_SESSIONS&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> wc -l&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="s2">&amp;#34;{&lt;/span>&lt;span class="nv">$ZELLIJ&lt;/span>&lt;span class="s2">}&amp;#34;&lt;/span> &lt;span class="o">]&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="o">[&lt;/span> -z &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">ZELLIJ_SESSION_NAME&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> -ne &lt;span class="s2">&amp;#34;Active Zellij sessions :\n&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span> i in &lt;span class="k">$(&lt;/span>&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">ZJ_SESSIONS&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">)&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">do&lt;/span> &lt;span class="nb">echo&lt;/span> -ne &lt;span class="s2">&amp;#34;*&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">i&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">\n&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">done&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> -ne &lt;span class="s1">&amp;#39;\n&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">read&lt;/span> REPLY&lt;span class="se">\?&lt;/span>&lt;span class="s2">&amp;#34;New zellij session [y/n] ? &amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">REPLY&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;y&amp;#34;&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">read&lt;/span> SESS&lt;span class="se">\?&lt;/span>&lt;span class="s2">&amp;#34;Session name : &amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> zellij --layout compact attach -c &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">SESS&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">NO_SESSIONS&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> -ge &lt;span class="m">1&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> zellij --layout compact attach &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">ZJ_SESSIONS&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> sk&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">fi&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="contributing">Contributing
+&lt;/h3>&lt;p>Feel free to fork and contribute.&lt;/p>
+&lt;p>&lt;a href="https://github.com/lebarondecharlus/zellij-sessions" target="_blank">Sources are here.&lt;/a>&lt;/p></description></item></channel></rss>

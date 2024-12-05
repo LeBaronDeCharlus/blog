@@ -1,317 +1,568 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Now that Gitlab offers its own image registry, it is possible to use it directly in our K8s environment! If you missed the info (which is starting to date now), I refer you to this article.\nTo add the Gitlab private registry in Kubernetes you have to create a secret :\n&gt; kubectl create secret docker-registry regsecret --docker-server=registry.gitlab.xyz --docker-username='' --docker-password='' --docker-email=&quot;&quot; Where :\n1 2 3 4 --docker-server regitry gitlab --docker-username user gitlab autorisé à acceder au registry --docker-password son mot de passe --docker-email son email We will check secret creation :\n">
+<title>Add Gitlab Registry in Kubernetes</title>
 
-<head>
-  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Add Gitlab Registry in Kubernetes | Le Baron de Charlus</title>
-<meta name="title" content="Add Gitlab Registry in Kubernetes" />
-<meta name="description" content="Now that Gitlab offers its own image registry, it is possible to use it directly in our K8s environment! If you missed the info (which is starting to date now), I refer you to this article.
-To add the Gitlab private registry in Kubernetes you have to create a secret :
-&gt; kubectl create secret docker-registry regsecret --docker-server=registry.gitlab.xyz --docker-username=&#39;&#39; --docker-password=&#39;&#39; --docker-email=&quot;&quot; Where :
---docker-server regitry gitlab --docker-username user gitlab autorisé à acceder au registry --docker-password son mot de passe --docker-email son email We will check secret creation :" />
-<meta name="keywords" content="kubernetes,gitlab,registry," />
+<link rel='canonical' href='http://localhost:1313/posts/gitlab-registry-kubernetes/'>
 
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Add Gitlab Registry in Kubernetes">
+<meta property='og:description' content="Now that Gitlab offers its own image registry, it is possible to use it directly in our K8s environment! If you missed the info (which is starting to date now), I refer you to this article.\nTo add the Gitlab private registry in Kubernetes you have to create a secret :\n&gt; kubectl create secret docker-registry regsecret --docker-server=registry.gitlab.xyz --docker-username='' --docker-password='' --docker-email=&quot;&quot; Where :\n1 2 3 4 --docker-server regitry gitlab --docker-username user gitlab autorisé à acceder au registry --docker-password son mot de passe --docker-email son email We will check secret creation :\n">
+<meta property='og:url' content='http://localhost:1313/posts/gitlab-registry-kubernetes/'>
+<meta property='og:site_name' content='Le Baron de Charlus'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='kubernetes' /><meta property='article:tag' content='gitlab' /><meta property='article:tag' content='registry' /><meta property='article:published_time' content='2017-08-10T12:06:05&#43;00:00'/><meta property='article:modified_time' content='2017-08-10T12:06:05&#43;00:00'/>
+<meta name="twitter:title" content="Add Gitlab Registry in Kubernetes">
+<meta name="twitter:description" content="Now that Gitlab offers its own image registry, it is possible to use it directly in our K8s environment! If you missed the info (which is starting to date now), I refer you to this article.\nTo add the Gitlab private registry in Kubernetes you have to create a secret :\n&gt; kubectl create secret docker-registry regsecret --docker-server=registry.gitlab.xyz --docker-username='' --docker-password='' --docker-email=&quot;&quot; Where :\n1 2 3 4 --docker-server regitry gitlab --docker-username user gitlab autorisé à acceder au registry --docker-password son mot de passe --docker-email son email We will check secret creation :\n">
+    <link rel="shortcut icon" href="/favicon.png" />
 
-<meta property="og:title" content="Add Gitlab Registry in Kubernetes" />
-<meta property="og:description" content="Now that Gitlab offers its own image registry, it is possible to use it directly in our K8s environment! If you missed the info (which is starting to date now), I refer you to this article.
-To add the Gitlab private registry in Kubernetes you have to create a secret :
-&gt; kubectl create secret docker-registry regsecret --docker-server=registry.gitlab.xyz --docker-username=&#39;&#39; --docker-password=&#39;&#39; --docker-email=&quot;&quot; Where :
---docker-server regitry gitlab --docker-username user gitlab autorisé à acceder au registry --docker-password son mot de passe --docker-email son email We will check secret creation :" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://lebaron.sh/posts/gitlab-registry-kubernetes/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2017-08-10T12:06:05+00:00" />
-<meta property="article:modified_time" content="2017-08-10T12:06:05+00:00" />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
 
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
 
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
 
-
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Add Gitlab Registry in Kubernetes"/>
-<meta name="twitter:description" content="Now that Gitlab offers its own image registry, it is possible to use it directly in our K8s environment! If you missed the info (which is starting to date now), I refer you to this article.
-To add the Gitlab private registry in Kubernetes you have to create a secret :
-&gt; kubectl create secret docker-registry regsecret --docker-server=registry.gitlab.xyz --docker-username=&#39;&#39; --docker-password=&#39;&#39; --docker-email=&quot;&quot; Where :
---docker-server regitry gitlab --docker-username user gitlab autorisé à acceder au registry --docker-password son mot de passe --docker-email son email We will check secret creation :"/>
-
-
-
-<meta itemprop="name" content="Add Gitlab Registry in Kubernetes">
-<meta itemprop="description" content="Now that Gitlab offers its own image registry, it is possible to use it directly in our K8s environment! If you missed the info (which is starting to date now), I refer you to this article.
-To add the Gitlab private registry in Kubernetes you have to create a secret :
-&gt; kubectl create secret docker-registry regsecret --docker-server=registry.gitlab.xyz --docker-username=&#39;&#39; --docker-password=&#39;&#39; --docker-email=&quot;&quot; Where :
---docker-server regitry gitlab --docker-username user gitlab autorisé à acceder au registry --docker-password son mot de passe --docker-email son email We will check secret creation :"><meta itemprop="datePublished" content="2017-08-10T12:06:05+00:00" />
-<meta itemprop="dateModified" content="2017-08-10T12:06:05+00:00" />
-<meta itemprop="wordCount" content="192">
-<meta itemprop="keywords" content="kubernetes,gitlab,registry," />
-<meta name="referrer" content="no-referrer-when-downgrade" />
-
-  <style>
-  body {
-    font-family: Verdana, sans-serif;
-    margin: auto;
-    padding: 20px;
-    max-width: 720px;
-    text-align: left;
-    background-color: #fff;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    line-height: 1.5;
-    color: #444;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  strong,
-  b {
-    color: #222;
-  }
-
-  a {
-    color: #3273dc;
-     
-  }
-
-  .title {
-    text-decoration: none;
-    border: 0;
-  }
-
-  .title span {
-    font-weight: 400;
-  }
-
-  nav a {
-    margin-right: 10px;
-  }
-
-  textarea {
-    width: 100%;
-    font-size: 16px;
-  }
-
-  input {
-    font-size: 16px;
-  }
-
-  content {
-    line-height: 1.6;
-  }
-
-  table {
-    width: 100%;
-  }
-
-  img {
-    max-width: 100%;
-  }
-
-  code {
-    padding: 2px 5px;
-    background-color: #f2f2f2;
-  }
-
-  pre code {
-    color: #222;
-    display: block;
-    padding: 20px;
-    white-space: pre-wrap;
-    font-size: 14px;
-    overflow-x: auto;
-  }
-
-  div.highlight pre {
-    background-color: initial;
-    color: initial;
-  }
-
-  div.highlight code {
-    background-color: unset;
-    color: unset;
-  }
-
-  blockquote {
-    border-left: 1px solid #999;
-    color: #222;
-    padding-left: 20px;
-    font-style: italic;
-  }
-
-  footer {
-    padding: 25px;
-    text-align: center;
-  }
-
-  .helptext {
-    color: #777;
-    font-size: small;
-  }
-
-  .errorlist {
-    color: #eba613;
-    font-size: small;
-  }
-
-   
-  ul.blog-posts {
-    list-style-type: none;
-    padding: unset;
-  }
-
-  ul.blog-posts li {
-    display: flex;
-  }
-
-  ul.blog-posts li span {
-    flex: 0 0 130px;
-  }
-
-  ul.blog-posts li a:visited {
-    color: #8b6fcb;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    body {
-      background-color: #333;
-      color: #ddd;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    strong,
-    b {
-      color: #eee;
-    }
-
-    a {
-      color: #8cc2dd;
-    }
-
-    code {
-      background-color: #777;
-    }
-
-    pre code {
-      color: #ddd;
-    }
-
-    blockquote {
-      color: #ccc;
-    }
-
-    textarea,
-    input {
-      background-color: #252525;
-      color: #ddd;
-    }
-
-    .helptext {
-      color: #aaa;
-    }
-  }
-
-</style>
-
-</head>
-
-<body>
-  <header><a href="/" class="title">
-  <h2>Le Baron de Charlus</h2>
-</a>
-<nav><a href="/">Home</a>
-
-<a href="/posts/">Posts</a>
-
-<a href="https://instagram.com/le_baron_photography">Photography</a>
-
-<a href="/cv">CV</a>
-
-<a href="/index.xml"></a>
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu2313318429472854461.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🏠</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Le Baron de Charlus</a></h1>
+            <h2 class="site-description">Lead SRE - Unix Professor</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='/cv'
+                        target="_blank"
+                        title="CV"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
 
 
-</nav>
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/lebarondecharlus'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://instagram.com/le_baron_photography'
+                        target="_blank"
+                        title="Instagram"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M16.5 7.5v.01" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.linkedin.com/in/barondecharlus/'
+                        target="_blank"
+                        title="LinkedIn"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/posts/' >
+                
+                
+                
+                <span>Posts</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='https://instagram.com/le_baron_photography' >
+                
+                
+                
+                <span>Photography</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/cv' >
+                
+                
+                
+                <span>CV</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/index.xml' >
+                
+                
+                
+                <span></span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/gitlab-registry-kubernetes/">Add Gitlab Registry in Kubernetes</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 10, 2017</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
 </header>
-  <main>
 
-<content>
-  <p>Now that Gitlab offers its own image registry, it is possible to use it directly in our K8s environment!
-If you missed the info (which is starting to date now), I refer you to <a href="https://about.gitlab.com/2016/05/23/gitlab-container-registry/">this article</a>.</p>
+    <section class="article-content">
+    
+    
+    <p>Now that Gitlab offers its own image registry, it is possible to use it directly in our K8s environment!
+If you missed the info (which is starting to date now), I refer you to <a class="link" href="https://about.gitlab.com/2016/05/23/gitlab-container-registry/"  target="_blank" rel="noopener"
+    >this article</a>.</p>
 <p>To add the Gitlab private registry in Kubernetes you have to create a secret :</p>
 <pre><code>&gt; kubectl create secret docker-registry regsecret --docker-server=registry.gitlab.xyz --docker-username='' --docker-password='' --docker-email=&quot;&quot;
 </code></pre>
 <p>Where :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>--docker-server         regitry gitlab
-</span></span><span style="display:flex;"><span>--docker-username       user gitlab autorisé à acceder au registry
-</span></span><span style="display:flex;"><span>--docker-password       son mot de passe
-</span></span><span style="display:flex;"><span>--docker-email          son email
-</span></span></code></pre></div><p>We will check secret creation :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>&gt; kubectl get secret regsecret
-</span></span><span style="display:flex;"><span>NAME        TYPE                      DATA      AGE
-</span></span><span style="display:flex;"><span>regsecret   kubernetes.io/dockercfg   1         19h
-</span></span></code></pre></div><p>Show details :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>&gt; kubectl get secret regsecret --output=yaml
-</span></span><span style="display:flex;"><span>apiVersion: v1
-</span></span><span style="display:flex;"><span>data:
-</span></span><span style="display:flex;"><span>  .dockercfg: eyJiXXXXXXteoirutXXXXetusrnXX=
-</span></span><span style="display:flex;"><span>kind: Secret
-</span></span><span style="display:flex;"><span>metadata:
-</span></span><span style="display:flex;"><span>  creationTimestamp: 2017-08-07T13:32:09Z
-</span></span><span style="display:flex;"><span>  name: regsecret
-</span></span><span style="display:flex;"><span>  namespace: default
-</span></span><span style="display:flex;"><span>  resourceVersion: &#34;2783&#34;
-</span></span><span style="display:flex;"><span>  selfLink: /api/v1/namespaces/default/secrets/regsecret
-</span></span><span style="display:flex;"><span>  uid: cfeXXXb7-7b74-XXX-XXX907-4iu8237492
-</span></span><span style="display:flex;"><span>type: kubernetes.io/dockercfg
-</span></span></code></pre></div><p>It’s now possible to use images from your registry directly in your <code>deployment</code>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">--docker-server         regitry gitlab
+</span></span><span class="line"><span class="cl">--docker-username       user gitlab autorisé à acceder au registry
+</span></span><span class="line"><span class="cl">--docker-password       son mot de passe
+</span></span><span class="line"><span class="cl">--docker-email          son email
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We will check secret creation :</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&gt; kubectl get secret regsecret
+</span></span><span class="line"><span class="cl">NAME        TYPE                      DATA      AGE
+</span></span><span class="line"><span class="cl">regsecret   kubernetes.io/dockercfg   1         19h
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Show details :</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&gt; kubectl get secret regsecret --output=yaml
+</span></span><span class="line"><span class="cl">apiVersion: v1
+</span></span><span class="line"><span class="cl">data:
+</span></span><span class="line"><span class="cl">  .dockercfg: eyJiXXXXXXteoirutXXXXetusrnXX=
+</span></span><span class="line"><span class="cl">kind: Secret
+</span></span><span class="line"><span class="cl">metadata:
+</span></span><span class="line"><span class="cl">  creationTimestamp: 2017-08-07T13:32:09Z
+</span></span><span class="line"><span class="cl">  name: regsecret
+</span></span><span class="line"><span class="cl">  namespace: default
+</span></span><span class="line"><span class="cl">  resourceVersion: &#34;2783&#34;
+</span></span><span class="line"><span class="cl">  selfLink: /api/v1/namespaces/default/secrets/regsecret
+</span></span><span class="line"><span class="cl">  uid: cfeXXXb7-7b74-XXX-XXX907-4iu8237492
+</span></span><span class="line"><span class="cl">type: kubernetes.io/dockercfg
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>It’s now possible to use images from your registry directly in your <code>deployment</code>.</p>
 <p>Example</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>apiVersion: apps/v1beta1 
-</span></span><span style="display:flex;"><span>kind: Deployment
-</span></span><span style="display:flex;"><span>metadata:
-</span></span><span style="display:flex;"><span>  name: test-registry
-</span></span><span style="display:flex;"><span>spec:
-</span></span><span style="display:flex;"><span>  replicas: 3
-</span></span><span style="display:flex;"><span>  template:
-</span></span><span style="display:flex;"><span>    metadata:
-</span></span><span style="display:flex;"><span>      labels:
-</span></span><span style="display:flex;"><span>        app: my-app
-</span></span><span style="display:flex;"><span>        version: v1
-</span></span><span style="display:flex;"><span>    spec:
-</span></span><span style="display:flex;"><span>      containers:
-</span></span><span style="display:flex;"><span>      - name: my-app
-</span></span><span style="display:flex;"><span>        image: registry.gitlab.xyz/images/my-app:latest
-</span></span><span style="display:flex;"><span>        imagePullPolicy: Always
-</span></span><span style="display:flex;"><span>        ports:
-</span></span><span style="display:flex;"><span>        - containerPort: 80
-</span></span><span style="display:flex;"><span>      imagePullSecrets:
-</span></span><span style="display:flex;"><span>        - name: regsecret
-</span></span></code></pre></div><p>See where we call <code>secret</code> :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>imagePullSecrets:
-</span></span><span style="display:flex;"><span>  - name: regsecret
-</span></span></code></pre></div><p>Enjoy !</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">apiVersion: apps/v1beta1 
+</span></span><span class="line"><span class="cl">kind: Deployment
+</span></span><span class="line"><span class="cl">metadata:
+</span></span><span class="line"><span class="cl">  name: test-registry
+</span></span><span class="line"><span class="cl">spec:
+</span></span><span class="line"><span class="cl">  replicas: 3
+</span></span><span class="line"><span class="cl">  template:
+</span></span><span class="line"><span class="cl">    metadata:
+</span></span><span class="line"><span class="cl">      labels:
+</span></span><span class="line"><span class="cl">        app: my-app
+</span></span><span class="line"><span class="cl">        version: v1
+</span></span><span class="line"><span class="cl">    spec:
+</span></span><span class="line"><span class="cl">      containers:
+</span></span><span class="line"><span class="cl">      - name: my-app
+</span></span><span class="line"><span class="cl">        image: registry.gitlab.xyz/images/my-app:latest
+</span></span><span class="line"><span class="cl">        imagePullPolicy: Always
+</span></span><span class="line"><span class="cl">        ports:
+</span></span><span class="line"><span class="cl">        - containerPort: 80
+</span></span><span class="line"><span class="cl">      imagePullSecrets:
+</span></span><span class="line"><span class="cl">        - name: regsecret
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>See where we call <code>secret</code> :</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">imagePullSecrets:
+</span></span><span class="line"><span class="cl">  - name: regsecret
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Enjoy !</p>
 
-</content>
-<p>
-  
-  <a href="https://lebaron.sh/tags/kubernetes/">#Kubernetes</a>
-  
-  <a href="https://lebaron.sh/tags/gitlab/">#Gitlab</a>
-  
-  <a href="https://lebaron.sh/tags/registry/">#Registry</a>
-  
-</p>
+</section>
 
-  </main>
-  <footer><a href="https://lebaron.sh">© lebaron.sh</a>
-</footer>
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/kubernetes/">Kubernetes</a>
+        
+            <a href="/tags/gitlab/">Gitlab</a>
+        
+            <a href="/tags/registry/">Registry</a>
+        
+    </section>
+
 
     
-</body>
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
 
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2017 - 
+        
+        2024 Le Baron de Charlus
+    </section>
+    
+    <section class="powerby">
+         <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.85c5a97e7f8e9b98f6ecdcd1ed140958c47c1fed2f019dc256932afb4488b31f.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
 </html>

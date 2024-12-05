@@ -1,20 +1,127 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Kubernetes on Le Baron de Charlus</title>
-    <link>https://lebaron.sh/tags/kubernetes/</link>
-    <description>Recent content in Kubernetes on Le Baron de Charlus</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>© Le Baron de Charlus</copyright>
-    <lastBuildDate>Thu, 10 Aug 2017 12:06:05 +0000</lastBuildDate>
-    <atom:link href="https://lebaron.sh/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Add Gitlab Registry in Kubernetes</title>
-      <link>https://lebaron.sh/posts/gitlab-registry-kubernetes/</link>
-      <pubDate>Thu, 10 Aug 2017 12:06:05 +0000</pubDate>
-      <guid>https://lebaron.sh/posts/gitlab-registry-kubernetes/</guid>
-      <description>Now that Gitlab offers its own image registry, it is possible to use it directly in our K8s environment! If you missed the info (which is starting to date now), I refer you to this article.&#xA;To add the Gitlab private registry in Kubernetes you have to create a secret :&#xA;&amp;gt; kubectl create secret docker-registry regsecret --docker-server=registry.gitlab.xyz --docker-username=&#39;&#39; --docker-password=&#39;&#39; --docker-email=&amp;quot;&amp;quot; Where :&#xA;--docker-server regitry gitlab --docker-username user gitlab autorisé à acceder au registry --docker-password son mot de passe --docker-email son email We will check secret creation :</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kubernetes on Le Baron de Charlus</title><link>https://lebaron.sh/tags/kubernetes/</link><description>Recent content in Kubernetes on Le Baron de Charlus</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Le Baron de Charlus</copyright><lastBuildDate>Thu, 10 Aug 2017 12:06:05 +0000</lastBuildDate><atom:link href="https://lebaron.sh/tags/kubernetes/index.xml" rel="self" type="application/rss+xml"/><item><title>Add Gitlab Registry in Kubernetes</title><link>https://lebaron.sh/p/add-gitlab-registry-in-kubernetes/</link><pubDate>Thu, 10 Aug 2017 12:06:05 +0000</pubDate><guid>https://lebaron.sh/p/add-gitlab-registry-in-kubernetes/</guid><description>&lt;p>Now that Gitlab offers its own image registry, it is possible to use it directly in our K8s environment!
+If you missed the info (which is starting to date now), I refer you to &lt;a class="link" href="https://about.gitlab.com/2016/05/23/gitlab-container-registry/" target="_blank" rel="noopener"
+>this article&lt;/a>.&lt;/p>
+&lt;p>To add the Gitlab private registry in Kubernetes you have to create a secret :&lt;/p>
+&lt;pre>&lt;code>&amp;gt; kubectl create secret docker-registry regsecret --docker-server=registry.gitlab.xyz --docker-username='' --docker-password='' --docker-email=&amp;quot;&amp;quot;
+&lt;/code>&lt;/pre>
+&lt;p>Where :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">--docker-server regitry gitlab
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--docker-username user gitlab autorisé à acceder au registry
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--docker-password son mot de passe
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--docker-email son email
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>We will check secret creation :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">&amp;gt; kubectl get secret regsecret
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">NAME TYPE DATA AGE
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">regsecret kubernetes.io/dockercfg 1 19h
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Show details :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">&amp;gt; kubectl get secret regsecret --output=yaml
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">apiVersion: v1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">data:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> .dockercfg: eyJiXXXXXXteoirutXXXXetusrnXX=
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">kind: Secret
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">metadata:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> creationTimestamp: 2017-08-07T13:32:09Z
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> name: regsecret
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> namespace: default
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> resourceVersion: &amp;#34;2783&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> selfLink: /api/v1/namespaces/default/secrets/regsecret
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> uid: cfeXXXb7-7b74-XXX-XXX907-4iu8237492
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">type: kubernetes.io/dockercfg
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>It’s now possible to use images from your registry directly in your &lt;code>deployment&lt;/code>.&lt;/p>
+&lt;p>Example&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">apiVersion: apps/v1beta1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">kind: Deployment
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">metadata:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> name: test-registry
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">spec:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> replicas: 3
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> template:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> metadata:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> labels:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> app: my-app
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> version: v1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> spec:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> containers:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - name: my-app
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> image: registry.gitlab.xyz/images/my-app:latest
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> imagePullPolicy: Always
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ports:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - containerPort: 80
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> imagePullSecrets:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - name: regsecret
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>See where we call &lt;code>secret&lt;/code> :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">imagePullSecrets:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - name: regsecret
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Enjoy !&lt;/p></description></item></channel></rss>

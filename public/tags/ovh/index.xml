@@ -1,62 +1,652 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Ovh on Le Baron de Charlus</title>
-    <link>https://lebaron.sh/tags/ovh/</link>
-    <description>Recent content in Ovh on Le Baron de Charlus</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>© Le Baron de Charlus</copyright>
-    <lastBuildDate>Mon, 20 Jul 2020 12:00:00 +0000</lastBuildDate>
-    <atom:link href="https://lebaron.sh/tags/ovh/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Bring Your Own Image</title>
-      <link>https://lebaron.sh/posts/bring-your-own-image/</link>
-      <pubDate>Mon, 20 Jul 2020 12:00:00 +0000</pubDate>
-      <guid>https://lebaron.sh/posts/bring-your-own-image/</guid>
-      <description>When I was working at OVHCloud company, I&amp;rsquo;ve developed a feature called BYOI (Bring Your Own Image).&#xA;Bring Your Own Image technology allows you to boot any cloud (or not) images on a baremetal.&#xA;Even if today not all editors are ready to provide completely agnostic images (and I mean UEFI ready and/or legacy boot), by triturating (packer) a bit the whole, we can have something functional.&#xA;This mark the first step towards the Hybrid IAC.</description>
-    </item>
-    <item>
-      <title>Freebsd Pci Disk Space</title>
-      <link>https://lebaron.sh/posts/freebsd-pci-disk-space/</link>
-      <pubDate>Sun, 04 Mar 2018 14:56:33 +0000</pubDate>
-      <guid>https://lebaron.sh/posts/freebsd-pci-disk-space/</guid>
-      <description>When you create an OVH Public Cloud instance under Freebsd with a certain amount of disk space, let’s say 50G, you will find that it is not applied on your partition.&#xA;First let&amp;rsquo;s look at what we have:&#xA;# gpart show =&amp;gt; 40 10239920 da0 GPT (50G) [CORRUPT] 40 1024 1 freebsd-boot (512K) 1064 984 - free - (492K) 2048 10235904 2 freebsd-zfs (4.9G) 10237952 2008 - free - (1.0M) We note that our volume da0 is tagged as CORRUPT.</description>
-    </item>
-    <item>
-      <title>Ubuntu Vrack Ovh Fix</title>
-      <link>https://lebaron.sh/posts/ubuntu-vrack-ovh-fix/</link>
-      <pubDate>Sun, 04 Mar 2018 14:41:25 +0000</pubDate>
-      <guid>https://lebaron.sh/posts/ubuntu-vrack-ovh-fix/</guid>
-      <description>You may have noticed it, but when you populate a PCI OVH instance under Ubuntu by activating Vrack, your Vm does not have its private IP at boot time. So, yes, I don&amp;rsquo;t like Ubuntu, but sometimes you don&amp;rsquo;t have a choice.&#xA;Anyway, all this to say that we don&amp;rsquo;t have our private IP and it&amp;rsquo;s too sad. (RT)&#xA;The fix trick is stupid. Very stupid.&#xA;Add:&#xA;allow-hotplug ens4 iface ens4 inet dhcp In /etc/network/interface file.</description>
-    </item>
-    <item>
-      <title>Dockerize Nova client</title>
-      <link>https://lebaron.sh/posts/dockerise-nova/</link>
-      <pubDate>Tue, 08 Aug 2017 13:52:07 +0000</pubDate>
-      <guid>https://lebaron.sh/posts/dockerise-nova/</guid>
-      <description>With OVH Public Cloud, it is possible for you to control your OpenStack instances directly from the Nova client.&#xA;It is rather practical to go through the command line rather than having to access the manager which is often, let us say it, slow.&#xA;But to avoid having to prepare each time a working environment compatible with Nova, I find more interesting to directly create a Docker image for this purpose.</description>
-    </item>
-    <item>
-      <title>Setup Rancher cluster on OVH Public Cloud</title>
-      <link>https://lebaron.sh/posts/cluster-rancher-public-cloud-ovh/</link>
-      <pubDate>Fri, 04 Aug 2017 19:04:11 +0000</pubDate>
-      <guid>https://lebaron.sh/posts/cluster-rancher-public-cloud-ovh/</guid>
-      <description>The world of hosting is changing, and so is the world of application development. Today we are turning less and less to dedicated hosting for a single application, but more to build the infrastructure that will support it.&#xA;In this sense, we prefer to use an Iaas solution on dedicated &amp;ldquo;bare metal&amp;rdquo; for our application overlay than pure &amp;ldquo;bare metal&amp;rdquo; per service.&#xA;Application deployment missions pushed by developers must fit with the technology and logic of production.</description>
-    </item>
-    <item>
-      <title>Additional Volume Public Cloud Ovh</title>
-      <link>https://lebaron.sh/posts/additional-volume-pci/</link>
-      <pubDate>Mon, 31 Jul 2017 11:38:18 +0000</pubDate>
-      <guid>https://lebaron.sh/posts/additional-volume-pci/</guid>
-      <description>To add an additional disk/volume on your OVH public cloud, you need to follow some steps.&#xA;First, identify your new disk :&#xA;fdisk -l You can have different output depending of your system (sd{x}, vd{x}).&#xA;Then create a new partition :&#xA;# parted /dev/{{disk}} mktable gpt mkpart primary ext4 512 100% quit Format it :&#xA;mkfs -t ext4 -L rootfs /dev/{{disk}}1 Mount :&#xA;mount /dev/{{disk}}1 /mnt Let’s make it peristent, we need UUID.</description>
-    </item>
-    <item>
-      <title>Additional Volume Public Cloud Ovh</title>
-      <link>https://lebaron.sh/projects/hello/</link>
-      <pubDate>Mon, 31 Jul 2017 11:38:18 +0000</pubDate>
-      <guid>https://lebaron.sh/projects/hello/</guid>
-      <description>To add an additional disk/volume on your OVH public cloud, you need to follow some steps.&#xA;First, identify your new disk :&#xA;fdisk -l You can have different output depending of your system (sd{x}, vd{x}).&#xA;Then create a new partition :&#xA;# parted /dev/{{disk}} mktable gpt mkpart primary ext4 512 100% quit Format it :&#xA;mkfs -t ext4 -L rootfs /dev/{{disk}}1 Mount :&#xA;mount /dev/{{disk}}1 /mnt Let’s make it peristent, we need UUID.</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ovh on Le Baron de Charlus</title><link>https://lebaron.sh/tags/ovh/</link><description>Recent content in Ovh on Le Baron de Charlus</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Le Baron de Charlus</copyright><lastBuildDate>Mon, 20 Jul 2020 12:00:00 +0000</lastBuildDate><atom:link href="https://lebaron.sh/tags/ovh/index.xml" rel="self" type="application/rss+xml"/><item><title>Bring Your Own Image</title><link>https://lebaron.sh/p/bring-your-own-image/</link><pubDate>Mon, 20 Jul 2020 12:00:00 +0000</pubDate><guid>https://lebaron.sh/p/bring-your-own-image/</guid><description>&lt;p>When I was working at &lt;strong>OVHCloud&lt;/strong> company, I&amp;rsquo;ve developed a feature called &lt;strong>BYOI&lt;/strong> (Bring Your Own Image).&lt;/p>
+&lt;p>&lt;strong>Bring Your Own Image&lt;/strong> technology allows you to boot any cloud (or not) images on a baremetal.&lt;/p>
+&lt;p>Even if today not all editors are ready to provide completely agnostic images (and I mean &lt;strong>UEFI&lt;/strong> ready and/or &lt;strong>legacy boot&lt;/strong>), by triturating (&lt;strong>packer&lt;/strong>) a bit the whole, we can have something functional.&lt;/p>
+&lt;p>This mark the first step towards the &lt;strong>Hybrid IAC&lt;/strong>.&lt;/p>
+&lt;p>&lt;a class="link" href="https://docs.ovh.com/gb/en/dedicated/bringyourownimage/" target="_blank" rel="noopener"
+>The documentation is here&lt;/a>&lt;/p>
+&lt;p>&lt;strong>What does it really do?&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>API deployment (+automation)&lt;/li>
+&lt;li>post-install scripting (+automation)&lt;/li>
+&lt;li>transparent installation and system (+security)&lt;/li>
+&lt;li>template customization (+security)&lt;/li>
+&lt;li>nova boot custom (+tech)&lt;/li>
+&lt;/ul>
+&lt;p>A little warning, as I said above, not all images are ready to boot automatically yet, there are many bug-tracks opened on different editors because of unwanted behaviors at &lt;strong>boot time&lt;/strong>, &lt;strong>grub config&lt;/strong>, &lt;strong>init phase&lt;/strong> etc&lt;/p>
+&lt;p>If you see these errors via a &lt;strong>KVM/IPMI&lt;/strong>, it means that the installation went well, but the sticking point is not the deployment technology itself, but the image installed on the disks.&lt;/p></description></item><item><title>Freebsd Pci Disk Space</title><link>https://lebaron.sh/p/freebsd-pci-disk-space/</link><pubDate>Sun, 04 Mar 2018 14:56:33 +0000</pubDate><guid>https://lebaron.sh/p/freebsd-pci-disk-space/</guid><description>&lt;p>When you create an OVH Public Cloud instance under Freebsd with a certain amount of disk space, let’s say 50G, you will find that it is not applied on your partition.&lt;/p>
+&lt;p>First let&amp;rsquo;s look at what we have:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># gpart show
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">=&amp;gt; 40 10239920 da0 GPT (50G) [CORRUPT]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 40 1024 1 freebsd-boot (512K)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 1064 984 - free - (492K)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 2048 10235904 2 freebsd-zfs (4.9G)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 10237952 2008 - free - (1.0M)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>We note that our volume da0 is tagged as CORRUPT. Don&amp;rsquo;t panic, everyone knows that the Freebsd handbook is great. I quote:&lt;/p>
+&lt;blockquote>
+&lt;p>If the disk was formatted with the GPT partitioning scheme, it may show as “corrupted” because the GPT backup partition table is no longer at the end of the drive. Fix the backup partition table with gpart:&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># gpart recover ada0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ada0 recovered
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Well, let&amp;rsquo;s apply this to our server by replacing &lt;code>ada0&lt;/code> by &lt;code>da0&lt;/code> :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># gpart recover da0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">da0 recovered
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Check :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># gpart show
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">=&amp;gt; 40 104857520 da0 GPT (50G)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 40 1024 1 freebsd-boot (512K)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 1064 984 - free - (492K)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 2048 10235904 2 freebsd-zfs (4.9G)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 10237952 94619608 - free - (45G)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Much better!
+We see that our da0 &amp;ldquo;disk&amp;rdquo; has 50G. However if we look more closely at our system, we see that not all the space is present.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># df -h
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Filesystem Size Used Avail Capacity Mounted on
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zroot/ROOT/default 4.7G 493M 4.2G 10% /
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">devfs 1.0K 1.0K 0B 100% /dev
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zroot 4.2G 96K 4.2G 0% /zroot
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Once again, don&amp;rsquo;t panic. The handbook is our friend.&lt;/p>
+&lt;p>Let&amp;rsquo;s apply the 45G free on our score :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># gpart resize -i 2 -a 4k -s 50G da0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">da0p2 resized
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Check :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># gpart show
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">=&amp;gt; 40 104857520 da0 GPT (50G)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 40 1024 1 freebsd-boot (512K)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 1064 984 - free - (492K)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 2048 94371840 2 freebsd-zfs (45G)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 94373888 10483672 - free - (5.0G)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Well, we are moving forward, however, the space is not yet usable as the return from df :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># df -h
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Filesystem Size Used Avail Capacity Mounted on
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zroot/ROOT/default 4.7G 493M 4.2G 10% /
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">devfs 1.0K 1.0K 0B 100% /dev
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zroot 4.2G 96K 4.2G 0% /zroot
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>We must ask to our zpool to use this space.&lt;/p>
+&lt;p>Let’s first check our pool.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># zpool status
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> pool: zroot
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> state: ONLINE
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> scan: none requested
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">config:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> NAME STATE READ WRITE CKSUM
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> zroot ONLINE 0 0 0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> da0p2 ONLINE 0 0 0
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Ask it we want to autoexpand on zroot&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># zpool set autoexpand=on zroot
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Apply it on da0p2 :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># zpool online -e zroot /dev/da0p2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Last check :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># df -h
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Filesystem Size Used Avail Capacity Mounted on
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zroot/ROOT/default 44G 493M 43G 1% /
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">devfs 1.0K 1.0K 0B 100% /dev
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zroot 43G 96K 43G 0% /zroot
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>This is it !&lt;/p></description></item><item><title>Ubuntu Vrack Ovh Fix</title><link>https://lebaron.sh/p/ubuntu-vrack-ovh-fix/</link><pubDate>Sun, 04 Mar 2018 14:41:25 +0000</pubDate><guid>https://lebaron.sh/p/ubuntu-vrack-ovh-fix/</guid><description>&lt;p>You may have noticed it, but when you populate a PCI OVH instance under Ubuntu by activating Vrack, your Vm does not have its private IP at boot time.
+So, yes, I don&amp;rsquo;t like Ubuntu, but sometimes you don&amp;rsquo;t have a choice.&lt;/p>
+&lt;p>Anyway, all this to say that we don&amp;rsquo;t have our private IP and it&amp;rsquo;s too sad. (RT)&lt;/p>
+&lt;p>The fix trick is stupid.
+Very stupid.&lt;/p>
+&lt;p>Add:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">allow-hotplug ens4
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">iface ens4 inet dhcp
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>In &lt;code>/etc/network/interface&lt;/code> file.&lt;/p>
+&lt;p>Then :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">systemctl restart network
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>and&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">ifup ens4
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>That’s it&lt;/p>
+&lt;p>I’ve sent an email on OVH&amp;rsquo;s ML [cloud], because I still found it strange that this bug still exists.&lt;/p>
+&lt;p>It was on 21 November 2017.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Hello la team,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Juste une petite remarque sur l&amp;#39;installation d&amp;#39;un Ubuntu PCI avec Vrack.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">En fait je suis obligé d&amp;#39;ajouter :
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">allow-hotplug ens4
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">iface ens4 inet dhcp
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Dans /etc/network/interface puis
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl restart network
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">et
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ifup ens4
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Il me semble que sur les autres distrib&amp;#39; les confs network s&amp;#39;ajoutent automatiquement à l&amp;#39;install non ?
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Je passe peut-être à côté d&amp;#39;un truc... en même temps je ne connais pas bien les systèmes en .deb...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Bises à tout le monde
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">F00b4rch
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Answer :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">21/11/2017
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">À cloud
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Hello,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Exact, sur debian 9 (voir 8), les interfaces sont montée automatiquement...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Je crois qu&amp;#39;il a un bug d&amp;#39;ouvert cote ubuntu pour ça, si je le retrouve je te l&amp;#39;envoi.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Dockerize Nova client</title><link>https://lebaron.sh/p/dockerize-nova-client/</link><pubDate>Tue, 08 Aug 2017 13:52:07 +0000</pubDate><guid>https://lebaron.sh/p/dockerize-nova-client/</guid><description>&lt;p>With OVH Public Cloud, it is possible for you to control your OpenStack instances directly from the Nova client.&lt;/p>
+&lt;p>It is rather practical to go through the command line rather than having to access the manager which is often, let us say it, slow.&lt;/p>
+&lt;p>But to avoid having to prepare each time a working environment compatible with Nova, I find more interesting to directly create a Docker image for this purpose.
+In this way, no more need to install anything except the Docker daemon on its workstation.&lt;/p>
+&lt;p>The DockerFile looks like :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">FROM debian:latest
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">RUN apt-get update &amp;amp;&amp;amp; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> apt-get install -y \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> python-glanceclient \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> python-novaclient
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">env OS_AUTH_URL=&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">env OS_TENANT_ID=&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">env OS_TENANT_NAME=&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">env OS_USERNAME=&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">env OS_PASSWORD=&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">env OS_REGION_NAME=&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Note that I use the basic debian image because I already have it locally, but you can replace the bone with the one you want and adapt the content of RUN.&lt;/p>
+&lt;p>You also need to fill the environment variables with information about your OpenStack env.&lt;/p>
+&lt;p>Let’s go with :&lt;/p>
+&lt;pre>&lt;code>sudo docker build -t clientNova .
+&lt;/code>&lt;/pre>
+&lt;p>Then run your container as follow :&lt;/p>
+&lt;pre>&lt;code>sudo docker run --rm -it novaClient bash
+&lt;/code>&lt;/pre>
+&lt;p>You can add alias to your &lt;code>.bashrc&lt;/code> / &lt;code>.zshrc&lt;/code>&lt;/p>
+&lt;pre>&lt;code>alias nova=&amp;quot;sudo docker run --rm -it novaClient bash&amp;quot;
+&lt;/code>&lt;/pre>
+&lt;p>&lt;a class="link" href="https://github.com/lebarondecharlus/SandBox/tree/master/Docker/OpenStack/novaClient" target="_blank" rel="noopener"
+>Sources are available&lt;/a> !&lt;/p>
+&lt;p>Enjoy !&lt;/p></description></item><item><title>Setup Rancher cluster on OVH Public Cloud</title><link>https://lebaron.sh/p/setup-rancher-cluster-on-ovh-public-cloud/</link><pubDate>Fri, 04 Aug 2017 19:04:11 +0000</pubDate><guid>https://lebaron.sh/p/setup-rancher-cluster-on-ovh-public-cloud/</guid><description>&lt;p>&lt;img src="https://lebaron.sh/Images/rancher_logo.jpeg"
+loading="lazy"
+alt="Rancher logo"
+>&lt;/p>
+&lt;p>The world of hosting is changing, and so is the world of application development. Today we are turning less and less to dedicated hosting for a single application, but more to build the infrastructure that will support it.&lt;/p>
+&lt;p>In this sense, we prefer to use an Iaas solution on dedicated &amp;ldquo;bare metal&amp;rdquo; for our application overlay than pure &amp;ldquo;bare metal&amp;rdquo; per service.&lt;/p>
+&lt;p>Application deployment missions pushed by developers must fit with the technology and logic of production. Which &lt;code>pipelines&lt;/code> should we use for our &lt;code>CI&lt;/code>, &lt;code>CD&lt;/code> ?&lt;/p>
+&lt;p>This post will not aim at answering the question of the pipelines to be implemented, it will be a question of &lt;code>Ranching&lt;/code>, coupled with its &lt;code>Cattle&lt;/code> orchestrator, on Public Cloud OVH &lt;code>Openstack&lt;/code>.&lt;/p>
+&lt;h3 id="installation-">Installation :
+&lt;/h3>&lt;p>The installation of &lt;code>PCI&lt;/code> (Public Cloud) instances is the fastest step. We need to start with 5 instances:&lt;/p>
+&lt;ul>
+&lt;li>1 LoadBalancer/ReverseProxy (&lt;code>HA-Proxy&lt;/code> or &lt;code>Nginx&lt;/code>) for €299&lt;/li>
+&lt;li>3 RancherServer in Cluster under &lt;code>Galera&lt;/code> at 5€99&lt;/li>
+&lt;li>1 Node Worker (for our applications) at the price you want to put for your performance&lt;/li>
+&lt;/ul>
+&lt;br>
+#### LoadBalancer Nginx :
+&lt;p>For Nginx installation, nothing very complex, a €2.99 instance will be more than enough since the only job of the server will be to forward the request to our rancher cluster.&lt;/p>
+&lt;p>The conf file will be :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">upstream rancher {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> server rancher-server1:8080;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> server rancher-server2:8080;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> server rancher-server3:8080;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">map $http_upgrade $connection_upgrade {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> default Upgrade;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#39;&amp;#39; close;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">server {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> listen 443 ssl spdy;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> server_name &amp;lt;server&amp;gt;;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ssl_certificate &amp;lt;cert_file&amp;gt;;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ssl_certificate_key &amp;lt;key_file&amp;gt;;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> location / {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> proxy_set_header Host $host;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> proxy_set_header X-Forwarded-Proto $scheme;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> proxy_set_header X-Forwarded-Port $server_port;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> proxy_pass http://rancher;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> proxy_http_version 1.1;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> proxy_set_header Upgrade $http_upgrade;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> proxy_set_header Connection $connection_upgrade;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> proxy_read_timeout 900s;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> }
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">server {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> listen 80;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> server_name &amp;lt;server&amp;gt;;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> return 301 https://$server_name$request_uri;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Replace the &lt;code>upstream&lt;/code> by the ips of your servers.&lt;/p>
+&lt;p>Note that it is also possible to dockerize this service. This way, the day you put a second LB on the front end, there will only be one container to place on your instance.&lt;/p>
+&lt;h4 id="rancher-installation-">Rancher installation :
+&lt;/h4>&lt;p>For Rancher part, there are no great difficulties either. 5€99 instances will be more than enough for the needs.&lt;/p>
+&lt;p>I recommend the &lt;a class="link" href="http://rancher.com/docs/rancher/v1.0/en/installing-rancher/installing-server/multi-nodes/" target="_blank" rel="noopener"
+>official Rancher documentation&lt;/a> on this subject.&lt;/p>
+&lt;p>We will start by deploying on each Rancher server:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sudo docker run -d --restart=unless-stopped -p 8080:8080 rancher/server
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Then we will add the servers to each other via the UI. (Infrastructure &amp;gt; Hosts &amp;gt; Add Host)&lt;/p>
+&lt;p>You should get the following code to run on each node :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-gdscript3" data-lang="gdscript3">&lt;span class="line">&lt;span class="cl">&lt;span class="n">sudo&lt;/span> &lt;span class="n">docker&lt;/span> &lt;span class="n">run&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">e&lt;/span> &lt;span class="n">CATTLE_AGENT_IP&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;1.2.3.4&amp;#34;&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">e&lt;/span> &lt;span class="n">CATTLE_HOST_LABELS&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;galera=true&amp;#39;&lt;/span> &lt;span class="o">--&lt;/span>&lt;span class="n">rm&lt;/span> &lt;span class="o">--&lt;/span>&lt;span class="n">privileged&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">v&lt;/span> &lt;span class="o">/&lt;/span>&lt;span class="k">var&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">run&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">docker&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">sock&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="k">var&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">run&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">docker&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">sock&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">v&lt;/span> &lt;span class="o">/&lt;/span>&lt;span class="k">var&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">lib&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">rancher&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="k">var&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">lib&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">rancher&lt;/span> &lt;span class="n">rancher&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">agent&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="n">v1&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="mf">2.5&lt;/span> &lt;span class="n">http&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="o">//&lt;/span>&lt;span class="mf">1.2&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="mf">3.4&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">8080&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">v1&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">scripts&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="mi">4956918455&lt;/span>&lt;span class="n">D4D9BE3AF1&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">1483142400000&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="n">Fscj9CvRSrx0mS05E4kdWDkb0E&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Once this step is done, it will then be possible to use the &lt;code>Galera&lt;/code> image proposed by Rancher (in the catalog) on our 3 servers.
+A node will then be present on each server.&lt;/p>
+&lt;p>We will be able to initialize the cluster on a Galera node:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">&amp;gt; CREATE DATABASE IF NOT EXISTS cattle COLLATE = &amp;#39;utf8_general_ci&amp;#39; CHARACTER SET = &amp;#39;utf8&amp;#39;;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; GRANT ALL ON cattle.* TO &amp;#39;cattle&amp;#39;@&amp;#39;%&amp;#39; IDENTIFIED BY &amp;#39;cattle&amp;#39;;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; GRANT ALL ON cattle.* TO &amp;#39;cattle&amp;#39;@&amp;#39;localhost&amp;#39; IDENTIFIED BY &amp;#39;cattle&amp;#39;;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Then check on the other two servers that the basic entries are also present.&lt;/p>
+&lt;p>Then let&amp;rsquo;s stop one Rancher server and start it using Galera for persistence of its data :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sudo docker run -d --restart=unless-stopped -p 8080:8080 rancher/server \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> --db-host myhost.example.com --db-port 3306 --db-user username --db-pass password --db-name cattle
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Where :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">--db-host IP du serveur MySQL
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--db-port port du serveur MySQL (default: 3306)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--db-user username MySQL login (default: cattle)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--db-pass password MySQL login (default: cattle)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--db-name nom de la base MySQL (default: cattle)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Do the same for the other two servers so each Rancher launches using the Galera database.&lt;/p>
+&lt;p>Expected result:
+&lt;img src="https://lebaron.sh/Images/RancherGalera.png"
+loading="lazy"
+alt="Galera Rancher"
+>&lt;/p>
+&lt;p>It is possible to check if Rancher is &lt;code>clustered&lt;/code> via the UI in: Admin &amp;gt; High Availability.&lt;/p>
+&lt;h4 id="addition-of-worker-nodes">Addition of Worker Nodes.
+&lt;/h4>&lt;p>You now have your &lt;code>Rancher&lt;/code> cluster with a front-end LB, it is now possible to add &lt;code>Worker&lt;/code> nodes to your cluster.
+It&amp;rsquo;s very easy to add them directly with the Rancher utility. Now it&amp;rsquo;s up to you to see which type of instance best suits your resource needs.&lt;/p>
+&lt;p>Rancher&amp;rsquo;s default environment uses the &lt;code>Cattle' orchestrator, so once your Workers nodes are configured, you can deploy your &lt;/code>Docker&amp;rsquo; containers directly from your cluster.&lt;/p>
+&lt;h3 id="conclusion">Conclusion
+&lt;/h3>&lt;p>The installation of a Rancher environment is fast, the Public Cloud OVH allows to quickly deploy the necessary instances of Rancher.
+The ease of use offered by the Rancher/Cattle duo allows an efficient and fluid commissioning.&lt;/p>
+&lt;p>We will see in a next article how to set up an HA environment with &lt;code>Kubernetes&lt;/code>, still under the OVH PCI and using the environment template proposed by Rancher.&lt;/p></description></item><item><title>Additional Volume Public Cloud Ovh</title><link>https://lebaron.sh/p/additional-volume-public-cloud-ovh/</link><pubDate>Mon, 31 Jul 2017 11:38:18 +0000</pubDate><guid>https://lebaron.sh/p/additional-volume-public-cloud-ovh/</guid><description>&lt;p>123 To add an additional disk/volume on your OVH public cloud, you need to follow some steps.&lt;/p>
+&lt;p>First, identify your new disk :&lt;/p>
+&lt;pre>&lt;code>fdisk -l
+&lt;/code>&lt;/pre>
+&lt;p>You can have different output depending of your system (&lt;code>sd{x}&lt;/code>, &lt;code>vd{x}&lt;/code>).&lt;/p>
+&lt;p>Then create a new partition :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># parted /dev/{{disk}}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mktable gpt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mkpart primary ext4 512 100%
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">quit
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Format it :&lt;/p>
+&lt;pre>&lt;code>mkfs -t ext4 -L rootfs /dev/{{disk}}1
+&lt;/code>&lt;/pre>
+&lt;p>Mount :&lt;/p>
+&lt;pre>&lt;code>mount /dev/{{disk}}1 /mnt
+&lt;/code>&lt;/pre>
+&lt;p>Let’s make it peristent, we need &lt;strong>UUID&lt;/strong>.
+To get block ID.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># blkid
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/dev/sdb1: LABEL=&amp;#34;rootfs&amp;#34; UUID=&amp;#34;6b75bbb4-b311-4b9d-a8fd-6e6ff23c401f&amp;#34; TYPE=&amp;#34;ext4&amp;#34; PARTLABEL=&amp;#34;primary&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">PARTUUID=&amp;#34;e20dc227-9d10-41c4-a714-2fb53d190c11&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/dev/sda1: UUID=&amp;#34;9abb590f-8a5e-496f-ad2a-2c877415bdc5&amp;#34; TYPE=&amp;#34;ext4&amp;#34; PARTUUID=&amp;#34;71036eb1-01&amp;#34;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Add it on &lt;code>/etc/fstab&lt;/code> file with mount information.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># vim /etc/fstab
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[...]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">UUID=6b75bbb4-b311-4b9d-a8fd-6e6ff23c401f /mnt ext4 errors=remount-ro,discard 0 1
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Confirm good configuration with one reboot.&lt;/p></description></item><item><title>Additional Volume Public Cloud Ovh</title><link>https://lebaron.sh/projects/hello/</link><pubDate>Mon, 31 Jul 2017 11:38:18 +0000</pubDate><guid>https://lebaron.sh/projects/hello/</guid><description>&lt;p>To add an additional disk/volume on your OVH public cloud, you need to follow some steps.&lt;/p>
+&lt;p>First, identify your new disk :&lt;/p>
+&lt;pre>&lt;code>fdisk -l
+&lt;/code>&lt;/pre>
+&lt;p>You can have different output depending of your system (&lt;code>sd{x}&lt;/code>, &lt;code>vd{x}&lt;/code>).&lt;/p>
+&lt;p>Then create a new partition :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># parted /dev/{{disk}}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mktable gpt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mkpart primary ext4 512 100%
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">quit
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Format it :&lt;/p>
+&lt;pre>&lt;code>mkfs -t ext4 -L rootfs /dev/{{disk}}1
+&lt;/code>&lt;/pre>
+&lt;p>Mount :&lt;/p>
+&lt;pre>&lt;code>mount /dev/{{disk}}1 /mnt
+&lt;/code>&lt;/pre>
+&lt;p>Let’s make it peristent, we need &lt;strong>UUID&lt;/strong>.
+To get block ID.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># blkid
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/dev/sdb1: LABEL=&amp;#34;rootfs&amp;#34; UUID=&amp;#34;6b75bbb4-b311-4b9d-a8fd-6e6ff23c401f&amp;#34; TYPE=&amp;#34;ext4&amp;#34; PARTLABEL=&amp;#34;primary&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">PARTUUID=&amp;#34;e20dc227-9d10-41c4-a714-2fb53d190c11&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/dev/sda1: UUID=&amp;#34;9abb590f-8a5e-496f-ad2a-2c877415bdc5&amp;#34; TYPE=&amp;#34;ext4&amp;#34; PARTUUID=&amp;#34;71036eb1-01&amp;#34;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Add it on &lt;code>/etc/fstab&lt;/code> file with mount information.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># vim /etc/fstab
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[...]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">UUID=6b75bbb4-b311-4b9d-a8fd-6e6ff23c401f /mnt ext4 errors=remount-ro,discard 0 1
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Confirm good configuration with one reboot.&lt;/p></description></item></channel></rss>

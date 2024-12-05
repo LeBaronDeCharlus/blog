@@ -1,20 +1,51 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Openstack on Le Baron de Charlus</title>
-    <link>https://lebaron.sh/tags/openstack/</link>
-    <description>Recent content in Openstack on Le Baron de Charlus</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>© Le Baron de Charlus</copyright>
-    <lastBuildDate>Tue, 08 Aug 2017 13:52:07 +0000</lastBuildDate>
-    <atom:link href="https://lebaron.sh/tags/openstack/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Dockerize Nova client</title>
-      <link>https://lebaron.sh/posts/dockerise-nova/</link>
-      <pubDate>Tue, 08 Aug 2017 13:52:07 +0000</pubDate>
-      <guid>https://lebaron.sh/posts/dockerise-nova/</guid>
-      <description>With OVH Public Cloud, it is possible for you to control your OpenStack instances directly from the Nova client.&#xA;It is rather practical to go through the command line rather than having to access the manager which is often, let us say it, slow.&#xA;But to avoid having to prepare each time a working environment compatible with Nova, I find more interesting to directly create a Docker image for this purpose.</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Openstack on Le Baron de Charlus</title><link>https://lebaron.sh/tags/openstack/</link><description>Recent content in Openstack on Le Baron de Charlus</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Le Baron de Charlus</copyright><lastBuildDate>Tue, 08 Aug 2017 13:52:07 +0000</lastBuildDate><atom:link href="https://lebaron.sh/tags/openstack/index.xml" rel="self" type="application/rss+xml"/><item><title>Dockerize Nova client</title><link>https://lebaron.sh/p/dockerize-nova-client/</link><pubDate>Tue, 08 Aug 2017 13:52:07 +0000</pubDate><guid>https://lebaron.sh/p/dockerize-nova-client/</guid><description>&lt;p>With OVH Public Cloud, it is possible for you to control your OpenStack instances directly from the Nova client.&lt;/p>
+&lt;p>It is rather practical to go through the command line rather than having to access the manager which is often, let us say it, slow.&lt;/p>
+&lt;p>But to avoid having to prepare each time a working environment compatible with Nova, I find more interesting to directly create a Docker image for this purpose.
+In this way, no more need to install anything except the Docker daemon on its workstation.&lt;/p>
+&lt;p>The DockerFile looks like :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">FROM debian:latest
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">RUN apt-get update &amp;amp;&amp;amp; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> apt-get install -y \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> python-glanceclient \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> python-novaclient
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">env OS_AUTH_URL=&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">env OS_TENANT_ID=&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">env OS_TENANT_NAME=&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">env OS_USERNAME=&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">env OS_PASSWORD=&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">env OS_REGION_NAME=&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Note that I use the basic debian image because I already have it locally, but you can replace the bone with the one you want and adapt the content of RUN.&lt;/p>
+&lt;p>You also need to fill the environment variables with information about your OpenStack env.&lt;/p>
+&lt;p>Let’s go with :&lt;/p>
+&lt;pre>&lt;code>sudo docker build -t clientNova .
+&lt;/code>&lt;/pre>
+&lt;p>Then run your container as follow :&lt;/p>
+&lt;pre>&lt;code>sudo docker run --rm -it novaClient bash
+&lt;/code>&lt;/pre>
+&lt;p>You can add alias to your &lt;code>.bashrc&lt;/code> / &lt;code>.zshrc&lt;/code>&lt;/p>
+&lt;pre>&lt;code>alias nova=&amp;quot;sudo docker run --rm -it novaClient bash&amp;quot;
+&lt;/code>&lt;/pre>
+&lt;p>&lt;a class="link" href="https://github.com/lebarondecharlus/SandBox/tree/master/Docker/OpenStack/novaClient" target="_blank" rel="noopener"
+>Sources are available&lt;/a> !&lt;/p>
+&lt;p>Enjoy !&lt;/p></description></item></channel></rss>

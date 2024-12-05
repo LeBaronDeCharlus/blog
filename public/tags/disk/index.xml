@@ -1,27 +1,111 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Disk on Le Baron de Charlus</title>
-    <link>https://lebaron.sh/tags/disk/</link>
-    <description>Recent content in Disk on Le Baron de Charlus</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>© Le Baron de Charlus</copyright>
-    <lastBuildDate>Mon, 31 Jul 2017 11:38:18 +0000</lastBuildDate>
-    <atom:link href="https://lebaron.sh/tags/disk/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Additional Volume Public Cloud Ovh</title>
-      <link>https://lebaron.sh/posts/additional-volume-pci/</link>
-      <pubDate>Mon, 31 Jul 2017 11:38:18 +0000</pubDate>
-      <guid>https://lebaron.sh/posts/additional-volume-pci/</guid>
-      <description>To add an additional disk/volume on your OVH public cloud, you need to follow some steps.&#xA;First, identify your new disk :&#xA;fdisk -l You can have different output depending of your system (sd{x}, vd{x}).&#xA;Then create a new partition :&#xA;# parted /dev/{{disk}} mktable gpt mkpart primary ext4 512 100% quit Format it :&#xA;mkfs -t ext4 -L rootfs /dev/{{disk}}1 Mount :&#xA;mount /dev/{{disk}}1 /mnt Let’s make it peristent, we need UUID.</description>
-    </item>
-    <item>
-      <title>Additional Volume Public Cloud Ovh</title>
-      <link>https://lebaron.sh/projects/hello/</link>
-      <pubDate>Mon, 31 Jul 2017 11:38:18 +0000</pubDate>
-      <guid>https://lebaron.sh/projects/hello/</guid>
-      <description>To add an additional disk/volume on your OVH public cloud, you need to follow some steps.&#xA;First, identify your new disk :&#xA;fdisk -l You can have different output depending of your system (sd{x}, vd{x}).&#xA;Then create a new partition :&#xA;# parted /dev/{{disk}} mktable gpt mkpart primary ext4 512 100% quit Format it :&#xA;mkfs -t ext4 -L rootfs /dev/{{disk}}1 Mount :&#xA;mount /dev/{{disk}}1 /mnt Let’s make it peristent, we need UUID.</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Disk on Le Baron de Charlus</title><link>https://lebaron.sh/tags/disk/</link><description>Recent content in Disk on Le Baron de Charlus</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Le Baron de Charlus</copyright><lastBuildDate>Mon, 31 Jul 2017 11:38:18 +0000</lastBuildDate><atom:link href="https://lebaron.sh/tags/disk/index.xml" rel="self" type="application/rss+xml"/><item><title>Additional Volume Public Cloud Ovh</title><link>https://lebaron.sh/p/additional-volume-public-cloud-ovh/</link><pubDate>Mon, 31 Jul 2017 11:38:18 +0000</pubDate><guid>https://lebaron.sh/p/additional-volume-public-cloud-ovh/</guid><description>&lt;p>123 To add an additional disk/volume on your OVH public cloud, you need to follow some steps.&lt;/p>
+&lt;p>First, identify your new disk :&lt;/p>
+&lt;pre>&lt;code>fdisk -l
+&lt;/code>&lt;/pre>
+&lt;p>You can have different output depending of your system (&lt;code>sd{x}&lt;/code>, &lt;code>vd{x}&lt;/code>).&lt;/p>
+&lt;p>Then create a new partition :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># parted /dev/{{disk}}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mktable gpt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mkpart primary ext4 512 100%
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">quit
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Format it :&lt;/p>
+&lt;pre>&lt;code>mkfs -t ext4 -L rootfs /dev/{{disk}}1
+&lt;/code>&lt;/pre>
+&lt;p>Mount :&lt;/p>
+&lt;pre>&lt;code>mount /dev/{{disk}}1 /mnt
+&lt;/code>&lt;/pre>
+&lt;p>Let’s make it peristent, we need &lt;strong>UUID&lt;/strong>.
+To get block ID.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># blkid
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/dev/sdb1: LABEL=&amp;#34;rootfs&amp;#34; UUID=&amp;#34;6b75bbb4-b311-4b9d-a8fd-6e6ff23c401f&amp;#34; TYPE=&amp;#34;ext4&amp;#34; PARTLABEL=&amp;#34;primary&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">PARTUUID=&amp;#34;e20dc227-9d10-41c4-a714-2fb53d190c11&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/dev/sda1: UUID=&amp;#34;9abb590f-8a5e-496f-ad2a-2c877415bdc5&amp;#34; TYPE=&amp;#34;ext4&amp;#34; PARTUUID=&amp;#34;71036eb1-01&amp;#34;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Add it on &lt;code>/etc/fstab&lt;/code> file with mount information.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># vim /etc/fstab
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[...]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">UUID=6b75bbb4-b311-4b9d-a8fd-6e6ff23c401f /mnt ext4 errors=remount-ro,discard 0 1
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Confirm good configuration with one reboot.&lt;/p></description></item><item><title>Additional Volume Public Cloud Ovh</title><link>https://lebaron.sh/projects/hello/</link><pubDate>Mon, 31 Jul 2017 11:38:18 +0000</pubDate><guid>https://lebaron.sh/projects/hello/</guid><description>&lt;p>To add an additional disk/volume on your OVH public cloud, you need to follow some steps.&lt;/p>
+&lt;p>First, identify your new disk :&lt;/p>
+&lt;pre>&lt;code>fdisk -l
+&lt;/code>&lt;/pre>
+&lt;p>You can have different output depending of your system (&lt;code>sd{x}&lt;/code>, &lt;code>vd{x}&lt;/code>).&lt;/p>
+&lt;p>Then create a new partition :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># parted /dev/{{disk}}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mktable gpt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mkpart primary ext4 512 100%
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">quit
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Format it :&lt;/p>
+&lt;pre>&lt;code>mkfs -t ext4 -L rootfs /dev/{{disk}}1
+&lt;/code>&lt;/pre>
+&lt;p>Mount :&lt;/p>
+&lt;pre>&lt;code>mount /dev/{{disk}}1 /mnt
+&lt;/code>&lt;/pre>
+&lt;p>Let’s make it peristent, we need &lt;strong>UUID&lt;/strong>.
+To get block ID.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># blkid
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/dev/sdb1: LABEL=&amp;#34;rootfs&amp;#34; UUID=&amp;#34;6b75bbb4-b311-4b9d-a8fd-6e6ff23c401f&amp;#34; TYPE=&amp;#34;ext4&amp;#34; PARTLABEL=&amp;#34;primary&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">PARTUUID=&amp;#34;e20dc227-9d10-41c4-a714-2fb53d190c11&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/dev/sda1: UUID=&amp;#34;9abb590f-8a5e-496f-ad2a-2c877415bdc5&amp;#34; TYPE=&amp;#34;ext4&amp;#34; PARTUUID=&amp;#34;71036eb1-01&amp;#34;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Add it on &lt;code>/etc/fstab&lt;/code> file with mount information.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># vim /etc/fstab
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[...]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">UUID=6b75bbb4-b311-4b9d-a8fd-6e6ff23c401f /mnt ext4 errors=remount-ro,discard 0 1
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Confirm good configuration with one reboot.&lt;/p></description></item></channel></rss>
